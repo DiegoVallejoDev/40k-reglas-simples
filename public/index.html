@@ -13,7 +13,6 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
@@ -68,6 +67,9 @@
             font-weight: 600;
             border-right: 1px solid #444;
             color: #ccc;
+            display: flex;
+            align-items: center;
+            gap: 1em;
         }
 
         .tab.shoot {
@@ -384,8 +386,6 @@
         }
 
         .stratagems {
-            font-size: 0.85em;
-            color: #aaa;
             margin-bottom: 10px;
             text-align: center;
         }
@@ -413,6 +413,338 @@
             text-decoration: none;
         }
     </style>
+    <style>
+        .stratagem-container {
+            display: grid;
+
+            grid-template-columns: 1fr;
+            gap: 1em;
+            padding: 1rem;
+            justify-items: center;
+        }
+
+        @media screen and (min-width: 700px) {
+            .stratagem-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .card {
+            width: 400px;
+            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            overflow: visible;
+            position: relative;
+        }
+
+        .left-border {
+            position: absolute;
+            left: -15px;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            background-color: #8B1538;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+            gap: 10px;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .when-symbol {
+            width: 30px;
+            height: 30px;
+            background-color: #e8e8e8;
+            transform: rotate(45deg);
+            position: relative;
+            border: 3px solid #e8e8e8;
+            color: #e8e8e8;
+        }
+
+        .when-symbol::before,
+        .when-symbol::after {
+
+            position: absolute;
+            background-color: #8B1538;
+        }
+
+        .when-symbol::before {
+            width: 12px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .when-symbol::after {
+            width: 2px;
+            height: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cost-diamond {
+            width: 35px;
+            height: 35px;
+            background-color: #8B1538;
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+            border: 3px solid #e8e8e8;
+            position: relative;
+        }
+
+        .cost-diamond::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            transform: rotate(45deg);
+        }
+
+        .cost-text {
+            color: #e8e8e8;
+            font-weight: bold;
+            font-size: 14px;
+            transform: rotate(-45deg);
+        }
+
+        .content {
+            margin-left: 35px;
+            padding: 15px 20px 20px 10px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #8B1538;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .dotted-line {
+            border-top: 2px dotted #999;
+            margin: 8px 0;
+        }
+
+        .flavor-text {
+            font-style: italic;
+            font-size: 13px;
+            color: #444;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .rule-section {
+            margin-bottom: 15px;
+        }
+
+        .rule-label {
+            font-weight: bold;
+            color: #8B1538;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .rule-text {
+            font-size: 12px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .unit-name {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        [data-tooltip-content] {
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Elementos trigger de ejemplo */
+        .tooltip-trigger {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        .tooltip-trigger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .tooltip-trigger.blue {
+            background: linear-gradient(135deg, #4834d4, #686de0);
+        }
+
+        .tooltip-trigger.blue:hover {
+            box-shadow: 0 10px 25px rgba(72, 52, 212, 0.4);
+        }
+
+        .tooltip-trigger.green {
+            background: linear-gradient(135deg, #00d2d3, #54a0ff);
+        }
+
+        .tooltip-trigger.green:hover {
+            box-shadow: 0 10px 25px rgba(0, 210, 211, 0.4);
+        }
+
+        .image-example {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-example:hover {
+            transform: scale(1.05);
+        }
+
+        .text-link {
+            color: #4834d4;
+            text-decoration: underline;
+            padding: 5px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /*
+        colors 
+         either players turn #2c5a4d
+         your turn #224262
+         opponents turn #a4151f
+        */
+
+        .either-players-turn {
+            background-color: #2c5a4d;
+            color: #e8e8e8;
+        }
+
+        .active-players-turn {
+            background-color: #224262;
+            color: #e8e8e8;
+        }
+
+        .opponents-turn {
+            background-color: #a4151f;
+            color: #e8e8e8;
+        }
+
+        /* Tooltip container */
+        .tooltip {
+            position: absolute;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+        }
+
+        .tooltip.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .tooltip-content {
+            background: #E8E8E8;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            max-width: 350px;
+            min-width: 200px;
+            position: relative;
+        }
+
+        /* Flecha del tooltip */
+        .tooltip-arrow {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #e8e8e8;
+            border: 2px solid #f1f2f6;
+            transform: rotate(45deg);
+        }
+
+        /* Posicionamiento de flechas según la posición */
+        .tooltip.top .tooltip-arrow {
+            bottom: -7px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            border-top: none;
+            border-left: none;
+        }
+
+        .tooltip.bottom .tooltip-arrow {
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            border-bottom: none;
+            border-right: none;
+        }
+
+        .tooltip.left .tooltip-arrow {
+            right: -7px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .tooltip.right .tooltip-arrow {
+            left: -7px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            border-right: none;
+            border-top: none;
+        }
+
+        /* Estilos para contenido del tooltip */
+        .tooltip img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .tooltip-text {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Contenido oculto que será referenciado */
+        .hidden-content {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -423,15 +755,27 @@
         </div>
         <div class="tabs">
             <div class="tab shoot active" onclick="showPhase('shoot')">
+                <div class="when-symbol" style="background-color: transparent;">
+                    <img src="./svg/disparo.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                </div>
                 FASE DE DISPARO
             </div>
             <div class="tab charge" onclick="showPhase('charge')">
+                <div class="when-symbol" style="background-color: transparent;">
+                    <img src="./svg/carga.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                </div>
                 FASE DE CARGA
             </div>
             <div class="tab fight" onclick="showPhase('fight')">
-                COMBATE C.A.C.
+                <div class="when-symbol" style="background-color: transparent;">
+                    <img src="./svg/combate.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                </div>
+                FASE DE COMBATE
             </div>
             <div class="tab rules" onclick="showPhase('rules')">
+                <div class="when-symbol" style="background-color: transparent;">
+                    <img src="./svg/mando.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                </div>
                 REGLAS ESPECIALES
             </div>
         </div>
@@ -439,9 +783,25 @@
             <!-- FASE DE DISPARO -->
             <div class="phase-content active" id="shoot">
                 <div class="phase-title shoot-title">FASE DE DISPARO</div>
-                <div class="stratagems"><span class="strat-title">Estratagemas:</span><span class="strat-name">Fuego
-                        Concentrado</span>, <span class="strat-name">Munición Especial</span>, <span
-                        class="strat-name">Re-Roll de Impacto</span></div>
+                <div class="stratagems">
+                    <span class="strat-title">Estratagemas:</span>
+                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                        data-tooltip-trigger="click">
+                        Repetición de Mando
+                    </span>,
+                    <span class="text-link active-players-turn" data-tooltip-content="granada"
+                        data-tooltip-trigger="click">
+                        Granada
+                    </span>,
+                    <span class="text-link opponents-turn" data-tooltip-content="pantalla-de-humo"
+                        data-tooltip-trigger="click">
+                        Pantalla de Humo
+                    </span>,
+                    <span class="text-link opponents-turn" data-tooltip-content="pantalla-de-humo"
+                        data-tooltip-trigger="click">
+                        Cuerpo a Tierra
+                    </span>
+                </div>
                 <div class="step">
                     <div class="step-number">1. Elegir Unidad Atacante</div>
                     <div class="list-item">La unidad NO debe haber avanzado en el turno</div>
@@ -506,9 +866,25 @@
             <!-- FASE DE CARGA -->
             <div class="phase-content" id="charge">
                 <div class="phase-title charge-title">FASE DE CARGA</div>
-                <div class="stratagems"><span class="strat-title">Estratagemas:</span><span class="strat-name">Carga
-                        Devastadora</span>, <span class="strat-name">Asalto Implacable</span>, <span
-                        class="strat-name">Re-Roll de Carga</span></div>
+                <div class="stratagems">
+                    <span class="strat-title">Estratagemas:</span>
+                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                        data-tooltip-trigger="click">
+                        Repetición de Mando
+                    </span>,
+                    <span class="text-link active-players-turn" data-tooltip-content="brutalidad-acorazada"
+                        data-tooltip-trigger="click">
+                        brutalidad Acorazada
+                    </span>,
+                    <span class="text-link opponents-turn" data-tooltip-content="disparos-preventivos"
+                        data-tooltip-trigger="click">
+                        Disparos Preventivos
+                    </span>,
+                    <span class="text-link opponents-turn" data-tooltip-content="intervención-heroica"
+                        data-tooltip-trigger="click">
+                        Intervención Heroica
+                    </span>
+                </div>
                 <div class="step">
                     <div class="step-number">1. Declarar Intención de Carga</div>
                     <div class="list-item">Elegir unidad que va a cargar</div>
@@ -542,9 +918,21 @@
             <!-- FASE DE COMBATE -->
             <div class="phase-content" id="fight">
                 <div class="phase-title fight-title">FASE DE COMBATE CUERPO A CUERPO</div>
-                <div class="stratagems"><span class="strat-title">Estratagemas:</span><span
-                        class="strat-name">Contraataque</span>, <span class="strat-name">Golpe Preciso</span>, <span
-                        class="strat-name">Ataque Mortal</span></div>
+                <div class="stratagems">
+                    <span class="strat-title">Estratagemas:</span>
+                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                        data-tooltip-trigger="click">
+                        Repetición de Mando
+                    </span>,
+                    <span class="text-link either-players-turn" data-tooltip-content="contraofensiva"
+                        data-tooltip-trigger="click">
+                        Contraofensiva
+                    </span>,
+                    <span class="text-link either-players-turn" data-tooltip-content="desafío-épico"
+                        data-tooltip-trigger="click">
+                        Desafío Épico
+                    </span>
+                </div>
                 <div class="step">
                     <div class="step-number">1. Alternancia de Activación</div>
                     <div class="list-item">Comienza el jugador que NO tiene el turno activo</div>
@@ -595,11 +983,6 @@
             <!-- REGLAS ESPECIALES -->
             <div class="phase-content" id="rules">
                 <div class="phase-title rules-title">REGLAS ESPECIALES Y ATAJOS</div>
-                <div class="stratagems"><span class="strat-title">Estratagemas:</span><span
-                        class="strat-name">Intervención Heroica</span>, <span class="strat-name">FNP
-                        Mejorado</span>,
-                    <span class="strat-name">Disparo Defensivo</span>
-                </div>
                 <div class="special-rule">
                     <div class="special-rule-title">Tabla Rápida para Herir (F vs R)</div>
                     <div class="wound-table">
@@ -715,6 +1098,11 @@
                     <div class="list-item"><span class="stat-highlight">6+ sin modificar:</span> Algunas reglas
                         requieren 6 natural, ignoran modificadores</div>
                 </div>
+
+                <div class="special-rule">
+                    <div class="special-rule-title">Estratagemas</div>
+                    <div class="stratagem-container"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -815,6 +1203,7 @@
             }
         });
     </script>
+
     <div class="footer"><a href="https://github.com/diegovallejodev/" target="_blank">
             Diego Vallejo
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -834,6 +1223,8 @@
             }
         }
     </script>
+    <script src="./stratagems.js"></script>
+    <script src="./tooltip.js"></script>
 
 </body>
 
