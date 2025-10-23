@@ -142,14 +142,14 @@ function stratagemToHTML(stratagem) {
   const { name, type, category, flavorText, when, target, effect, cost, color, icons } = stratagem;
   return `
   <div class="card" id="${name.toLowerCase().replace(/ /g, '-')}" >
-    <div class="left-border" style="background-color:${color}">
+    <div class="left-border" style="background: linear-gradient(to right, ${adjustColor(color, -30)} 0%, ${color} 50%, ${adjustColor(color, -30)} 100%); border-color: ${adjustColor(color, -50)};">
         ${icons.map(icon =>
-    `<div class="when-symbol" style="background-color:${color}; box-shadow: 1px 1px 3px ${color};">
+    `<div class="when-symbol" style="background-color:${color}; box-shadow: 0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.8);">
               <img src="./svg/${icon}.svg" alt="${icon}" style="width: 100%; height: 100%; transform: rotate(-90deg);">
             </div>`
   ).join('')
     }
-        <div class="cost-diamond" style="background-color:${color}; box-shadow: 1px 1px 3px ${color};">
+        <div class="cost-diamond" style="background: linear-gradient(135deg, ${adjustColor(color, 20)} 0%, ${color} 50%, ${adjustColor(color, -30)} 100%); box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);">
             <span class="cost-text">${cost}</span>
         </div>
     </div>
@@ -183,6 +183,16 @@ function stratagemToHTML(stratagem) {
 
     <div class="dotted-line"></div>
   </div>`
+}
+
+// Helper function to adjust color brightness
+function adjustColor(color, amount) {
+  const clamp = (val) => Math.min(Math.max(val, 0), 255);
+  const num = parseInt(color.replace("#", ""), 16);
+  const r = clamp((num >> 16) + amount);
+  const g = clamp(((num >> 8) & 0x00FF) + amount);
+  const b = clamp((num & 0x0000FF) + amount);
+  return "#" + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
 }
 
 document.addEventListener("DOMContentLoaded", function () {
