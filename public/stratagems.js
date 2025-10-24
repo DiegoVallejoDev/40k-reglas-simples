@@ -11,7 +11,8 @@ const stratagems = {
     "effect": "Repites esa tirada, chequeo o tirada de salvación.",
     "cost": "1 PM",
     "color": "#2c5a4d",
-    "icons": ["reroll"]
+    "icons": ["reroll"],
+    "phase": "cualquiera"
   },
   "Contraofensiva": {
     "name": "Contraofensiva",
@@ -23,7 +24,8 @@ const stratagems = {
     "effect": "Tu unidad combate a continuación.",
     "cost": "2 PM",
     "color": "#2c5a4d",
-    "icons": ["combate"]
+    "icons": ["combate"],
+    "phase": "combate"
   },
   "Desafío Épico": {
     "name": "Desafío Épico",
@@ -35,7 +37,8 @@ const stratagems = {
     "effect": "Hasta el final de la fase, todos los ataques de combate realizados por esa miniatura tienen la habilidad [PRECISIÓN] (pág. 26).",
     "cost": "1 PM",
     "color": "#2c5a4d",
-    "icons": ["combate"]
+    "icons": ["combate"],
+    "phase": "combate"
   },
   "Valor Insensato": {
     "name": "Valor Insensato",
@@ -47,7 +50,8 @@ const stratagems = {
     "effect": "Se considera que tu unidad ha superado el chequeo, y no queda acobardada debido a él.",
     "cost": "1 PM",
     "color": "#224262",
-    "icons": ["mando"]
+    "icons": ["mando"],
+    "phase": "mando"
   },
   "Granada": {
     "name": "Granada",
@@ -59,7 +63,8 @@ const stratagems = {
     "effect": "Elige a una unidad enemiga que no esté en la zona de amenaza de alguna unidad de tu ejército, que esté a 8\" o menos de tu unidad Granadas y que sea visible para ella. Tira seis dados: por cada 4+, esa unidad enemiga sufre 1 herida mortal.",
     "cost": "1 PM",
     "color": "#224262",
-    "icons": ["disparo"]
+    "icons": ["disparo"],
+    "phase": "disparo"
   },
   "Brutalidad Acorazada": {
     "name": "Brutalidad Acorazada",
@@ -71,7 +76,8 @@ const stratagems = {
     "effect": "Hasta el final de la fase, cuando tu unidad termine un movimiento de carga, elige a una unidad enemiga en su zona de amenaza y un arma de combate con la que esté equipada tu unidad. Tira tantos dados como el atributo Fuerza del arma. Si el atributo Fuerza es mayor que el atributo Resistencia de la unidad enemiga, tira 2 dados adicionales. Por cada 5+, la unidad enemiga sufre 1 herida mortal (hasta un máximo de 6).",
     "cost": "1 PM",
     "color": "#224262",
-    "icons": ["carga"]
+    "icons": ["carga"],
+    "phase": "carga"
   },
   "Disparos Preventivos": {
     "name": "Disparos Preventivos",
@@ -83,7 +89,8 @@ const stratagems = {
     "effect": "Tu unidad puede disparar a esa unidad enemiga como si fuera tu fase de disparo.",
     "cost": "1 PM",
     "color": "#a4151f",
-    "icons": ["movimiento", "carga"]
+    "icons": ["movimiento", "carga"],
+    "phase": "movimiento/carga"
   },
   "Inserción Rápida": {
     "name": "Inserción Rápida",
@@ -95,7 +102,8 @@ const stratagems = {
     "effect": "Tu unidad puede llegar al campo de batalla como si fuera el paso de refuerzos de tu fase de movimiento.",
     "cost": "1 PM",
     "color": "#a4151f",
-    "icons": ["movimiento"]
+    "icons": ["movimiento"],
+    "phase": "movimiento"
   },
   "Pantalla de Humo": {
     "name": "Pantalla de Humo",
@@ -107,7 +115,8 @@ const stratagems = {
     "effect": "Hasta el final de la fase, todas las miniaturas de tu unidad se benefician de cobertura (pág. 44) y tienen la habilidad Sigilo (pág. 20).",
     "cost": "1 PM",
     "color": "#a4151f",
-    "icons": ["movimiento"]
+    "icons": ["disparo"],
+    "phase": "disparo"
   },
   "Cuerpo a Tierra": {
     "name": "Cuerpo a Tierra",
@@ -119,7 +128,8 @@ const stratagems = {
     "effect": "Hasta el final de la fase, todas las miniaturas de tu unidad tienen una salvación invulnerable de 6+ y tu unidad se beneficia de cobertura (pág. 44).",
     "cost": "1 PM",
     "color": "#a4151f",
-    "icons": ["disparo"]
+    "icons": ["disparo"],
+    "phase": "disparo"
   },
   "Intervención Heroica": {
     "name": "Intervención Heroica",
@@ -131,7 +141,47 @@ const stratagems = {
     "effect": "Tu unidad declara ahora una carga que tenga como blanco solo a esa unidad enemiga, y resuelves dicha carga como si fuera tu fase de carga.",
     "cost": "2 PM",
     "color": "#a4151f",
-    "icons": ["carga"]
+    "icons": ["carga"],
+    "phase": "carga"
+  },
+  "Objetivos Prioritarios": {
+    "name": "Objetivos Prioritarios",
+    "type": "Básica",
+    "category": "Táctica de Batalla",
+    "flavorText": "Los soldados enfocados reconocen objetivos críticos y concentran fuego.",
+    "when": "En tu fase de disparo, cuando una unidad de tu ejército sea elegida para disparar.",
+    "target": "Una unidad enemiga elegida como blanco por la unidad atacante.",
+    "effect": "Suma 1 a las tiradas para herir de la unidad atacante contra ese blanco hasta el final de la fase.",
+    "cost": "1 PM",
+    "color": "#224262",
+    "icons": ["disparo"],
+    "phase": "disparo"
+  },
+  "Espíritu de Batalla": {
+    "name": "Espíritu de Batalla",
+    "type": "Básica",
+    "category": "Hazaña Épica",
+    "flavorText": undefined,
+    "when": "En tu fase de mando, antes de hacer chequeos de acobardamiento.",
+    "target": "Una unidad Infantería de tu ejército.",
+    "effect": "Esa unidad se beneficia de +1 en sus chequeos de acobardamiento hasta el final de la ronda.",
+    "cost": "1 PM",
+    "color": "#224262",
+    "icons": ["mando"],
+    "phase": "mando"
+  },
+  "Golpe Definitivo": {
+    "name": "Golpe Definitivo",
+    "type": "Básica",
+    "category": "Ardid Estratégico",
+    "flavorText": undefined,
+    "when": "En la fase de combate, cuando una unidad de tu ejército sea elegida para combatir.",
+    "target": "Una unidad Personaje de tu ejército.",
+    "effect": "Hasta el final de la fase, esa miniatura suma 1 a su Fuerza y obtiene la habilidad [IMPACTOS LETALES].",
+    "cost": "1 PM",
+    "color": "#2c5a4d",
+    "icons": ["combate"],
+    "phase": "combate"
   }
 
 };
