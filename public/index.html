@@ -140,30 +140,6 @@
             filter: brightness(0) saturate(100%) invert(65%) sepia(99%) saturate(1441%) hue-rotate(73deg) brightness(100%) contrast(71%);
         }
 
-        .tab.command {
-            border-bottom: 3px solid transparent;
-        }
-
-        .tab.command img {
-            filter: brightness(0) saturate(100%) invert(65%) sepia(99%) saturate(1441%) hue-rotate(73deg) brightness(100%) contrast(71%);
-        }
-
-        .tab.movement {
-            border-bottom: 3px solid transparent;
-        }
-
-        .tab.movement img {
-            filter: brightness(0) saturate(100%) invert(52%) sepia(73%) saturate(1527%) hue-rotate(188deg) brightness(96%) contrast(90%);
-        }
-
-        .tab.morale {
-            border-bottom: 3px solid transparent;
-        }
-
-        .tab.morale img {
-            filter: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(5271%) hue-rotate(346deg) brightness(86%) contrast(94%);
-        }
-
         .tab:hover {
             background: linear-gradient(180deg, #4a4a4a 0%, #3a3a3a 100%);
             color: #ffffff;
@@ -189,18 +165,6 @@
         }
 
         .tab.rules.active {
-            border-bottom: 4px solid #8B1538;
-        }
-
-        .tab.command.active {
-            border-bottom: 4px solid #8B1538;
-        }
-
-        .tab.movement.active {
-            border-bottom: 4px solid #8B1538;
-        }
-
-        .tab.morale.active {
             border-bottom: 4px solid #8B1538;
         }
 
@@ -508,7 +472,7 @@
             }
 
             .content {
-                padding: 30px 20px;
+                padding: 30px 42px;
             }
 
             .tabs {
@@ -652,12 +616,12 @@
         }
 
         .card {
-            width: 380px;
-            max-width: calc(100vw - 40px);
+            width: 420px;
+            max-width: calc(100vw - 60px);
             background: #f8f6f0;
             border-radius: 0;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
+            overflow: visible;
             position: relative;
             border: 3px solid #3a3a3a;
         }
@@ -667,25 +631,25 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 40px;
+            width: 45px;
             background-color: #8B1538;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 15px 0;
-            gap: 10px;
+            padding: 18px 0;
+            gap: 12px;
             border-radius: 0;
             border-right: 3px solid #3a3a3a;
             box-shadow: none;
         }
 
         .when-symbol {
-            width: 30px;
-            height: 30px;
+            width: 34px;
+            height: 34px;
             background-color: #f5f5f0;
             transform: rotate(45deg);
             position: relative;
-            border: 2px solid #f5f5f0;
+            border: 3px solid #f5f5f0;
             color: #f5f5f0;
         }
 
@@ -713,15 +677,15 @@
         }
 
         .cost-diamond {
-            width: 34px;
-            height: 34px;
+            width: 38px;
+            height: 38px;
             background-color: #8B1538;
             transform: rotate(45deg);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 6px;
-            border: 2px solid #f5f5f0;
+            margin-top: 8px;
+            border: 3px solid #f5f5f0;
             position: relative;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
         }
@@ -744,19 +708,16 @@
             letter-spacing: -0.5px;
         }
 
-        .card .content {
-            margin-left: 40px;
-            padding: 15px 18px 18px 15px;
-        }
+
 
         .title {
             font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 900;
             color: #8B1538;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 5px;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
         }
 
         .subtitle {
@@ -1013,20 +974,7 @@
             <p>Tarjetas de Referencia Táctica</p>
         </div>
         <div class="tabs">
-            <div class="tab command" onclick="showPhase('command')">
-                <div class="when-symbol" style="background-color: transparent;">
-                    <img src="./svg/mando.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
-                </div>
-                FASE DE MANDO
-            </div>
-            <div class="tab movement" onclick="showPhase('movement')">
-                <div class="when-symbol" style="background-color: transparent;">
-                    <img src="./svg/movimiento.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);"
-                        onerror="this.parentElement.style.display='flex'; this.parentElement.innerHTML='📍';">
-                </div>
-                FASE DE MOVIMIENTO
-            </div>
-            <div class="tab shoot" onclick="showPhase('shoot')">
+            <div class="tab shoot active" onclick="showPhase('shoot')">
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/disparo.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
@@ -1044,126 +992,14 @@
                 </div>
                 FASE DE COMBATE
             </div>
-            <div class="tab morale" onclick="showPhase('morale')">
-                <div class="when-symbol" style="background-color: transparent;">
-                    <img src="./svg/moral.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);"
-                        onerror="this.parentElement.style.display='flex'; this.parentElement.innerHTML='💀';">
-                </div>
-                FASE DE MORAL
-            </div>
             <div class="tab rules" onclick="showPhase('rules')">
                 <div class="when-symbol" style="background-color: transparent;">
-                    <img src="./svg/reglas.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);"
-                        onerror="this.parentElement.style.display='flex'; this.parentElement.innerHTML='⚔️';">
+                    <img src="./svg/mando.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
                 REGLAS ESPECIALES
             </div>
         </div>
         <div class="content">
-            <!-- FASE DE MANDO -->
-            <div class="phase-content active" id="command">
-                <div class="phase-title" style="color: #c9b037;">FASE DE MANDO</div>
-                <div class="step">
-                    <div class="step-number">Orden de Juego</div>
-                    <div class="list-item">Es el PRIMER paso del turno de cada jugador</div>
-                    <div class="list-item">Se juega antes que cualquier otra acción</div>
-                    <div class="list-item">Determina el orden de activación para todo el turno</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">Pasos de la Fase de Mando</div>
-                    <div class="list-item"><span class="stat-highlight">1. Chequeo de Moral:</span> Todas tus unidades
-                        acobardadas hacen chequeos de moral</div>
-                    <div class="list-item"><span class="stat-highlight">2. Refuerzos:</span> Desplegar unidades de
-                        refuerzos en reserva</div>
-                    <div class="list-item"><span class="stat-highlight">3. Estratagemas:</span> Puedes usar estratagemas
-                        de Mando Táctico</div>
-                    <div class="list-item"><span class="stat-highlight">4. Retirada de Terreno:</span> Retira marcadores
-                        de terreno si aplica</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">Puntos de Mando (PM)</div>
-                    <div class="list-item">Comienzas con <span class="stat-highlight">5 PM</span> cada turno</div>
-                    <div class="list-item">Gasta PM para usar estratagemas</div>
-                    <div class="list-item">Los PM no usados se pierden al final del turno</div>
-                    <div class="list-item">Algunos efectos pueden generar PM adicionales</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">Chequeo de Acobardamiento</div>
-                    <div class="list-item">Si una unidad NO tiene ninguna miniatura a ≤6" de un personaje amistoso:
-                    </div>
-                    <div class="list-item-item">Tira un dado</div>
-                    <div class="list-item-item">Si el resultado es <span class="stat-highlight">menor que su
-                            Liderazgo</span>, la unidad está acobardada</div>
-                    <div class="list-item-item">Las unidades acobardadas NO pueden hacer nada este turno</div>
-                    <div class="list-item-item">Al final de la fase de mando del turno siguiente, repite el chequeo
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">Refuerzos en Reserva</div>
-                    <div class="list-item">Puedes desplegar hasta <span class="stat-highlight">2 unidades</span> de
-                        refuerzos por turno</div>
-                    <div class="list-item">Se colocan dentro de <span class="stat-highlight">6"</span> del borde del
-                        tablero</div>
-                    <div class="list-item">NO pueden estar a menos de <span class="stat-highlight">9"</span> de unidades
-                        enemigas</div>
-                    <div class="list-item">Cuentan con el límite de movimiento permitido para este turno</div>
-                </div>
-            </div>
-            <!-- FASE DE MOVIMIENTO -->
-            <div class="phase-content" id="movement">
-                <div class="phase-title" style="color: #5ba3c7;">FASE DE MOVIMIENTO</div>
-                <div class="step">
-                    <div class="step-number">Orden de Activación</div>
-                    <div class="list-item">Eliges el orden en que tus unidades se mueven</div>
-                    <div class="list-item">Activa una unidad a la vez, completando su movimiento antes del siguiente
-                    </div>
-                    <div class="list-item">Todas tus unidades deben ser activadas una sola vez por fase</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">Tipos de Movimiento Disponibles</div>
-                    <div class="list-item"><span class="stat-highlight">Movimiento Normal:</span> Hasta su
-                        característica <span class="stat-highlight">M</span> en pulgadas</div>
-                    <div class="list-item"><span class="stat-highlight">Avanzar (Advance):</span> Movimiento normal +
-                        <span class="stat-highlight">d6"</span> adicionales
-                    </div>
-                    <div class="list-item-item">NO puede disparar esta fase (excepto armas con <span
-                            class="stat-highlight">Asalto</span>)</div>
-                    <div class="list-item-item">NO puede cargar si Avanzó más de 4"</div>
-                    <div class="list-item"><span class="stat-highlight">Retroceder (Fall Back):</span> Movimiento normal
-                        hacia su borde del tablero</div>
-                    <div class="list-item-item">Solo si está en contacto base a base con enemigos</div>
-                    <div class="list-item-item">NO puede disparar ni cargar esta ronda</div>
-                    <div class="list-item"><span class="stat-highlight">Estacionaria:</span> NO se mueve este turno
-                    </div>
-                    <div class="list-item-item">Obtiene +1 a tiradas para impactar con armas <span
-                            class="stat-highlight">Pesadas</span></div>
-                </div>
-                <div class="step">
-                    <div class="step-number">Restricciones de Movimiento</div>
-                    <div class="list-item">NO puede terminar movimiento a menos de <span
-                            class="stat-highlight">1"</span> de unidades enemigas (excepto en combate)</div>
-                    <div class="list-item">NO puede cruzar unidades amigas ni enemigas</div>
-                    <div class="list-item">Cada miniatura debe mantener <span class="stat-highlight">Coherencia</span>
-                        (≤2" de otra del mismo escuadrón)</div>
-                    <div class="list-item">Vehículos tienen restricciones de giro y movimiento especiales</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">Coherencia de Unidad</div>
-                    <div class="list-item">Cada miniatura debe estar a ≤2" de al menos otra miniatura de su unidad</div>
-                    <div class="list-item">Se revisa después de cada movimiento completo</div>
-                    <div class="list-item">Si se rompe coherencia, la miniatura debe colocarse dentro de coherencia
-                    </div>
-                    <div class="list-item">Si es imposible, sufre <span class="stat-highlight">1 herida mortal</span>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">Terreno (Terrain)</div>
-                    <div class="list-item">Movimiento a través de terreno difícil: <span class="stat-highlight">Reduce
-                            movimiento a la mitad</span></div>
-                    <div class="list-item">NO puede terminar movimiento dentro de terreno prohibido</div>
-                    <div class="list-item">Línea de visión: Requiere path sin obstrucciones</div>
-                </div>
-            </div>
             <!-- FASE DE DISPARO -->
             <div class="phase-content active" id="shoot">
                 <div class="phase-title shoot-title">FASE DE DISPARO</div>
@@ -1203,6 +1039,8 @@
                 </div>
                 <div class="step">
                     <div class="step-number">3. Tirada para Herir</div>
+                    <div class="list-item">Tirar <span class="stat-highlight">1d6</span> por cada impacto realizado
+                    </div>
                     <div class="list-item">Comparar <span class="attacker">Fuerza (F)</span> del arma vs <span
                             class="defender">Resistencia (R)</span> del objetivo:</div>
                     <table class="wound-table">
@@ -1239,7 +1077,9 @@
                 <div class="step">
                     <div class="step-number">4. Tiradas de Salvación</div>
                     <div class="list-item">El <span class="defender">defensor</span> tira <span
-                            class="stat-highlight">Salvación (S)</span> por cada herida</div>
+                            class="stat-highlight">1d6</span> por cada herida sufrida</div>
+                    <div class="list-item">Comparar resultado contra <span class="stat-highlight">Salvación (S)</span>
+                        de la unidad</div>
                     <div class="list-item">Aplicar <span class="attacker">Factor de penetración (FP)</span> → resta al
                         dado de salvación</div>
                     <div class="list-item">Las <span class="defender">Salvaciones Invulnerables <i
@@ -1672,30 +1512,24 @@
 
 
         <div class="quick-reference-body" style="display: none;">
-            <div><strong>Orden de Fase:</strong></div>
-            <div style="padding-left: 12px; font-size: 0.9em; margin-bottom: 12px;">
-                1️⃣ <strong>Mando</strong> → 2️⃣ <strong>Movimiento</strong> → 3️⃣ <strong>Disparo</strong><br>
-                4️⃣ <strong>Carga</strong> → 5️⃣ <strong>Combate</strong> → 6️⃣ <strong>Moral</strong>
-            </div>
-            <hr />
             <div><strong>Disparo:</strong> No haber avanzado, tener línea de visión</div>
-            <div><strong>Carga:</strong> ≤12" y visible, tirar 2d6</div>
+            <div><strong>Carga:</strong> ≤12" y visible</div>
             <div><strong>Combate:</strong> Alternado, WS vs R</div>
+            <div><strong>Reglas:</strong> Ver abajo</div>
             <hr />
-            <div class="quick-ref-title">MODIFICADORES</div>
+            <div class="quick-ref-title">REFERENCIA RÁPIDA</div>
             <div><strong>Herir:</strong> F vs R</div>
             <div><strong>Doble:</strong> 2+ | <strong>Mayor:</strong> 3+</div>
             <div><strong>Igual:</strong> 4+ | <strong>Menor:</strong> 5+</div>
             <div><strong>Mitad-:</strong> 6+</div>
             <hr />
-            <div><strong>Coherencia:</strong> ≤2" entre miniaturas</div>
-            <div><strong>Línea de Visión:</strong> Sin obstáculos entre miniaturas</div>
+            <div><strong>Natural:</strong> Ignora modificadores</div>
         </div>
     </div>
     <script>
         // Al cargar la página, restaurar la fase seleccionada si existe
         document.addEventListener('DOMContentLoaded', function () {
-            const storedPhase = localStorage.getItem('selectedPhase') || 'command';
+            const storedPhase = localStorage.getItem('selectedPhase') || 'shoot';
             showPhase(storedPhase);
         });
 
@@ -1731,24 +1565,15 @@
         document.addEventListener('keydown', function (e) {
             switch (e.key) {
                 case '1':
-                    showPhase('command');
-                    break;
-                case '2':
-                    showPhase('movement');
-                    break;
-                case '3':
                     showPhase('shoot');
                     break;
-                case '4':
+                case '2':
                     showPhase('charge');
                     break;
-                case '5':
+                case '3':
                     showPhase('fight');
                     break;
-                case '6':
-                    showPhase('morale');
-                    break;
-                case '7':
+                case '4':
                     showPhase('rules');
                     break;
             }
