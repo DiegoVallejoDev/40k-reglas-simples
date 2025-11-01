@@ -13,77 +13,99 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            background: #f0f0f0;
-            color: #333;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: #1a1a1a;
+            color: #2b2b2b;
+            padding: 0;
             min-height: 100vh;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
-            border-radius: 8px;
+            margin: 20px auto;
+            background: #e8e5dd;
+            border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 3px solid #3a3a3a;
         }
 
         .header {
-            background: #8B1538;
-            padding: 20px;
+            background: #e8e5dd;
+            padding: 30px 20px 20px;
             text-align: center;
-            border-bottom: 2px dotted #999;
+            border-bottom: 4px solid #3a3a3a;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #c9b037 50%, transparent 100%);
         }
 
         .header img {
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             height: auto;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
         }
 
         .header h1 {
-            font-size: 2.2em;
-            font-weight: 700;
-            color: #e8e8e8;
-            margin-bottom: 5px;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-size: 2.5em;
+            font-weight: 900;
+            color: #8B1538;
+            margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            text-shadow: none;
         }
 
         .header p {
-            color: #e8e8e8;
-            font-size: 1.1em;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            color: #8B1538;
+            font-size: 1.2em;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
+            text-shadow: none;
         }
 
         .tabs {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            background: #e8e8e8;
-            border-bottom: 2px dotted #999;
+            background: #3a3a3a;
+            border-bottom: 3px solid #8B1538;
         }
 
         .tab {
-            padding: 16px 12px;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            padding: 18px 16px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             text-align: center;
             font-weight: 700;
-            border-right: 2px solid #ccc;
-            color: #666;
+            border-right: 2px solid #2a2a2a;
+            color: #b8b8b8;
             display: flex;
             align-items: center;
-            gap: 1em;
+            justify-content: center;
+            gap: 0.8em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.95em;
+            letter-spacing: 1.5px;
+            font-size: 0.9em;
+            background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
         }
 
         .tab.shoot {
@@ -119,34 +141,36 @@
         }
 
         .tab:hover {
-            background: #d8d8d8;
-            color: #8B1538;
+            background: linear-gradient(180deg, #4a4a4a 0%, #3a3a3a 100%);
+            color: #ffffff;
         }
 
         .tab.active {
-            background: #f8f8f8;
+            background: linear-gradient(180deg, #e8e5dd 0%, #d8d5cd 100%);
             color: #8B1538;
+            border-bottom: 4px solid #8B1538;
+            box-shadow: inset 0 -4px 8px rgba(139, 21, 56, 0.2);
         }
 
         .tab.shoot.active {
-            border-bottom: 3px solid #8B1538;
+            border-bottom: 4px solid #8B1538;
         }
 
         .tab.charge.active {
-            border-bottom: 3px solid #8B1538;
+            border-bottom: 4px solid #8B1538;
         }
 
         .tab.fight.active {
-            border-bottom: 3px solid #8B1538;
+            border-bottom: 4px solid #8B1538;
         }
 
         .tab.rules.active {
-            border-bottom: 3px solid #8B1538;
+            border-bottom: 4px solid #8B1538;
         }
 
         .content {
-            padding: 40px 50px;
-            background: #f8f8f8;
+            padding: 50px 60px;
+            background: #e8e5dd;
             min-height: 600px;
         }
 
@@ -159,15 +183,18 @@
         }
 
         .phase-title {
-            font-size: 2.2em;
-            margin-bottom: 30px;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-size: 2.6em;
+            margin-bottom: 35px;
             text-align: center;
-            padding: 20px;
-            font-weight: 700;
+            padding: 25px 20px;
+            font-weight: 900;
             color: #8B1538;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 2px dotted #999;
+            letter-spacing: 4px;
+            border-bottom: 3px solid #3a3a3a;
+            background: linear-gradient(180deg, rgba(139, 21, 56, 0.08) 0%, rgba(139, 21, 56, 0.03) 100%);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .shoot-title {
@@ -187,118 +214,136 @@
         }
 
         .step {
-            margin-bottom: 25px;
-            padding: 20px 25px;
-            background: #fff;
-            border-radius: 4px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 28px;
+            padding: 24px 28px;
+            background: #f8f6f0;
+            border-radius: 0;
+            border: 2px solid #c4c0b5;
+            border-left: 5px solid #8B1538;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
         }
 
         .step-number {
-            font-size: 1.1em;
-            font-weight: 700;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-size: 1.2em;
+            font-weight: 900;
             color: #8B1538;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
         }
 
         .list-item {
-            margin: 10px 0;
-            padding-left: 20px;
+            margin: 12px 0;
+            padding-left: 24px;
             position: relative;
-            color: #333;
-            line-height: 1.6;
-            font-size: 0.95em;
+            color: #2b2b2b;
+            line-height: 1.65;
+            font-size: 1em;
+            font-weight: 400;
         }
 
         .list-item::before {
-            content: "•";
+            content: "▪";
             position: absolute;
             left: 0;
             color: #8B1538;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
 
 
         .list-item-item {
-            margin: 8px 0;
-            padding-left: 20px;
+            margin: 10px 0;
+            padding-left: 24px;
             position: relative;
-            color: #333;
-            line-height: 1.6;
-            font-size: 0.95em;
+            color: #2b2b2b;
+            line-height: 1.65;
+            font-size: 0.98em;
         }
 
         .list-item-item::before {
-            content: "\25B6";
+            content: "▸";
             position: absolute;
             left: 0;
             margin-right: .5rem;
             color: #8B1538;
             font-weight: bold;
+            font-size: 1.1em;
         }
 
 
         .attacker {
-            background: #DC143C;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            background: #a01f3d;
             color: #fff;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border: 1px solid #7d1830;
         }
 
         .defender {
-            background: #4ECDC4;
-            color: #000;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: 600;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            background: #2d7a8f;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border: 1px solid #1f5a6a;
         }
 
         .stat-highlight {
-            background: #FFD700;
-            color: #000;
-            padding: 2px 6px;
-            border-radius: 3px;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            background: #c9b037;
+            color: #1a1a1a;
+            padding: 3px 8px;
+            border-radius: 0;
             font-weight: 700;
+            letter-spacing: 0.5px;
+            border: 1px solid #a89020;
         }
 
         .wound-table {
             width: 100%;
-            background: #fff;
-            border-radius: 4px;
-            margin: 20px 0;
-            border: 2px solid #ccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: #f8f6f0;
+            border-radius: 0;
+            margin: 24px 0;
+            border: 3px solid #3a3a3a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             border-collapse: collapse;
             overflow: hidden;
         }
 
         .wound-table thead {
-            background: #8B1538;
-            color: #e8e8e8;
+            background: linear-gradient(180deg, #8B1538 0%, #6d1029 100%);
+            color: #f5f5f0;
         }
 
         .wound-table th {
-            padding: 12px 15px;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            padding: 16px 18px;
             text-align: left;
-            font-weight: 700;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.9em;
+            letter-spacing: 1.5px;
+            font-size: 0.95em;
+            border-right: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .wound-table th:last-child {
             text-align: center;
+            border-right: none;
         }
 
         .wound-table td {
-            padding: 12px 15px;
-            border-bottom: 1px dotted #999;
-            color: #333;
-            font-weight: 600;
+            padding: 14px 18px;
+            border-bottom: 2px solid #c4c0b5;
+            color: #2b2b2b;
+            font-weight: 500;
+            background: #f8f6f0;
         }
 
         .wound-table tbody tr:last-child td {
@@ -306,68 +351,82 @@
         }
 
         .wound-table tbody tr:hover {
-            background: #f8f8f8;
+            background: #fff;
+        }
+
+        .wound-table tbody tr:nth-child(even) {
+            background: #f0ede5;
+        }
+
+        .wound-table tbody tr:nth-child(even):hover {
+            background: #fff;
         }
 
         .wound-table .result {
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
             color: #8B1538;
-            font-weight: 700;
-            font-size: 1.2em;
+            font-weight: 900;
+            font-size: 1.3em;
             text-align: center;
         }
 
         .special-rule {
-            background: #fff;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-            padding: 20px 25px;
-            margin: 20px 0;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            background: #f8f6f0;
+            border: 2px solid #c4c0b5;
+            border-left: 5px solid #c9b037;
+            border-radius: 0;
+            padding: 24px 28px;
+            margin: 24px 0;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
         }
 
         .special-rule-title {
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
             color: #8B1538;
-            font-weight: 700;
-            font-size: 1.1em;
-            margin-bottom: 15px;
+            font-weight: 900;
+            font-size: 1.25em;
+            margin-bottom: 18px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
         }
 
         .overwatch {
-            background: #fff8f8;
-            border: 2px solid #d4a5a5;
-            border-radius: 4px;
-            padding: 20px 25px;
-            margin: 25px 0;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            background: #faf7f2;
+            border: 3px solid #a01f3d;
+            border-radius: 0;
+            padding: 24px 28px;
+            margin: 28px 0;
+            box-shadow: 0 4px 10px rgba(160, 31, 61, 0.15);
         }
 
         .overwatch .step-number {
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
             color: #8B1538;
+            font-weight: 900;
         }
 
         .quick-reference {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
-            border: 2px solid #8B1538;
-            border-radius: 8px;
-            padding: 15px;
+            background: #e8e5dd;
+            border: 3px solid #8B1538;
+            border-radius: 0;
+            padding: 18px;
             font-size: 0.9em;
-            max-width: 250px;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            max-width: 280px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
         .quick-ref-title {
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
             color: #8B1538;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-weight: 900;
+            margin-bottom: 12px;
             text-align: center;
-            font-size: 1em;
+            font-size: 1.05em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
         }
 
         .quick-ref-toggle {
@@ -375,36 +434,45 @@
             color: #8B1538;
             background-color: transparent;
             border: solid 2px #8B1538;
-            padding: .25rem;
+            padding: .3rem;
             font-size: 1.2em;
-            transition: transform 0.2s ease;
-            border-radius: 4px;
+            transition: all 0.2s ease;
+            border-radius: 0;
+        }
+
+        .quick-ref-toggle:hover {
+            background-color: #8B1538;
+            color: #f5f5f0;
         }
 
         .quick-reference div {
-            margin: 6px 0;
-            color: #333;
-            line-height: 1.4;
+            margin: 8px 0;
+            color: #2b2b2b;
+            line-height: 1.5;
+            font-size: 0.95em;
         }
 
         .quick-reference hr {
             border: none;
-            border-top: 2px dotted #999;
-            margin: 10px 0;
+            border-top: 2px solid #8B1538;
+            margin: 12px 0;
+            opacity: 0.3;
         }
 
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 0;
             }
 
             .container {
                 margin: 0;
-                border-radius: 4px;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
             }
 
             .content {
-                padding: 20px 15px;
+                padding: 30px 42px;
             }
 
             .tabs {
@@ -412,22 +480,24 @@
             }
 
             .tab {
-                font-size: 0.85em;
-                padding: 12px 8px;
+                font-size: 0.8em;
+                padding: 14px 10px;
                 gap: 0.5em;
+                letter-spacing: 0.8px;
             }
 
             .phase-title {
-                font-size: 1.6em;
-                padding: 15px;
+                font-size: 1.8em;
+                padding: 18px;
+                letter-spacing: 2px;
             }
 
             .step {
-                padding: 15px 20px;
+                padding: 18px 22px;
             }
 
             .stratagems {
-                padding: 10px;
+                padding: 16px;
             }
 
             .wound-table {
@@ -436,7 +506,7 @@
 
             .wound-table th,
             .wound-table td {
-                padding: 10px 8px;
+                padding: 12px 10px;
             }
 
             .quick-reference {
@@ -460,7 +530,7 @@
             }
 
             .container {
-                border: none;
+                border: 1px solid #000;
                 background: #fff;
                 color: #000;
                 box-shadow: none;
@@ -468,11 +538,13 @@
 
             .phase-title {
                 color: #8B1538 !important;
+                background: #fff !important;
             }
 
             .step {
                 background: #fff;
-                color: #333;
+                color: #2b2b2b;
+                border-color: #666;
             }
 
             .attacker,
@@ -480,23 +552,27 @@
             .stat-highlight {
                 color: #000 !important;
                 background: #ddd !important;
+                border-color: #999 !important;
             }
         }
 
         .stratagems {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             text-align: center;
-            padding: 15px;
-            background: #fff;
-            border-radius: 4px;
-            border: 2px dotted #999;
+            padding: 20px;
+            background: #f8f6f0;
+            border-radius: 0;
+            border: 3px solid #c4c0b5;
+            border-top: 4px solid #8B1538;
         }
 
         .strat-title {
-            font-weight: 700;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-weight: 900;
             color: #8B1538;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
+            font-size: 1.05em;
         }
 
         .strat-name {
@@ -505,26 +581,31 @@
         }
 
         .footer {
-            font-size: 0.75em;
-            color: #666;
+            font-size: 0.8em;
+            color: #888;
             text-align: center;
-            margin-top: 40px;
-            padding: 20px 0;
+            margin-top: 50px;
+            padding: 25px 0;
+            background: #1a1a1a;
         }
 
         .footer a {
             color: #8B1538;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
+        .footer a:hover {
+            color: #a01f3d;
         }
     </style>
     <style>
         .stratagem-container {
             display: grid;
-
             grid-template-columns: 1fr;
-            gap: 1em;
-            padding: 1rem;
+            gap: 1.5em;
+            padding: 1.5rem 1rem;
             justify-items: center;
         }
 
@@ -535,38 +616,41 @@
         }
 
         .card {
-            width: 400px;
+            width: 420px;
             max-width: calc(100vw - 60px);
-            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background: #f8f6f0;
+            border-radius: 0;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
             overflow: visible;
             position: relative;
+            border: 3px solid #3a3a3a;
         }
 
         .left-border {
             position: absolute;
-            left: -15px;
+            left: 0;
             top: 0;
             bottom: 0;
-            width: 40px;
+            width: 45px;
             background-color: #8B1538;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 15px 0;
-            gap: 10px;
-            border-radius: 8px 0 0 8px;
+            padding: 18px 0;
+            gap: 12px;
+            border-radius: 0;
+            border-right: 3px solid #3a3a3a;
+            box-shadow: none;
         }
 
         .when-symbol {
-            width: 30px;
-            height: 30px;
-            background-color: #e8e8e8;
+            width: 34px;
+            height: 34px;
+            background-color: #f5f5f0;
             transform: rotate(45deg);
             position: relative;
-            border: 3px solid #e8e8e8;
-            color: #e8e8e8;
+            border: 3px solid #f5f5f0;
+            color: #f5f5f0;
         }
 
         .when-symbol::before,
@@ -593,16 +677,17 @@
         }
 
         .cost-diamond {
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             background-color: #8B1538;
             transform: rotate(45deg);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 5px;
-            border: 3px solid #e8e8e8;
+            margin-top: 8px;
+            border: 3px solid #f5f5f0;
             position: relative;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
         }
 
         .cost-diamond::before {
@@ -614,63 +699,69 @@
         }
 
         .cost-text {
-            color: #e8e8e8;
-            font-weight: bold;
-            font-size: 14px;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            color: #f5f5f0;
+            font-weight: 900;
+            font-size: 12px;
             transform: rotate(-45deg);
+            line-height: 1;
+            letter-spacing: -0.5px;
         }
 
-        .content {
-            margin-left: 35px;
-            padding: 15px 20px 20px 10px;
-        }
+
 
         .title {
-            font-size: 22px;
-            font-weight: bold;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-size: 24px;
+            font-weight: 900;
             color: #8B1538;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
         }
 
         .subtitle {
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
             font-size: 11px;
             color: #666;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .dotted-line {
-            border-top: 2px dotted #999;
-            margin: 8px 0;
+            border-top: 2px solid #8B1538;
+            margin: 10px 0;
+            opacity: 0.3;
         }
 
         .flavor-text {
             font-style: italic;
             font-size: 13px;
-            color: #444;
-            line-height: 1.4;
-            margin-bottom: 12px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 14px;
         }
 
         .rule-section {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .rule-label {
-            font-weight: bold;
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-weight: 900;
             color: #8B1538;
             font-size: 12px;
             text-transform: uppercase;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
         }
 
         .rule-text {
-            font-size: 12px;
-            color: #333;
-            line-height: 1.4;
+            font-size: 13px;
+            color: #2b2b2b;
+            line-height: 1.5;
         }
 
         .unit-name {
@@ -733,16 +824,17 @@
         }
 
         .text-link {
+            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
             text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 4px;
+            padding: 8px 14px;
+            border-radius: 0;
             text-transform: uppercase;
             font-weight: 700;
             font-size: 0.85em;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             transition: all 0.2s ease;
             display: inline-block;
-            margin: 2px;
+            margin: 3px;
             border: 2px solid;
         }
 
@@ -800,7 +892,7 @@
         }
 
         .tooltip-content {
-            background: #E8E8E8;
+            background: rgb(232, 229, 221);
             border-radius: 12px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
             padding: 15px;
@@ -876,7 +968,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="./images/warhammer-logo.png" alt="Warhammer 40,000" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img src="./images/warhammer-logo.png" alt="Warhammer 40,000"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <h1 style="display:none;">WARHAMMER 40,000</h1>
             <p>Tarjetas de Referencia Táctica</p>
         </div>
@@ -946,6 +1039,8 @@
                 </div>
                 <div class="step">
                     <div class="step-number">3. Tirada para Herir</div>
+                    <div class="list-item">Tirar <span class="stat-highlight">1d6</span> por cada impacto realizado
+                    </div>
                     <div class="list-item">Comparar <span class="attacker">Fuerza (F)</span> del arma vs <span
                             class="defender">Resistencia (R)</span> del objetivo:</div>
                     <table class="wound-table">
@@ -982,7 +1077,9 @@
                 <div class="step">
                     <div class="step-number">4. Tiradas de Salvación</div>
                     <div class="list-item">El <span class="defender">defensor</span> tira <span
-                            class="stat-highlight">Salvación (S)</span> por cada herida</div>
+                            class="stat-highlight">1d6</span> por cada herida sufrida</div>
+                    <div class="list-item">Comparar resultado contra <span class="stat-highlight">Salvación (S)</span>
+                        de la unidad</div>
                     <div class="list-item">Aplicar <span class="attacker">Factor de penetración (FP)</span> → resta al
                         dado de salvación</div>
                     <div class="list-item">Las <span class="defender">Salvaciones Invulnerables <i
@@ -1116,8 +1213,142 @@
                 </div>
             </div>
             <!-- REGLAS ESPECIALES -->
+            <div class="phase-content" id="morale">
+                <div class="phase-title" style="color: #a01f3d;">FASE DE MORAL</div>
+                <div class="stratagems">
+                    <span class="strat-title">Estratagemas:</span>
+                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                        data-tooltip-trigger="click">
+                        Repetición de Mando
+                    </span>,
+                    <span class="text-link either-players-turn" data-tooltip-content="valor-insensato"
+                        data-tooltip-trigger="click">
+                        Valor Insensato
+                    </span>
+                </div>
+                <div class="step">
+                    <div class="step-number">Cuándo Ocurre</div>
+                    <div class="list-item">Ocurre al final de la ronda (turno de ambos jugadores)</div>
+                    <div class="list-item">Solo afecta a unidades que han sufrido pérdidas en esta ronda</div>
+                    <div class="list-item">Comienza con el jugador defensor (quien NO atacó)</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">Procedimiento de Chequeo de Moral</div>
+                    <div class="list-item">Para cada unidad amiga que sufrió bajas esta ronda:</div>
+                    <div class="list-item-item">Cuenta el número de miniaturas perdidas</div>
+                    <div class="list-item-item">Tira un dado</div>
+                    <div class="list-item-item">Si el resultado ≤ número de miniaturas perdidas: Falla el chequeo</div>
+                    <div class="list-item-item">Si el resultado > número de miniaturas perdidas: Supera el chequeo</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">Efectos de Fallar el Chequeo</div>
+                    <div class="list-item"><span class="stat-highlight">1 Miniatura Adicional Retirada:</span> Por cada
+                        punto que falles el chequeo, retira <span class="stat-highlight">1 miniatura extra</span> de esa
+                        unidad</div>
+                    <div class="list-item">La unidad selecciona qué miniaturas se retiran</div>
+                    <div class="list-item">No puede retirarse más miniaturas de las que quedan en la unidad</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">Modificadores al Chequeo de Moral</div>
+                    <div class="list-item"><span class="stat-highlight">Liderazgo (Ld):</span> La característica de
+                        liderazgo de la unidad NO modifica el chequeo</div>
+                    <div class="list-item"><span class="stat-highlight">Nearby Characters:</span> Si hay un personaje a
+                        ≤6": <span class="stat-highlight">+1 al dado</span></div>
+                    <div class="list-item"><span class="stat-highlight">Abanderado/Estandarte:</span> Algunas unidades
+                        especiales proporcionan modificadores</div>
+                    <div class="list-item"><span class="stat-highlight">Reglas Especiales:</span> Ciertas habilidades
+                        pueden mejorar el chequeo</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">Unidades Especiales que Ignoran Moral</div>
+                    <div class="list-item"><span class="stat-highlight">Automatones/Sin Alma:</span> NO hacen chequeos
+                        de moral</div>
+                    <div class="list-item"><span class="stat-highlight">Personajes Invulnerables:</span> Algunos pueden
+                        ignorar estos efectos</div>
+                    <div class="list-item">Verifica la regla especial de tu unidad en tu libro de ejército</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">Casos Especiales</div>
+                    <div class="list-item">Si una unidad se desintegra completamente, no hace chequeo</div>
+                    <div class="list-item">Las unidades acobardadas NO tienen que hacer chequeos de moral</div>
+                    <div class="list-item">Algunos efectos pueden hacer re-rolls en chequeos de moral</div>
+                </div>
+            </div>
+            <!-- REGLAS ESPECIALES -->
             <div class="phase-content" id="rules">
                 <div class="phase-title rules-title">REGLAS ESPECIALES Y ATAJOS</div>
+                <div class="special-rule">
+                    <div class="special-rule-title">Características de Combate - Referencia Rápida</div>
+                    <table class="wound-table">
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>Símbolo/Abr.</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Movimiento</td>
+                                <td><span class="stat-highlight">M</span></td>
+                                <td>Distancia en pulgadas que puede moverse</td>
+                            </tr>
+                            <tr>
+                                <td>Habilidad de Proyectiles</td>
+                                <td><span class="stat-highlight">HP</span></td>
+                                <td>Tirada para impactar en disparo (2d6 vs HP)</td>
+                            </tr>
+                            <tr>
+                                <td>Habilidad de Armas</td>
+                                <td><span class="stat-highlight">HA</span></td>
+                                <td>Tirada para impactar en combate cuerpo a cuerpo</td>
+                            </tr>
+                            <tr>
+                                <td>Fuerza</td>
+                                <td><span class="attacker">F</span></td>
+                                <td>Capacidad ofensiva vs Resistencia</td>
+                            </tr>
+                            <tr>
+                                <td>Resistencia</td>
+                                <td><span class="defender">R</span></td>
+                                <td>Resistencia física vs Fuerza</td>
+                            </tr>
+                            <tr>
+                                <td>Heridas</td>
+                                <td><span class="stat-highlight">H</span></td>
+                                <td>Puntos de vida totales</td>
+                            </tr>
+                            <tr>
+                                <td>Salvación</td>
+                                <td><span class="stat-highlight">S</span></td>
+                                <td>Tirada de armadura (2d6 vs S, modificada por FP)</td>
+                            </tr>
+                            <tr>
+                                <td>Invulnerable</td>
+                                <td><i class="fa-solid fa-shield"></i></td>
+                                <td>Salvación especial, NO modificable</td>
+                            </tr>
+                            <tr>
+                                <td>Liderazgo</td>
+                                <td><span class="stat-highlight">Ld</span></td>
+                                <td>Usado solo para chequeos especiales</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="special-rule">
+                    <div class="special-rule-title">Tipos de Unidades</div>
+                    <div class="list-item"><span class="stat-highlight">Infantería:</span> Unidades de soldados a pie,
+                        sujeto a reglas normales de movimiento</div>
+                    <div class="list-item"><span class="stat-highlight">Vehículo:</span> Transporte blindado con
+                        restricciones de giro y movimiento especiales</div>
+                    <div class="list-item"><span class="stat-highlight">Monstruo:</span> Criatura/unidad grande, solo 1
+                        miniatura por unidad</div>
+                    <div class="list-item"><span class="stat-highlight">Personaje:</span> Unidad individual o pequeño
+                        grupo con habilidades especiales</div>
+                    <div class="list-item"><span class="stat-highlight">Gran Arma:</span> Unidad estacionaria con armas
+                        poderosas</div>
+                </div>
                 <div class="special-rule">
                     <div class="special-rule-title">Tabla Rápida para Herir (F vs R)</div>
                     <table class="wound-table">
@@ -1145,22 +1376,33 @@
                 </div>
                 <div class="special-rule">
                     <div class="special-rule-title">Tipos de Salvación</div>
-                    <div class="list-item"><span class="stat-highlight">Salvación Normal:</span> Modificada por
-                        <span class="attacker">FP</span> del atacante
+                    <div class="list-item"><span class="stat-highlight">Salvación Normal (Armor Save):</span> Modificada
+                        (reducida) por
+                        <span class="attacker">Factor de Penetración (FP)</span> del atacante
                     </div>
+                    <div class="list-item-item">Por cada punto de FP, suma 1 al dado (haciendo más difícil salvar)</div>
                     <div class="list-item"><span class="stat-highlight">Salvación Invulnerable <i
                                 class="fa-solid fa-shield"></i> :</span> NUNCA modificada
-                        por AP</div>
-                    <div class="list-item"><span class="stat-highlight">Feel No Pain:</span> Tirada adicional
-                        después de
-                        fallar salvación</div>
+                        por FP</div>
+                    <div class="list-item-item">Se tira después de fallar la salvación normal como alternativa</div>
+                    <div class="list-item-item">Si tienes ambas, usas la que sea mejor para ti</div>
+                    <div class="list-item"><span class="stat-highlight">Feel No Pain (FNP):</span> Tirada adicional
+                        después de fallar salvación</div>
+                    <div class="list-item-item">Se hace después de perder salvación pero antes de aplicar daño</div>
+                    <div class="list-item-item">Solo evita una cantidad limitada de daño (usualmente 1 herida)</div>
+                    <div class="list-item"><span class="stat-highlight">Salvación de Cobertura:</span> +1 a la tirada si
+                        está en cobertura</div>
+                    <div class="list-item-item">Se aplica ANTES de aplicar FP del atacante</div>
                 </div>
                 <div class="special-rule">
                     <div class="special-rule-title">Heridas Mortales (Mortal Wounds)</div>
                     <div class="list-item">Se asignan directamente, SIN tirada de salvación normal</div>
-                    <div class="list-item">Pueden ser evitadas por habilidades específicas o salvaciones especiales
+                    <div class="list-item">NO se pueden evitar con salvaciones normales, solo con especiales</div>
+                    <div class="list-item">Pueden ser evitadas por habilidades específicas o salvaciones invulnerables
                     </div>
                     <div class="list-item">Se aplican una por una, no todas a la vez</div>
+                    <div class="list-item">Cuentan completamente hacia la remoción de miniaturas</div>
+                    <div class="list-item">Algunos efectos pueden causar heridas mortales automáticas en críticos</div>
                 </div>
                 <div class="special-rule">
                     <div class="special-rule-title">Habilidades Especiales de Armas</div>
@@ -1218,6 +1460,16 @@
                         Al atacar con un arma de este tipo, el ataque impacta automáticamente al blanco.</div>
                     <div class="list-item"><span class="stat-highlight">ACOPLADA</span>:
                         Al atacar con un arma de este tipo, puedes repetir la tirada para herir de ese ataque.</div>
+                    <div class="list-item"><span class="stat-highlight">SALVA X</span>:
+                        Esta arma realiza X ataques separados en lugar de un ataque normal.</div>
+                    <div class="list-item"><span class="stat-highlight">BOMBA DE RACIMO</span>:
+                        Al usar un arma de este tipo, el objetivo sufre 1 daño mortal automático además de otros
+                        efectos.</div>
+                    <div class="list-item"><span class="stat-highlight">PODER</span>:
+                        Esta arma es +2 a Fuerza en combate cuerpo a cuerpo. Solo armas cuerpo a cuerpo.</div>
+                    <div class="list-item"><span class="stat-highlight">PARALIZANTE</span>:
+                        Los ataques con esta arma causan -1 a los dados de movimiento del enemigo hasta el final de su
+                        siguiente turno.</div>
 
                 </div>
                 <div class="special-rule">
@@ -1260,7 +1512,7 @@
 
 
         <div class="quick-reference-body" style="display: none;">
-            <div><strong>Disparo:</strong> No haber avanzado, tener Line de visión</div>
+            <div><strong>Disparo:</strong> No haber avanzado, tener línea de visión</div>
             <div><strong>Carga:</strong> ≤12" y visible</div>
             <div><strong>Combate:</strong> Alternado, WS vs R</div>
             <div><strong>Reglas:</strong> Ver abajo</div>
@@ -1277,8 +1529,8 @@
     <script>
         // Al cargar la página, restaurar la fase seleccionada si existe
         document.addEventListener('DOMContentLoaded', function () {
-            const storedPhase = localStorage.getItem('selectedPhase');
-            if (storedPhase) showPhase(storedPhase);
+            const storedPhase = localStorage.getItem('selectedPhase') || 'shoot';
+            showPhase(storedPhase);
         });
 
 
@@ -1296,7 +1548,10 @@
             });
 
             // Mostrar el contenido seleccionado
-            document.getElementById(phaseId).classList.add('active');
+            const selectedContent = document.getElementById(phaseId);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
 
             // Activar la pestaña seleccionada
             const activeTab = document.querySelector(`.tab.${phaseId}`);
@@ -1304,28 +1559,6 @@
 
             // Guardar en localStorage
             localStorage.setItem('selectedPhase', phaseId);
-        }
-
-
-        function showPhase(phaseId) {
-            // Ocultar todos los contenidos
-            const contents = document.querySelectorAll('.phase-content');
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Desactivar todas las pestañas
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            // Mostrar el contenido seleccionado
-            document.getElementById(phaseId).classList.add('active');
-
-            // Activar la pestaña seleccionada
-            const activeTab = document.querySelector(`.tab.${phaseId}`);
-            activeTab.classList.add('active');
         }
 
         // Atajos de teclado
@@ -1348,7 +1581,8 @@
     </script>
 
     <div class="footer">
-        <div style="margin-bottom: 10px;">Esta es una app web para mi uso personal, sin intento de infringir copyright.</div>
+        <div style="margin-bottom: 10px;">Esta es una app web para mi uso personal, sin intento de infringir copyright.
+        </div>
         <a href="https://github.com/diegovallejodev/" target="_blank">
             Diego Vallejo
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
