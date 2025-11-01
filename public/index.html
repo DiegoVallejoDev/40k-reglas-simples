@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
     <title>Tarjetas de Referencia Warhammer 40k</title>
     <style>
         * {
@@ -17,40 +22,30 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #1a1a1a;
             color: #2b2b2b;
             padding: 0;
             min-height: 100vh;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 20px auto;
-            background: #e8e5dd;
+            background: #f5f3ed;
             border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            border: 3px solid #3a3a3a;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid #3a3a3a;
         }
 
         .header {
-            background: #e8e5dd;
-            padding: 30px 20px 20px;
+            background: linear-gradient(180deg, #2b2b2b 0%, #1a1a1a 100%);
+            padding: 30px 20px 25px;
             text-align: center;
-            border-bottom: 4px solid #3a3a3a;
+            border-bottom: 3px solid #8B1538;
             position: relative;
-        }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent 0%, #c9b037 50%, transparent 100%);
         }
 
         .header img {
@@ -62,50 +57,49 @@
         }
 
         .header h1 {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 2.5em;
             font-weight: 900;
-            color: #8B1538;
-            margin-bottom: 8px;
+            color: #e8e8e8;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: none;
+            letter-spacing: 8px;
         }
 
         .header p {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            color: #8B1538;
-            font-size: 1.2em;
-            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            color: #b8b8b8;
+            font-size: 1.1em;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: none;
+            letter-spacing: 3px;
         }
 
         .tabs {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            background: #3a3a3a;
-            border-bottom: 3px solid #8B1538;
+            background: #2b2b2b;
+            border-bottom: 2px solid #8B1538;
         }
 
         .tab {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             padding: 18px 16px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             text-align: center;
             font-weight: 700;
-            border-right: 2px solid #2a2a2a;
-            color: #b8b8b8;
+            border-right: 1px solid #1a1a1a;
+            color: #999;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.8em;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            font-size: 0.9em;
-            background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
+            font-size: 0.85em;
+            background: #2b2b2b;
+            border-bottom: 3px solid transparent;
         }
 
         .tab.shoot {
@@ -113,7 +107,11 @@
         }
 
         .tab.shoot img {
-            filter: brightness(0) saturate(100%) invert(52%) sepia(73%) saturate(1527%) hue-rotate(188deg) brightness(96%) contrast(90%);
+            filter: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
+        }
+
+        .tab.shoot.active img {
+            filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(2289%) hue-rotate(338deg) brightness(91%) contrast(94%);
         }
 
         .tab.charge {
@@ -121,7 +119,11 @@
         }
 
         .tab.charge img {
-            filter: brightness(0) saturate(100%) invert(61%) sepia(98%) saturate(2913%) hue-rotate(1deg) brightness(101%) contrast(105%);
+            filter: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
+        }
+
+        .tab.charge.active img {
+            filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(2289%) hue-rotate(338deg) brightness(91%) contrast(94%);
         }
 
         .tab.fight {
@@ -129,7 +131,11 @@
         }
 
         .tab.fight img {
-            filter: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(5271%) hue-rotate(346deg) brightness(86%) contrast(94%);
+            filter: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
+        }
+
+        .tab.fight.active img {
+            filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(2289%) hue-rotate(338deg) brightness(91%) contrast(94%);
         }
 
         .tab.rules {
@@ -137,19 +143,22 @@
         }
 
         .tab.rules img {
-            filter: brightness(0) saturate(100%) invert(65%) sepia(99%) saturate(1441%) hue-rotate(73deg) brightness(100%) contrast(71%);
+            filter: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
+        }
+
+        .tab.rules.active img {
+            filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(2289%) hue-rotate(338deg) brightness(91%) contrast(94%);
         }
 
         .tab:hover {
-            background: linear-gradient(180deg, #4a4a4a 0%, #3a3a3a 100%);
-            color: #ffffff;
+            background: #353535;
+            color: #e8e8e8;
         }
 
         .tab.active {
-            background: linear-gradient(180deg, #e8e5dd 0%, #d8d5cd 100%);
+            background: #f5f3ed;
             color: #8B1538;
-            border-bottom: 4px solid #8B1538;
-            box-shadow: inset 0 -4px 8px rgba(139, 21, 56, 0.2);
+            border-bottom: 3px solid #8B1538;
         }
 
         .tab.shoot.active {
@@ -170,7 +179,7 @@
 
         .content {
             padding: 50px 60px;
-            background: #e8e5dd;
+            background: #f5f3ed;
             min-height: 600px;
         }
 
@@ -183,18 +192,17 @@
         }
 
         .phase-title {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            font-size: 2.6em;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 2.5em;
             margin-bottom: 35px;
             text-align: center;
-            padding: 25px 20px;
+            padding: 20px;
             font-weight: 900;
             color: #8B1538;
             text-transform: uppercase;
             letter-spacing: 4px;
-            border-bottom: 3px solid #3a3a3a;
-            background: linear-gradient(180deg, rgba(139, 21, 56, 0.08) 0%, rgba(139, 21, 56, 0.03) 100%);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #8B1538;
+            background: #ebe9e1;
         }
 
         .shoot-title {
@@ -214,136 +222,131 @@
         }
 
         .step {
-            margin-bottom: 28px;
-            padding: 24px 28px;
-            background: #f8f6f0;
-            border-radius: 0;
-            border: 2px solid #c4c0b5;
-            border-left: 5px solid #8B1538;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+            margin-bottom: 25px;
+            padding: 22px 26px;
+            background: #fff;
+            border-radius: 4px;
+            border-left: 4px solid #8B1538;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .step-number {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            font-size: 1.2em;
-            font-weight: 900;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.15em;
+            font-weight: 700;
             color: #8B1538;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 0.5px;
         }
 
         .list-item {
-            margin: 12px 0;
-            padding-left: 24px;
-            position: relative;
-            color: #2b2b2b;
-            line-height: 1.65;
-            font-size: 1em;
-            font-weight: 400;
-        }
-
-        .list-item::before {
-            content: "▪";
-            position: absolute;
-            left: 0;
-            color: #8B1538;
-            font-weight: bold;
-            font-size: 1.3em;
-        }
-
-
-        .list-item-item {
             margin: 10px 0;
             padding-left: 24px;
             position: relative;
             color: #2b2b2b;
-            line-height: 1.65;
-            font-size: 0.98em;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .list-item::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: #8B1538;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+
+        .list-item-item {
+            margin: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: #2b2b2b;
+            line-height: 1.7;
+            font-size: 0.92em;
         }
 
         .list-item-item::before {
-            content: "▸";
+            content: "◦";
             position: absolute;
-            left: 0;
-            margin-right: .5rem;
+            left: 8px;
             color: #8B1538;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
 
 
         .attacker {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            background: #a01f3d;
+            font-family: 'Inter', sans-serif;
+            background: #8B1538;
             color: #fff;
-            padding: 3px 8px;
-            border-radius: 0;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            border: 1px solid #7d1830;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.9em;
+            letter-spacing: 0.3px;
         }
 
         .defender {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: #2d7a8f;
             color: #fff;
-            padding: 3px 8px;
-            border-radius: 0;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            border: 1px solid #1f5a6a;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.9em;
+            letter-spacing: 0.3px;
         }
 
         .stat-highlight {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            background: #c9b037;
+            font-family: 'Inter', sans-serif;
+            background: #d4af37;
             color: #1a1a1a;
-            padding: 3px 8px;
-            border-radius: 0;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            border: 1px solid #a89020;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.9em;
+            letter-spacing: 0.3px;
         }
 
         .wound-table {
             width: 100%;
-            background: #f8f6f0;
-            border-radius: 0;
+            background: #fff;
+            border-radius: 4px;
             margin: 24px 0;
-            border: 3px solid #3a3a3a;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             border-collapse: collapse;
             overflow: hidden;
         }
 
         .wound-table thead {
-            background: linear-gradient(180deg, #8B1538 0%, #6d1029 100%);
-            color: #f5f5f0;
+            background: #8B1538;
+            color: #fff;
         }
 
         .wound-table th {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            padding: 16px 18px;
+            font-family: 'Source Sans Pro', sans-serif;
+            padding: 14px 16px;
             text-align: left;
-            font-weight: 900;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.95em;
-            border-right: 2px solid rgba(255, 255, 255, 0.1);
+            letter-spacing: 0.5px;
+            font-size: 0.9em;
         }
 
         .wound-table th:last-child {
             text-align: center;
-            border-right: none;
         }
 
         .wound-table td {
-            padding: 14px 18px;
-            border-bottom: 2px solid #c4c0b5;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e8e8e8;
             color: #2b2b2b;
-            font-weight: 500;
-            background: #f8f6f0;
+            font-weight: 400;
+            background: #fff;
         }
 
         .wound-table tbody tr:last-child td {
@@ -351,82 +354,82 @@
         }
 
         .wound-table tbody tr:hover {
-            background: #fff;
+            background: #f9f9f9;
         }
 
         .wound-table tbody tr:nth-child(even) {
-            background: #f0ede5;
+            background: #fafafa;
         }
 
         .wound-table tbody tr:nth-child(even):hover {
-            background: #fff;
+            background: #f9f9f9;
         }
 
         .wound-table .result {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             color: #8B1538;
-            font-weight: 900;
-            font-size: 1.3em;
+            font-weight: 700;
+            font-size: 1.2em;
             text-align: center;
         }
 
         .special-rule {
-            background: #f8f6f0;
-            border: 2px solid #c4c0b5;
-            border-left: 5px solid #c9b037;
-            border-radius: 0;
-            padding: 24px 28px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-left: 4px solid #d4af37;
+            border-radius: 4px;
+            padding: 22px 26px;
             margin: 24px 0;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .special-rule-title {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             color: #8B1538;
-            font-weight: 900;
-            font-size: 1.25em;
-            margin-bottom: 18px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 14px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 0.5px;
         }
 
         .overwatch {
-            background: #faf7f2;
-            border: 3px solid #a01f3d;
-            border-radius: 0;
-            padding: 24px 28px;
-            margin: 28px 0;
-            box-shadow: 0 4px 10px rgba(160, 31, 61, 0.15);
+            background: #fff8f8;
+            border: 2px solid #8B1538;
+            border-radius: 4px;
+            padding: 22px 26px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(139, 21, 56, 0.15);
         }
 
         .overwatch .step-number {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             color: #8B1538;
-            font-weight: 900;
+            font-weight: 700;
         }
 
         .quick-reference {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #e8e5dd;
-            border: 3px solid #8B1538;
-            border-radius: 0;
+            background: #fff;
+            border: 2px solid #8B1538;
+            border-radius: 6px;
             padding: 18px;
             font-size: 0.9em;
             max-width: 280px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .quick-ref-title {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             color: #8B1538;
-            font-weight: 900;
+            font-weight: 700;
             margin-bottom: 12px;
             text-align: center;
-            font-size: 1.05em;
+            font-size: 1em;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 0.5px;
         }
 
         .quick-ref-toggle {
@@ -437,12 +440,12 @@
             padding: .3rem;
             font-size: 1.2em;
             transition: all 0.2s ease;
-            border-radius: 0;
+            border-radius: 4px;
         }
 
         .quick-ref-toggle:hover {
             background-color: #8B1538;
-            color: #f5f5f0;
+            color: #fff;
         }
 
         .quick-reference div {
@@ -560,19 +563,19 @@
             margin-bottom: 30px;
             text-align: center;
             padding: 20px;
-            background: #f8f6f0;
-            border-radius: 0;
-            border: 3px solid #c4c0b5;
-            border-top: 4px solid #8B1538;
+            background: #ebe9e1;
+            border-radius: 4px;
+            border-top: 3px solid #8B1538;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .strat-title {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            font-weight: 900;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 700;
             color: #8B1538;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 1.05em;
+            letter-spacing: 0.5px;
+            font-size: 1em;
         }
 
         .strat-name {
@@ -581,18 +584,19 @@
         }
 
         .footer {
-            font-size: 0.8em;
+            font-size: 0.85em;
             color: #888;
             text-align: center;
             margin-top: 50px;
             padding: 25px 0;
-            background: #1a1a1a;
+            background: #2b2b2b;
+            border-top: 2px solid #8B1538;
         }
 
         .footer a {
             color: #8B1538;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             transition: color 0.2s ease;
         }
 
@@ -618,12 +622,12 @@
         .card {
             width: 420px;
             max-width: calc(100vw - 60px);
-            background: #f8f6f0;
-            border-radius: 0;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             overflow: visible;
             position: relative;
-            border: 3px solid #3a3a3a;
+            border: 1px solid #ddd;
         }
 
         .left-border {
@@ -638,9 +642,7 @@
             align-items: center;
             padding: 18px 0;
             gap: 12px;
-            border-radius: 0;
-            border-right: 3px solid #3a3a3a;
-            box-shadow: none;
+            border-radius: 6px 0 0 6px;
         }
 
         .when-symbol {
@@ -649,8 +651,13 @@
             background-color: #f5f5f0;
             transform: rotate(45deg);
             position: relative;
-            border: 3px solid #f5f5f0;
+            border: 2px solid #d4d4d4;
             color: #f5f5f0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab.active .when-symbol {
+            border: 2px solid #8B1538;
         }
 
         .when-symbol::before,
@@ -685,9 +692,9 @@
             align-items: center;
             justify-content: center;
             margin-top: 8px;
-            border: 3px solid #f5f5f0;
+            border: 2px solid #fff;
             position: relative;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
         .cost-diamond::before {
@@ -711,12 +718,12 @@
 
 
         .title {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            font-size: 24px;
-            font-weight: 900;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
             color: #8B1538;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 0.5px;
             margin-bottom: 6px;
         }
 
@@ -749,13 +756,13 @@
         }
 
         .rule-label {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
-            font-weight: 900;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
             color: #8B1538;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
             margin-bottom: 4px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .rule-text {
@@ -824,18 +831,19 @@
         }
 
         .text-link {
-            font-family: 'Arial Narrow', 'Helvetica Condensed', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+            font-family: 'Inter', sans-serif;
             text-decoration: none;
             padding: 8px 14px;
-            border-radius: 0;
+            border-radius: 4px;
             text-transform: uppercase;
-            font-weight: 700;
-            font-size: 0.85em;
-            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 0.8em;
+            letter-spacing: 0.5px;
             transition: all 0.2s ease;
             display: inline-block;
             margin: 3px;
             border: 2px solid;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         /*
