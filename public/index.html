@@ -526,25 +526,24 @@
             }
 
             .wound-table tr {
-                display: flex;
-                flex-direction: column;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
                 border: 0.0625rem solid #ddd;
                 margin-bottom: 0.5rem;
                 border-radius: 0.25rem;
                 background: #fff;
                 box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.1);
+                padding: 0.75rem;
             }
 
             .wound-table td {
                 border: none;
-                border-bottom: 0.0625rem solid #e8e8e8;
-                position: relative;
-                padding: 0.75rem;
-                white-space: normal;
-                text-align: left;
                 display: flex;
                 flex-direction: column;
                 gap: 0.25rem;
+                white-space: normal;
+                text-align: left;
             }
 
             .wound-table td:last-child {
@@ -553,16 +552,13 @@
 
             .wound-table td:before {
                 content: attr(data-label);
-                position: static;
-                width: auto;
-                padding-right: 0;
-                white-space: normal;
                 color: #8B1538;
                 font-weight: 700;
                 font-size: 0.9em;
                 text-transform: uppercase;
                 letter-spacing: 0.03125rem;
                 margin-bottom: 0.25rem;
+            }
             }
 
             .quick-reference {
