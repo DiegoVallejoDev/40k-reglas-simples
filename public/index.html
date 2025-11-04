@@ -180,7 +180,6 @@
         .content {
             padding: 50px 60px;
             background: #f5f3ed;
-            min-height: 600px;
         }
 
         .phase-content {
@@ -475,7 +474,11 @@
             }
 
             .content {
-                padding: 30px 42px;
+                padding: 30px 20px;
+            }
+
+            .card .content {
+                padding: 14px 15px 15px 56px;
             }
 
             .tabs {
@@ -504,12 +507,60 @@
             }
 
             .wound-table {
-                font-size: 0.9em;
+                font-size: 0.85em;
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                margin: 16px 0;
             }
 
-            .wound-table th,
+            .wound-table thead,
+            .wound-table tbody,
+            .wound-table tr {
+                display: block;
+            }
+
+            .wound-table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            .wound-table tr {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid #ddd;
+                margin-bottom: 8px;
+                border-radius: 4px;
+                background: #fff;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            }
+
             .wound-table td {
-                padding: 12px 10px;
+                border: none;
+                border-bottom: 1px solid #e8e8e8;
+                position: relative;
+                padding: 8px 12px 8px 35%;
+                white-space: normal;
+                text-align: left;
+            }
+
+            .wound-table td:last-child {
+                border-bottom: none;
+            }
+
+            .wound-table td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 6px;
+                width: 30%;
+                padding-right: 10px;
+                white-space: nowrap;
+                color: #8B1538;
+                font-weight: 700;
+                font-size: 0.9em;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
             }
 
             .quick-reference {
@@ -900,13 +951,17 @@
         }
 
         .tooltip-content {
-            background: rgb(232, 229, 221);
+            background: #f5f3ed;
             border-radius: 12px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
             padding: 15px;
             max-width: 350px;
             min-width: 200px;
             position: relative;
+        }
+
+        .tooltip-content .content {
+            padding: 10px 10px 0 45px;
         }
 
         /* Flecha del tooltip */
@@ -1060,24 +1115,24 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>F ≥ 2×R (Doble o más)</td>
-                                <td class="result">2+</td>
+                                <td data-label="Comparación">F ≥ 2×R (Doble o más)</td>
+                                <td data-label="Resultado" class="result">2+</td>
                             </tr>
                             <tr>
-                                <td>F &gt; R (Mayor)</td>
-                                <td class="result">3+</td>
+                                <td data-label="Comparación">F &gt; R (Mayor)</td>
+                                <td data-label="Resultado" class="result">3+</td>
                             </tr>
                             <tr>
-                                <td>F = R (Igual)</td>
-                                <td class="result">4+</td>
+                                <td data-label="Comparación">F = R (Igual)</td>
+                                <td data-label="Resultado" class="result">4+</td>
                             </tr>
                             <tr>
-                                <td>F &lt; R (Menor)</td>
-                                <td class="result">5+</td>
+                                <td data-label="Comparación">F &lt; R (Menor)</td>
+                                <td data-label="Resultado" class="result">5+</td>
                             </tr>
                             <tr>
-                                <td>F ≤ ½R (Mitad o menos)</td>
-                                <td class="result">6+</td>
+                                <td data-label="Comparación">F ≤ ½R (Mitad o menos)</td>
+                                <td data-label="Resultado" class="result">6+</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1297,49 +1352,49 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Movimiento</td>
-                                <td><span class="stat-highlight">M</span></td>
-                                <td>Distancia en pulgadas que puede moverse</td>
+                                <td data-label="Característica">Movimiento</td>
+                                <td data-label="Símbolo"><span class="stat-highlight">M</span></td>
+                                <td data-label="Descripción">Distancia en pulgadas que puede moverse</td>
                             </tr>
                             <tr>
-                                <td>Habilidad de Proyectiles</td>
-                                <td><span class="stat-highlight">HP</span></td>
-                                <td>Tirada para impactar en disparo (2d6 vs HP)</td>
+                                <td data-label="Característica">Habilidad de Proyectiles</td>
+                                <td data-label="Símbolo"><span class="stat-highlight">HP</span></td>
+                                <td data-label="Descripción">Tirada para impactar en disparo (2d6 vs HP)</td>
                             </tr>
                             <tr>
-                                <td>Habilidad de Armas</td>
-                                <td><span class="stat-highlight">HA</span></td>
-                                <td>Tirada para impactar en combate cuerpo a cuerpo</td>
+                                <td data-label="Característica">Habilidad de Armas</td>
+                                <td data-label="Símbolo"><span class="stat-highlight">HA</span></td>
+                                <td data-label="Descripción">Tirada para impactar en combate cuerpo a cuerpo</td>
                             </tr>
                             <tr>
-                                <td>Fuerza</td>
-                                <td><span class="attacker">F</span></td>
-                                <td>Capacidad ofensiva vs Resistencia</td>
+                                <td data-label="Característica">Fuerza</td>
+                                <td data-label="Símbolo"><span class="attacker">F</span></td>
+                                <td data-label="Descripción">Capacidad ofensiva vs Resistencia</td>
                             </tr>
                             <tr>
-                                <td>Resistencia</td>
-                                <td><span class="defender">R</span></td>
-                                <td>Resistencia física vs Fuerza</td>
+                                <td data-label="Característica">Resistencia</td>
+                                <td data-label="Símbolo"><span class="defender">R</span></td>
+                                <td data-label="Descripción">Resistencia física vs Fuerza</td>
                             </tr>
                             <tr>
-                                <td>Heridas</td>
-                                <td><span class="stat-highlight">H</span></td>
-                                <td>Puntos de vida totales</td>
+                                <td data-label="Característica">Heridas</td>
+                                <td data-label="Símbolo"><span class="stat-highlight">H</span></td>
+                                <td data-label="Descripción">Puntos de vida totales</td>
                             </tr>
                             <tr>
-                                <td>Salvación</td>
-                                <td><span class="stat-highlight">S</span></td>
-                                <td>Tirada de armadura (2d6 vs S, modificada por FP)</td>
+                                <td data-label="Característica">Salvación</td>
+                                <td data-label="Símbolo"><span class="stat-highlight">S</span></td>
+                                <td data-label="Descripción">Tirada de armadura (2d6 vs S, modificada por FP)</td>
                             </tr>
                             <tr>
-                                <td>Invulnerable</td>
-                                <td><i class="fa-solid fa-shield"></i></td>
-                                <td>Salvación especial, NO modificable</td>
+                                <td data-label="Característica">Invulnerable</td>
+                                <td data-label="Símbolo"><i class="fa-solid fa-shield"></i></td>
+                                <td data-label="Descripción">Salvación especial, NO modificable</td>
                             </tr>
                             <tr>
-                                <td>Liderazgo</td>
-                                <td><span class="stat-highlight">Ld</span></td>
-                                <td>Usado solo para chequeos especiales</td>
+                                <td data-label="Característica">Liderazgo</td>
+                                <td data-label="Símbolo"><span class="stat-highlight">Ld</span></td>
+                                <td data-label="Descripción">Usado solo para chequeos especiales</td>
                             </tr>
                         </tbody>
                     </table>
