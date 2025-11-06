@@ -427,45 +427,6 @@ body {
   font-weight: 700;
 }
 
-.quick-reference {
-  position: fixed;
-  bottom: 1.25rem;
-  right: 1.25rem;
-  background: #fff;
-  border: 0.125rem solid #8b1538;
-  border-radius: 0.375rem;
-  padding: 1.125rem;
-  font-size: 0.9em;
-  max-width: 17.5rem;
-  box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.3);
-}
-
-.quick-ref-title {
-  font-family: "Source Sans Pro", sans-serif;
-  color: #8b1538;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  text-align: center;
-  font-size: 1em;
-  text-transform: uppercase;
-  letter-spacing: 0.03125rem;
-}
-
-.quick-ref-toggle {
-  cursor: pointer;
-  color: #8b1538;
-  background-color: transparent;
-  border: solid 0.125rem #8b1538;
-  padding: 0.3rem;
-  font-size: 1.2em;
-  transition: all 0.2s ease;
-  border-radius: 0.25rem;
-}
-
-.quick-ref-toggle:hover {
-  background-color: #8b1538;
-  color: #fff;
-}
 
 .quick-reference div {
   margin: 0.5rem 0;
@@ -474,12 +435,7 @@ body {
   font-size: 0.95em;
 }
 
-.quick-reference hr {
-  border: none;
-  border-top: 0.125rem solid #8b1538;
-  margin: 0.75rem 0;
-  opacity: 0.3;
-}
+
 
 @media (max-width: 768px) {
   body {
@@ -595,13 +551,6 @@ body {
     margin-bottom: 0.25rem;
   }
 
-  .quick-reference {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin: 1.25rem 0;
-    max-width: 100%;
-  }
 
   .stratagem-container .card {
     font-size: 12px;
@@ -611,8 +560,7 @@ body {
 
 @media print {
 
-  .tabs,
-  .quick-reference {
+  .tabs {
     display: none !important;
   }
 

@@ -83,946 +83,973 @@
                         Táctica Adaptativa
                     </span>
                 </div>
-                <div class="step">
-                    <div class="step-number">1. Inicio del Turno</div>
-                    <div class="list-item">La Fase de Mando siempre es la primera del turno</div>
-                    <div class="list-item">Resolver efectos que ocurren "al inicio del turno"</div>
-                    <div class="list-item">Algunas habilidades especiales se activan automáticamente</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2. Generar Puntos de Mando (CP)</div>
-                    <div class="list-item">Al inicio de cada turno (excepto el primero): <span class="stat-highlight">+1
-                            CP</span></div>
-                    <div class="list-item">Máximo de CP que puedes tener: <span class="stat-highlight">12 CP</span>
+                <div class="special-rule"
+                    style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
+                    <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                        ESTRUCTURA DE LA FASE
                     </div>
-                    <div class="list-item">Los CP no utilizados se mantienen para turnos posteriores</div>
-                    <div class="list-item">Algunas unidades/habilidades pueden generar CP adicionales</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9em;">
+                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">1. MANDO</div>
+                            <div>Ambos jugadores obtienen <span class="stat-highlight">+1 PM</span></div>
+                            <div style="font-size: 0.8em; margin-top: 0.25rem;">Resolver reglas de fase de mando</div>
+                        </div>
+                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">2. ACOBARDAMIENTO</div>
+                            <div>Chequeos por unidades <span class="stat-highlight">bajo mitad de efectivos</span></div>
+                            <div style="font-size: 0.8em; margin-top: 0.25rem;">Tirar 2d6 vs Liderazgo</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="step">
-                    <div class="step-number">3. Resolver Habilidades de Mando</div>
+                    <div class="step-number">1. MANDO</div>
+                    <div class="list-item">Al inicio de la fase: <strong>AMBOS jugadores</strong> obtienen <span
+                            class="stat-highlight">+1 PM</span></div>
+                    <div class="list-item">Los PM son un recurso estratégico para usar estratagemas</div>
+                    <div class="list-item">Resolver cualquier otra regla que tenga lugar en la fase de mando</div>
                     <div class="list-item">Activar habilidades de <span class="stat-highlight">Señores de la
-                            Guerra</span></div>
-                    <div class="list-item">Usar habilidades de <span class="stat-highlight">Personajes</span> que se
-                        activen en la Fase de Mando</div>
-                    <div class="list-item">Aplicar efectos de <span class="stat-highlight">Reliquias</span> y <span
-                            class="stat-highlight">Rasgos de Señor de la Guerra</span></div>
-                    <div class="list-item">Resolver habilidades de unidades que se activen "en la Fase de Mando"</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">4. Activar Estratagemas de Mando</div>
-                    <div class="list-item">Usar estratagemas que especifiquen "Fase de Mando" o "inicio del turno"</div>
-                    <div class="list-item">Pagar el coste en CP correspondiente</div>
-                    <div class="list-item">Resolver efectos inmediatamente o marcar para uso posterior</div>
-                    <div class="list-item">Algunas estratagemas afectan todo el turno</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">5. Chequeos de Moral Previos</div>
-                    <div class="list-item">Si alguna unidad debe hacer chequeos especiales de moral</div>
-                    <div class="list-item">Resolver efectos de "Batalla Shock" si aplican</div>
-                    <div class="list-item">Aplicar modificadores de liderazgo de personajes cercanos</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">6. Objetivos Secundarios</div>
-                    <div class="list-item">Anotar puntos de objetivos que se resuelvan "al inicio del turno"</div>
-                    <div class="list-item">Declarar objetivos que requieren declaración previa</div>
-                    <div class="list-item">Verificar condiciones de victoria</div>
-                </div>
-            </div>
-            <!-- FASE DE MOVIMIENTO -->
-            <div class="phase-content" id="movement">
-                <div class="phase-title movement-title">FASE DE MOVIMIENTO</div>
-                <div class="stratagems">
-                    <span class="strat-title">Estratagemas:</span>
-                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
-                        data-tooltip-trigger="click">
-                        Repetición de Mando
-                    </span>,
-                    <span class="text-link active-players-turn" data-tooltip-content="avance-rápido"
-                        data-tooltip-trigger="click">
-                        Avance Rápido
-                    </span>,
-                    <span class="text-link active-players-turn" data-tooltip-content="reposicionamiento"
-                        data-tooltip-trigger="click">
-                        Reposicionamiento
-                    </span>
-                </div>
-                <div class="special-rule"
-                    style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
-                    <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
-                        TIPOS DE MOVIMIENTO
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9em;">
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">MOVIMIENTO NORMAL</div>
-                            <div>Hasta <span class="stat-highlight">M"</span> + puede disparar y cargar</div>
-                        </div>
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">AVANZAR</div>
-                            <div><span class="stat-highlight">M" + 1d6"</span> + NO puede disparar ni cargar</div>
-                        </div>
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">CAER ATRÁS</div>
-                            <div>Hasta <span class="stat-highlight">M"</span> + salir de combate + NO disparo</div>
-                        </div>
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">EMBARCAR/DESEMBARCAR</div>
-                            <div>Entrar/salir de <span class="stat-highlight">Transportes</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">1. Seleccionar Unidad para Mover</div>
-                    <div class="list-item">Elegir una unidad que no se haya movido este turno</div>
-                    <div class="list-item">Las unidades en combate pueden elegir <span class="stat-highlight">Caer
-                            Atrás</span></div>
-                    <div class="list-item">No es obligatorio mover todas las unidades</div>
-                    <div class="list-item">Puedes mover en cualquier orden</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2. Declarar Tipo de Movimiento</div>
-                    <div class="list-item"><span class="stat-highlight">Movimiento Normal:</span> Hasta <span
-                            class="stat-highlight">M"</span>, puede disparar normalmente</div>
-                    <div class="list-item"><span class="stat-highlight">Avanzar:</span> <span class="stat-highlight">M"
-                            + 1d6"</span>, NO puede disparar (excepto armas <span class="stat-highlight">Asalto</span>)
-                    </div>
-                    <div class="list-item"><span class="stat-highlight">Caer Atrás:</span> Hasta <span
-                            class="stat-highlight">M"</span>, debe terminar fuera de zona de amenaza, NO puede disparar
-                    </div>
-                    <div class="list-item"><span class="stat-highlight">Permanecer Estático:</span> No moverse,
-                        bonificación +1 para impactar con armas <span class="stat-highlight">Pesadas</span></div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3. Mover Miniaturas</div>
-                    <div class="list-item">Cada miniatura puede moverse hasta la distancia permitida</div>
-                    <div class="list-item">No pueden atravesar otras miniaturas (amigas o enemigas)</div>
-                    <div class="list-item">Pueden atravesar terreno, aplicando reglas especiales</div>
-                    <div class="list-item">Las miniaturas pueden moverse distancias diferentes dentro de la unidad</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">4. Mantener Coherencia de Unidad</div>
-                    <div class="list-item">Cada miniatura debe estar a ≤<span class="stat-highlight">2"</span> de otra
-                        miniatura de la misma unidad</div>
-                    <div class="list-item">Para unidades de 6+ miniaturas: cada miniatura debe estar a ≤<span
-                            class="stat-highlight">2"</span> de al menos 2 otras miniaturas</div>
-                    <div class="list-item">Si no se puede mantener coherencia: retirar miniaturas hasta que se pueda
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">5. Embarcar y Desembarcar</div>
-                    <div class="list-item"><span class="stat-highlight">Desembarcar:</span> Antes de mover el
-                        transporte, colocar a ≤<span class="stat-highlight">3"</span> del transporte</div>
-                    <div class="list-item"><span class="stat-highlight">Embarcar:</span> Terminar movimiento a ≤<span
-                            class="stat-highlight">3"</span> del transporte</div>
-                    <div class="list-item">Las unidades que desembarcan NO pueden avanzar ese turno
-                    </div>
+                            Guerra</span> y <span class="stat-highlight">Personajes</span></div>
                     <div class="list-item"
                         style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
-                        <strong RECORDATORIO:</strong> Las unidades que desembarcan SÍ pueden moverse y cargar en la
-                            misma ronda (si el transporte no se movió)
+                        <strong>💡 LÍMITE:</strong> Sin contar los PM iniciales, cada jugador solo puede obtener <span
+                            class="stat-highlight">1 PM adicional por ronda</span> de batalla
                     </div>
-                    <div class="list-item">Verificar capacidad de transporte y restricciones</div>
                 </div>
                 <div class="step">
-                    <div class="step-number">6. Terreno y Obstáculos</div>
-                    <div class="list-item"><span class="stat-highlight">Terreno Difícil:</span> Reducir movimiento a la
-                        mitad</div>
-                    <div class="list-item"><span class="stat-highlight">Terreno Peligroso:</span> Chequeos de peligro al
-                        atravesar</div>
-                    <div class="list-item"><span class="stat-highlight">Muros/Obstáculos:</span> Require movimiento
-                        vertical adicional</div>
-                    <div class="list-item"><span class="stat-highlight">Agua/Vacío:</span> Puede ser intransitable según
-                        reglas de misión</div>
+                    <div class="step-number">2. ACOBARDAMIENTO (Battle-shock)</div>
+                    <div class="list-item">Hacer chequeo por cada unidad propia <span class="stat-highlight">bajo mitad
+                            de efectivos</span></div>
+                    <div class="list-item">Tirar <span class="stat-highlight">2d6</span>: si resultado ≥ <span
+                            class="stat-highlight">Liderazgo</span> de la unidad → Supera</div>
+                    <div class="list-item">Si falla → Unidad <span class="stat-highlight">acobardada</span> hasta tu
+                        siguiente fase de mando</div>
                 </div>
-            </div>
-            <!-- FASE DE DISPARO -->
-            <div class="phase-content" id="shoot">
-                <div class="phase-title shoot-title">FASE DE DISPARO</div>
-                <div class="special-rule"
-                    style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
-                    <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
-                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="#8B1538" stroke-width="2"
-                                fill="none" />
-                            <path d="M9 9l6 6m0-6l-6 6" stroke="#8B1538" stroke-width="2" />
-                        </svg>
-                        ECUACIONES RÁPIDAS
+                <div class="step">
+                    <div class="step-number">Efectos de Acobardamiento</div>
+                    <div class="list-item">Control de Objetivos (CO) = <span class="stat-highlight">0</span> en todas
+                        las miniaturas</div>
+                    <div class="list-item">Si retrocede: hacer <span class="stat-highlight">chequeo de huida
+                            desesperada</span> por cada miniatura</div>
+                    <div class="list-item">NO se pueden usar estratagemas para afectar a esa unidad</div>
+                    <div class="list-item"
+                        style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
+                        <strong>📏 BAJO MITAD DE EFECTIVOS:</strong> Unidades con menos de la mitad de sus miniaturas
+                        iniciales (o <50% heridas para unidades de 1 modelo) </div>
                     </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9em;">
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">1. IMPACTAR</div>
-                            <div><span class="attacker">A <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        style="display: inline-block; vertical-align: middle;">
-                                        <rect x="2" y="2" width="20" height="20" rx="3" fill="white" />
-                                        <circle cx="7" cy="7" r="1" fill="#8B1538" />
-                                        <circle cx="17" cy="17" r="1" fill="#8B1538" />
-                                    </svg></span> ≥ <span class="stat-highlight">HP</span></div>
+                </div>
+                <!-- FASE DE MOVIMIENTO -->
+                <div class="phase-content" id="movement">
+                    <div class="phase-title movement-title">FASE DE MOVIMIENTO</div>
+                    <div class="stratagems">
+                        <span class="strat-title">Estratagemas:</span>
+                        <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                            data-tooltip-trigger="click">
+                            Repetición de Mando
+                        </span>,
+                        <span class="text-link active-players-turn" data-tooltip-content="avance-rápido"
+                            data-tooltip-trigger="click">
+                            Avance Rápido
+                        </span>,
+                        <span class="text-link active-players-turn" data-tooltip-content="reposicionamiento"
+                            data-tooltip-trigger="click">
+                            Reposicionamiento
+                        </span>
+                    </div>
+                    <div class="special-rule"
+                        style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
+                        <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                            TIPOS DE MOVIMIENTO
                         </div>
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">2. HERIR</div>
-                            <div><span class="attacker">F</span> vs <span class="defender">R</span>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                    style="display: inline-block; vertical-align: middle;">
-                                    <rect x="5" y="6" width="18" height="18" stroke="#8B1538" stroke-width="2"
-                                        fill="none"></rect>
-                                    <path d="M5 12h18M6 18h18M11 6v18" stroke="#8B1538" stroke-width="2"></path>
-                                </svg>
-                                → <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                    style="display: inline-block; vertical-align: middle;">
-                                    <rect x="2" y="2" width="20" height="20" rx="3" fill="#2d7a8f" />
-                                    <circle cx="7" cy="7" r="1" fill="white" />
-                                    <circle cx="17" cy="17" r="1" fill="white" />
-                                </svg>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9em;">
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">MOVIMIENTO NORMAL</div>
+                                <div>Hasta <span class="stat-highlight">M"</span> + puede disparar y cargar</div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">AVANZAR</div>
+                                <div><span class="stat-highlight">M" + 1d6"</span> + NO puede disparar ni cargar</div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">CAER ATRÁS</div>
+                                <div>Hasta <span class="stat-highlight">M"</span> + salir de combate + NO disparo</div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">EMBARCAR/DESEMBARCAR</div>
+                                <div>Entrar/salir de <span class="stat-highlight">Transportes</span></div>
                             </div>
                         </div>
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">3. SALVAR</div>
-                            <div><span class="defender"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    </div>
+                    <div class="step">
+                        <div class="step-number">1. Seleccionar Unidad para Mover</div>
+                        <div class="list-item">Elegir una unidad que no se haya movido este turno</div>
+                        <div class="list-item">Las unidades en combate pueden elegir <span class="stat-highlight">Caer
+                                Atrás</span></div>
+                        <div class="list-item">No es obligatorio mover todas las unidades</div>
+                        <div class="list-item">Puedes mover en cualquier orden</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2. Declarar Tipo de Movimiento</div>
+                        <div class="list-item"><span class="stat-highlight">Movimiento Normal:</span> Hasta <span
+                                class="stat-highlight">M"</span>, puede disparar normalmente</div>
+                        <div class="list-item"><span class="stat-highlight">Avanzar:</span> <span
+                                class="stat-highlight">M"
+                                + 1d6"</span>, NO puede disparar (excepto armas <span
+                                class="stat-highlight">Asalto</span>)
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">Caer Atrás:</span> Hasta <span
+                                class="stat-highlight">M"</span>, debe terminar fuera de zona de amenaza, NO puede
+                            disparar
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">Permanecer Estático:</span> No moverse,
+                            bonificación +1 para impactar con armas <span class="stat-highlight">Pesadas</span></div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3. Mover Miniaturas</div>
+                        <div class="list-item">Cada miniatura puede moverse hasta la distancia permitida</div>
+                        <div class="list-item">No pueden atravesar otras miniaturas (amigas o enemigas)</div>
+                        <div class="list-item">Pueden atravesar terreno, aplicando reglas especiales</div>
+                        <div class="list-item">Las miniaturas pueden moverse distancias diferentes dentro de la unidad
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4. Mantener Coherencia de Unidad</div>
+                        <div class="list-item">Cada miniatura debe estar a ≤<span class="stat-highlight">2"</span> de
+                            otra
+                            miniatura de la misma unidad</div>
+                        <div class="list-item">Para unidades de 6+ miniaturas: cada miniatura debe estar a ≤<span
+                                class="stat-highlight">2"</span> de al menos 2 otras miniaturas</div>
+                        <div class="list-item">Si no se puede mantener coherencia: retirar miniaturas hasta que se pueda
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5. Embarcar y Desembarcar</div>
+                        <div class="list-item"><span class="stat-highlight">Desembarcar:</span> Antes de mover el
+                            transporte, colocar a ≤<span class="stat-highlight">3"</span> del transporte</div>
+                        <div class="list-item"><span class="stat-highlight">Embarcar:</span> Terminar movimiento a
+                            ≤<span class="stat-highlight">3"</span> del transporte</div>
+                        <div class="list-item">Las unidades que desembarcan NO pueden avanzar ese turno
+                        </div>
+                        <div
+                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem; list-style: none;">
+                            <strong RECORDATORIO:</strong> Las unidades que desembarcan SÍ pueden moverse y cargar en la
+                                misma ronda (si el transporte no se movió)
+                        </div>
+                        <div class="list-item">Verificar capacidad de transporte y restricciones</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">6. Terreno y Obstáculos</div>
+                        <div class="list-item"><span class="stat-highlight">Terreno Difícil:</span> Reducir movimiento a
+                            la
+                            mitad</div>
+                        <div class="list-item"><span class="stat-highlight">Terreno Peligroso:</span> Chequeos de
+                            peligro al
+                            atravesar</div>
+                        <div class="list-item"><span class="stat-highlight">Muros/Obstáculos:</span> Require movimiento
+                            vertical adicional</div>
+                        <div class="list-item"><span class="stat-highlight">Agua/Vacío:</span> Puede ser intransitable
+                            según
+                            reglas de misión</div>
+                    </div>
+                </div>
+                <!-- FASE DE DISPARO -->
+                <div class="phase-content" id="shoot">
+                    <div class="phase-title shoot-title">FASE DE DISPARO</div>
+                    <div class="special-rule"
+                        style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
+                        <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#8B1538" stroke-width="2"
+                                    fill="none" />
+                                <path d="M9 9l6 6m0-6l-6 6" stroke="#8B1538" stroke-width="2" />
+                            </svg>
+                            FÓRMULAS RÁPIDAS
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9em;">
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">1. IMPACTAR</div>
+                                <div><span class="attacker">A <svg width="14" height="14" viewBox="0 0 24 24"
+                                            fill="none" style="display: inline-block; vertical-align: middle;">
+                                            <rect x="2" y="2" width="20" height="20" rx="3" fill="white" />
+                                            <circle cx="7" cy="7" r="1" fill="#8B1538" />
+                                            <circle cx="17" cy="17" r="1" fill="#8B1538" />
+                                        </svg></span> ≥ <span class="stat-highlight">HP</span></div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">2. HERIR</div>
+                                <div><span class="attacker">F</span> vs <span class="defender">R</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                                         style="display: inline-block; vertical-align: middle;">
-                                        <rect x="2" y="2" width="20" height="20" rx="3" fill="white" />
-                                        <circle cx="7" cy="7" r="1" fill="#2d7a8f" />
-                                        <circle cx="17" cy="17" r="1" fill="#2d7a8f" />
-                                    </svg></span> ≥ <span class="stat-highlight">S</span> - <span class="attacker"><svg
+                                        <rect x="5" y="6" width="18" height="18" stroke="#8B1538" stroke-width="2"
+                                            fill="none"></rect>
+                                        <path d="M5 12h18M6 18h18M11 6v18" stroke="#8B1538" stroke-width="2"></path>
+                                    </svg>
+                                    → <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        style="display: inline-block; vertical-align: middle;">
+                                        <rect x="2" y="2" width="20" height="20" rx="3" fill="#2d7a8f" />
+                                        <circle cx="7" cy="7" r="1" fill="white" />
+                                        <circle cx="17" cy="17" r="1" fill="white" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">3. SALVAR</div>
+                                <div><span class="defender"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            style="display: inline-block; vertical-align: middle;">
+                                            <rect x="2" y="2" width="20" height="20" rx="3" fill="white" />
+                                            <circle cx="7" cy="7" r="1" fill="#2d7a8f" />
+                                            <circle cx="17" cy="17" r="1" fill="#2d7a8f" />
+                                        </svg></span> ≥ <span class="stat-highlight">S</span> - <span
+                                        class="attacker"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            style="display: inline-block; vertical-align: middle;">
+                                            <path d="M6.5 9L12 2l5.5 7H15l-1.5 10h-3L9 9H6.5z" fill="white" />
+                                        </svg>FP</span></div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">4. DAÑO</div>
+                                <div><span class="stat-highlight">H</span> - <span class="attacker">D</span> = <svg
                                         width="14" height="14" viewBox="0 0 24 24" fill="none"
                                         style="display: inline-block; vertical-align: middle;">
-                                        <path d="M6.5 9L12 2l5.5 7H15l-1.5 10h-3L9 9H6.5z" fill="white" />
-                                    </svg>FP</span></div>
-                        </div>
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">4. DAÑO</div>
-                            <div><span class="stat-highlight">H</span> - <span class="attacker">D</span> = <svg
-                                    width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    style="display: inline-block; vertical-align: middle;">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                        fill="#dc2626" />
-                                </svg></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stratagems">
-                    <span class="strat-title">Estratagemas:</span>
-                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
-                        data-tooltip-trigger="click">
-                        Repetición de Mando
-                    </span>,
-                    <span class="text-link active-players-turn" data-tooltip-content="granada"
-                        data-tooltip-trigger="click">
-                        Granada
-                    </span>,
-                    <span class="text-link opponents-turn" data-tooltip-content="pantalla-de-humo"
-                        data-tooltip-trigger="click">
-                        Pantalla de Humo
-                    </span>,
-                    <span class="text-link opponents-turn" data-tooltip-content="pantalla-de-humo"
-                        data-tooltip-trigger="click">
-                        Cuerpo a Tierra
-                    </span>
-                </div>
-                <div class="step">
-                    <div class="step-number">1. Elegir Unidad Atacante</div>
-                    <div class="list-item">La unidad NO debe haber avanzado en el turno</div>
-                    <div class="list-item">La unidad NO debe estar trabada en combate</div>
-                    <div class="list-item">Debe tener línea de visión al objetivo</div>
-                    <div class="list-item"
-                        style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
-                        <strong>⚠️ EXCEPCIÓN:</strong> Las unidades trabadas en combate SÍ pueden disparar con armas
-                        <span class="stat-highlight">PISTOLA</span>, pero deben atacar a unidades enemigas en la zona de
-                        amenaza
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2. Seleccionar Objetivos y Armas</div>
-                    <div class="list-item">Elegir unidades enemigas dentro del alcance</div>
-                    <div class="list-item">Para cada arma o perfil de disparo:</div>
-                    <div class="list-item">El <span class="attacker">atacante</span> tira <span
-                            class="stat-highlight">A</span> dados (Ataques) usando <span
-                            class="stat-highlight">HP</span> (Habilidad de Proyectiles)</div>
-                    <div class="list-item">Impactan los resultados ≥ <span class="stat-highlight">HP</span></div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3. Tirada para Herir</div>
-                    <div class="list-item">Tirar <span class="stat-highlight">1d6</span> por cada impacto realizado
-                    </div>
-                    <div class="list-item">Comparar <span class="attacker">Fuerza (F)</span> del arma vs <span
-                            class="defender">Resistencia (R)</span> del objetivo:</div>
-                    <table class="wound-table">
-                        <thead>
-                            <tr>
-                                <th>F vs R</th>
-                                <th>Necesita</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="F vs R">F ≥ 2×R</td>
-                                <td data-label="Necesita" class="result">2+</td>
-                            </tr>
-                            <tr>
-                                <td data-label="F vs R">F &gt; R</td>
-                                <td data-label="Necesita" class="result">3+</td>
-                            </tr>
-                            <tr>
-                                <td data-label="F vs R">F = R</td>
-                                <td data-label="Necesita" class="result">4+</td>
-                            </tr>
-                            <tr>
-                                <td data-label="F vs R">F &lt; R</td>
-                                <td data-label="Necesita" class="result">5+</td>
-                            </tr>
-                            <tr>
-                                <td data-label="F vs R">F ≤ ½R</td>
-                                <td data-label="Necesita" class="result">6+</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="step">
-                    <div class="step-number">4. Tiradas de Salvación</div>
-                    <div class="list-item">El <span class="defender">defensor</span> tira <span
-                            class="stat-highlight">1d6</span> por cada herida sufrida</div>
-                    <div class="list-item">Comparar resultado contra <span class="stat-highlight">Salvación (S)</span>
-                        de la unidad</div>
-                    <div class="list-item">Aplicar <span class="attacker">Factor de penetración (FP)</span> → resta al
-                        dado de salvación</div>
-                    <div class="list-item">Las <span class="defender">Salvaciones Invulnerables <i
-                                class="fa-solid fa-shield"></i></span> NO se modifican
-                        por <span class="attacker">FP</span></div>
-                    <div class="list-item">Fallo de salvación = la miniatura sufre daño</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">5. Aplicar Daño</div>
-                    <div class="list-item">Restar <span class="stat-highlight">Daño (D)</span> del arma a las <span
-                            class="stat-highlight">Heridas (H)</span> de la miniatura</div>
-                    <div class="list-item">Si las Heridas llegan a 0 → Retirar la miniatura</div>
-                    <div class="list-item">Los daños sobrantes se pierden (no se transfieren)</div>
-                </div>
-            </div>
-            <!-- FASE DE CARGA -->
-            <div class="phase-content" id="charge">
-                <div class="phase-title charge-title">FASE DE CARGA</div>
-                <div class="stratagems">
-                    <span class="strat-title">Estratagemas:</span>
-                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
-                        data-tooltip-trigger="click">
-                        Repetición de Mando
-                    </span>,
-                    <span class="text-link active-players-turn" data-tooltip-content="brutalidad-acorazada"
-                        data-tooltip-trigger="click">
-                        brutalidad Acorazada
-                    </span>,
-                    <span class="text-link opponents-turn" data-tooltip-content="disparos-preventivos"
-                        data-tooltip-trigger="click">
-                        Disparos Preventivos
-                    </span>,
-                    <span class="text-link opponents-turn" data-tooltip-content="intervención-heroica"
-                        data-tooltip-trigger="click">
-                        Intervención Heroica
-                    </span>
-                </div>
-                <div class="step">
-                    <div class="step-number">1. Declarar Intención de Carga</div>
-                    <div class="list-item">Elegir unidad que va a cargar</div>
-                    <div class="list-item">Puede cargar cualquier unidad enemiga a ≤12" y visible</div>
-                    <div class="list-item">Declarar TODOS los objetivos de la carga</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2. Tirada de Distancia de Carga</div>
-                    <div class="list-item">Tirar <span class="stat-highlight">2d6</span> para determinar distancia de
-                        carga</div>
-                    <div class="list-item">Si resultado ≥ distancia al objetivo más cercano → Carga exitosa</div>
-                    <div class="list-item">Si es menor → Carga fallida, unidad no se mueve</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3. Movimiento de Carga</div>
-                    <div class="list-item">Mover miniaturas en línea recta hacia el enemigo</div>
-                    <div class="list-item">Debe terminar en contacto base a base O dentro de coherencia de unidad</div>
-                    <div class="list-item">No puede moverse más que la distancia tirada</div>
-                </div>
-                <div class="overwatch">
-                    <div class="step-number">Disparos preventivos (Overwatch)</div>
-                    <div class="list-item">El <span class="defender">enemigo</span> puede declarar Overwatch antes o
-                        despues del movimiento o carga</div>
-                    <div class="list-item">Se usa SOLO UNA VEZ por ronda de combate</div>
-                    <div class="list-item">Funciona como disparo normal PERO solo impacta con <span
-                            class="stat-highlight">6+ natural</span></div>
-                    <div class="list-item">Si causa bajas, la unidad enemiga debe realizar un chequeo de moral al final
-                        de la fase</div>
-                    <div class="list-item"
-                        style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
-                        <strong> RECORDATORIO:</strong> Overwatch se declara DESPUÉS de que se declare la carga pero
-                        ANTES de tirar la distancia
-                    </div>
-                </div>
-            </div>
-            <!-- FASE DE COMBATE -->
-            <div class="phase-content" id="fight">
-                <div class="phase-title fight-title">FASE DE COMBATE CUERPO A CUERPO</div>
-                <div class="special-rule"
-                    style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
-                    <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
-                            <path d="M6.5 9L12 2l5.5 7H15l-1.5 10h-3L9 9H6.5z" fill="#8B1538" />
-                            <path d="M17.5 15L12 22l-5.5-7H9l1.5-10h3L15 15h2.5z" fill="#8B1538" />
-                        </svg>
-                        ECUACIONES RÁPIDAS
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9em;">
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">1. IMPACTAR</div>
-                            <div><span class="attacker">A <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        style="display: inline-block; vertical-align: middle;">
-                                        <rect x="2" y="2" width="20" height="20" rx="3" fill="white" />
-                                        <circle cx="7" cy="7" r="1" fill="#8B1538" />
-                                        <circle cx="17" cy="17" r="1" fill="#8B1538" />
-                                    </svg></span> ≥ <span class="stat-highlight">HA</span></div>
-                        </div>
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">2. HERIR</div>
-                            <div><span class="attacker">F</span> vs <span class="defender">R</span>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                    style="display: inline-block; vertical-align: middle;">
-                                    <rect x="5" y="6" width="18" height="18" stroke="#8B1538" stroke-width="2"
-                                        fill="none"></rect>
-                                    <path d="M5 12h18M6 18h18M11 6v18" stroke="#8B1538" stroke-width="2"></path>
-                                </svg>
-                                → <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                    style="display: inline-block; vertical-align: middle;">
-                                    <rect x="2" y="2" width="20" height="20" rx="3" fill="#2d7a8f" />
-                                    <circle cx="7" cy="7" r="1" fill="white" />
-                                    <circle cx="17" cy="17" r="1" fill="white" />
-                                </svg>
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                            fill="#dc2626" />
+                                    </svg></div>
                             </div>
                         </div>
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">3. SALVAR</div>
-                            <div><span class="defender"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    </div>
+                    <div class="stratagems">
+                        <span class="strat-title">Estratagemas:</span>
+                        <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                            data-tooltip-trigger="click">
+                            Repetición de Mando
+                        </span>,
+                        <span class="text-link active-players-turn" data-tooltip-content="granada"
+                            data-tooltip-trigger="click">
+                            Granada
+                        </span>,
+                        <span class="text-link opponents-turn" data-tooltip-content="pantalla-de-humo"
+                            data-tooltip-trigger="click">
+                            Pantalla de Humo
+                        </span>,
+                        <span class="text-link opponents-turn" data-tooltip-content="pantalla-de-humo"
+                            data-tooltip-trigger="click">
+                            Cuerpo a Tierra
+                        </span>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">1. Elegir Unidad Atacante</div>
+                        <div class="list-item">La unidad NO debe haber avanzado en el turno</div>
+                        <div class="list-item">La unidad NO debe estar trabada en combate</div>
+                        <div class="list-item">Debe tener línea de visión al objetivo</div>
+                        <div
+                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
+                            <strong>⚠️ EXCEPCIÓN:</strong> Las unidades trabadas en combate SÍ pueden disparar con armas
+                            <span class="stat-highlight">PISTOLA</span>, pero deben atacar a unidades enemigas en la
+                            zona de
+                            amenaza
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2. Seleccionar Objetivos y Armas</div>
+                        <div class="list-item">Elegir unidades enemigas dentro del alcance</div>
+                        <div class="list-item">Para cada arma o perfil de disparo:</div>
+                        <div class="list-item">El <span class="attacker">atacante</span> tira <span
+                                class="stat-highlight">A</span> dados (Ataques) usando <span
+                                class="stat-highlight">HP</span> (Habilidad de Proyectiles)</div>
+                        <div class="list-item">Impactan los resultados ≥ <span class="stat-highlight">HP</span></div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3. Tirada para Herir</div>
+                        <div class="list-item">Tirar <span class="stat-highlight">1d6</span> por cada impacto realizado
+                        </div>
+                        <div class="list-item">Comparar <span class="attacker">Fuerza (F)</span> del arma vs <span
+                                class="defender">Resistencia (R)</span> del objetivo:</div>
+                        <table class="wound-table">
+                            <thead>
+                                <tr>
+                                    <th>F vs R</th>
+                                    <th>Necesita</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="F vs R">F ≥ 2×R</td>
+                                    <td data-label="Necesita" class="result">2+</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="F vs R">F &gt; R</td>
+                                    <td data-label="Necesita" class="result">3+</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="F vs R">F = R</td>
+                                    <td data-label="Necesita" class="result">4+</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="F vs R">F &lt; R</td>
+                                    <td data-label="Necesita" class="result">5+</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="F vs R">F ≤ ½R</td>
+                                    <td data-label="Necesita" class="result">6+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4. Tiradas de Salvación</div>
+                        <div class="list-item">El <span class="defender">defensor</span> tira <span
+                                class="stat-highlight">1d6</span> por cada herida sufrida</div>
+                        <div class="list-item">Comparar resultado contra <span class="stat-highlight">Salvación
+                                (S)</span>
+                            de la unidad</div>
+                        <div class="list-item">Aplicar <span class="attacker">Factor de penetración (FP)</span> → resta
+                            al
+                            dado de salvación</div>
+                        <div class="list-item">Las <span class="defender">Salvaciones Invulnerables <i
+                                    class="fa-solid fa-shield"></i></span> NO se modifican
+                            por <span class="attacker">FP</span></div>
+                        <div class="list-item">Fallo de salvación = la miniatura sufre daño</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5. Aplicar Daño</div>
+                        <div class="list-item">Restar <span class="stat-highlight">Daño (D)</span> del arma a las <span
+                                class="stat-highlight">Heridas (H)</span> de la miniatura</div>
+                        <div class="list-item">Si las Heridas llegan a 0 → Retirar la miniatura</div>
+                        <div class="list-item">Los daños sobrantes se pierden (no se transfieren)</div>
+                    </div>
+                </div>
+                <!-- FASE DE CARGA -->
+                <div class="phase-content" id="charge">
+                    <div class="phase-title charge-title">FASE DE CARGA</div>
+                    <div class="stratagems">
+                        <span class="strat-title">Estratagemas:</span>
+                        <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                            data-tooltip-trigger="click">
+                            Repetición de Mando
+                        </span>,
+                        <span class="text-link active-players-turn" data-tooltip-content="brutalidad-acorazada"
+                            data-tooltip-trigger="click">
+                            brutalidad Acorazada
+                        </span>,
+                        <span class="text-link opponents-turn" data-tooltip-content="disparos-preventivos"
+                            data-tooltip-trigger="click">
+                            Disparos Preventivos
+                        </span>,
+                        <span class="text-link opponents-turn" data-tooltip-content="intervención-heroica"
+                            data-tooltip-trigger="click">
+                            Intervención Heroica
+                        </span>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">1. Declarar Intención de Carga</div>
+                        <div class="list-item">Elegir unidad que va a cargar</div>
+                        <div class="list-item">Puede cargar cualquier unidad enemiga a ≤12" y visible</div>
+                        <div class="list-item">Declarar TODOS los objetivos de la carga</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2. Tirada de Distancia de Carga</div>
+                        <div class="list-item">Tirar <span class="stat-highlight">2d6</span> para determinar distancia
+                            de
+                            carga</div>
+                        <div class="list-item">Si resultado ≥ distancia al objetivo más cercano → Carga exitosa</div>
+                        <div class="list-item">Si es menor → Carga fallida, unidad no se mueve</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3. Movimiento de Carga</div>
+                        <div class="list-item">Mover miniaturas en línea recta hacia el enemigo</div>
+                        <div class="list-item">Debe terminar en contacto base a base O dentro de coherencia de unidad
+                        </div>
+                        <div class="list-item">No puede moverse más que la distancia tirada</div>
+                    </div>
+                    <div class="overwatch">
+                        <div class="step-number">Disparos preventivos (Overwatch)</div>
+                        <div class="list-item">El <span class="defender">enemigo</span> puede declarar Overwatch antes o
+                            despues del movimiento o carga</div>
+                        <div class="list-item">Se usa SOLO UNA VEZ por ronda de combate</div>
+                        <div class="list-item">Funciona como disparo normal PERO solo impacta con <span
+                                class="stat-highlight">6+ natural</span></div>
+                        <div class="list-item">Si causa bajas, la unidad enemiga debe realizar un chequeo de moral al
+                            final
+                            de la fase</div>
+                        <div
+                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
+                            <strong> RECORDATORIO:</strong> Overwatch se declara DESPUÉS de que se declare la carga pero
+                            ANTES de tirar la distancia
+                        </div>
+                    </div>
+                </div>
+                <!-- FASE DE COMBATE -->
+                <div class="phase-content" id="fight">
+                    <div class="phase-title fight-title">FASE DE COMBATE CUERPO A CUERPO</div>
+                    <div class="special-rule"
+                        style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
+                        <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
+                                <path d="M6.5 9L12 2l5.5 7H15l-1.5 10h-3L9 9H6.5z" fill="#8B1538" />
+                                <path d="M17.5 15L12 22l-5.5-7H9l1.5-10h3L15 15h2.5z" fill="#8B1538" />
+                            </svg>
+                            FÓRMULAS RÁPIDAS
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9em;">
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">1. IMPACTAR</div>
+                                <div><span class="attacker">A <svg width="14" height="14" viewBox="0 0 24 24"
+                                            fill="none" style="display: inline-block; vertical-align: middle;">
+                                            <rect x="2" y="2" width="20" height="20" rx="3" fill="white" />
+                                            <circle cx="7" cy="7" r="1" fill="#8B1538" />
+                                            <circle cx="17" cy="17" r="1" fill="#8B1538" />
+                                        </svg></span> ≥ <span class="stat-highlight">HA</span></div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">2. HERIR</div>
+                                <div><span class="attacker">F</span> vs <span class="defender">R</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                                         style="display: inline-block; vertical-align: middle;">
-                                        <rect x="2" y="2" width="20" height="20" rx="3" fill="white" />
-                                        <circle cx="7" cy="7" r="1" fill="#2d7a8f" />
-                                        <circle cx="17" cy="17" r="1" fill="#2d7a8f" />
-                                    </svg></span> ≥ <span class="stat-highlight">S</span> - <span class="attacker"><svg
+                                        <rect x="5" y="6" width="18" height="18" stroke="#8B1538" stroke-width="2"
+                                            fill="none"></rect>
+                                        <path d="M5 12h18M6 18h18M11 6v18" stroke="#8B1538" stroke-width="2"></path>
+                                    </svg>
+                                    → <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        style="display: inline-block; vertical-align: middle;">
+                                        <rect x="2" y="2" width="20" height="20" rx="3" fill="#2d7a8f" />
+                                        <circle cx="7" cy="7" r="1" fill="white" />
+                                        <circle cx="17" cy="17" r="1" fill="white" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">3. SALVAR</div>
+                                <div><span class="defender"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            style="display: inline-block; vertical-align: middle;">
+                                            <rect x="2" y="2" width="20" height="20" rx="3" fill="white" />
+                                            <circle cx="7" cy="7" r="1" fill="#2d7a8f" />
+                                            <circle cx="17" cy="17" r="1" fill="#2d7a8f" />
+                                        </svg></span> ≥ <span class="stat-highlight">S</span> - <span
+                                        class="attacker"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            style="display: inline-block; vertical-align: middle;">
+                                            <path d="M6.5 9L12 2l5.5 7H15l-1.5 10h-3L9 9H6.5z" fill="white" />
+                                        </svg>FP</span></div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">4. DAÑO</div>
+                                <div><span class="stat-highlight">H</span> - <span class="attacker">D</span> = <svg
                                         width="14" height="14" viewBox="0 0 24 24" fill="none"
                                         style="display: inline-block; vertical-align: middle;">
-                                        <path d="M6.5 9L12 2l5.5 7H15l-1.5 10h-3L9 9H6.5z" fill="white" />
-                                    </svg>FP</span></div>
-                        </div>
-                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">4. DAÑO</div>
-                            <div><span class="stat-highlight">H</span> - <span class="attacker">D</span> = <svg
-                                    width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    style="display: inline-block; vertical-align: middle;">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                        fill="#dc2626" />
-                                </svg></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stratagems">
-                    <span class="strat-title">Estratagemas:</span>
-                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
-                        data-tooltip-trigger="click">
-                        Repetición de Mando
-                    </span>,
-                    <span class="text-link either-players-turn" data-tooltip-content="contraofensiva"
-                        data-tooltip-trigger="click">
-                        Contraofensiva
-                    </span>,
-                    <span class="text-link either-players-turn" data-tooltip-content="desafío-épico"
-                        data-tooltip-trigger="click">
-                        Desafío Épico
-                    </span>
-                </div>
-
-                <!-- FIGHTS FIRST PRIORITY DIAGRAM -->
-                <div class="special-rule"
-                    style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
-                    <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
-                            <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"
-                                fill="#8B1538" />
-                        </svg>
-                        PRIORIDAD DE COMBATE - DIAGRAMA
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem; font-size: 0.9em;">
-                        <!-- PRIORITY 1 -->
-                        <div
-                            style="display: flex; align-items: center; padding: 0.75rem; background: #d4edda; border: 2px solid #28a745; border-radius: 0.5rem; margin-bottom: 0.5rem;">
-                            <div
-                                style="background: #28a745; color: white; border-radius: 50%; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">
-                                1</div>
-                            <div>
-                                <div style="font-weight: 600; color: #155724;">COMBATE PRIMERO</div>
-                                <div style="color: #155724; font-size: 0.85em;">Unidades que cargaron este turno +
-                                    reglas especiales</div>
-                            </div>
-                        </div>
-                        <!-- PRIORITY 2 -->
-                        <div
-                            style="display: flex; align-items: center; padding: 0.75rem; background: #f8f9fa; border: 2px solid #6c757d; border-radius: 0.5rem;">
-                            <div
-                                style="background: #6c757d; color: white; border-radius: 50%; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">
-                                2</div>
-                            <div>
-                                <div style="font-weight: 600; color: #495057;">COMBATE NORMAL</div>
-                                <div style="color: #495057; font-size: 0.85em;">Todas las demás unidades trabadas en
-                                    combate</div>
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                            fill="#dc2626" />
+                                    </svg></div>
                             </div>
                         </div>
                     </div>
-                    <div
-                        style="margin-top: 1rem; padding: 0.75rem; background: #fff3cd; border-radius: 0.5rem; border: 1px solid #ffc107;">
-                        <div style="font-weight: 600; color: #856404; margin-bottom: 0.5rem;">📋 ORDEN DE ACTIVACIÓN:
+                    <div class="stratagems">
+                        <span class="strat-title">Estratagemas:</span>
+                        <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                            data-tooltip-trigger="click">
+                            Repetición de Mando
+                        </span>,
+                        <span class="text-link either-players-turn" data-tooltip-content="contraofensiva"
+                            data-tooltip-trigger="click">
+                            Contraofensiva
+                        </span>,
+                        <span class="text-link either-players-turn" data-tooltip-content="desafío-épico"
+                            data-tooltip-trigger="click">
+                            Desafío Épico
+                        </span>
+                    </div>
+
+                    <!-- FIGHTS FIRST PRIORITY DIAGRAM -->
+                    <div class="special-rule"
+                        style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
+                        <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
+                                <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"
+                                    fill="#8B1538" />
+                            </svg>
+                            PRIORIDAD DE COMBATE - DIAGRAMA
                         </div>
-                        <div style="color: #856404; font-size: 0.9em; line-height: 1.4;">
-                            <strong>1.</strong> Jugador SIN turno activo activa primera unidad "Combate primero"<br>
-                            <strong>2.</strong> Jugador CON turno activo activa una unidad "Combate primero"<br>
-                            <strong>3.</strong> Alternan hasta que no queden unidades "Combate primero"<br>
-                            <strong>4.</strong> Continúan alternando con unidades "Combate normal"
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem; font-size: 0.9em;">
+                            <!-- PRIORITY 1 -->
+                            <div
+                                style="display: flex; align-items: center; padding: 0.75rem; background: #d4edda; border: 2px solid #28a745; border-radius: 0.5rem; margin-bottom: 0.5rem;">
+                                <div
+                                    style="background: #28a745; color: white; border-radius: 50%; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">
+                                    1</div>
+                                <div>
+                                    <div style="font-weight: 600; color: #155724;">COMBATE PRIMERO</div>
+                                    <div style="color: #155724; font-size: 0.85em;">Unidades que cargaron este turno +
+                                        reglas especiales</div>
+                                </div>
+                            </div>
+                            <!-- PRIORITY 2 -->
+                            <div
+                                style="display: flex; align-items: center; padding: 0.75rem; background: #f8f9fa; border: 2px solid #6c757d; border-radius: 0.5rem;">
+                                <div
+                                    style="background: #6c757d; color: white; border-radius: 50%; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">
+                                    2</div>
+                                <div>
+                                    <div style="font-weight: 600; color: #495057;">COMBATE NORMAL</div>
+                                    <div style="color: #495057; font-size: 0.85em;">Todas las demás unidades trabadas en
+                                        combate</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            style="margin-top: 1rem; padding: 0.75rem; background: #fff3cd; border-radius: 0.5rem; border: 1px solid #ffc107;">
+                            <div style="font-weight: 600; color: #856404; margin-bottom: 0.5rem;">📋 ORDEN DE
+                                ACTIVACIÓN:
+                            </div>
+                            <div style="color: #856404; font-size: 0.9em; line-height: 1.4;">
+                                <strong>1.</strong> Jugador SIN turno activo activa primera unidad "Combate primero"<br>
+                                <strong>2.</strong> Jugador CON turno activo activa una unidad "Combate primero"<br>
+                                <strong>3.</strong> Alternan hasta que no queden unidades "Combate primero"<br>
+                                <strong>4.</strong> Continúan alternando con unidades "Combate normal"
+                            </div>
                         </div>
                     </div>
+                    <div class="step">
+                        <div class="step-number">1. Alternancia de Activación</div>
+                        <div class="list-item">Comienza el jugador que NO tiene el turno activo</div>
+                        <div class="list-item">Los jugadores activan unidades una a una, alternando</div>
+                        <div class="list-item"> - las unidades con la habilidad <span class="stat-highlight">Combate
+                                primero</span> (por regla especial o por haber cargado) luchan antes de las que no la
+                            tienen</div>
+                        <div class="list-item">Solo pueden activarse unidades en combate</div>
+                        <div class="list-item">Ambos jugadores atacan en esta fase, incluso si no es su turno</div>
+                        <div
+                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
+                            <strong> RECORDATORIO:</strong> Las unidades que cargaron este turno tienen "Combate
+                            primero"
+                            automáticamente
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2. Consolidación Inicial</div>
+                        <div class="list-item">Al activar, puedes consolidar hasta <span
+                                class="stat-highlight">3"</span>
+                            hacia el enemigo más cercano</div>
+                        <div class="list-item">Debe terminar más cerca del enemigo o a la misma distancia</div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3. Realizar Ataques</div>
+                        <div class="list-item">Elegir perfil de arma cuerpo a cuerpo para cada miniatura</div>
+                        <div class="list-item">El <span class="attacker">atacante</span> tira <span
+                                class="stat-highlight">A</span> dados usando <span class="stat-highlight">HA</span>
+                            (Habilidad de Armas)</div>
+                        <div class="list-item">Impactan los resultados ≥ <span class="stat-highlight">HA</span></div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4. Herir y Salvar</div>
+                        <div class="list-item">Para cada impacto: tirar para herir igual que en disparo (<span
+                                class="attacker">F</span> vs <span class="defender">R</span>)</div>
+                        <div class="list-item">El <span class="defender">oponente</span> hace tiradas de Salvación o
+                            Invulnerable <i class="fa-solid fa-shield"></i></div>
+                        <div class="list-item">Aplicar <span class="attacker">FP</span> del arma cuerpo a cuerpo</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5. Aplicar Daño y Bajas</div>
+                        <div class="list-item">Restar <span class="stat-highlight">Daño (D)</span> de las <span
+                                class="stat-highlight">Heridas (H)</span></div>
+                        <div class="list-item">Heridas = 0 → Miniatura eliminada</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">6. Consolidación Final</div>
+                        <div class="list-item">Mover hasta <span class="stat-highlight">3"</span> hacia el enemigo más
+                            cercano</div>
+                        <div class="list-item">Si no hay enemigos a ≤1", la unidad sale del combate</div>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">1. Alternancia de Activación</div>
-                    <div class="list-item">Comienza el jugador que NO tiene el turno activo</div>
-                    <div class="list-item">Los jugadores activan unidades una a una, alternando</div>
-                    <div class="list-item"> - las unidades con la habilidad <span class="stat-highlight">Combate
-                            primero</span> (por regla especial o por haber cargado) luchan antes de las que no la
-                        tienen</div>
-                    <div class="list-item">Solo pueden activarse unidades en combate</div>
-                    <div class="list-item">Ambos jugadores atacan en esta fase, incluso si no es su turno</div>
-                    <div class="list-item"
-                        style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
-                        <strong> RECORDATORIO:</strong> Las unidades que cargaron este turno tienen "Combate primero"
-                        automáticamente
+                <!-- REGLAS ESPECIALES -->
+                <div class="phase-content" id="morale">
+                    <div class="phase-title" style="color: #a01f3d;">FASE DE MORAL</div>
+                    <div class="stratagems">
+                        <span class="strat-title">Estratagemas:</span>
+                        <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                            data-tooltip-trigger="click">
+                            Repetición de Mando
+                        </span>,
+                        <span class="text-link either-players-turn" data-tooltip-content="valor-insensato"
+                            data-tooltip-trigger="click">
+                            Valor Insensato
+                        </span>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">Cuándo Ocurre</div>
+                        <div class="list-item">Ocurre al final de la ronda (turno de ambos jugadores)</div>
+                        <div class="list-item">Solo afecta a unidades que han sufrido pérdidas en esta ronda</div>
+                        <div class="list-item">Comienza con el jugador defensor (quien NO atacó)</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">Procedimiento de Chequeo de Moral</div>
+                        <div class="list-item">Para cada unidad amiga que sufrió bajas esta ronda:</div>
+                        <div class="list-item-item">Cuenta el número de miniaturas perdidas</div>
+                        <div class="list-item-item">Tira un dado</div>
+                        <div class="list-item-item">Si el resultado ≤ número de miniaturas perdidas: Falla el chequeo
+                        </div>
+                        <div class="list-item-item">Si el resultado > número de miniaturas perdidas: Supera el chequeo
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">Efectos de Fallar el Chequeo</div>
+                        <div class="list-item"><span class="stat-highlight">1 Miniatura Adicional Retirada:</span> Por
+                            cada
+                            punto que falles el chequeo, retira <span class="stat-highlight">1 miniatura extra</span> de
+                            esa
+                            unidad</div>
+                        <div class="list-item">La unidad selecciona qué miniaturas se retiran</div>
+                        <div class="list-item">No puede retirarse más miniaturas de las que quedan en la unidad</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">Modificadores al Chequeo de Moral</div>
+                        <div class="list-item"><span class="stat-highlight">Liderazgo (Ld):</span> La característica de
+                            liderazgo de la unidad NO modifica el chequeo</div>
+                        <div class="list-item"><span class="stat-highlight">Nearby Characters:</span> Si hay un
+                            personaje a
+                            ≤6": <span class="stat-highlight">+1 al dado</span></div>
+                        <div class="list-item"><span class="stat-highlight">Abanderado/Estandarte:</span> Algunas
+                            unidades
+                            especiales proporcionan modificadores</div>
+                        <div class="list-item"><span class="stat-highlight">Reglas Especiales:</span> Ciertas
+                            habilidades
+                            pueden mejorar el chequeo</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">Unidades Especiales que Ignoran Moral</div>
+                        <div class="list-item"><span class="stat-highlight">Automatones/Sin Alma:</span> NO hacen
+                            chequeos
+                            de moral</div>
+                        <div class="list-item"><span class="stat-highlight">Personajes Invulnerables:</span> Algunos
+                            pueden
+                            ignorar estos efectos</div>
+                        <div class="list-item">Verifica la regla especial de tu unidad en tu libro de ejército</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">Casos Especiales</div>
+                        <div class="list-item">Si una unidad se desintegra completamente, no hace chequeo</div>
+                        <div class="list-item">Las unidades acobardadas NO tienen que hacer chequeos de moral</div>
+                        <div class="list-item">Algunos efectos pueden hacer re-rolls en chequeos de moral</div>
+                    </div>
+                </div>
+                <!-- REGLAS ESPECIALES -->
+                <div class="phase-content" id="rules">
+                    <div class="phase-title rules-title">REGLAS ESPECIALES Y ATAJOS</div>
+                    <div class="special-rule">
+                        <div class="special-rule-title">Características de Combate - Referencia Rápida</div>
+                        <table class="wound-table">
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>Símbolo/Abr.</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Característica">Movimiento</td>
+                                    <td data-label="Símbolo"><span class="stat-highlight">M</span></td>
+                                    <td data-label="Descripción">Distancia en pulgadas que puede moverse</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Característica">Habilidad de Proyectiles</td>
+                                    <td data-label="Símbolo"><span class="stat-highlight">HP</span></td>
+                                    <td data-label="Descripción">Tirada para impactar en disparo (2d6 vs HP)</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Característica">Habilidad de Armas</td>
+                                    <td data-label="Símbolo"><span class="stat-highlight">HA</span></td>
+                                    <td data-label="Descripción">Tirada para impactar en combate cuerpo a cuerpo</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Característica">Fuerza</td>
+                                    <td data-label="Símbolo"><span class="attacker">F</span></td>
+                                    <td data-label="Descripción">Capacidad ofensiva vs Resistencia</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Característica">Resistencia</td>
+                                    <td data-label="Símbolo"><span class="defender">R</span></td>
+                                    <td data-label="Descripción">Resistencia física vs Fuerza</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Característica">Heridas</td>
+                                    <td data-label="Símbolo"><span class="stat-highlight">H</span></td>
+                                    <td data-label="Descripción">Puntos de vida totales</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Característica">Salvación</td>
+                                    <td data-label="Símbolo"><span class="stat-highlight">S</span></td>
+                                    <td data-label="Descripción">Tirada de armadura (2d6 vs S, modificada por FP)</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Característica">Invulnerable</td>
+                                    <td data-label="Símbolo"><i class="fa-solid fa-shield"></i></td>
+                                    <td data-label="Descripción">Salvación especial, NO modificable</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Característica">Liderazgo</td>
+                                    <td data-label="Símbolo"><span class="stat-highlight">Ld</span></td>
+                                    <td data-label="Descripción">Usado solo para chequeos especiales</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="special-rule">
+                        <div class="special-rule-title">Tipos de Unidades</div>
+                        <div class="list-item"><span class="stat-highlight">Infantería:</span> Unidades de soldados a
+                            pie,
+                            sujeto a reglas normales de movimiento</div>
+                        <div class="list-item"><span class="stat-highlight">Vehículo:</span> Transporte blindado con
+                            restricciones de giro y movimiento especiales</div>
+                        <div class="list-item"><span class="stat-highlight">Monstruo:</span> Criatura/unidad grande,
+                            solo 1
+                            miniatura por unidad</div>
+                        <div class="list-item"><span class="stat-highlight">Personaje:</span> Unidad individual o
+                            pequeño
+                            grupo con habilidades especiales</div>
+                        <div class="list-item"><span class="stat-highlight">Gran Arma:</span> Unidad estacionaria con
+                            armas
+                            poderosas</div>
+                    </div>
+                    <div class="special-rule">
+                        <div class="special-rule-title">Tipos de Salvación</div>
+                        <div class="list-item"><span class="stat-highlight">Salvación Normal (Armor Save):</span>
+                            Modificada
+                            (reducida) por
+                            <span class="attacker">Factor de Penetración (FP)</span> del atacante
+                        </div>
+                        <div class="list-item-item">suma(restaran porque FP es negatibo) los puntos de FP, al dado
+                            (haciendo
+                            más difícil salvar)</div>
+                        <div class="list-item"><span class="stat-highlight">Salvación Invulnerable <i
+                                    class="fa-solid fa-shield"></i> :</span> NUNCA modificada
+                            por FP</div>
+                        <div class="list-item-item">Se tira en lugar de la salvación normal como alternativa</div>
+                        <div class="list-item-item">Si tienes ambas, usas la que sea mejor para ti</div>
+                        <div class="list-item"><span class="stat-highlight">Feel No Pain (FNP):</span> Tirada adicional
+                            después de fallar salvación</div>
+                        <div class="list-item-item">Se hace después de perder salvación pero antes de aplicar daño</div>
+                        <div class="list-item-item">Solo evita una cantidad limitada de daño (usualmente 1 herida)</div>
+                        <div class="list-item"><span class="stat-highlight">Salvación de Cobertura:</span> +1 a la
+                            tirada si
+                            está en cobertura</div>
+                        <div class="list-item-item">Se aplica ANTES de aplicar FP del atacante</div>
+                        <div
+                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
+                            <strong>💡 RECORDATORIO:</strong> Solo se benefician de cobertura si >50% de los modelos
+                            están
+                            oscurecidos desde el atacante
+                        </div>
+                    </div>
+                    <div class="special-rule">
+                        <div class="special-rule-title">Heridas Mortales (Mortal Wounds)</div>
+                        <div class="list-item">Se asignan directamente, SIN tirada de salvación normal</div>
+                        <div class="list-item">NO se pueden evitar con salvaciones normales, solo con especiales</div>
+                        <div class="list-item">Pueden ser evitadas por habilidades específicas o salvaciones
+                            invulnerables
+                        </div>
+                        <div class="list-item">Se aplican una por una, no todas a la vez</div>
+                        <div class="list-item">Cuentan completamente hacia la remoción de miniaturas</div>
+                        <div class="list-item">Algunos efectos pueden causar heridas mortales automáticas en críticos
+                        </div>
+                    </div>
+                    <div class="special-rule">
+                        <div class="special-rule-title">Habilidades Especiales de Armas</div>
+
+                        <div class="list-item"><span class="stat-highlight">ANTI+CLAVE X+</span>:
+                            Una tirada para herir sin modificar de “x+” contra un blanco con la <span
+                                class="defender">clave</span>
+                            correspondiente causa una herida crítica.</div>
+                        <div class="list-item"><span class="stat-highlight">ASALTO</span>:
+                            Aunque la unidad del portador haya avanzado, puede disparar.</div>
+                        <div class="list-item"><span class="stat-highlight">ÁREA</span>:
+                            <div class="list-item-item">Suma 1 al atributo Ataques por cada cinco miniaturas de la
+                                unidad
+                                blanco
+                                (redondea a la
+                                baja).
+                            </div>
+                            <div class="list-item-item">No puede usarse contra un blanco en la zona de amenaza de alguna
+                                unidad
+                                del ejército de la miniatura atacante (incluida la unidad propia).</div>
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">HERIDAS DEVASTADORAS</span>:
+                            Una herida crítica inflige tantas heridas mortales como el atributo Daño del arma, en vez
+                            del
+                            daño normal.</div>
+                        <div class="list-item"><span class="stat-highlight">PESADA</span>:
+                            Suma 1 a las tiradas para impactar si la unidad del portador ha permanecido estacionaria
+                            este
+                            turno.</div>
+                        <div class="list-item"><span class="stat-highlight">IGNORA COBERTURA</span>:
+                            Al atacar con un arma de este tipo, el blanco no se beneficia de cobertura ante ese ataque.
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">FUEGO INDIRECTO</span>:
+                            <div class="list-item-item">Puede tomar como blanco y realizar ataques a unidades que no son
+                                visibles
+                                para la unidad atacante.</div>
+                            <div class="list-item-item">Si no hay miniaturas visibles en una unidad blanco cuando se la
+                                selecciona, al realizar un ataque a ese blanco con un arma de Fuego indirecto, resta 1
+                                de la
+                                tirada para impactar de ese ataque y el blanco se beneficia de cobertura ante ese
+                                ataque.
+                            </div>
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">IMPACTOS LETALES</span>:
+                            Al atacar con un arma de este tipo, un impacto crítico hiere automáticamente al blanco.
+                        </div>
+                        <div
+                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
+                            <strong>💡 RECORDATORIO:</strong> Un "impacto crítico" o "herida crítica" es un 6 natural
+                            sin
+                            modificar
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">PISTOLA</span>:
+                            <div class="list-item-item">Se puede disparar aunque la unidad del portador esté en la zona
+                                de
+                                amenaza de unidades enemigas, pero debe tomar como blanco a una de esas unidades
+                                enemigas.
+                            </div>
+                            <div class="list-item-item">No se puede disparar junto a ninguna otra arma que no sea
+                                Pistola
+                                (salvo
+                                por un Monstruo o Vehículo).</div>
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">FUEGO RÁPIDO X</span>:
+                            Aumenta los ataques en “x” cuando tomes como blanco unidades a mitad del alcance o menos.
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">GOLPES SOSTENIDOS X</span>:
+                            Cada golpe crítico causa al blanco “x” impactos adicionales.</div>
+                        <div class="list-item"><span class="stat-highlight">RÁFAGA</span>:
+                            Al atacar con un arma de este tipo, el ataque impacta automáticamente al blanco.</div>
+                        <div class="list-item"><span class="stat-highlight">ACOPLADA</span>:
+                            Al atacar con un arma de este tipo, puedes repetir la tirada para herir de ese ataque.</div>
+                        <div class="list-item"><span class="stat-highlight">SALVA X</span>:
+                            Esta arma realiza X ataques separados en lugar de un ataque normal.</div>
+                        <div class="list-item"><span class="stat-highlight">BOMBA DE RACIMO</span>:
+                            Al usar un arma de este tipo, el objetivo sufre 1 daño mortal automático además de otros
+                            efectos.</div>
+                        <div class="list-item"><span class="stat-highlight">PODER</span>:
+                            Esta arma es +2 a Fuerza en combate cuerpo a cuerpo. Solo armas cuerpo a cuerpo.</div>
+                        <div class="list-item"><span class="stat-highlight">PARALIZANTE</span>:
+                            Los ataques con esta arma causan -1 a los dados de movimiento del enemigo hasta el final de
+                            su
+                            siguiente turno.</div>
+
+                    </div>
+                    <div class="special-rule">
+                        <div class="special-rule-title">Reglas de Movimiento Clave</div>
+                        <div class="list-item"><span class="stat-highlight">Avanzar:</span> +d6" al movimiento, NO puede
+                            disparar (excepto Asalto)</div>
+                        <div class="list-item"><span class="stat-highlight">Caer Atrás:</span> Movimiento normal para
+                            salir
+                            del combate, NO puede disparar</div>
+                        <div class="list-item"><span class="stat-highlight">Coherencia:</span> Cada modelo debe estar a
+                            ≤2"
+                            de otro modelo de la unidad</div>
+                    </div>
+                    <div class="special-rule">
+                        <div class="special-rule-title">Modificadores de Dados Importantes</div>
+                        <div class="list-item"><span class="stat-highlight">Re-roll:</span> Puedes volver a tirar el
+                            dado
+                            (solo una vez por dado)</div>
+                        <div class="list-item"><span class="stat-highlight">+1 / -1:</span> Modificadores se aplican al
+                            resultado del dado</div>
+                        <div class="list-item"><span class="stat-highlight">6+ sin modificar:</span> Algunas reglas
+                            requieren 6 natural, ignoran modificadores</div>
+                    </div>
+
+                    <div class="special-rule">
+                        <div class="special-rule-title">Estratagemas</div>
+                        <div class="stratagem-container"></div>
                     </div>
                 </div>
             </div>
-            <div class="step">
-                <div class="step-number">2. Consolidación Inicial</div>
-                <div class="list-item">Al activar, puedes consolidar hasta <span class="stat-highlight">3"</span>
-                    hacia el enemigo más cercano</div>
-                <div class="list-item">Debe terminar más cerca del enemigo o a la misma distancia</div>
-            </div>
-
-            <div class="step">
-                <div class="step-number">3. Realizar Ataques</div>
-                <div class="list-item">Elegir perfil de arma cuerpo a cuerpo para cada miniatura</div>
-                <div class="list-item">El <span class="attacker">atacante</span> tira <span
-                        class="stat-highlight">A</span> dados usando <span class="stat-highlight">HA</span>
-                    (Habilidad de Armas)</div>
-                <div class="list-item">Impactan los resultados ≥ <span class="stat-highlight">HA</span></div>
-            </div>
-            <div class="step">
-                <div class="step-number">4. Herir y Salvar</div>
-                <div class="list-item">Para cada impacto: tirar para herir igual que en disparo (<span
-                        class="attacker">F</span> vs <span class="defender">R</span>)</div>
-                <div class="list-item">El <span class="defender">oponente</span> hace tiradas de Salvación o
-                    Invulnerable <i class="fa-solid fa-shield"></i></div>
-                <div class="list-item">Aplicar <span class="attacker">FP</span> del arma cuerpo a cuerpo</div>
-            </div>
-            <div class="step">
-                <div class="step-number">5. Aplicar Daño y Bajas</div>
-                <div class="list-item">Restar <span class="stat-highlight">Daño (D)</span> de las <span
-                        class="stat-highlight">Heridas (H)</span></div>
-                <div class="list-item">Heridas = 0 → Miniatura eliminada</div>
-            </div>
-            <div class="step">
-                <div class="step-number">6. Consolidación Final</div>
-                <div class="list-item">Mover hasta <span class="stat-highlight">3"</span> hacia el enemigo más
-                    cercano</div>
-                <div class="list-item">Si no hay enemigos a ≤1", la unidad sale del combate</div>
-            </div>
         </div>
-        <!-- REGLAS ESPECIALES -->
-        <div class="phase-content" id="morale">
-            <div class="phase-title" style="color: #a01f3d;">FASE DE MORAL</div>
-            <div class="stratagems">
-                <span class="strat-title">Estratagemas:</span>
-                <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
-                    data-tooltip-trigger="click">
-                    Repetición de Mando
-                </span>,
-                <span class="text-link either-players-turn" data-tooltip-content="valor-insensato"
-                    data-tooltip-trigger="click">
-                    Valor Insensato
-                </span>
-            </div>
-            <div class="step">
-                <div class="step-number">Cuándo Ocurre</div>
-                <div class="list-item">Ocurre al final de la ronda (turno de ambos jugadores)</div>
-                <div class="list-item">Solo afecta a unidades que han sufrido pérdidas en esta ronda</div>
-                <div class="list-item">Comienza con el jugador defensor (quien NO atacó)</div>
-            </div>
-            <div class="step">
-                <div class="step-number">Procedimiento de Chequeo de Moral</div>
-                <div class="list-item">Para cada unidad amiga que sufrió bajas esta ronda:</div>
-                <div class="list-item-item">Cuenta el número de miniaturas perdidas</div>
-                <div class="list-item-item">Tira un dado</div>
-                <div class="list-item-item">Si el resultado ≤ número de miniaturas perdidas: Falla el chequeo</div>
-                <div class="list-item-item">Si el resultado > número de miniaturas perdidas: Supera el chequeo</div>
-            </div>
-            <div class="step">
-                <div class="step-number">Efectos de Fallar el Chequeo</div>
-                <div class="list-item"><span class="stat-highlight">1 Miniatura Adicional Retirada:</span> Por cada
-                    punto que falles el chequeo, retira <span class="stat-highlight">1 miniatura extra</span> de esa
-                    unidad</div>
-                <div class="list-item">La unidad selecciona qué miniaturas se retiran</div>
-                <div class="list-item">No puede retirarse más miniaturas de las que quedan en la unidad</div>
-            </div>
-            <div class="step">
-                <div class="step-number">Modificadores al Chequeo de Moral</div>
-                <div class="list-item"><span class="stat-highlight">Liderazgo (Ld):</span> La característica de
-                    liderazgo de la unidad NO modifica el chequeo</div>
-                <div class="list-item"><span class="stat-highlight">Nearby Characters:</span> Si hay un personaje a
-                    ≤6": <span class="stat-highlight">+1 al dado</span></div>
-                <div class="list-item"><span class="stat-highlight">Abanderado/Estandarte:</span> Algunas unidades
-                    especiales proporcionan modificadores</div>
-                <div class="list-item"><span class="stat-highlight">Reglas Especiales:</span> Ciertas habilidades
-                    pueden mejorar el chequeo</div>
-            </div>
-            <div class="step">
-                <div class="step-number">Unidades Especiales que Ignoran Moral</div>
-                <div class="list-item"><span class="stat-highlight">Automatones/Sin Alma:</span> NO hacen chequeos
-                    de moral</div>
-                <div class="list-item"><span class="stat-highlight">Personajes Invulnerables:</span> Algunos pueden
-                    ignorar estos efectos</div>
-                <div class="list-item">Verifica la regla especial de tu unidad en tu libro de ejército</div>
-            </div>
-            <div class="step">
-                <div class="step-number">Casos Especiales</div>
-                <div class="list-item">Si una unidad se desintegra completamente, no hace chequeo</div>
-                <div class="list-item">Las unidades acobardadas NO tienen que hacer chequeos de moral</div>
-                <div class="list-item">Algunos efectos pueden hacer re-rolls en chequeos de moral</div>
-            </div>
-        </div>
-        <!-- REGLAS ESPECIALES -->
-        <div class="phase-content" id="rules">
-            <div class="phase-title rules-title">REGLAS ESPECIALES Y ATAJOS</div>
-            <div class="special-rule">
-                <div class="special-rule-title">Características de Combate - Referencia Rápida</div>
-                <table class="wound-table">
-                    <thead>
-                        <tr>
-                            <th>Característica</th>
-                            <th>Símbolo/Abr.</th>
-                            <th>Descripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Característica">Movimiento</td>
-                            <td data-label="Símbolo"><span class="stat-highlight">M</span></td>
-                            <td data-label="Descripción">Distancia en pulgadas que puede moverse</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Característica">Habilidad de Proyectiles</td>
-                            <td data-label="Símbolo"><span class="stat-highlight">HP</span></td>
-                            <td data-label="Descripción">Tirada para impactar en disparo (2d6 vs HP)</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Característica">Habilidad de Armas</td>
-                            <td data-label="Símbolo"><span class="stat-highlight">HA</span></td>
-                            <td data-label="Descripción">Tirada para impactar en combate cuerpo a cuerpo</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Característica">Fuerza</td>
-                            <td data-label="Símbolo"><span class="attacker">F</span></td>
-                            <td data-label="Descripción">Capacidad ofensiva vs Resistencia</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Característica">Resistencia</td>
-                            <td data-label="Símbolo"><span class="defender">R</span></td>
-                            <td data-label="Descripción">Resistencia física vs Fuerza</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Característica">Heridas</td>
-                            <td data-label="Símbolo"><span class="stat-highlight">H</span></td>
-                            <td data-label="Descripción">Puntos de vida totales</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Característica">Salvación</td>
-                            <td data-label="Símbolo"><span class="stat-highlight">S</span></td>
-                            <td data-label="Descripción">Tirada de armadura (2d6 vs S, modificada por FP)</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Característica">Invulnerable</td>
-                            <td data-label="Símbolo"><i class="fa-solid fa-shield"></i></td>
-                            <td data-label="Descripción">Salvación especial, NO modificable</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Característica">Liderazgo</td>
-                            <td data-label="Símbolo"><span class="stat-highlight">Ld</span></td>
-                            <td data-label="Descripción">Usado solo para chequeos especiales</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="special-rule">
-                <div class="special-rule-title">Tipos de Unidades</div>
-                <div class="list-item"><span class="stat-highlight">Infantería:</span> Unidades de soldados a pie,
-                    sujeto a reglas normales de movimiento</div>
-                <div class="list-item"><span class="stat-highlight">Vehículo:</span> Transporte blindado con
-                    restricciones de giro y movimiento especiales</div>
-                <div class="list-item"><span class="stat-highlight">Monstruo:</span> Criatura/unidad grande, solo 1
-                    miniatura por unidad</div>
-                <div class="list-item"><span class="stat-highlight">Personaje:</span> Unidad individual o pequeño
-                    grupo con habilidades especiales</div>
-                <div class="list-item"><span class="stat-highlight">Gran Arma:</span> Unidad estacionaria con armas
-                    poderosas</div>
-            </div>
-            <div class="special-rule">
-                <div class="special-rule-title">Tipos de Salvación</div>
-                <div class="list-item"><span class="stat-highlight">Salvación Normal (Armor Save):</span> Modificada
-                    (reducida) por
-                    <span class="attacker">Factor de Penetración (FP)</span> del atacante
-                </div>
-                <div class="list-item-item">suma(restaran porque FP es negatibo) los puntos de FP, al dado (haciendo
-                    más difícil salvar)</div>
-                <div class="list-item"><span class="stat-highlight">Salvación Invulnerable <i
-                            class="fa-solid fa-shield"></i> :</span> NUNCA modificada
-                    por FP</div>
-                <div class="list-item-item">Se tira en lugar de la salvación normal como alternativa</div>
-                <div class="list-item-item">Si tienes ambas, usas la que sea mejor para ti</div>
-                <div class="list-item"><span class="stat-highlight">Feel No Pain (FNP):</span> Tirada adicional
-                    después de fallar salvación</div>
-                <div class="list-item-item">Se hace después de perder salvación pero antes de aplicar daño</div>
-                <div class="list-item-item">Solo evita una cantidad limitada de daño (usualmente 1 herida)</div>
-                <div class="list-item"><span class="stat-highlight">Salvación de Cobertura:</span> +1 a la tirada si
-                    está en cobertura</div>
-                <div class="list-item-item">Se aplica ANTES de aplicar FP del atacante</div>
-                <div class="list-item"
-                    style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
-                    <strong>💡 RECORDATORIO:</strong> Solo se benefician de cobertura si >50% de los modelos están
-                    oscurecidos desde el atacante
-                </div>
-            </div>
-            <div class="special-rule">
-                <div class="special-rule-title">Heridas Mortales (Mortal Wounds)</div>
-                <div class="list-item">Se asignan directamente, SIN tirada de salvación normal</div>
-                <div class="list-item">NO se pueden evitar con salvaciones normales, solo con especiales</div>
-                <div class="list-item">Pueden ser evitadas por habilidades específicas o salvaciones invulnerables
-                </div>
-                <div class="list-item">Se aplican una por una, no todas a la vez</div>
-                <div class="list-item">Cuentan completamente hacia la remoción de miniaturas</div>
-                <div class="list-item">Algunos efectos pueden causar heridas mortales automáticas en críticos</div>
-            </div>
-            <div class="special-rule">
-                <div class="special-rule-title">Habilidades Especiales de Armas</div>
-
-                <div class="list-item"><span class="stat-highlight">ANTI+CLAVE X+</span>:
-                    Una tirada para herir sin modificar de “x+” contra un blanco con la <span
-                        class="defender">clave</span>
-                    correspondiente causa una herida crítica.</div>
-                <div class="list-item"><span class="stat-highlight">ASALTO</span>:
-                    Aunque la unidad del portador haya avanzado, puede disparar.</div>
-                <div class="list-item"><span class="stat-highlight">ÁREA</span>:
-                    <div class="list-item-item">Suma 1 al atributo Ataques por cada cinco miniaturas de la unidad
-                        blanco
-                        (redondea a la
-                        baja).
-                    </div>
-                    <div class="list-item-item">No puede usarse contra un blanco en la zona de amenaza de alguna
-                        unidad
-                        del ejército de la miniatura atacante (incluida la unidad propia).</div>
-                </div>
-                <div class="list-item"><span class="stat-highlight">HERIDAS DEVASTADORAS</span>:
-                    Una herida crítica inflige tantas heridas mortales como el atributo Daño del arma, en vez del
-                    daño normal.</div>
-                <div class="list-item"><span class="stat-highlight">PESADA</span>:
-                    Suma 1 a las tiradas para impactar si la unidad del portador ha permanecido estacionaria este
-                    turno.</div>
-                <div class="list-item"><span class="stat-highlight">IGNORA COBERTURA</span>:
-                    Al atacar con un arma de este tipo, el blanco no se beneficia de cobertura ante ese ataque.
-                </div>
-                <div class="list-item"><span class="stat-highlight">FUEGO INDIRECTO</span>:
-                    <div class="list-item-item">Puede tomar como blanco y realizar ataques a unidades que no son
-                        visibles
-                        para la unidad atacante.</div>
-                    <div class="list-item-item">Si no hay miniaturas visibles en una unidad blanco cuando se la
-                        selecciona, al realizar un ataque a ese blanco con un arma de Fuego indirecto, resta 1 de la
-                        tirada para impactar de ese ataque y el blanco se beneficia de cobertura ante ese ataque.
-                    </div>
-                </div>
-                <div class="list-item"><span class="stat-highlight">IMPACTOS LETALES</span>:
-                    Al atacar con un arma de este tipo, un impacto crítico hiere automáticamente al blanco.</div>
-                <div class="list-item"
-                    style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
-                    <strong>💡 RECORDATORIO:</strong> Un "impacto crítico" o "herida crítica" es un 6 natural sin
-                    modificar
-                </div>
-                <div class="list-item"><span class="stat-highlight">PISTOLA</span>:
-                    <div class="list-item-item">Se puede disparar aunque la unidad del portador esté en la zona de
-                        amenaza de unidades enemigas, pero debe tomar como blanco a una de esas unidades enemigas.
-                    </div>
-                    <div class="list-item-item">No se puede disparar junto a ninguna otra arma que no sea Pistola
-                        (salvo
-                        por un Monstruo o Vehículo).</div>
-                </div>
-                <div class="list-item"><span class="stat-highlight">FUEGO RÁPIDO X</span>:
-                    Aumenta los ataques en “x” cuando tomes como blanco unidades a mitad del alcance o menos.
-                </div>
-                <div class="list-item"><span class="stat-highlight">GOLPES SOSTENIDOS X</span>:
-                    Cada golpe crítico causa al blanco “x” impactos adicionales.</div>
-                <div class="list-item"><span class="stat-highlight">RÁFAGA</span>:
-                    Al atacar con un arma de este tipo, el ataque impacta automáticamente al blanco.</div>
-                <div class="list-item"><span class="stat-highlight">ACOPLADA</span>:
-                    Al atacar con un arma de este tipo, puedes repetir la tirada para herir de ese ataque.</div>
-                <div class="list-item"><span class="stat-highlight">SALVA X</span>:
-                    Esta arma realiza X ataques separados en lugar de un ataque normal.</div>
-                <div class="list-item"><span class="stat-highlight">BOMBA DE RACIMO</span>:
-                    Al usar un arma de este tipo, el objetivo sufre 1 daño mortal automático además de otros
-                    efectos.</div>
-                <div class="list-item"><span class="stat-highlight">PODER</span>:
-                    Esta arma es +2 a Fuerza en combate cuerpo a cuerpo. Solo armas cuerpo a cuerpo.</div>
-                <div class="list-item"><span class="stat-highlight">PARALIZANTE</span>:
-                    Los ataques con esta arma causan -1 a los dados de movimiento del enemigo hasta el final de su
-                    siguiente turno.</div>
-
-            </div>
-            <div class="special-rule">
-                <div class="special-rule-title">Reglas de Movimiento Clave</div>
-                <div class="list-item"><span class="stat-highlight">Avanzar:</span> +d6" al movimiento, NO puede
-                    disparar (excepto Asalto)</div>
-                <div class="list-item"><span class="stat-highlight">Caer Atrás:</span> Movimiento normal para
-                    salir
-                    del combate, NO puede disparar</div>
-                <div class="list-item"><span class="stat-highlight">Coherencia:</span> Cada modelo debe estar a
-                    ≤2"
-                    de otro modelo de la unidad</div>
-            </div>
-            <div class="special-rule">
-                <div class="special-rule-title">Modificadores de Dados Importantes</div>
-                <div class="list-item"><span class="stat-highlight">Re-roll:</span> Puedes volver a tirar el
-                    dado
-                    (solo una vez por dado)</div>
-                <div class="list-item"><span class="stat-highlight">+1 / -1:</span> Modificadores se aplican al
-                    resultado del dado</div>
-                <div class="list-item"><span class="stat-highlight">6+ sin modificar:</span> Algunas reglas
-                    requieren 6 natural, ignoran modificadores</div>
-            </div>
-
-            <div class="special-rule">
-                <div class="special-rule-title">Estratagemas</div>
-                <div class="stratagem-container"></div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- Referencia rápida flotante -->
-    <div class="quick-reference">
-        <div class="quick-ref-title">
-            <button class="quick-ref-toggle" onclick="quickRefToggle()">
-                <i class="fa-solid fa-chevron-up"></i>
-            </button>
-            REFERENCIA RÁPIDA
-        </div>
-
-
-        <div class="quick-reference-body" style="display: none;">
-            <div><strong>Disparo:</strong> No haber avanzado, tener línea de visión</div>
-            <div><strong>Carga:</strong> ≤12" y visible</div>
-            <div><strong>Combate:</strong> Alternado, WS vs R</div>
-            <div><strong>Reglas:</strong> Ver abajo</div>
-            <hr />
-            <div class="quick-ref-title">REFERENCIA RÁPIDA</div>
-            <div><strong>Herir:</strong> F vs R</div>
-            <div><strong>Doble:</strong> 2+ | <strong>Mayor:</strong> 3+</div>
-            <div><strong>Igual:</strong> 4+ | <strong>Menor:</strong> 5+</div>
-            <div><strong>Mitad-:</strong> 6+</div>
-            <hr />
-            <div><strong>Natural:</strong> Ignora modificadores</div>
-        </div>
-    </div>
-    <script>
-        // Al cargar la página, restaurar la fase seleccionada si existe
-        document.addEventListener('DOMContentLoaded', function () {
-            const storedPhase = localStorage.getItem('selectedPhase') || 'command';
-            showPhase(storedPhase);
-        });
-
-
-        function showPhase(phaseId) {
-            // Ocultar todos los contenidos
-            const contents = document.querySelectorAll('.phase-content');
-            contents.forEach(content => {
-                content.classList.remove('active');
+        <script>
+            // Al cargar la página, restaurar la fase seleccionada si existe
+            document.addEventListener('DOMContentLoaded', function () {
+                const storedPhase = localStorage.getItem('selectedPhase') || 'command';
+                showPhase(storedPhase);
             });
 
-            // Desactivar todas las pestañas
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
+
+            function showPhase(phaseId) {
+                // Ocultar todos los contenidos
+                const contents = document.querySelectorAll('.phase-content');
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Desactivar todas las pestañas
+                const tabs = document.querySelectorAll('.tab');
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+
+                // Mostrar el contenido seleccionado
+                const selectedContent = document.getElementById(phaseId);
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
+
+                // Activar la pestaña seleccionada
+                const activeTab = document.querySelector(`.tab.${phaseId}`);
+                if (activeTab) activeTab.classList.add('active');
+
+                // Guardar en localStorage
+                localStorage.setItem('selectedPhase', phaseId);
+            }
+
+            // Atajos de teclado
+            document.addEventListener('keydown', function (e) {
+                switch (e.key) {
+                    case '1':
+                        showPhase('command');
+                        break;
+                    case '2':
+                        showPhase('movement');
+                        break;
+                    case '3':
+                        showPhase('shoot');
+                        break;
+                    case '4':
+                        showPhase('charge');
+                        break;
+                    case '5':
+                        showPhase('fight');
+                        break;
+                    case '6':
+                        showPhase('rules');
+                        break;
+                }
             });
+        </script>
 
-            // Mostrar el contenido seleccionado
-            const selectedContent = document.getElementById(phaseId);
-            if (selectedContent) {
-                selectedContent.classList.add('active');
-            }
-
-            // Activar la pestaña seleccionada
-            const activeTab = document.querySelector(`.tab.${phaseId}`);
-            if (activeTab) activeTab.classList.add('active');
-
-            // Guardar en localStorage
-            localStorage.setItem('selectedPhase', phaseId);
-        }
-
-        // Atajos de teclado
-        document.addEventListener('keydown', function (e) {
-            switch (e.key) {
-                case '1':
-                    showPhase('command');
-                    break;
-                case '2':
-                    showPhase('movement');
-                    break;
-                case '3':
-                    showPhase('shoot');
-                    break;
-                case '4':
-                    showPhase('charge');
-                    break;
-                case '5':
-                    showPhase('fight');
-                    break;
-                case '6':
-                    showPhase('rules');
-                    break;
-            }
-        });
-    </script>
-
-    <div class="footer">
-        <div style="margin-bottom: 0.625rem;">Esta es una app web para mi uso personal, sin intento de infringir
-            copyright.
+        <div class="footer">
+            <div style="margin-bottom: 0.625rem;">Esta es una app web para mi uso personal, sin intento de infringir
+                copyright.
+            </div>
+            <a href="https://github.com/diegovallejodev/" target="_blank">
+                Diego Vallejo
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
         </div>
-        <a href="https://github.com/diegovallejodev/" target="_blank">
-            Diego Vallejo
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </div>
-    <script type="text/javascript">
-        //quick ref toggle
-        function quickRefToggle() {
-            const quickRef = document.querySelector('.quick-reference-body');
-            const toggleButton = document.querySelector('.quick-ref-toggle');
-
-            if (quickRef.style.display === 'none' || quickRef.style.display === '') {
-                quickRef.style.display = 'block';
-                toggleButton.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
-            } else {
-                quickRef.style.display = 'none';
-                toggleButton.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
-            }
-        }
-    </script>
-    <script src="./stratagems.js"></script>
-    <script src="./tooltip.js"></script>
+        <script src="./stratagems.js"></script>
+        <script src="./tooltip.js"></script>
 
 </body>
 
