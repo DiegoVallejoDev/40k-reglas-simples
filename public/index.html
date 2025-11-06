@@ -27,7 +27,19 @@
             <p>Tarjetas de Referencia Táctica</p>
         </div>
         <div class="tabs">
-            <div class="tab shoot active" onclick="showPhase('shoot')">
+            <div class="tab command active" onclick="showPhase('command')">
+                <div class="when-symbol" style="background-color: transparent;">
+                    <img src="./svg/mando.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                </div>
+                FASE DE MANDO
+            </div>
+            <div class="tab movement" onclick="showPhase('movement')">
+                <div class="when-symbol" style="background-color: transparent;">
+                    <img src="./svg/movimiento.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                </div>
+                FASE DE MOVIMIENTO
+            </div>
+            <div class="tab shoot" onclick="showPhase('shoot')">
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/disparo.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
@@ -47,14 +59,179 @@
             </div>
             <div class="tab rules" onclick="showPhase('rules')">
                 <div class="when-symbol" style="background-color: transparent;">
-                    <img src="./svg/mando.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                    <img src="./svg/reroll.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
                 REGLAS ESPECIALES
             </div>
         </div>
         <div class="content">
+            <!-- FASE DE MANDO -->
+            <div class="phase-content active" id="command">
+                <div class="phase-title command-title">FASE DE MANDO</div>
+                <div class="stratagems">
+                    <span class="strat-title">Estratagemas:</span>
+                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                        data-tooltip-trigger="click">
+                        Repetición de Mando
+                    </span>,
+                    <span class="text-link active-players-turn" data-tooltip-content="inspiración"
+                        data-tooltip-trigger="click">
+                        Inspiración
+                    </span>,
+                    <span class="text-link active-players-turn" data-tooltip-content="táctica-adaptativa"
+                        data-tooltip-trigger="click">
+                        Táctica Adaptativa
+                    </span>
+                </div>
+                <div class="step">
+                    <div class="step-number">1. Inicio del Turno</div>
+                    <div class="list-item">La Fase de Mando siempre es la primera del turno</div>
+                    <div class="list-item">Resolver efectos que ocurren "al inicio del turno"</div>
+                    <div class="list-item">Algunas habilidades especiales se activan automáticamente</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2. Generar Puntos de Mando (CP)</div>
+                    <div class="list-item">Al inicio de cada turno (excepto el primero): <span class="stat-highlight">+1
+                            CP</span></div>
+                    <div class="list-item">Máximo de CP que puedes tener: <span class="stat-highlight">12 CP</span>
+                    </div>
+                    <div class="list-item">Los CP no utilizados se mantienen para turnos posteriores</div>
+                    <div class="list-item">Algunas unidades/habilidades pueden generar CP adicionales</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3. Resolver Habilidades de Mando</div>
+                    <div class="list-item">Activar habilidades de <span class="stat-highlight">Señores de la
+                            Guerra</span></div>
+                    <div class="list-item">Usar habilidades de <span class="stat-highlight">Personajes</span> que se
+                        activen en la Fase de Mando</div>
+                    <div class="list-item">Aplicar efectos de <span class="stat-highlight">Reliquias</span> y <span
+                            class="stat-highlight">Rasgos de Señor de la Guerra</span></div>
+                    <div class="list-item">Resolver habilidades de unidades que se activen "en la Fase de Mando"</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4. Activar Estratagemas de Mando</div>
+                    <div class="list-item">Usar estratagemas que especifiquen "Fase de Mando" o "inicio del turno"</div>
+                    <div class="list-item">Pagar el coste en CP correspondiente</div>
+                    <div class="list-item">Resolver efectos inmediatamente o marcar para uso posterior</div>
+                    <div class="list-item">Algunas estratagemas afectan todo el turno</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5. Chequeos de Moral Previos</div>
+                    <div class="list-item">Si alguna unidad debe hacer chequeos especiales de moral</div>
+                    <div class="list-item">Resolver efectos de "Batalla Shock" si aplican</div>
+                    <div class="list-item">Aplicar modificadores de liderazgo de personajes cercanos</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">6. Objetivos Secundarios</div>
+                    <div class="list-item">Anotar puntos de objetivos que se resuelvan "al inicio del turno"</div>
+                    <div class="list-item">Declarar objetivos que requieren declaración previa</div>
+                    <div class="list-item">Verificar condiciones de victoria</div>
+                </div>
+            </div>
+            <!-- FASE DE MOVIMIENTO -->
+            <div class="phase-content" id="movement">
+                <div class="phase-title movement-title">FASE DE MOVIMIENTO</div>
+                <div class="stratagems">
+                    <span class="strat-title">Estratagemas:</span>
+                    <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
+                        data-tooltip-trigger="click">
+                        Repetición de Mando
+                    </span>,
+                    <span class="text-link active-players-turn" data-tooltip-content="avance-rápido"
+                        data-tooltip-trigger="click">
+                        Avance Rápido
+                    </span>,
+                    <span class="text-link active-players-turn" data-tooltip-content="reposicionamiento"
+                        data-tooltip-trigger="click">
+                        Reposicionamiento
+                    </span>
+                </div>
+                <div class="special-rule"
+                    style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
+                    <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                        TIPOS DE MOVIMIENTO
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9em;">
+                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">MOVIMIENTO NORMAL</div>
+                            <div>Hasta <span class="stat-highlight">M"</span> + puede disparar y cargar</div>
+                        </div>
+                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">AVANZAR</div>
+                            <div><span class="stat-highlight">M" + 1d6"</span> + NO puede disparar ni cargar</div>
+                        </div>
+                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">CAER ATRÁS</div>
+                            <div>Hasta <span class="stat-highlight">M"</span> + salir de combate + NO disparo</div>
+                        </div>
+                        <div style="text-align: center; padding: 0.5rem; background: #f9f9f9; border-radius: 0.25rem;">
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">EMBARCAR/DESEMBARCAR</div>
+                            <div>Entrar/salir de <span class="stat-highlight">Transportes</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">1. Seleccionar Unidad para Mover</div>
+                    <div class="list-item">Elegir una unidad que no se haya movido este turno</div>
+                    <div class="list-item">Las unidades en combate pueden elegir <span class="stat-highlight">Caer
+                            Atrás</span></div>
+                    <div class="list-item">No es obligatorio mover todas las unidades</div>
+                    <div class="list-item">Puedes mover en cualquier orden</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2. Declarar Tipo de Movimiento</div>
+                    <div class="list-item"><span class="stat-highlight">Movimiento Normal:</span> Hasta <span
+                            class="stat-highlight">M"</span>, puede disparar normalmente</div>
+                    <div class="list-item"><span class="stat-highlight">Avanzar:</span> <span class="stat-highlight">M"
+                            + 1d6"</span>, NO puede disparar (excepto armas <span class="stat-highlight">Asalto</span>)
+                    </div>
+                    <div class="list-item"><span class="stat-highlight">Caer Atrás:</span> Hasta <span
+                            class="stat-highlight">M"</span>, debe terminar fuera de zona de amenaza, NO puede disparar
+                    </div>
+                    <div class="list-item"><span class="stat-highlight">Permanecer Estático:</span> No moverse,
+                        bonificación +1 para impactar con armas <span class="stat-highlight">Pesadas</span></div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3. Mover Miniaturas</div>
+                    <div class="list-item">Cada miniatura puede moverse hasta la distancia permitida</div>
+                    <div class="list-item">No pueden atravesar otras miniaturas (amigas o enemigas)</div>
+                    <div class="list-item">Pueden atravesar terreno, aplicando reglas especiales</div>
+                    <div class="list-item">Las miniaturas pueden moverse distancias diferentes dentro de la unidad</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4. Mantener Coherencia de Unidad</div>
+                    <div class="list-item">Cada miniatura debe estar a ≤<span class="stat-highlight">2"</span> de otra
+                        miniatura de la misma unidad</div>
+                    <div class="list-item">Para unidades de 6+ miniaturas: cada miniatura debe estar a ≤<span
+                            class="stat-highlight">2"</span> de al menos 2 otras miniaturas</div>
+                    <div class="list-item">Si no se puede mantener coherencia: retirar miniaturas hasta que se pueda
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5. Embarcar y Desembarcar</div>
+                    <div class="list-item"><span class="stat-highlight">Desembarcar:</span> Antes de mover el
+                        transporte, colocar a ≤<span class="stat-highlight">3"</span> del transporte</div>
+                    <div class="list-item"><span class="stat-highlight">Embarcar:</span> Terminar movimiento a ≤<span
+                            class="stat-highlight">3"</span> del transporte</div>
+                    <div class="list-item">Las unidades que desembarcan NO pueden avanzar ese turno, y no puede moverse normalmente si el transporte ya se movio
+
+                    </div>
+                    <div class="list-item">Verificar capacidad de transporte y restricciones</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">6. Terreno y Obstáculos</div>
+                    <div class="list-item"><span class="stat-highlight">Terreno Difícil:</span> Reducir movimiento a la
+                        mitad</div>
+                    <div class="list-item"><span class="stat-highlight">Terreno Peligroso:</span> Chequeos de peligro al
+                        atravesar</div>
+                    <div class="list-item"><span class="stat-highlight">Muros/Obstáculos:</span> Require movimiento
+                        vertical adicional</div>
+                    <div class="list-item"><span class="stat-highlight">Agua/Vacío:</span> Puede ser intransitable según
+                        reglas de misión</div>
+                </div>
+            </div>
             <!-- FASE DE DISPARO -->
-            <div class="phase-content active" id="shoot">
+            <div class="phase-content" id="shoot">
                 <div class="phase-title shoot-title">FASE DE DISPARO</div>
                 <div class="special-rule"
                     style="background: #f9f9f9; border-left: 0.25rem solid #8B1538; margin-bottom: 1.5rem;">
@@ -683,7 +860,7 @@
     <script>
         // Al cargar la página, restaurar la fase seleccionada si existe
         document.addEventListener('DOMContentLoaded', function () {
-            const storedPhase = localStorage.getItem('selectedPhase') || 'shoot';
+            const storedPhase = localStorage.getItem('selectedPhase') || 'command';
             showPhase(storedPhase);
         });
 
@@ -719,15 +896,21 @@
         document.addEventListener('keydown', function (e) {
             switch (e.key) {
                 case '1':
-                    showPhase('shoot');
+                    showPhase('command');
                     break;
                 case '2':
-                    showPhase('charge');
+                    showPhase('movement');
                     break;
                 case '3':
-                    showPhase('fight');
+                    showPhase('shoot');
                     break;
                 case '4':
+                    showPhase('charge');
+                    break;
+                case '5':
+                    showPhase('fight');
+                    break;
+                case '6':
                     showPhase('rules');
                     break;
             }

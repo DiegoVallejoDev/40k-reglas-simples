@@ -182,6 +182,58 @@ const stratagems = {
     "color": "#2c5a4d",
     "icons": ["combate"],
     "phase": "combate"
+  },
+  "Inspiración": {
+    "name": "Inspiración",
+    "type": "Básica",
+    "category": "Hazaña Épica",
+    "flavorText": undefined,
+    "when": "En tu fase de mando.",
+    "target": "Una unidad de tu ejército a 6\" o menos de un Personaje de tu ejército.",
+    "effect": "Hasta el final de la ronda, esa unidad suma 1 a las tiradas para impactar en disparo y combate cuerpo a cuerpo.",
+    "cost": "1 PM",
+    "color": "#224262",
+    "icons": ["mando"],
+    "phase": "mando"
+  },
+  "Táctica Adaptativa": {
+    "name": "Táctica Adaptativa",
+    "type": "Básica",
+    "category": "Ardid Estratégico",
+    "flavorText": undefined,
+    "when": "En tu fase de mando.",
+    "target": "Una unidad de tu ejército.",
+    "effect": "Elige una de las siguientes opciones hasta el final del turno: +1 a las salvaciones, +2\" al movimiento, o repetir tiradas de 1 para impactar.",
+    "cost": "2 PM",
+    "color": "#224262",
+    "icons": ["mando"],
+    "phase": "mando"
+  },
+  "Avance Rápido": {
+    "name": "Avance Rápido",
+    "type": "Básica",
+    "category": "Táctica de Batalla",
+    "flavorText": undefined,
+    "when": "En tu fase de movimiento, cuando una unidad de tu ejército avance.",
+    "target": "La unidad que está avanzando.",
+    "effect": "Esa unidad puede disparar armas Asalto como si no hubiera avanzado, y suma 3\" adicionales a su movimiento de avance.",
+    "cost": "1 PM",
+    "color": "#224262",
+    "icons": ["movimiento"],
+    "phase": "movimiento"
+  },
+  "Reposicionamiento": {
+    "name": "Reposicionamiento",
+    "type": "Básica",
+    "category": "Ardid Estratégico",
+    "flavorText": undefined,
+    "when": "En tu fase de movimiento.",
+    "target": "Una unidad de tu ejército que no esté en la zona de amenaza de unidades enemigas.",
+    "effect": "Retira esa unidad del campo de batalla y vuelve a desplegarla usando las reglas de Refuerzos, pero debe aparecer a más de 6\" de cualquier unidad enemiga.",
+    "cost": "2 PM",
+    "color": "#224262",
+    "icons": ["movimiento"],
+    "phase": "movimiento"
   }
 
 };
