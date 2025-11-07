@@ -554,7 +554,7 @@ body {
 
   .stratagem-container .card {
     font-size: 12px;
-    max-width: 350px;
+    max-width: 320px;
   }
 }
 
@@ -644,7 +644,6 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5em;
-  padding: 1.5rem 1rem;
   justify-items: center;
 }
 
