@@ -23,66 +23,56 @@ body {
   box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.6);
   border: 0.0625rem solid #3a3a3a;
   position: relative;
-  
+
   /* Multiple texture layers */
-  background-image: 
-      /* Fine grain noise */
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n1"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="5" /><feColorMatrix type="saturate" values="0"/></filter><rect width="200" height="200" filter="url(%23n1)" opacity="0.25"/></svg>'),
-      
-      /* Coarse texture */
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><filter id="n2"><feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="3" /><feColorMatrix type="saturate" values="0.3"/></filter><rect width="400" height="400" filter="url(%23n2)" opacity="0.1"/></svg>'),
-      
-      /* Small spots and dirt - reduced from large patches */
-      radial-gradient(circle 80px at 20% 20%, rgba(100, 80, 60, 0.2) 0%, transparent 70%),
-      radial-gradient(circle 60px at 35% 35%, rgba(110, 90, 70, 0.18) 0%, transparent 70%),
-      radial-gradient(circle 70px at 75% 15%, rgba(100, 80, 60, 0.2) 0%, transparent 70%),
-      radial-gradient(circle 90px at 15% 65%, rgba(120, 100, 80, 0.19) 0%, transparent 70%),
-      radial-gradient(circle 50px at 85% 45%, rgba(110, 90, 70, 0.18) 0%, transparent 70%),
-      radial-gradient(circle 65px at 60% 60%, rgba(100, 80, 60, 0.17) 0%, transparent 70%),
-      radial-gradient(circle 55px at 90% 80%, rgba(120, 100, 80, 0.19) 0%, transparent 70%),
-      radial-gradient(circle 75px at 10% 90%, rgba(110, 90, 70, 0.2) 0%, transparent 70%),
-      
-      /* Tiny speckles */
-      radial-gradient(circle 20px at 30% 15%, rgba(90, 70, 50, 0.3) 0%, transparent 80%),
-      radial-gradient(circle 15px at 50% 25%, rgba(90, 70, 50, 0.28) 0%, transparent 80%),
-      radial-gradient(circle 18px at 65% 40%, rgba(90, 70, 50, 0.3) 0%, transparent 80%),
-      radial-gradient(circle 22px at 45% 55%, rgba(90, 70, 50, 0.29) 0%, transparent 80%),
-      radial-gradient(circle 16px at 80% 65%, rgba(90, 70, 50, 0.28) 0%, transparent 80%),
-      radial-gradient(circle 19px at 25% 80%, rgba(90, 70, 50, 0.3) 0%, transparent 80%),
-      
-      /* Yellowing layers */
-      linear-gradient(135deg, rgba(218, 204, 169, 0.3) 0%, transparent 50%),
-      linear-gradient(45deg, rgba(205, 186, 150, 0.25) 0%, transparent 50%),
-      linear-gradient(180deg, rgba(218, 204, 169, 0.2) 0%, transparent 40%),
-      
-      /* Creases and folds */
-      repeating-linear-gradient(
-          -15deg,
-          transparent,
-          transparent 100px,
-          rgba(139, 119, 91, 0.06) 100px,
-          rgba(139, 119, 91, 0.06) 102px
-      ),
-      repeating-linear-gradient(
-          78deg,
-          transparent,
-          transparent 150px,
-          rgba(139, 119, 91, 0.05) 150px,
-          rgba(139, 119, 91, 0.05) 151px
-      ),
-      
-      /* Edge darkening/vignette */
-      radial-gradient(ellipse at center, transparent 40%, rgba(139, 119, 91, 0.15) 100%);
-  
-  background-size: 
-      200px 200px,
-      400px 400px,
-      100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
-      100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
-      100% 100%, 100% 100%, 100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%;
+  background-image:
+    /* Fine grain noise */
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n1"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="5" /><feColorMatrix type="saturate" values="0"/></filter><rect width="200" height="200" filter="url(%23n1)" opacity="0.25"/></svg>'),
+
+    /* Coarse texture */
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><filter id="n2"><feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="3" /><feColorMatrix type="saturate" values="0.3"/></filter><rect width="400" height="400" filter="url(%23n2)" opacity="0.1"/></svg>'),
+
+    /* Small spots and dirt - reduced from large patches */
+    radial-gradient(circle 8px at 20% 20%, rgba(100, 80, 60, 0.2) 0%, transparent 10%),
+    radial-gradient(circle 6px at 35% 35%, rgba(110, 90, 70, 0.18) 0%, transparent 10%),
+    radial-gradient(circle 7px at 75% 15%, rgba(100, 80, 60, 0.2) 0%, transparent 10%),
+    radial-gradient(circle 9px at 15% 65%, rgba(120, 100, 80, 0.19) 0%, transparent 10%),
+    radial-gradient(circle 5px at 85% 45%, rgba(110, 90, 70, 0.18) 0%, transparent 10%),
+    radial-gradient(circle 6px at 60% 60%, rgba(100, 80, 60, 0.17) 0%, transparent 10%),
+    radial-gradient(circle 5px at 90% 80%, rgba(120, 100, 80, 0.19) 0%, transparent 10%),
+    radial-gradient(circle 7px at 10% 90%, rgba(110, 90, 70, 0.2) 0%, transparent 10%),
+
+
+
+    /* Yellowing layers */
+    linear-gradient(135deg, rgba(218, 204, 169, 0.3) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(205, 186, 150, 0.25) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(218, 204, 169, 0.2) 0%, transparent 40%),
+
+    /* Creases and folds */
+    repeating-linear-gradient(-15deg,
+      transparent,
+      transparent 100px,
+      rgba(139, 119, 91, 0.06) 100px,
+      rgba(139, 119, 91, 0.06) 102px),
+    repeating-linear-gradient(78deg,
+      transparent,
+      transparent 150px,
+      rgba(139, 119, 91, 0.05) 150px,
+      rgba(139, 119, 91, 0.05) 151px),
+
+    /* Edge darkening/vignette */
+    radial-gradient(ellipse at center, transparent 40%, rgba(139, 119, 91, 0.15) 100%);
+
+  background-size:
+    200px 200px,
+    400px 400px,
+    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+    100% 100%, 100% 100%, 100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%;
 }
 
 /* Additional pseudo-element for subtle texture - positioned absolute */
@@ -95,14 +85,9 @@ body {
   height: 100%;
   pointer-events: none;
   background-image:
-      /* Subtle water stains */
-      radial-gradient(ellipse 180px 120px at 25% 30%, rgba(139, 119, 91, 0.1) 0%, transparent 60%),
-      radial-gradient(ellipse 150px 150px at 75% 70%, rgba(129, 109, 81, 0.08) 0%, transparent 60%),
-      
-      /* Very subtle mold spots */
-      radial-gradient(circle 30px at 18% 22%, rgba(100, 95, 70, 0.12) 0%, transparent 80%),
-      radial-gradient(circle 25px at 82% 18%, rgba(95, 90, 65, 0.1) 0%, transparent 80%),
-      radial-gradient(circle 35px at 90% 85%, rgba(100, 95, 70, 0.12) 0%, transparent 80%);
+    /* Subtle water stains */
+    radial-gradient(ellipse 180px 120px at 25% 30%, rgba(139, 119, 91, 0.01) 0%, transparent 60%),
+    radial-gradient(ellipse 150px 150px at 75% 70%, rgba(129, 109, 81, 0.08) 0%, transparent 60%);
   mix-blend-mode: multiply;
 }
 
@@ -116,7 +101,7 @@ body {
   height: 100%;
   pointer-events: none;
   background-image:
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><filter id="n3"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" /><feDisplacementMap in="SourceGraphic" scale="3"/></filter><rect width="600" height="600" filter="url(%23n3)" opacity="0.08"/></svg>');
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><filter id="n3"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" /><feDisplacementMap in="SourceGraphic" scale="3"/></filter><rect width="600" height="600" filter="url(%23n3)" opacity="0.08"/></svg>');
   opacity: 0.4;
   mix-blend-mode: overlay;
 }
@@ -751,6 +736,7 @@ body {
 }
 
 .card {
+  border: none;
   width: 26.25rem;
   max-width: calc(100vw - 3.75rem);
   background: #fff;
@@ -758,7 +744,6 @@ body {
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
   overflow: visible;
   position: relative;
-  border: 0.0625rem solid #ddd;
 }
 
 .left-border {
