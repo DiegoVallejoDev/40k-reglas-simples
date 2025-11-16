@@ -69,6 +69,12 @@
                     <img src="./svg/reroll.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
             </div>
+            <div class="tab stratagems" onclick="showPhase('stratagems')">
+                Estratagemas
+                <div class="when-symbol" style="background-color: transparent;">
+                    <img src="./svg/reroll.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                </div>
+            </div>
         </div>
         <div class="content">
             <!-- FASE DE MANDO -->
@@ -1045,12 +1051,23 @@
                         <div class="list-item"><span class="stat-highlight">6+ sin modificar:</span> Algunas reglas
                             requieren 6 natural, ignoran modificadores</div>
                     </div>
+                </div>
+                <!-- ESTRATAGEMAS -->
+                <div class="phase-content" id="stratagems">
+                    <div class="phase-title" style="color: #d4af37;">ESTRATAGEMAS</div>
+                    
+                    <div class="special-rule"
+                        style="background: #f9f9f9; border-left: 0.25rem solid #d4af37; margin-bottom: 1.5rem;">
+                        <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                            ¿QUÉ SON LAS ESTRATAGEMAS?
+                        </div>
+                        <div class="list-item">Las <span class="stat-highlight">Estratagemas</span> son tácticas especiales que puedes usar durante el juego gastando <span class="stat-highlight">Puntos de Mando (PM)</span>.</div>
+                        <div class="list-item">Cada estratagema tiene un coste, un momento específico para usarla, y un efecto poderoso.</div>
+                        <div class="list-item">Puedes usar múltiples estratagemas en un turno, pero no la misma estratagema más de una vez por fase.</div>
+                    </div>
 
                     <div class="special-rule"
                         style="padding: 0; border: none; background-color: transparent; box-shadow: none;">
-                        <div class="special-rule-title"
-                            style=" padding: 1em;background: #fff;border: 0.0625rem solid #ddd;border-left: 0.25rem solid #d4af37;border-radius: 0.25rem;padding: 1.375rem 1.625rem;margin: 1.5rem 0;box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);">
-                            Estratagemas</div>
                         <div class="stratagem-container"></div>
                     </div>
                 </div>
@@ -1114,6 +1131,9 @@
                         break;
                     case '7':
                         showPhase('rules');
+                        break;
+                    case '8':
+                        showPhase('stratagems');
                         break;
                 }
             });
