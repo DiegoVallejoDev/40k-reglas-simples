@@ -57,8 +57,20 @@
                     <img src="./svg/combate.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
             </div>
+            <div class="tab terrain" onclick="showPhase('terrain')">
+                Terreno
+                <div class="when-symbol" style="background-color: transparent;">
+                    <img src="./svg/reroll.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                </div>
+            </div>
             <div class="tab rules" onclick="showPhase('rules')">
                 Reglas Especiales
+                <div class="when-symbol" style="background-color: transparent;">
+                    <img src="./svg/reroll.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
+                </div>
+            </div>
+            <div class="tab stratagems" onclick="showPhase('stratagems')">
+                Estratagemas
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/reroll.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
@@ -68,7 +80,7 @@
             <!-- FASE DE MANDO -->
             <div class="phase-content active" id="command">
                 <div class="phase-title command-title">FASE DE MANDO</div>
-                <div class="stratagems">
+                <div class="stratagems-list">
                     <span class="strat-title">Estratagemas:</span>
                     <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
                         data-tooltip-trigger="click">
@@ -140,7 +152,7 @@
                 <!-- FASE DE MOVIMIENTO -->
                 <div class="phase-content" id="movement">
                     <div class="phase-title movement-title">FASE DE MOVIMIENTO</div>
-                    <div class="stratagems">
+                    <div class="stratagems-list">
                         <span class="strat-title">Estratagemas:</span>
                         <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
                             data-tooltip-trigger="click">
@@ -322,7 +334,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="stratagems">
+                    <div class="stratagems-list">
                         <span class="strat-title">Estratagemas:</span>
                         <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
                             data-tooltip-trigger="click">
@@ -431,7 +443,7 @@
                 <!-- FASE DE CARGA -->
                 <div class="phase-content" id="charge">
                     <div class="phase-title charge-title">FASE DE CARGA</div>
-                    <div class="stratagems">
+                    <div class="stratagems-list">
                         <span class="strat-title">Estratagemas:</span>
                         <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
                             data-tooltip-trigger="click">
@@ -557,7 +569,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="stratagems">
+                    <div class="stratagems-list">
                         <span class="strat-title">Estratagemas:</span>
                         <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
                             data-tooltip-trigger="click">
@@ -679,7 +691,7 @@
                 <!-- REGLAS ESPECIALES -->
                 <div class="phase-content" id="morale">
                     <div class="phase-title" style="color: #a01f3d;">FASE DE MORAL</div>
-                    <div class="stratagems">
+                    <div class="stratagems-list">
                         <span class="strat-title">Estratagemas:</span>
                         <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
                             data-tooltip-trigger="click">
@@ -745,6 +757,71 @@
                         <div class="list-item">Si una unidad se desintegra completamente, no hace chequeo</div>
                         <div class="list-item">Las unidades acobardadas NO tienen que hacer chequeos de moral</div>
                         <div class="list-item">Algunos efectos pueden hacer re-rolls en chequeos de moral</div>
+                    </div>
+                </div>
+                <!-- FASE DE TERRENO -->
+                <div class="phase-content" id="terrain">
+                    <div class="phase-title" style="color: #8b1538;">ELEMENTOS DE TERRENO Y COBERTURA</div>
+                    
+                    <div class="special-rule"
+                        style="background: #f9f9f9; border-left: 0.25rem solid #8b1538; margin-bottom: 1.5rem;">
+                        <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                            BENEFICIO DE COBERTURA (GENERAL)
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">Efecto:</span> +1 a la tirada de salvación contra ataques a distancia.</div>
+                        <div class="list-item"><span class="stat-highlight">Límite:</span> Las coberturas NO son acumulativas.</div>
+                        <div class="list-item"><span class="stat-highlight">Excepción:</span> NO aplica a miniaturas con Salvación 3+ (o 2+) contra ataques de FP 0 (Factor de Penetración 0).</div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">TIPOS DE TERRENO Y SUS REGLAS</div>
+                    </div>
+
+                    <div class="special-rule">
+                        <div class="special-rule-title">(A) Cobertura por Posición Específica (Infantería)</div>
+                        
+                        <div class="list-item"><span class="stat-highlight">Cráteres / Escombros (Terreno de Área):</span>
+                            <div class="list-item-item"><strong>Cobertura:</strong> Infantería completamente encima obtiene cobertura.</div>
+                        </div>
+
+                        <div class="list-item"><span class="stat-highlight">Barricadas / Tuberías (Obstáculo):</span>
+                            <div class="list-item-item"><strong>Cobertura:</strong> Infantería a 3" o menos Y no totalmente visible (debido al terreno) obtiene cobertura.</div>
+                            <div class="list-item-item"><strong>Regla Especial:</strong> Zona de Amenaza de 2" (permite cargar y combatir "a través" del obstáculo).</div>
+                        </div>
+                    </div>
+
+                    <div class="special-rule">
+                        <div class="special-rule-title">(B) Cobertura por Visibilidad o Estar "Dentro" (Todas las Unidades)</div>
+                        
+                        <div class="list-item"><span class="stat-highlight">Escombros Bélicos / Estatuas (Obstáculo):</span>
+                            <div class="list-item-item"><strong>Cobertura:</strong> Cualquier miniatura no totalmente visible (debido al terreno) obtiene cobertura.</div>
+                        </div>
+
+                        <div class="list-item"><span class="stat-highlight">Colinas / Edificios Sellados (Terreno de Área):</span>
+                            <div class="list-item-item"><strong>Cobertura:</strong> Cualquier miniatura no totalmente visible (debido al terreno) obtiene cobertura.</div>
+                            <div class="list-item-item"><strong>Nota:</strong> Son terreno elevado.</div>
+                        </div>
+
+                        <div class="list-item"><span class="stat-highlight">Bosques (Terreno de Área):</span>
+                            <div class="list-item-item"><strong>Cobertura:</strong> Se obtiene de dos formas:</div>
+                            <div class="list-item-item" style="margin-left: 1.5rem;">• La miniatura está completamente dentro.</div>
+                            <div class="list-item-item" style="margin-left: 1.5rem;">• La miniatura no es totalmente visible (debido al bosque).</div>
+                            <div class="list-item-item"><strong>Visibilidad:</strong> Unidades dentro nunca son totalmente visibles. Ver a través del bosque hace que el objetivo no sea totalmente visible. (Excepto Aeronaves/Gigantescas).</div>
+                        </div>
+
+                        <div class="list-item"><span class="stat-highlight">Ruinas (Terreno de Área):</span>
+                            <div class="list-item-item"><strong>Cobertura:</strong> Se obtiene de dos formas:</div>
+                            <div class="list-item-item" style="margin-left: 1.5rem;">• La miniatura está completamente dentro.</div>
+                            <div class="list-item-item" style="margin-left: 1.5rem;">• La miniatura no es totalmente visible (debido a la ruina).</div>
+                            <div class="list-item-item"><strong>Visibilidad:</strong> Bloquea la línea de visión a menos que ambas unidades estén dentro. (Excepto Aeronaves/Gigantescas).</div>
+                            <div class="list-item-item"><strong>Movimiento:</strong> Infantería, Bestias y Enjambres pueden moverse a través de muros.</div>
+                            <div class="list-item-item"><strong>Regla Especial (Fuego Descendente):</strong> Si estás a 6" o más de altura (vertical) que tu objetivo (en el suelo), tu ataque tiene +1 al FP.</div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.75rem; margin: 1.5rem 0; border-radius: 0.25rem;">
+                        <strong>📐 REGLA CLAVE:</strong> "No totalmente visible" = beneficio de cobertura
                     </div>
                 </div>
                 <!-- REGLAS ESPECIALES -->
@@ -974,59 +1051,23 @@
                         <div class="list-item"><span class="stat-highlight">6+ sin modificar:</span> Algunas reglas
                             requieren 6 natural, ignoran modificadores</div>
                     </div>
-
-                    <div class="special-rule">
-                        <div class="special-rule-title">Elementos de Terreno y Cobertura</div>
-                        <div class="list-item"><span class="stat-highlight">Beneficio de Cobertura:</span> +1 a
-                            salvación vs ataques a distancia</div>
-                        <div class="list-item">NO aplica a miniaturas con <span class="stat-highlight">S</span> 3+ o
-                            mejor contra ataques <span class="attacker">FP</span> 0</div>
-                        <div class="list-item">Las coberturas NO son acumulativas</div>
-
-                        <div style="margin-top: 1rem; font-weight: 600; color: #8b1538;">Tipos de Terreno:</div>
-
-                        <div class="list-item"><span class="stat-highlight">Cráteres/Escombros:</span> Infantería
-                            completamente encima = cobertura</div>
-
-                        <div class="list-item"><span class="stat-highlight">Barricadas/Tuberías:</span> Infantería a ≤3"
-                            + no totalmente visible = cobertura
-                            <div class="list-item-item">Zona de amenaza especial: 2" en combate a través del obstáculo
-                            </div>
+                </div>
+                <!-- ESTRATAGEMAS -->
+                <div class="phase-content" id="stratagems">
+                    <div class="phase-title" style="color: #8b1538;">ESTRATAGEMAS</div>
+                    
+                    <div class="special-rule"
+                        style="background: #f9f9f9; border-left: 0.25rem solid #8b1538; margin-bottom: 1.5rem;">
+                        <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                            ¿QUÉ SON LAS ESTRATAGEMAS?
                         </div>
-
-                        <div class="list-item"><span class="stat-highlight">Escombros Bélicos/Estatuas:</span> No
-                            totalmente visible = cobertura</div>
-
-                        <div class="list-item"><span class="stat-highlight">Colinas/Edificios Sellados:</span> Área
-                            elevada + no totalmente visible = cobertura</div>
-
-                        <div class="list-item"><span class="stat-highlight">Bosques:</span>
-                            <div class="list-item-item">Completamente dentro = nunca totalmente visible</div>
-                            <div class="list-item-item">Ver a través del bosque = objetivo no totalmente visible</div>
-                            <div class="list-item-item">Ambos casos otorgan cobertura</div>
-                        </div>
-
-                        <div class="list-item"><span class="stat-highlight">Ruinas:</span>
-                            <div class="list-item-item">Infantería/Bestia atraviesan muros libremente</div>
-                            <div class="list-item-item">Dentro o no totalmente visible = cobertura</div>
-                            <div class="list-item-item">Fuego descendente (≥6" altura): <span class="stat-highlight">+1
-                                    FP</span> vs objetivos a nivel suelo
-                            </div>
-                            <div class="list-item-item">Bloquea visión entre exterior ↔ exterior (excepto
-                                Aeronaves/Gigantescas)</div>
-                        </div>
-
-                        <div
-                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
-                            <strong>📐 REGLA CLAVE:</strong> "No totalmente visible" = beneficio de cobertura
-                        </div>
+                        <div class="list-item">Las <span class="stat-highlight">Estratagemas</span> son tácticas especiales que puedes usar durante el juego gastando <span class="stat-highlight">Puntos de Mando (PM)</span>.</div>
+                        <div class="list-item">Cada estratagema tiene un coste, un momento específico para usarla, y un efecto poderoso.</div>
+                        <div class="list-item">Puedes usar múltiples estratagemas en un turno, pero no la misma estratagema más de una vez por fase.</div>
                     </div>
 
                     <div class="special-rule"
                         style="padding: 0; border: none; background-color: transparent; box-shadow: none;">
-                        <div class="special-rule-title"
-                            style=" padding: 1em;background: #fff;border: 0.0625rem solid #ddd;border-left: 0.25rem solid #d4af37;border-radius: 0.25rem;padding: 1.375rem 1.625rem;margin: 1.5rem 0;box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);">
-                            Estratagemas</div>
                         <div class="stratagem-container"></div>
                     </div>
                 </div>
@@ -1086,7 +1127,13 @@
                         showPhase('fight');
                         break;
                     case '6':
+                        showPhase('terrain');
+                        break;
+                    case '7':
                         showPhase('rules');
+                        break;
+                    case '8':
+                        showPhase('stratagems');
                         break;
                 }
             });
