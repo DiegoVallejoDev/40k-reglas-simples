@@ -582,7 +582,7 @@ body {
     padding: 1.125rem 1.375rem;
   }
 
-  .stratagems {
+  .stratagems-list {
     padding: 1rem;
   }
 
@@ -686,7 +686,7 @@ body {
   }
 }
 
-.stratagems {
+.stratagems-list {
   margin-bottom: 1.875rem;
   text-align: center;
   padding: 1.25rem;
