@@ -1,8 +1,9 @@
 {
-  "name": "40k Referencia Táctica",
-  "short_name": "40k Ref",
+  "name": "40k reglas simples",
+  "short_name": "40k reglas",
+  "description": "Referencia táctica rápida para Warhammer 40,000",
   "start_url": "./index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#121212",
   "theme_color": "#eab308",
   "orientation": "portrait",
