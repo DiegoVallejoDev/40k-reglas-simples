@@ -1,10 +1,10 @@
 {
-  "id": "/",
+  "id": "./",
   "name": "40k Reglas Simples - Warhammer 40,000",
   "short_name": "40k Reglas",
   "description": "Referencia táctica rápida e interactiva para Warhammer 40,000. Acceso completo a reglas, estratagemas y mecánicas de combate.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "fullscreen",
   "orientation": "portrait",
   "background_color": "#121212",
