@@ -6,7 +6,8 @@ const ASSETS = [
     './manifest.json',
     './main.css',
     './stratagems.js',
-    './tooltip.js'
+    './tooltip.js',
+    './images/icon.jpg'
 ];
 
 // Install Event: Cache files
