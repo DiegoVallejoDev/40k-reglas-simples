@@ -14,6 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="main.css">
+    <link rel="manifest" href="manifest.json">
     <title>Tarjetas de Referencia Warhammer 40k</title>
 
 </head>
@@ -1151,6 +1152,18 @@
         </div>
         <script src="./stratagems.js"></script>
         <script src="./tooltip.js"></script>
+        <script>
+            // Register Service Worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((registration) => {
+                        console.log('Service Worker registered successfully:', registration);
+                    })
+                    .catch((error) => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            }
+        </script>
 
 </body>
 
