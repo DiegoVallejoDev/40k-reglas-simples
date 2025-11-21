@@ -3,7 +3,10 @@ const CACHE_NAME = '40k-tactics-v2';
 const ASSETS = [
     './',
     './index.html',
-    './manifest.json'
+    './manifest.json',
+    './main.css',
+    './stratagems.js',
+    './tooltip.js'
 ];
 
 // Install Event: Cache files
@@ -30,11 +33,9 @@ self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
-                cacheNames.map((cache) => {
-                    if (cache !== CACHE_NAME) {
-                        return caches.delete(cache);
-                    }
-                })
+                cacheNames
+                    .filter((cache) => cache !== CACHE_NAME)
+                    .map((cache) => caches.delete(cache))
             );
         })
     );
