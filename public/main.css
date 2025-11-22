@@ -8,7 +8,7 @@
   --color-primary-light: #a01f3d;
   --color-secondary: #2d7a8f;
   --color-accent: #d4af37;
-  
+
   /* Colors - Grayscale */
   --color-dark: #1a1a1a;
   --color-medium-dark: #2b2b2b;
@@ -20,7 +20,7 @@
   --color-white: #fff;
   --color-paper: #ebe9e1;
   --color-paper-alt: #f5f3ed;
-  
+
   /* Colors - Stratagem States */
   --color-either-turn: #2c5a4d;
   --color-either-turn-hover: #3a7a68;
@@ -28,7 +28,7 @@
   --color-active-turn-hover: #335580;
   --color-opponent-turn: #a4151f;
   --color-opponent-turn-hover: #c51a28;
-  
+
   /* Spacing */
   --spacing-xs: 0.125rem;
   --spacing-sm: 0.25rem;
@@ -37,30 +37,30 @@
   --spacing-xl: 1.5rem;
   --spacing-2xl: 2rem;
   --spacing-3xl: 3rem;
-  
+
   /* Border Radius */
   --radius-sm: 0.1875rem;
   --radius-md: 0.25rem;
   --radius-lg: 0.375rem;
   --radius-xl: 0.9375rem;
-  
+
   /* Borders */
   --border-thin: 0.0625rem;
   --border-medium: 0.125rem;
   --border-thick: 0.1875rem;
   --border-heavy: 0.25rem;
-  
+
   /* Typography */
   --font-family-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-family-heading: "Source Sans Pro", sans-serif;
   --font-family-condensed: "Arial Narrow", "Helvetica Condensed", "Roboto Condensed", sans-serif-condensed, sans-serif;
-  
+
   /* Shadows */
   --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   --shadow-md: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
   --shadow-xl: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.6);
-  
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
@@ -790,7 +790,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: var(--spacing-md);
-  border: var(--border-medium) solid var(--color-white);
+  border: var(--border-medium) solid var(--color-paper-alt);
   position: relative;
   box-shadow: 0 var(--spacing-xs) var(--radius-lg) rgba(0, 0, 0, 0.3);
 }

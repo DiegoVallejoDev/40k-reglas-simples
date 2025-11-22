@@ -1,5 +1,5 @@
 {
-  "id": "./",
+  "id": "@40k-reglas-simples/app",
   "name": "40k Reglas Simples - Warhammer 40,000",
   "short_name": "40k Reglas",
   "description": "Referencia táctica rápida e interactiva para Warhammer 40,000. Acceso completo a reglas, estratagemas y mecánicas de combate.",
@@ -8,7 +8,7 @@
   "display": "fullscreen",
   "orientation": "portrait",
   "background_color": "#121212",
-  "theme_color": "#eab308",
+  "theme_color": "#121212",
   "lang": "es",
   "dir": "ltr",
   "categories": ["games", "reference", "utilities"],
