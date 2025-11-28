@@ -145,6 +145,20 @@ class TooltipSystem {
 document.addEventListener('DOMContentLoaded', () => {
     const tooltipSystem = new TooltipSystem();
 
+    // Add tabindex to all tooltip trigger elements for keyboard accessibility
+    document.querySelectorAll('[data-tooltip-content]').forEach(el => {
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+        
+        // Add keyboard support (Enter/Space)
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                el.click();
+            }
+        });
+    });
+
     // Cerrar tooltips de click cuando se hace click fuera
     document.addEventListener('click', (e) => {
         const clickedTooltip = e.target.closest('.tooltip');
