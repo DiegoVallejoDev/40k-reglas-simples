@@ -33,49 +33,49 @@
             <p>Tarjetas de Referencia Táctica</p>
         </div>
         <div class="tabs">
-            <div class="tab command active" onclick="showPhase('command')">
+            <div class="tab command active" onclick="showPhase('command')" tabindex="0" role="tab" aria-selected="true">
                 1. Mando
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/mando.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
             </div>
-            <div class="tab movement" onclick="showPhase('movement')">
+            <div class="tab movement" onclick="showPhase('movement')" tabindex="0" role="tab" aria-selected="false">
                 2. Movimiento
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/movimiento.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
             </div>
-            <div class="tab shoot" onclick="showPhase('shoot')">
+            <div class="tab shoot" onclick="showPhase('shoot')" tabindex="0" role="tab" aria-selected="false">
                 3. Disparo
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/disparo.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
             </div>
-            <div class="tab charge" onclick="showPhase('charge')">
+            <div class="tab charge" onclick="showPhase('charge')" tabindex="0" role="tab" aria-selected="false">
                 4. Carga
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/carga.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
             </div>
-            <div class="tab fight" onclick="showPhase('fight')">
+            <div class="tab fight" onclick="showPhase('fight')" tabindex="0" role="tab" aria-selected="false">
                 5. Combate
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/combate.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
             </div>
-            <div class="tab terrain" onclick="showPhase('terrain')">
+            <div class="tab terrain" onclick="showPhase('terrain')" tabindex="0" role="tab" aria-selected="false">
                 Terreno
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/reroll.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
             </div>
-            <div class="tab rules" onclick="showPhase('rules')">
+            <div class="tab rules" onclick="showPhase('rules')" tabindex="0" role="tab" aria-selected="false">
                 Reglas Especiales
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/reroll.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
                 </div>
             </div>
-            <div class="tab stratagems" onclick="showPhase('stratagems')">
+            <div class="tab stratagems" onclick="showPhase('stratagems')" tabindex="0" role="tab" aria-selected="false">
                 Estratagemas
                 <div class="when-symbol" style="background-color: transparent;">
                     <img src="./svg/reroll.svg" alt="" style="width: 100%;height: 100%;transform: rotate(-90deg);">
@@ -1084,6 +1084,16 @@
             document.addEventListener('DOMContentLoaded', function () {
                 const storedPhase = localStorage.getItem('selectedPhase') || 'command';
                 showPhase(storedPhase);
+
+                // Add keyboard support for tabs (Enter/Space)
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.click();
+                        }
+                    });
+                });
             });
 
 
@@ -1098,6 +1108,7 @@
                 const tabs = document.querySelectorAll('.tab');
                 tabs.forEach(tab => {
                     tab.classList.remove('active');
+                    tab.setAttribute('aria-selected', 'false');
                 });
 
                 // Mostrar el contenido seleccionado
@@ -1108,7 +1119,10 @@
 
                 // Activar la pestaña seleccionada
                 const activeTab = document.querySelector(`.tab.${phaseId}`);
-                if (activeTab) activeTab.classList.add('active');
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                    activeTab.setAttribute('aria-selected', 'true');
+                }
 
                 // Guardar en localStorage
                 localStorage.setItem('selectedPhase', phaseId);
