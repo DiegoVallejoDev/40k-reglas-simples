@@ -55,6 +55,9 @@
   --font-family-heading: "Source Sans Pro", sans-serif;
   --font-family-condensed: "Arial Narrow", "Helvetica Condensed", "Roboto Condensed", sans-serif-condensed, sans-serif;
 
+  /* Font sizes */
+  --font-size-mobile-small: 0.85em;
+
   /* Shadows */
   --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   --shadow-md: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
@@ -285,15 +288,10 @@ body {
 
 .phase-content {
   display: none;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .phase-content.active {
   display: block;
-  opacity: 1;
-  transform: translateY(0);
   animation: fadeSlideIn 0.3s ease forwards;
 }
 
@@ -579,7 +577,7 @@ body {
   }
 
   .tab {
-    font-size: 0.85em;
+    font-size: var(--font-size-mobile-small);
     padding: 0.875rem 0.625rem;
     gap: 0.75em;
     letter-spacing: 0.05rem;
@@ -612,7 +610,7 @@ body {
 
   /* Better mobile table visualization */
   .wound-table {
-    font-size: 0.85em;
+    font-size: var(--font-size-mobile-small);
     display: block;
     margin: var(--spacing-lg) 0;
     border-radius: var(--radius-md);
@@ -1063,7 +1061,7 @@ body {
   background-color: var(--color-either-turn);
   color: #e8e8e8;
   border-color: var(--color-either-turn);
-  font-size: 0.85em;
+  font-size: var(--font-size-mobile-small);
   padding: var(--spacing-md) 1rem;
 }
 
@@ -1081,7 +1079,7 @@ body {
   background-color: var(--color-active-turn);
   color: #e8e8e8;
   border-color: var(--color-active-turn);
-  font-size: 0.85em;
+  font-size: var(--font-size-mobile-small);
   padding: var(--spacing-md) 1rem;
 }
 
@@ -1099,7 +1097,7 @@ body {
   background-color: var(--color-opponent-turn);
   color: #e8e8e8;
   border-color: var(--color-opponent-turn);
-  font-size: 0.85em;
+  font-size: var(--font-size-mobile-small);
   padding: var(--spacing-md) 1rem;
 }
 
