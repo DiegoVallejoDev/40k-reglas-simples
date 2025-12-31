@@ -788,11 +788,18 @@
                             BENEFICIO DE COBERTURA (GENERAL)
                         </div>
                         <div class="list-item"><span class="stat-highlight">Efecto:</span> +1 a la tirada de salvación
-                            contra ataques a distancia.</div>
-                        <div class="list-item"><span class="stat-highlight">Límite:</span> Las coberturas NO son
-                            acumulativas.</div>
-                        <div class="list-item"><span class="stat-highlight">Excepción:</span> NO aplica a miniaturas con
-                            Salvación 3+ (o 2+) contra ataques de FP 0 (Factor de Penetración 0).</div>
+                            (normalmente contra ataques a distancia).</div>
+                        <div class="list-item"><span class="stat-highlight">Límite:</span> El beneficio de cobertura
+                            <strong>nunca puede mejorar la salvación más allá de 3+</strong>. Si tu salvación modificada
+                            ya es 3+ o mejor, no obtienes el +1.
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">No acumulable:</span> Múltiples fuentes de
+                            cobertura NO se acumulan.</div>
+                        <div class="list-item"><span class="stat-highlight">Cuándo se obtiene:</span>
+                            <div class="list-item-item">Estar dentro o detrás de ciertos tipos de terreno.</div>
+                            <div class="list-item-item">No ser "totalmente visible" para el atacante debido al terreno.
+                            </div>
+                        </div>
                     </div>
 
                     <div class="step">
@@ -888,7 +895,7 @@
                                 <tr>
                                     <td data-label="Símbolo"><span class="stat-highlight">HP</span></td>
                                     <td data-label="Característica">Habilidad de Proyectiles</td>
-                                    <td data-label="Descripción">Tirada para impactar en disparo (2d6 vs HP)</td>
+                                    <td data-label="Descripción">Tirada para impactar en disparo (1d6 vs HP)</td>
                                 </tr>
                                 <tr>
                                     <td data-label="Símbolo"><span class="stat-highlight">HA</span></td>
@@ -913,7 +920,7 @@
                                 <tr>
                                     <td data-label="Símbolo"><span class="stat-highlight">S</span></td>
                                     <td data-label="Característica">Salvación</td>
-                                    <td data-label="Descripción">Tirada de armadura (2d6 vs S, modificada por FP)</td>
+                                    <td data-label="Descripción">Tirada de armadura (1d6 vs S, modificada por FP)</td>
                                 </tr>
                                 <tr>
                                     <td data-label="Símbolo"><i class="fa-solid fa-shield"></i></td>
@@ -952,8 +959,7 @@
                             (reducida) por
                             <span class="attacker">Factor de Penetración (FP)</span> del atacante
                         </div>
-                        <div class="list-item-item">suma(restaran porque FP es negatibo) los puntos de FP, al dado
-                            (haciendo
+                        <div class="list-item-item">Suma los puntos de FP al dado (porque FP es negativo, haciendo
                             más difícil salvar)</div>
                         <div class="list-item"><span class="stat-highlight">Salvación Invulnerable <i
                                     class="fa-solid fa-shield"></i> :</span> NUNCA modificada
@@ -978,9 +984,10 @@
                     <div class="special-rule">
                         <div class="special-rule-title">Heridas Mortales (Mortal Wounds)</div>
                         <div class="list-item">Se asignan directamente, SIN tirada de salvación normal</div>
-                        <div class="list-item">NO se pueden evitar con salvaciones normales, solo con especiales</div>
-                        <div class="list-item">Pueden ser evitadas por habilidades específicas o salvaciones
-                            invulnerables
+                        <div class="list-item">NO se pueden evitar con salvaciones normales ni invulnerables
+                        </div>
+                        <div class="list-item">Solo pueden ser ignoradas por habilidades específicas como "Ignorar
+                            heridas" (Feel No Pain)
                         </div>
                         <div class="list-item">Se aplican una por una, no todas a la vez</div>
                         <div class="list-item">Cuentan completamente hacia la remoción de miniaturas</div>
@@ -990,7 +997,7 @@
                     <div class="special-rule">
                         <div class="special-rule-title">Habilidades Especiales de Armas</div>
 
-                        <div class="list-item"><span class="stat-highlight">ANTI+CLAVE X+</span>:
+                        <div class="list-item"><span class="stat-highlight">ANTI-CLAVE X+</span>:
                             Una tirada para herir sin modificar de “x+” contra un blanco con la <span
                                 class="defender">clave</span>
                             correspondiente causa una herida crítica.</div>
@@ -1008,9 +1015,12 @@
                                 del ejército de la miniatura atacante (incluida la unidad propia).</div>
                         </div>
                         <div class="list-item"><span class="stat-highlight">HERIDAS DEVASTADORAS</span>:
-                            Una herida crítica inflige tantas heridas mortales como el atributo Daño del arma, en vez
-                            del
-                            daño normal.</div>
+                            <div class="list-item-item">Se activa con un <strong>6 natural sin modificar</strong> .
+                            </div>
+                            <div class="list-item-item">En vez de hacer daño normal, inflige <strong>heridas
+                                    mortales</strong> igual al atributo Daño del arma.</div>
+                            <div class="list-item-item">Las heridas mortales ignoran la salvación de armadura.</div>
+                        </div>
                         <div class="list-item"><span class="stat-highlight">PESADA</span>:
                             Suma 1 a las tiradas para impactar si la unidad del portador ha permanecido estacionaria
                             este
@@ -1031,12 +1041,6 @@
                         </div>
                         <div class="list-item"><span class="stat-highlight">IMPACTOS LETALES</span>:
                             Al atacar con un arma de este tipo, un impacto crítico hiere automáticamente al blanco.
-                        </div>
-                        <div
-                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
-                            <strong>💡 RECORDATORIO:</strong> Un "impacto crítico" o "herida crítica" es un 6 natural
-                            sin
-                            modificar
                         </div>
                         <div class="list-item"><span class="stat-highlight">PISTOLA</span>:
                             <div class="list-item-item">Se puede disparar aunque la unidad del portador esté en la zona
@@ -1069,7 +1073,161 @@
                             Los ataques con esta arma causan -1 a los dados de movimiento del enemigo hasta el final de
                             su
                             siguiente turno.</div>
+                        <div class="list-item"><span class="stat-highlight">PRECISIÓN</span>:
+                            Al atacar a una unidad que contiene un Personaje adjunto, un impacto crítico hiere al
+                            Personaje en lugar de a una miniatura de guardaespaldas.</div>
+                        <div class="list-item"><span class="stat-highlight">MELTA X</span>:
+                            Aumenta el atributo Daño en "x" cuando estás a mitad del alcance o menos del blanco.</div>
+                        <div class="list-item"><span class="stat-highlight">LANZADOR</span>:
+                            Cada vez que se realiza un ataque con esta arma, el blanco no recibe el beneficio de
+                            cobertura.</div>
+                        <div class="list-item"><span class="stat-highlight">ATAQUE EXTRA</span>:
+                            El portador puede realizar un ataque adicional con esta arma.</div>
+                        <div class="list-item"><span class="stat-highlight">GEMELA</span>:
+                            Puedes repetir las tiradas para herir fallidas con esta arma.</div>
+                        <div
+                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
+                            <strong>💡 IMPACTOS Y HERIDAS CRÍTICAS:</strong>
+                            <div style="margin-top: 0.5rem; font-size: 0.9em;">
+                                <div>• en Armas de Fuego con habilidades:
+                                    <span class="stat-highlight">IMPACTOS LETALES</span>,
+                                    <span class="stat-highlight">GOLPES SOSTENIDOS</span>,
+                                    <span class="stat-highlight">HERIDAS DEVASTADORAS</span>,
+                                    <span class="stat-highlight">ANTI-X+</span>
+                                </div>
+                                <div>• En armas sin habilidades especiales, un 6 es solo un <strong>éxito
+                                        normal</strong> (se
+                                    resuelve con salvación).</div>
+                            </div>
+                            <div
+                                style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed #ffc107; font-size: 0.9em;">
+                                <div><strong>HERIDAS MORTALES:</strong> Ignoran salvaciones normales e invulnerables.
+                                </div>
+                                <div>🛡️ <strong>Feel No Pain</strong> es la ÚNICA forma de ignorarlas (tirar por cada
+                                    herida mortal).</div>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="special-rule"
+                        style="background: #f9f9f9; border-left: 0.25rem solid #8b1538; margin-bottom: 1.5rem;">
+                        <div class="special-rule-title" style="text-align: center; margin-bottom: 1rem;">
+                            ESTRUCTURA DEL JUEGO: RONDA vs TURNO
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9em;">
+                            <div
+                                style="text-align: center; padding: 0.75rem; background: #e8f4f8; border-radius: 0.5rem; border: 2px solid #2d7a8f;">
+                                <div style="font-weight: 700; color: #2d7a8f; margin-bottom: 0.5rem;">RONDA DE BATALLA
+                                </div>
+                                <div>Una ronda = <span class="stat-highlight">2 turnos</span></div>
+                                <div style="font-size: 0.85em; margin-top: 0.25rem;">Turno del jugador A + Turno del
+                                    jugador B</div>
+                            </div>
+                            <div
+                                style="text-align: center; padding: 0.75rem; background: #fce8ec; border-radius: 0.5rem; border: 2px solid #8b1538;">
+                                <div style="font-weight: 700; color: #8b1538; margin-bottom: 0.5rem;">TURNO</div>
+                                <div>Turno = <span class="stat-highlight">5 fases</span></div>
+                                <div style="font-size: 0.85em; margin-top: 0.25rem;">Mando → Movimiento → Disparo →
+                                    Carga → Combate</div>
+                            </div>
+                        </div>
+                        <div class="list-item" style="margin-top: 1rem;">Una partida estándar dura <span
+                                class="stat-highlight">5 rondas de batalla</span> (10 turnos totales)</div>
+                        <div class="list-item">El jugador que despliega primero normalmente tiene el <span
+                                class="stat-highlight">primer turno</span></div>
+                        <div class="list-item">Al inicio de cada ronda (no turno), ambos jugadores obtienen <span
+                                class="stat-highlight">+1 PM</span></div>
+                        <div
+                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
+                            <strong>💡 IMPORTANTE:</strong> "Esta ronda" = hasta que el segundo jugador termine su
+                            turno.
+                            "Este turno" = solo durante tu turno activo.
+                        </div>
+                    </div>
+                    <div class="special-rule">
+                        <div class="special-rule-title">Refuerzos (Reservas Estratégicas)</div>
+                        <div class="list-item"><span class="stat-highlight">¿Qué son?</span>
+                            Unidades que no se despliegan al inicio del juego, sino que llegan durante la partida en el
+                            paso de Refuerzos de tu fase de Movimiento.</div>
+                        <div class="list-item"><span class="stat-highlight">Coste de Reservas Estratégicas:</span>
+                            <div class="list-item-item">Unidades con coste <span class="stat-highlight">≤100 pts</span>:
+                                Gratis</div>
+                            <div class="list-item-item">Unidades con coste <span class="stat-highlight">101-200
+                                    pts</span>: 1 PM</div>
+                            <div class="list-item-item">Unidades con coste <span class="stat-highlight">201-400
+                                    pts</span>: 2 PM</div>
+                            <div class="list-item-item">Unidades con coste <span class="stat-highlight">401+ pts</span>:
+                                3 PM</div>
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">Cuándo llegan:</span>
+                            <div class="list-item-item">Llegan en el <span class="stat-highlight">paso de
+                                    Refuerzos</span> de tu fase de Movimiento (después de mover todas tus unidades).
+                            </div>
+                            <div class="list-item-item">Pueden llegar desde la <span class="stat-highlight">ronda
+                                    2</span> en adelante.</div>
+                            <div class="list-item-item">Si NO llegan antes de terminar la <span
+                                    class="stat-highlight">ronda 3</span>, <span class="stat-highlight">cuentan como
+                                    destruidas</span>.</div>
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">Dónde pueden aparecer (Reservas
+                                Estratégicas):</span>
+                            <div class="list-item-item">A más de <span class="stat-highlight">9"</span> de cualquier
+                                miniatura enemiga.</div>
+                            <div class="list-item-item">Completamente dentro de <span class="stat-highlight">6"</span>
+                                de cualquier borde de mesa (excepto el del oponente).</div>
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">Restricciones al llegar:</span>
+                            <div class="list-item-item">Cuentan como si hubieran hecho un <span
+                                    class="stat-highlight">movimiento normal</span> ese turno.</div>
+                            <div class="list-item-item">SÍ pueden disparar y cargar normalmente.</div>
+                            <div class="list-item-item">NO pueden avanzar ni caer atrás el turno que llegan.</div>
+                        </div>
+                    </div>
+                    <div class="special-rule"
+                        style="background: #e8f4f8; border-left: 0.25rem solid #2d7a8f; margin-bottom: 1.5rem;">
+                        <div class="special-rule-title" style="color: #2d7a8f;">ATERRIZAJE PROFUNDO (Deep Strike)</div>
+                        <div class="list-item"><span class="stat-highlight">¿Qué es?</span>
+                            Una habilidad de unidad (indicada en su hoja de datos) que permite llegar como refuerzo SIN
+                            necesidad de pagar PM por Reservas Estratégicas.</div>
+                        <div class="list-item"><span class="stat-highlight">Cuándo pueden llegar:</span>
+                            <div class="list-item-item">Llegan en el <span class="stat-highlight">paso de
+                                    Refuerzos</span> de tu fase de Movimiento.</div>
+                            <div class="list-item-item">Pueden llegar desde la <span class="stat-highlight">ronda
+                                    2</span> en adelante (igual que Reservas Estratégicas).</div>
+                            <div class="list-item-item">Si NO llegan antes de terminar la <span
+                                    class="stat-highlight">ronda 3</span>, cuentan como destruidas.</div>
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">Dónde pueden aparecer:</span>
+                            <div class="list-item-item">En <span class="stat-highlight">cualquier parte del campo</span>
+                                de batalla (no limitado a bordes).</div>
+                            <div class="list-item-item">A más de <span class="stat-highlight">9"</span> de cualquier
+                                miniatura enemiga.</div>
+                        </div>
+                        <div class="list-item"><span class="stat-highlight">Restricciones al llegar:</span>
+                            <div class="list-item-item">Cuentan como si hubieran hecho un <span
+                                    class="stat-highlight">movimiento normal</span> ese turno.</div>
+                            <div class="list-item-item">SÍ pueden disparar y cargar normalmente.</div>
+                        </div>
+                        <div
+                            style="background: #fff3cd; border-left: 0.25rem solid #ffc107; padding: 0.5rem; margin: 0.5rem 0; border-radius: 0.25rem;">
+                            <strong>DIFERENCIA CLAVE:</strong> Deep Strike te permite aparecer en <strong>cualquier
+                                lugar</strong> del campo (a +9" de enemigos).
+                            Reservas Estratégicas solo permite aparecer a <strong>6" de un borde de mesa</strong>.
+                        </div>
+                    </div>
+                    <div class="special-rule">
+                        <div class="special-rule-title">Otras Habilidades de Refuerzo</div>
+                        <div class="list-item"><span class="stat-highlight">Infiltradores:</span>
+                            Se despliegan durante el despliegue normal, pero pueden colocarse en cualquier parte del
+                            campo a más de <span class="stat-highlight">9"</span> de la zona de despliegue enemiga y de
+                            cualquier miniatura enemiga.</div>
+                        <div class="list-item"><span class="stat-highlight">Exploradores X":</span>
+                            Después de ambos jugadores desplegar, pero antes del primer turno, pueden hacer un
+                            movimiento normal de hasta <span class="stat-highlight">X"</span>. No pueden terminar a 9" o
+                            menos de miniaturas enemigas.</div>
+                        <div class="list-item"><span class="stat-highlight">Líder (Personaje adjunto):</span>
+                            Un Personaje con esta habilidad puede adjuntarse a una unidad de guardaespaldas. Si la
+                            unidad tiene Deep Strike, el Personaje adjunto también se beneficia.</div>
                     </div>
                     <div class="special-rule">
                         <div class="special-rule-title">Reglas de Movimiento Clave</div>
