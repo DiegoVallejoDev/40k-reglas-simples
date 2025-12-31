@@ -707,77 +707,6 @@
                         <div class="list-item">Si no hay enemigos a ≤1", la unidad sale del combate</div>
                     </div>
                 </div>
-                <!-- REGLAS ESPECIALES -->
-                <div class="phase-content" id="morale">
-                    <div class="phase-title" style="color: #a01f3d;">FASE DE MORAL</div>
-                    <div class="stratagems-list">
-                        <span class="strat-title">Estratagemas:</span>
-                        <span class="text-link either-players-turn" data-tooltip-content="repetición-de-mando"
-                            data-tooltip-trigger="click">
-                            Repetición de Mando
-                        </span>,
-                        <span class="text-link either-players-turn" data-tooltip-content="valor-insensato"
-                            data-tooltip-trigger="click">
-                            Valor Insensato
-                        </span>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">Cuándo Ocurre</div>
-                        <div class="list-item">Ocurre al final de la ronda (turno de ambos jugadores)</div>
-                        <div class="list-item">Solo afecta a unidades que han sufrido pérdidas en esta ronda</div>
-                        <div class="list-item">Comienza con el jugador defensor (quien NO atacó)</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">Procedimiento de Chequeo de Moral</div>
-                        <div class="list-item">Para cada unidad amiga que sufrió bajas esta ronda:</div>
-                        <div class="list-item-item">Cuenta el número de miniaturas perdidas</div>
-                        <div class="list-item-item">Tira un dado</div>
-                        <div class="list-item-item">Si el resultado ≤ número de miniaturas perdidas: Falla el chequeo
-                        </div>
-                        <div class="list-item-item">Si el resultado > número de miniaturas perdidas: Supera el chequeo
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">Efectos de Fallar el Chequeo</div>
-                        <div class="list-item"><span class="stat-highlight">1 Miniatura Adicional Retirada:</span> Por
-                            cada
-                            punto que falles el chequeo, retira <span class="stat-highlight">1 miniatura extra</span> de
-                            esa
-                            unidad</div>
-                        <div class="list-item">La unidad selecciona qué miniaturas se retiran</div>
-                        <div class="list-item">No puede retirarse más miniaturas de las que quedan en la unidad</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">Modificadores al Chequeo de Moral</div>
-                        <div class="list-item"><span class="stat-highlight">Liderazgo (Ld):</span> La característica de
-                            liderazgo de la unidad NO modifica el chequeo</div>
-                        <div class="list-item"><span class="stat-highlight">Nearby Characters:</span> Si hay un
-                            personaje a
-                            ≤6": <span class="stat-highlight">+1 al dado</span></div>
-                        <div class="list-item"><span class="stat-highlight">Abanderado/Estandarte:</span> Algunas
-                            unidades
-                            especiales proporcionan modificadores</div>
-                        <div class="list-item"><span class="stat-highlight">Reglas Especiales:</span> Ciertas
-                            habilidades
-                            pueden mejorar el chequeo</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">Unidades Especiales que Ignoran Moral</div>
-                        <div class="list-item"><span class="stat-highlight">Automatones/Sin Alma:</span> NO hacen
-                            chequeos
-                            de moral</div>
-                        <div class="list-item"><span class="stat-highlight">Personajes Invulnerables:</span> Algunos
-                            pueden
-                            ignorar estos efectos</div>
-                        <div class="list-item">Verifica la regla especial de tu unidad en tu libro de ejército</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">Casos Especiales</div>
-                        <div class="list-item">Si una unidad se desintegra completamente, no hace chequeo</div>
-                        <div class="list-item">Las unidades acobardadas NO tienen que hacer chequeos de moral</div>
-                        <div class="list-item">Algunos efectos pueden hacer re-rolls en chequeos de moral</div>
-                    </div>
-                </div>
                 <!-- FASE DE TERRENO -->
                 <div class="phase-content" id="terrain">
                     <div class="phase-title" style="color: #8b1538;">ELEMENTOS DE TERRENO Y COBERTURA</div>
@@ -998,9 +927,11 @@
                         <div class="special-rule-title">Habilidades Especiales de Armas</div>
 
                         <div class="list-item"><span class="stat-highlight">ANTI-CLAVE X+</span>:
-                            Una tirada para herir sin modificar de “x+” contra un blanco con la <span
-                                class="defender">clave</span>
-                            correspondiente causa una herida crítica.</div>
+                            <div class="list-item-item"></div>Una tirada para herir de X+ contra un blanco con la <span
+                                class="defender">clave</span> correspondiente es una <strong>herida crítica</strong>
+                            (éxito automático, ignora F vs R).
+                        </div>
+                        <div class="list-item-item">Las demas salvaciones se hacen <strong>normalmente</strong>.</div>
                         <div class="list-item"><span class="stat-highlight">ASALTO</span>:
                             Aunque la unidad del portador haya avanzado, puede disparar.</div>
                         <div class="list-item"><span class="stat-highlight">ÁREA</span>:
@@ -1054,10 +985,10 @@
                                 por un Monstruo o Vehículo).</div>
                         </div>
                         <div class="list-item"><span class="stat-highlight">FUEGO RÁPIDO X</span>:
-                            Aumenta los ataques en “x” cuando tomes como blanco unidades a mitad del alcance o menos.
+                            Aumenta los ataques en X cuando tomes como blanco unidades a mitad del alcance o menos.
                         </div>
                         <div class="list-item"><span class="stat-highlight">GOLPES SOSTENIDOS X</span>:
-                            Cada golpe crítico causa al blanco “x” impactos adicionales.</div>
+                            Cada golpe crítico causa al blanco X impactos adicionales.</div>
                         <div class="list-item"><span class="stat-highlight">RÁFAGA</span>:
                             Al atacar con un arma de este tipo, el ataque impacta automáticamente al blanco.</div>
                         <div class="list-item"><span class="stat-highlight">ACOPLADA</span>:
@@ -1166,7 +1097,8 @@
                             <div class="list-item-item">Pueden llegar desde la <span class="stat-highlight">ronda
                                     2</span> en adelante.</div>
                             <div class="list-item-item">Si NO llegan antes de terminar la <span
-                                    class="stat-highlight">ronda 3</span>, <span class="stat-highlight">cuentan como
+                                    class="stat-highlight">ronda
+                                    3</span>, <span class="stat-highlight">cuentan como
                                     destruidas</span>.</div>
                         </div>
                         <div class="list-item"><span class="stat-highlight">Dónde pueden aparecer (Reservas
@@ -1195,7 +1127,8 @@
                             <div class="list-item-item">Pueden llegar desde la <span class="stat-highlight">ronda
                                     2</span> en adelante (igual que Reservas Estratégicas).</div>
                             <div class="list-item-item">Si NO llegan antes de terminar la <span
-                                    class="stat-highlight">ronda 3</span>, cuentan como destruidas.</div>
+                                    class="stat-highlight">ronda
+                                    3</span>, cuentan como destruidas.</div>
                         </div>
                         <div class="list-item"><span class="stat-highlight">Dónde pueden aparecer:</span>
                             <div class="list-item-item">En <span class="stat-highlight">cualquier parte del campo</span>
