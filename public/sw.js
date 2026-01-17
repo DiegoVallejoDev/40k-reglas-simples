@@ -1,5 +1,5 @@
 // Service Worker for Offline Support
-const CACHE_NAME = '40k-tactics-v3';
+const CACHE_NAME = '40k-tactics-v4';
 const ASSETS = [
     './',
     './index.html',
@@ -15,21 +15,11 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => cache.addAll(ASSETS))
+            .then(() => self.skipWaiting())
     );
 });
 
-// Fetch Event: Serve from cache if available
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                // Return cached response or fetch from network
-                return response || fetch(event.request);
-            })
-    );
-});
-
-// Activate Event: Clean up old caches
+// Activate Event: Clean up old caches and take control
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
@@ -38,6 +28,30 @@ self.addEventListener('activate', (event) => {
                     .filter((cache) => cache !== CACHE_NAME)
                     .map((cache) => caches.delete(cache))
             );
-        })
+        }).then(() => self.clients.claim())
+    );
+});
+
+// Fetch Event: Network First strategy with cache fallback
+self.addEventListener('fetch', (event) => {
+    // Only cache GET requests
+    if (event.request.method !== 'GET') {
+        return;
+    }
+    
+    event.respondWith(
+        fetch(event.request)
+            .then((response) => {
+                // Update cache with new content when network is available
+                const responseClone = response.clone();
+                caches.open(CACHE_NAME).then((cache) => {
+                    cache.put(event.request, responseClone);
+                });
+                return response;
+            })
+            .catch(() => {
+                // Fallback to cache when network fails
+                return caches.match(event.request);
+            })
     );
 });
