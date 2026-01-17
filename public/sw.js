@@ -46,6 +46,8 @@ self.addEventListener('fetch', (event) => {
                 const responseClone = response.clone();
                 caches.open(CACHE_NAME).then((cache) => {
                     cache.put(event.request, responseClone);
+                }).catch((error) => {
+                    console.error('Cache update failed:', error);
                 });
                 return response;
             })

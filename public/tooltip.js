@@ -2,6 +2,7 @@
 class TooltipSystem {
     constructor() {
         this.activeTooltips = new Map();
+        this.tooltipIdCounter = 0; // Counter for unique tooltip IDs
         // Bind methods in constructor to avoid context issues
         this.showTooltip = this.showTooltip.bind(this);
         this.hideTooltip = this.hideTooltip.bind(this);
@@ -81,8 +82,8 @@ class TooltipSystem {
 
         const tooltip = this.createTooltip(contentElement, position);
         
-        // Add aria-describedby for screen readers
-        const tooltipId = `tooltip-${Date.now()}`;
+        // Add aria-describedby for screen readers with unique ID
+        const tooltipId = `tooltip-${++this.tooltipIdCounter}`;
         tooltip.id = tooltipId;
         triggerElement.setAttribute('aria-describedby', tooltipId);
         
