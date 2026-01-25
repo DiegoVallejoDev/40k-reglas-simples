@@ -3,27 +3,80 @@
   "name": "40k Reglas Simples - Warhammer 40,000",
   "short_name": "40k Reglas",
   "description": "Referencia táctica rápida e interactiva para Warhammer 40,000. Acceso completo a reglas, estratagemas y mecánicas de combate.",
-  "start_url": "./",
+  "start_url": "./index.html",
   "scope": "./",
-  "display": "fullscreen",
-  "orientation": "portrait",
+  "display": "standalone",
+  "orientation": "any",
   "background_color": "#121212",
-  "theme_color": "#121212",
+  "theme_color": "#8b1538",
   "lang": "es",
   "dir": "ltr",
   "categories": ["games", "reference", "utilities"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "./images/icon.jpg",
-      "sizes": "192x192 512x512 1417x1417",
+      "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
       "src": "./images/icon.jpg",
-      "sizes": "192x192 512x512 1417x1417",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/icon.jpg",
+      "sizes": "1417x1417",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/icon.jpg",
+      "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "maskable"
+    },
+    {
+      "src": "./images/icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./images/icon.jpg",
+      "sizes": "1417x1417",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Fase de Mando",
+      "short_name": "Mando",
+      "description": "Acceso rápido a la fase de Mando",
+      "url": "./index.html#command",
+      "icons": [
+        {
+          "src": "./images/icon.jpg",
+          "sizes": "192x192",
+          "type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Fase de Disparo",
+      "short_name": "Disparo",
+      "description": "Acceso rápido a la fase de Disparo",
+      "url": "./index.html#shooting",
+      "icons": [
+        {
+          "src": "./images/icon.jpg",
+          "sizes": "192x192",
+          "type": "image/jpeg"
+        }
+      ]
     }
   ]
 }

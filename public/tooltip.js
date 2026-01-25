@@ -2,6 +2,14 @@
 class TooltipSystem {
     constructor() {
         this.activeTooltips = new Map();
+        this.tooltipIdCounter = 0; // Counter for unique tooltip IDs
+        // Bind methods in constructor to avoid context issues
+        this.showTooltip = this.showTooltip.bind(this);
+        this.hideTooltip = this.hideTooltip.bind(this);
+        this.hideAllTooltips = this.hideAllTooltips.bind(this);
+        this.handleEscape = this.handleEscape.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
+        this.handleResize = this.handleResize.bind(this);
         this.init();
     }
 
@@ -9,6 +17,27 @@ class TooltipSystem {
         // Buscar todos los elementos con tooltip
         const tooltipElements = document.querySelectorAll('[data-tooltip-content]');
         tooltipElements.forEach(el => this.setupTooltip(el));
+        
+        // Add keyboard support for Escape key
+        document.addEventListener('keydown', this.handleEscape);
+        
+        // Add scroll and resize listeners with passive option
+        window.addEventListener('scroll', this.handleScroll, { passive: true });
+        window.addEventListener('resize', this.handleResize, { passive: true });
+    }
+    
+    handleEscape(e) {
+        if (e.key === 'Escape') {
+            this.hideAllTooltips();
+        }
+    }
+    
+    handleScroll() {
+        this.hideAllTooltips();
+    }
+    
+    handleResize() {
+        this.hideAllTooltips();
     }
 
     setupTooltip(element) {
@@ -30,6 +59,15 @@ class TooltipSystem {
             element.addEventListener('mouseleave', (e) => {
                 this.hideTooltip(element);
             });
+            
+            // Add focus/blur support for keyboard accessibility
+            element.addEventListener('focus', (e) => {
+                this.showTooltip(element, contentElement, position);
+            });
+            
+            element.addEventListener('blur', (e) => {
+                this.hideTooltip(element);
+            });
         } else if (trigger === 'click') {
             element.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -43,6 +81,12 @@ class TooltipSystem {
         this.hideAllTooltips('hover');
 
         const tooltip = this.createTooltip(contentElement, position);
+        
+        // Add aria-describedby for screen readers with unique ID
+        const tooltipId = `tooltip-${++this.tooltipIdCounter}`;
+        tooltip.id = tooltipId;
+        triggerElement.setAttribute('aria-describedby', tooltipId);
+        
         document.body.appendChild(tooltip);
 
         this.positionTooltip(tooltip, triggerElement, position);
@@ -69,6 +113,7 @@ class TooltipSystem {
     createTooltip(contentElement, position) {
         const tooltip = document.createElement('div');
         tooltip.className = `tooltip ${position}`;
+        tooltip.setAttribute('role', 'tooltip');
 
         const tooltipContent = document.createElement('div');
         tooltipContent.className = 'tooltip-content';
@@ -121,10 +166,13 @@ class TooltipSystem {
         if (this.activeTooltips.has(triggerElement)) {
             const tooltipData = this.activeTooltips.get(triggerElement);
             tooltipData.element.classList.remove('show');
+            
+            // Remove aria-describedby
+            triggerElement.removeAttribute('aria-describedby');
 
             setTimeout(() => {
                 if (tooltipData.element.parentNode) {
-                    tooltipData.element.parentNode.removeChild(tooltipData.element);
+                    tooltipData.element.remove();
                 }
             }, 300);
 
@@ -138,6 +186,16 @@ class TooltipSystem {
                 this.hideTooltip(triggerElement);
             }
         }
+    }
+    
+    destroy() {
+        // Clean up all tooltips
+        this.hideAllTooltips();
+        
+        // Remove event listeners
+        document.removeEventListener('keydown', this.handleEscape);
+        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleResize);
     }
 }
 
@@ -165,15 +223,5 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!clickedTooltip) {
             tooltipSystem.hideAllTooltips('click');
         }
-    });
-
-    // Ocultar tooltips al hacer scroll
-    window.addEventListener('scroll', () => {
-        tooltipSystem.hideAllTooltips();
-    });
-
-    // Reposicionar tooltips al cambiar el tamaño de ventana
-    window.addEventListener('resize', () => {
-        tooltipSystem.hideAllTooltips();
     });
 });
