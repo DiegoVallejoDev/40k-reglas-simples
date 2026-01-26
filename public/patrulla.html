@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description"
+        content="Referencia rápida para Combat Patrol de Warhammer 40,000 10ª edición. Estadísticas, estratagemas y habilidades de Necrones, Space Marines, Tiránidos y Orkos." />
+    <link rel="icon" type="image/jpeg" href="./images/icon.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="patrulla.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
+    <link rel="apple-touch-icon" href="./images/icon.jpg">
+    <title>Combat Patrol - 40k Reglas Simples</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./images/warhammer-logo.png" alt="Warhammer 40,000" loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <h1 style="display:none;">WARHAMMER 40,000</h1>
+            <p>Combat Patrol - Referencia Rápida</p>
+        </div>
+
+        <!-- Dynamic Faction Tabs -->
+        <div class="tabs faction-tabs" id="faction-tabs">
+            <!-- Rendered by patrulla.js -->
+            <div class="loading-placeholder">
+                <i class="fa-solid fa-spinner fa-spin"></i> Cargando facciones...
+            </div>
+        </div>
+
+        <!-- Dynamic Faction Content -->
+        <div class="content" id="faction-content">
+            <!-- Rendered by patrulla.js -->
+            <div class="loading-placeholder">
+                <i class="fa-solid fa-spinner fa-spin"></i> Cargando datos...
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div style="margin-bottom: 0.625rem;">
+            Esta es una app web para mi uso personal, sin intento de infringir copyright.
+        </div>
+        <a href="https://github.com/diegovallejodev/" target="_blank" style="color: #888; text-decoration: underline;">
+            Diego Vallejo <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <div style="margin-top: 0.5rem;">
+            <a href="index.html" style="color: #888; text-decoration: underline;">
+                ← Volver a Reglas Generales
+            </a>
+        </div>
+    </div>
+
+    <script src="./patrulla.js"></script>
+</body>
+
+</html>

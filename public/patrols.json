@@ -1,0 +1,1191 @@
+{
+  "factions": [
+    {
+      "id": "necrones",
+      "name": "Guardia de Amonhotekh",
+      "faction": "Necrones",
+      "color": "#00d4aa",
+      "colorDark": "#0d3d30",
+      "icon": "fa-skull",
+      "factionAbility": {
+        "name": "Protocolos de Reanimación",
+        "description": "Al final de tu fase de mando, cada unidad activa sus Protocolos. Reanima 1D3 heridas. Si hay modelos destruidos pero no heridos, devuelve 1 modelo con 1 herida."
+      },
+      "enhancements": [
+        {
+          "id": "control",
+          "name": "Tomar el Control",
+          "default": true,
+          "description": "La unidad del portador es elegible para disparar en un turno en el que retrocedió."
+        },
+        {
+          "id": "foco",
+          "name": "Protocolo de Foco Resonante",
+          "default": false,
+          "description": "Fase de Mando: Elige 1 unidad enemiga a 12\" visible. Unidades Necronas repiten 1s para impactar contra ella."
+        }
+      ],
+      "secondaries": [
+        {
+          "id": "dominar",
+          "name": "Reclamar y Dominar",
+          "default": true,
+          "description": "Fin de tu turno: 4PV si 1+ unidad Necrona está completamente en la zona de despliegue enemiga."
+        },
+        {
+          "id": "tesoro",
+          "name": "El Tesoro de Eones",
+          "default": false,
+          "description": "Inicio batalla: Elige 1 obj en Tierra de Nadie. 3PV cada vez que mates unidad enemiga cerca de ese obj o el de tu zona."
+        }
+      ],
+      "stratagems": [
+        {
+          "name": "Resistencia Mercurial",
+          "cost": 1,
+          "when": "Disparo op o Combate (después de elegir blancos)",
+          "effect": "Selecciona 1 unidad Necrones objetivo de ataques. Gana Salvación Invulnerable 5+ hasta el final de la fase."
+        },
+        {
+          "name": "Campos de Disrupción",
+          "cost": 1,
+          "when": "Fase de Combate",
+          "effect": "Selecciona 1 unidad Necrones que no haya luchado. Suma +1 a la Fuerza de sus armas CaC hasta el final de la fase."
+        },
+        {
+          "name": "Voluntad del Señor Supremo",
+          "cost": 1,
+          "when": "Tu Fase de Mando",
+          "effect": "Selecciona 1 unidad Necrones (requiere Señor Supremo en batalla). Suma +1 al Control de Objetivo hasta tu siguiente fase de mando."
+        }
+      ],
+      "units": [
+        {
+          "name": "Señor Supremo Amonhotekh",
+          "keywords": ["Personaje", "Infantería", "Noble"],
+          "stats": {
+            "M": "5\"",
+            "R": "5",
+            "S": "2+",
+            "H": "6",
+            "L": "4+",
+            "CO": "1"
+          },
+          "invuln": "4+",
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Flecha de taquiones",
+                "range": "72\"",
+                "A": "1",
+                "BS": "2+",
+                "S": "16",
+                "AP": "-5",
+                "D": "D6+2",
+                "abilities": "Un solo uso"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Arma de Señor Supremo",
+                "A": "4",
+                "WS": "2+",
+                "S": "8",
+                "AP": "-2",
+                "D": "2",
+                "abilities": "Devastadoras"
+              }
+            ]
+          },
+          "abilities": [
+            "Líder",
+            "Invulnerable 4+",
+            "Resistencia: -1 Daño recibido",
+            "Mi Voluntad se Cumplirá (0PM estratagema)"
+          ]
+        },
+        {
+          "name": "Guerreros Necrones (10)",
+          "keywords": ["Infantería", "Battleline"],
+          "stats": {
+            "M": "5\"",
+            "R": "4",
+            "S": "4+",
+            "H": "1",
+            "L": "7+",
+            "CO": "2"
+          },
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Rifle Gauss (5)",
+                "range": "24\"",
+                "A": "2",
+                "BS": "4+",
+                "S": "4",
+                "AP": "-1",
+                "D": "1",
+                "abilities": "Letales"
+              },
+              {
+                "name": "Segador de Gauss (5)",
+                "range": "12\"",
+                "A": "2",
+                "BS": "4+",
+                "S": "5",
+                "AP": "-1",
+                "D": "1",
+                "abilities": "Asalto, Letales"
+              }
+            ],
+            "melee": []
+          },
+          "abilities": ["Reanimación (D6 o D3+3 en Obj)"]
+        },
+        {
+          "name": "Destructores Skorpekh (3)",
+          "keywords": ["Infantería"],
+          "stats": {
+            "M": "7\"",
+            "R": "6",
+            "S": "3+",
+            "H": "3",
+            "L": "7+",
+            "CO": "2"
+          },
+          "weapons": {
+            "ranged": [],
+            "melee": [
+              {
+                "name": "Armas de hiperfase",
+                "A": "3",
+                "WS": "3+",
+                "S": "7",
+                "AP": "-2",
+                "D": "2",
+                "abilities": "Plasmacita: 1 vez/batalla, Devastadoras"
+              }
+            ]
+          },
+          "abilities": []
+        },
+        {
+          "name": "Enjambres Canópticos (3)",
+          "keywords": ["Enjambre", "Bestia", "Vuelo"],
+          "stats": {
+            "M": "10\"",
+            "R": "2",
+            "S": "6+",
+            "H": "4",
+            "L": "8+",
+            "CO": "0"
+          },
+          "weapons": {
+            "ranged": [],
+            "melee": [
+              {
+                "name": "Mandíbulas",
+                "A": "6",
+                "WS": "5+",
+                "S": "2",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Letales. Autodestrucción: 2-5=D3 Mortales, 6=D3+3"
+              }
+            ]
+          },
+          "abilities": []
+        },
+        {
+          "name": "Destructor Acechante",
+          "keywords": ["Monstruo", "Caminante"],
+          "stats": {
+            "M": "8\"",
+            "R": "8",
+            "S": "3+",
+            "H": "12",
+            "L": "8+",
+            "CO": "4"
+          },
+          "invuln": "4+",
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Bláster exterminio",
+                "range": "48\"",
+                "A": "D6+1",
+                "BS": "4+",
+                "S": "14",
+                "AP": "-3",
+                "D": "3",
+                "abilities": "Pesada, Explosión"
+              },
+              {
+                "name": "Rifle gauss doble",
+                "range": "24\"",
+                "A": "2",
+                "BS": "4+",
+                "S": "5",
+                "AP": "-1",
+                "D": "1",
+                "abilities": "Acoplada"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Miembros",
+                "A": "3",
+                "WS": "4+",
+                "S": "6",
+                "AP": "0",
+                "D": "1",
+                "abilities": ""
+              }
+            ]
+          },
+          "abilities": [
+            "Invulnerable 4+",
+            "Centinela (Disparos Preventivos a 5+)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spacemarines",
+      "name": "Fuerza de Choque Octavius",
+      "faction": "Space Marines",
+      "color": "#3b82f6",
+      "colorDark": "#1e3a8a",
+      "icon": "fa-shield-halved",
+      "factionAbility": {
+        "name": "Juramento y Órdenes",
+        "description": "Inicio fase de Mando: Elige 1 unidad enemiga. Hasta tu siguiente fase de Mando, tus unidades repiten tiradas para impactar contra ese enemigo."
+      },
+      "enhancements": [
+        {
+          "id": "campeon",
+          "name": "Campeón Duelista",
+          "default": true,
+          "description": "Las armas de combate del portador tienen [PRECISIÓN] e [IMPACTOS LETALES]."
+        },
+        {
+          "id": "determinacion",
+          "name": "Determinación Jurada",
+          "default": false,
+          "description": "Suma 1 al atributo Control de Objetivos (CO) de las miniaturas en la unidad del portador."
+        }
+      ],
+      "secondaries": [
+        {
+          "id": "ira",
+          "name": "Ira del Emperador",
+          "default": true,
+          "description": "Fin de fase: 2PV si tu CAPITÁN eliminó 1+ miniaturas enemigas en esa fase."
+        },
+        {
+          "id": "tacticas",
+          "name": "Tácticas de Choque",
+          "default": false,
+          "description": "Fin de turno: 5PV si controlas 1+ objetivos que tu oponente controlaba al inicio del turno."
+        }
+      ],
+      "stratagems": [
+        {
+          "name": "Resistencia Genética",
+          "cost": 1,
+          "when": "Disparo op o Combate",
+          "effect": "Hasta el final de la fase, si la Fuerza del ataque > Resistencia de tu unidad, resta 1 de la tirada para herir."
+        },
+        {
+          "name": "Instintos de Veterano",
+          "cost": 1,
+          "when": "Fase de Combate",
+          "effect": "Hasta el final de la fase, repite tiradas para herir de 1. Si el blanco es MONSTRUO o VEHÍCULO, repite todas las tiradas para herir."
+        },
+        {
+          "name": "Fuerza Abrumadora",
+          "cost": 1,
+          "when": "Fin de tu Fase de Mando",
+          "effect": "Una unidad ADEPTUS ASTARTES cerca de un marcador de objetivo lo asegura."
+        }
+      ],
+      "units": [
+        {
+          "name": "Capitán Octavius",
+          "keywords": ["Personaje", "Infantería", "Exterminador", "Capitán"],
+          "stats": {
+            "M": "5\"",
+            "R": "5",
+            "S": "2+",
+            "H": "6",
+            "L": "6+",
+            "CO": "1"
+          },
+          "invuln": "4+",
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Bólter tormenta",
+                "range": "24\"",
+                "A": "2",
+                "BS": "2+",
+                "S": "4",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Fuego Rápido 2"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Arma reliquia",
+                "A": "6",
+                "WS": "2+",
+                "S": "6",
+                "AP": "-2",
+                "D": "2",
+                "abilities": "Letales"
+              }
+            ]
+          },
+          "abilities": [
+            "Líder",
+            "Invulnerable 4+",
+            "Despliegue Rápido",
+            "Valor Imparable (repite cargas)"
+          ]
+        },
+        {
+          "name": "Bibliotecario Tantus",
+          "keywords": ["Personaje", "Infantería", "Psíquico", "Bibliotecario"],
+          "stats": {
+            "M": "5\"",
+            "R": "5",
+            "S": "2+",
+            "H": "5",
+            "L": "6+",
+            "CO": "1"
+          },
+          "invuln": "4+",
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Castigo",
+                "range": "18\"",
+                "A": "D6/2",
+                "BS": "2+",
+                "S": "5/6",
+                "AP": "-1/-2",
+                "D": "1/3",
+                "abilities": "Psíquico, Anti-Inf 2+"
+              },
+              {
+                "name": "Bólter tormenta",
+                "range": "24\"",
+                "A": "2",
+                "BS": "2+",
+                "S": "4",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Fuego Rápido 2"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Arma de psicofuerza",
+                "A": "4",
+                "WS": "3+",
+                "S": "6",
+                "AP": "-1",
+                "D": "D3",
+                "abilities": "Psíquico"
+              }
+            ]
+          },
+          "abilities": [
+            "Líder",
+            "Invulnerable 4+",
+            "Despliegue Rápido",
+            "Velo Temporal (Golpes Sostenidos 1)"
+          ]
+        },
+        {
+          "name": "Exterminadores (5)",
+          "keywords": ["Infantería", "Exterminador"],
+          "stats": {
+            "M": "5\"",
+            "R": "5",
+            "S": "2+",
+            "H": "3",
+            "L": "6+",
+            "CO": "1"
+          },
+          "invuln": "4+",
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Cañón de asalto",
+                "range": "24\"",
+                "A": "6",
+                "BS": "3+",
+                "S": "6",
+                "AP": "0",
+                "D": "1",
+                "abilities": ""
+              },
+              {
+                "name": "Bólter tormenta",
+                "range": "24\"",
+                "A": "2",
+                "BS": "3+",
+                "S": "4",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Fuego Rápido 2"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Puño de energía",
+                "A": "3",
+                "WS": "3+",
+                "S": "8",
+                "AP": "-2",
+                "D": "2",
+                "abilities": ""
+              }
+            ]
+          },
+          "abilities": [
+            "Despliegue Rápido",
+            "Furia de la Primera (+1 a impactar vs Juramento)"
+          ]
+        },
+        {
+          "name": "Escuadra Infernus (5)",
+          "keywords": ["Infantería"],
+          "stats": {
+            "M": "6\"",
+            "R": "4",
+            "S": "3+",
+            "H": "2",
+            "L": "6+",
+            "CO": "1"
+          },
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Pirobláster",
+                "range": "12\"",
+                "A": "D6",
+                "BS": "N/A",
+                "S": "4",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Ignora Cobertura, Torrente"
+              },
+              {
+                "name": "Pistola bólter",
+                "range": "12\"",
+                "A": "1",
+                "BS": "3+",
+                "S": "4",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Pistola"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Arma de combate",
+                "A": "2",
+                "WS": "3+",
+                "S": "4",
+                "AP": "0",
+                "D": "1",
+                "abilities": ""
+              }
+            ]
+          },
+          "abilities": []
+        }
+      ]
+    },
+    {
+      "id": "tiranidos-enjambre",
+      "name": "Enjambre Vardenghast",
+      "faction": "Tiránidos",
+      "color": "#8b5cf6",
+      "colorDark": "#5b21b6",
+      "icon": "fa-bug",
+      "factionAbility": {
+        "name": "Sinapsis + Sombra en la Disformidad",
+        "description": "Sinapsis: Unidades a 6\" de SINAPSIS tiran 3D6 en chequeos de acobardamiento. Sombra: Una vez por batalla, obliga a todas las unidades enemigas a chequeo de acobardamiento."
+      },
+      "enhancements": [
+        {
+          "id": "velo",
+          "name": "Velo Psicoestático",
+          "default": true,
+          "description": "Otorga [Agente Solitario], Invulnerable 4+ y resta 1 a impactar en cuerpo a cuerpo contra el portador."
+        },
+        {
+          "id": "secrecion",
+          "name": "Secreción Súbita",
+          "default": false,
+          "description": "Una vez por turno, mejora en 1 la PA de las armas de una unidad amiga cercana al disparar o combatir."
+        }
+      ],
+      "secondaries": [
+        {
+          "id": "xenomorfo",
+          "name": "Xenomorfo Alfa",
+          "default": true,
+          "description": "Ganas 4PV al final de cada fase si tu Terror de Vardenghast eliminó enemigos."
+        },
+        {
+          "id": "marea",
+          "name": "Marea Quitinosa",
+          "default": false,
+          "description": "Ganas 5PV al final de tu turno si controlas objetivos cerca de la zona de despliegue enemiga."
+        }
+      ],
+      "stratagems": [
+        {
+          "name": "Hiperreactivo",
+          "cost": 1,
+          "when": "Disparo o Combate",
+          "effect": "Resta 1 a ser impactado en disparo o combate."
+        },
+        {
+          "name": "Asalto Voraz",
+          "cost": 1,
+          "when": "Disparo o Combate",
+          "effect": "Repite tiradas para impactar si atacas al blanco más cercano."
+        },
+        {
+          "name": "Y Más, Y Muchos Más...",
+          "cost": 1,
+          "when": "Tu Fase de Mando",
+          "effect": "Devuelve D6 miniaturas a una unidad de Termagantes, o añade una nueva unidad de 2D6 si fue eliminada."
+        }
+      ],
+      "units": [
+        {
+          "name": "Terror de Vardenghast",
+          "keywords": ["Personaje", "Monstruo", "Volador", "Sinapsis"],
+          "stats": {
+            "M": "12\"",
+            "R": "5",
+            "S": "4+",
+            "H": "6",
+            "L": "7+",
+            "CO": "1"
+          },
+          "weapons": {
+            "ranged": [],
+            "melee": [
+              {
+                "name": "Garras Primus",
+                "A": "6",
+                "WS": "2+",
+                "S": "6",
+                "AP": "-1",
+                "D": "2",
+                "abilities": "Heridas Devastadoras"
+              }
+            ]
+          },
+          "abilities": [
+            "Despliegue Rápido",
+            "Sinapsis",
+            "Golpe de muerte (a 4+ lucha antes de morir)"
+          ]
+        },
+        {
+          "name": "Psicófago",
+          "keywords": ["Monstruo", "Sinapsis"],
+          "stats": {
+            "M": "8\"",
+            "R": "9",
+            "S": "3+",
+            "H": "10",
+            "L": "8+",
+            "CO": "3"
+          },
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Ráfaga psicoclástica",
+                "range": "12\"",
+                "A": "2D6",
+                "BS": "N/A",
+                "S": "6",
+                "AP": "-1",
+                "D": "1",
+                "abilities": "Torrente, Ignora Cobertura"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Espolones",
+                "A": "D6+1",
+                "WS": "3+",
+                "S": "6",
+                "AP": "-1",
+                "D": "2",
+                "abilities": "Anti-psíquico 4+, Heridas Devastadoras"
+              }
+            ]
+          },
+          "abilities": [
+            "No hay dolor 5+",
+            "Sinapsis",
+            "Bonificador vs unidades dañadas"
+          ]
+        },
+        {
+          "name": "Termagantes (20)",
+          "keywords": ["Infantería", "Battleline", "Grandes"],
+          "stats": {
+            "M": "6\"",
+            "R": "3",
+            "S": "5+",
+            "H": "1",
+            "L": "8+",
+            "CO": "2"
+          },
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Perforacarne",
+                "range": "18\"",
+                "A": "1",
+                "BS": "4+",
+                "S": "4",
+                "AP": "0",
+                "D": "1",
+                "abilities": ""
+              }
+            ],
+            "melee": [
+              {
+                "name": "Garras quitinosas",
+                "A": "1",
+                "WS": "4+",
+                "S": "3",
+                "AP": "0",
+                "D": "1",
+                "abilities": ""
+              }
+            ]
+          },
+          "abilities": ["Horrores merodeadores (reacción D6\")"]
+        },
+        {
+          "name": "Espinogantes (5)",
+          "keywords": ["Infantería"],
+          "stats": {
+            "M": "6\"",
+            "R": "4",
+            "S": "4+",
+            "H": "2",
+            "L": "8+",
+            "CO": "1"
+          },
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Lanzaespinas",
+                "range": "36\"",
+                "A": "2",
+                "BS": "4+",
+                "S": "5",
+                "AP": "-1",
+                "D": "1",
+                "abilities": "Pesada, Área"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Garras quitinosas",
+                "A": "2",
+                "WS": "4+",
+                "S": "4",
+                "AP": "0",
+                "D": "1",
+                "abilities": ""
+              }
+            ]
+          },
+          "abilities": ["Bombardeo trastocador (reduce movimiento enemigo)"]
+        },
+        {
+          "name": "Saltadores de Von Ryan (3)",
+          "keywords": ["Infantería", "Grandes"],
+          "stats": {
+            "M": "10\"",
+            "R": "5",
+            "S": "4+",
+            "H": "3",
+            "L": "8+",
+            "CO": "1"
+          },
+          "invuln": "6+",
+          "weapons": {
+            "ranged": [],
+            "melee": [
+              {
+                "name": "Espolones de Saltador",
+                "A": "6",
+                "WS": "3+",
+                "S": "5",
+                "AP": "-1",
+                "D": "1",
+                "abilities": "Heridas Mortales 4+"
+              }
+            ]
+          },
+          "abilities": [
+            "Combatir primero",
+            "Infiltradores",
+            "Sigilo",
+            "Intervención Heroica 0PM"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiranidos-asalto",
+      "name": "Progenie de Asalto",
+      "faction": "Tiránidos",
+      "color": "#a855f7",
+      "colorDark": "#7c3aed",
+      "icon": "fa-bug",
+      "factionAbility": {
+        "name": "Sinapsis + Sombra en la Disformidad",
+        "description": "Sinapsis: Unidades a 6\" de SINAPSIS tiran 3D6 en chequeos de acobardamiento. Sombra: Una vez por batalla, obliga a unidades enemigas a chequeo de acobardamiento."
+      },
+      "enhancements": [
+        {
+          "id": "caparazon",
+          "name": "Caparazón Endurecido",
+          "default": true,
+          "description": "Otorga Invulnerable 4+ y resta 1 a ser impactado en combate."
+        },
+        {
+          "id": "bioacido",
+          "name": "Bioácido",
+          "default": false,
+          "description": "Una vez por turno, mejora en 1 la PA de una unidad amiga cercana."
+        }
+      ],
+      "secondaries": [
+        {
+          "id": "devorar",
+          "name": "Devorar",
+          "default": true,
+          "description": "Ganas 4PV cada vez que eliminas una unidad enemiga en la fase de combate."
+        },
+        {
+          "id": "enjambre",
+          "name": "Enjambre Incansable",
+          "default": false,
+          "description": "Ganas 10PV al final de la batalla si controlas el objetivo más cercano al borde enemigo."
+        }
+      ],
+      "stratagems": [
+        {
+          "name": "Amalgama Sensorial",
+          "cost": 1,
+          "when": "Disparo o Combate",
+          "effect": "Resta 1 a ser impactado (Disparo/Combate) en una unidad de Infantería."
+        },
+        {
+          "name": "Terror Despedazador",
+          "cost": 1,
+          "when": "Fase de Combate",
+          "effect": "Otorga [Golpes Sostenidos 1] a armas de combate."
+        },
+        {
+          "name": "Acometida Hambrienta",
+          "cost": 1,
+          "when": "Fase de Carga",
+          "effect": "Permite cargar en un turno en el que se avanzó."
+        }
+      ],
+      "units": [
+        {
+          "name": "Parásito de Mortrex",
+          "keywords": ["Personaje", "Monstruo", "Volador", "Sinapsis"],
+          "stats": {
+            "M": "12\"",
+            "R": "5",
+            "S": "4+",
+            "H": "5",
+            "L": "6+",
+            "CO": "1"
+          },
+          "weapons": {
+            "ranged": [],
+            "melee": [
+              {
+                "name": "Ovipositor enredadera",
+                "A": "D6+2",
+                "WS": "2+",
+                "S": "5",
+                "AP": "-1",
+                "D": "2",
+                "abilities": "Implanta (heridas mortales extras)"
+              }
+            ]
+          },
+          "abilities": [
+            "Despliegue rápido",
+            "Agente solitario",
+            "Sigilo",
+            "Sinapsis",
+            "¡Me pica! (fuerza acobardamiento)"
+          ]
+        },
+        {
+          "name": "Genestealers (10)",
+          "keywords": ["Infantería"],
+          "stats": {
+            "M": "8\"",
+            "R": "4",
+            "S": "5+",
+            "H": "2",
+            "L": "7+",
+            "CO": "1"
+          },
+          "invuln": "5+",
+          "weapons": {
+            "ranged": [],
+            "melee": [
+              {
+                "name": "Garras de Genestealer",
+                "A": "4",
+                "WS": "2+",
+                "S": "4",
+                "AP": "-2",
+                "D": "1",
+                "abilities": ""
+              }
+            ]
+          },
+          "abilities": [
+            "Avanzadilla 8\"",
+            "Depredador de vanguardia (repite 1s)"
+          ]
+        },
+        {
+          "name": "Biovoro",
+          "keywords": ["Monstruo"],
+          "stats": {
+            "M": "5\"",
+            "R": "6",
+            "S": "3+",
+            "H": "5",
+            "L": "8+",
+            "CO": "1"
+          },
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Lanzador de minas espora",
+                "range": "48\"",
+                "A": "D3",
+                "BS": "4+",
+                "S": "6",
+                "AP": "-1",
+                "D": "2",
+                "abilities": "Área, Heridas Devastadoras, Pesada, Indirecta"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Extremidades de púas",
+                "A": "2",
+                "WS": "4+",
+                "S": "5",
+                "AP": "0",
+                "D": "1",
+                "abilities": ""
+              }
+            ]
+          },
+          "abilities": ["Final violento 1"]
+        },
+        {
+          "name": "Guardia Tiránida (3)",
+          "keywords": ["Infantería"],
+          "stats": {
+            "M": "6\"",
+            "R": "8",
+            "S": "3+",
+            "H": "4",
+            "L": "8+",
+            "CO": "1"
+          },
+          "weapons": {
+            "ranged": [],
+            "melee": [
+              {
+                "name": "Cuchilla ósea y látigo",
+                "A": "5",
+                "WS": "3+",
+                "S": "5",
+                "AP": "-1",
+                "D": "2",
+                "abilities": ""
+              },
+              {
+                "name": "Garras aplastadoras",
+                "A": "4",
+                "WS": "3+",
+                "S": "8",
+                "AP": "-2",
+                "D": "3",
+                "abilities": "Acoplada"
+              }
+            ]
+          },
+          "abilities": []
+        }
+      ]
+    },
+    {
+      "id": "orkos",
+      "name": "Pizachuzma de Gordrang",
+      "faction": "Orkos",
+      "color": "#22c55e",
+      "colorDark": "#166534",
+      "icon": "fa-fist-raised",
+      "factionAbility": {
+        "name": "¡WAAAGH!",
+        "description": "Una vez por batalla. Otorga carga tras avanzar, +1 Fuerza y Ataques en combate, e Invulnerable 5+ por una ronda."
+      },
+      "enhancements": [
+        {
+          "id": "veterano",
+          "name": "Veterano ke te pazaz",
+          "default": true,
+          "description": "Reduce a la mitad el Daño de ataques a distancia contra el portador."
+        },
+        {
+          "id": "llevalejoz",
+          "name": "Llevalejoz",
+          "default": false,
+          "description": "Otorga [Despliegue Rápido] a una unidad de Chikoz junto con el portador."
+        }
+      ],
+      "secondaries": [
+        {
+          "id": "aplaztaloz",
+          "name": "¡Apláztaloz!",
+          "default": true,
+          "description": "Seleccionas una unidad enemiga 'orkjetivo'. Ganas 3PV si la eliminas en cuerpo a cuerpo."
+        },
+        {
+          "id": "dezvalijando",
+          "name": "Dezvalijando",
+          "default": false,
+          "description": "Tus unidades pueden intentar rapiñar objetivos fuera de tu zona de despliegue (tirada de D6 para ganar PV)."
+        }
+      ],
+      "stratagems": [
+        {
+          "name": "A Apiñarze",
+          "cost": 1,
+          "when": "Fase de Combate",
+          "effect": "Permite consolidar y agruparse 6\" en lugar de 3\"."
+        },
+        {
+          "name": "Bruto pero Aztuto",
+          "cost": 1,
+          "when": "Tu Fase de Carga",
+          "effect": "Permite cargar en un turno en el que se retrocedió."
+        },
+        {
+          "name": "¡Ze van a enterar!",
+          "cost": 1,
+          "when": "Al ser disparado",
+          "effect": "Reacción: movimiento normal de D6\" hacia el enemigo."
+        }
+      ],
+      "units": [
+        {
+          "name": "Kaudillo Gordrang",
+          "keywords": ["Personaje", "Infantería", "Kaudillo"],
+          "stats": {
+            "M": "5\"",
+            "R": "6",
+            "S": "2+",
+            "H": "7",
+            "L": "6+",
+            "CO": "1"
+          },
+          "invuln": "5+",
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Akribillador pezado",
+                "range": "18\"",
+                "A": "12",
+                "BS": "5+",
+                "S": "5",
+                "AP": "0",
+                "D": "1",
+                "abilities": ""
+              }
+            ],
+            "melee": [
+              {
+                "name": "Kacho rebanadora",
+                "A": "5",
+                "WS": "2+",
+                "S": "12",
+                "AP": "-2",
+                "D": "2",
+                "abilities": "Devastadoras"
+              }
+            ]
+          },
+          "abilities": [
+            "Invulnerable 5+",
+            "Duro de narizez (No hay dolor 4+ en Waaagh!)"
+          ]
+        },
+        {
+          "name": "Chikoz (20)",
+          "keywords": ["Infantería", "Battleline"],
+          "stats": {
+            "M": "6\"",
+            "R": "5",
+            "S": "5+",
+            "H": "1",
+            "L": "7+",
+            "CO": "2"
+          },
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Lanzakobetez",
+                "range": "24\"",
+                "A": "D3",
+                "BS": "5+",
+                "S": "5",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Explosión"
+              },
+              {
+                "name": "Piztola",
+                "range": "12\"",
+                "A": "1",
+                "BS": "5+",
+                "S": "4",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Pistola"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Rebanadora",
+                "A": "2",
+                "WS": "3+",
+                "S": "4",
+                "AP": "-1",
+                "D": "1",
+                "abilities": ""
+              }
+            ]
+          },
+          "abilities": []
+        },
+        {
+          "name": "Kópteroz (3)",
+          "keywords": ["Infantería", "Volador"],
+          "stats": {
+            "M": "12\"",
+            "R": "6",
+            "S": "4+",
+            "H": "4",
+            "L": "7+",
+            "CO": "2"
+          },
+          "invuln": "6+",
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Kobetez de kóptero",
+                "range": "18\"",
+                "A": "6",
+                "BS": "5+",
+                "S": "5",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Acoplada"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Rotores kortantez",
+                "A": "6",
+                "WS": "4+",
+                "S": "5",
+                "AP": "-1",
+                "D": "1",
+                "abilities": ""
+              }
+            ]
+          },
+          "abilities": ["Despliegue Rápido"]
+        },
+        {
+          "name": "Dreznaut",
+          "keywords": ["Vehículo", "Caminante"],
+          "stats": {
+            "M": "8\"",
+            "R": "9",
+            "S": "2+",
+            "H": "8",
+            "L": "7+",
+            "CO": "3"
+          },
+          "invuln": "6+",
+          "weapons": {
+            "ranged": [
+              {
+                "name": "Lanzakobetez",
+                "range": "24\"",
+                "A": "D6",
+                "BS": "5+",
+                "S": "5",
+                "AP": "0",
+                "D": "1",
+                "abilities": "Explosión"
+              }
+            ],
+            "melee": [
+              {
+                "name": "Garra pa' Drez (x3)",
+                "A": "6",
+                "WS": "3+",
+                "S": "10",
+                "AP": "-2",
+                "D": "3",
+                "abilities": "+1A por garra extra"
+              }
+            ]
+          },
+          "abilities": [
+            "Final Violento 1",
+            "Brutalidaz hidraúlika (fuerza acobardamiento)"
+          ]
+        }
+      ]
+    }
+  ]
+}
