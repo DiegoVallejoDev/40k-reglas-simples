@@ -19,7 +19,7 @@
 
 ## Acerca de
 
-Esta aplicación web interactiva sirve como una guía de referencia táctica completa para jugadores de **Warhammer 40,000**, cubriendo todas las fases del juego desde Mando hasta Moral. Diseñada tanto para jugadores nuevos como experimentados, proporciona acceso rápido a reglas básicas, estratagemas y mecánicas de combate.
+Esta aplicación web interactiva sirve como una guía de referencia táctica completa para jugadores de **Warhammer 40,000 (11ª edición)**, cubriendo todas las fases del juego desde Mando hasta Moral. Diseñada tanto para jugadores nuevos como experimentados, proporciona acceso rápido a reglas básicas, estratagemas y mecánicas de combate.
 
 ### Beneficios Clave
 
