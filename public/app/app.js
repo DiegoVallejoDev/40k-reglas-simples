@@ -146,7 +146,7 @@ function handleAction(action, button) {
       announce('Esa unidad ya fue blanco de otra estratagema en esta fase.');
       return;
     }
-    if (spendPm(stratagem.pm, stratagem.id, phase, target)) {
+    if (spendPm(stratagem.pm, stratagem.id, phase, target, stratagem.nombre)) {
       announce(`${stratagem.nombre} usada. ${stratagem.pm} PM gastados.`);
     }
   }

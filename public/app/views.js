@@ -1,5 +1,12 @@
 import { getData, getNode, getPhaseRule, getTable, getAllNodes, isRenderable } from './data.js';
-import { getMode, getState, canUndo, targetWasUsed, wasStratagemUsed } from './state.js';
+import {
+  getMode,
+  getState,
+  canUndo,
+  getUndoLabel,
+  targetWasUsed,
+  wasStratagemUsed,
+} from './state.js';
 import { getHistory, remember, search } from './search.js';
 
 const PHASE_LABELS = {
@@ -46,7 +53,7 @@ function renderDashboard() {
       </header>
       <div class="dashboard-grid">
         <article class="dashboard-card"><p class="eyebrow">Ronda</p><div class="dashboard-value">R${state.ronda}</div><div class="dashboard-controls"><button class="secondary-button" data-action="end-turn">FIN TURNO</button></div></article>
-        <article class="dashboard-card"><p class="eyebrow">Puntos de mando</p><div class="dashboard-value">${state.pm.tu}</div><div class="dashboard-controls"><button class="number-button" data-action="add-pm">+1 PM</button>${canUndo() ? '<button class="undo-button" data-action="undo">↶ Deshacer</button>' : ''}</div></article>
+        <article class="dashboard-card"><p class="eyebrow">Puntos de mando</p><div class="dashboard-value">${state.pm.tu}</div><div class="dashboard-controls"><button class="number-button" data-action="add-pm">+1 PM</button>${canUndo() ? `<button class="undo-button" data-action="undo">↶ ${escapeHtml(getUndoLabel())}</button>` : ''}</div></article>
         <article class="dashboard-card"><p class="eyebrow">PV · tú / rival</p><div class="dashboard-value">${state.pv.tu} / ${state.pv.rival}</div><div class="dashboard-controls"><button class="number-button" data-action="vp-up">+PV</button><button class="number-button" data-action="vp-down">−PV</button></div></article>
       </div>
       <article class="dashboard-card current-phase-card">
@@ -112,7 +119,7 @@ function renderStratagems(phase) {
   return `
     <section class="view stratagem-view">
       <header class="view-header"><div><p class="eyebrow">E · ${label}</p><h1>Estratagemas</h1></div><span class="citation">15.01</span></header>
-      ${canUndo() ? '<div class="dashboard-controls"><button class="undo-button" data-action="undo">↶ Deshacer última acción</button></div>' : ''}
+      ${canUndo() ? `<div class="dashboard-controls"><button class="undo-button" data-action="undo">↶ ${escapeHtml(getUndoLabel())}</button></div>` : ''}
       <div class="filter-row" role="group" aria-label="Filtro de turno"><button class="filter-button active" data-strat-turn="all">Todas</button><button class="filter-button" data-strat-turn="tu_turno">Mi turno</button><button class="filter-button" data-strat-turn="turno_rival">Rival</button></div>
       <div class="dashboard-controls"><label class="source-line" for="target-filter">Unidad objetivo (opcional)</label><input class="search-input" id="target-filter" data-strat-target placeholder="Nombre o identificador"></div>
       <div class="stratagem-list" data-strat-list data-phase="${phase}" data-player="${player}">${stratagems.map((stratagem) => renderStratagem(stratagem, phase)).join('')}</div>

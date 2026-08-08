@@ -73,11 +73,10 @@ export function setTurno(turno) {
   });
 }
 
-export function setPhase(fase, paso = '01') {
-  commit('cambiar_fase', { fase, paso }, () => {
-    state.fase = fase;
-    state.paso = paso;
-  });
+export function setPhase(fase, paso = '08.01') {
+  state.fase = fase;
+  state.paso = paso;
+  persist();
 }
 
 export function addPm(jugador = 'tu', amount = 1) {
@@ -92,10 +91,10 @@ export function changeVp(jugador = 'tu', amount = 1) {
   });
 }
 
-export function spendPm(amount, stratagemId, phase, target) {
+export function spendPm(amount, stratagemId, phase, target, stratagemName) {
   const jugador = 'tu';
   if (state.pm.tu < amount) return false;
-  commit('gastar_pm', { amount, stratagemId, phase, target, jugador }, () => {
+  commit('gastar_pm', { amount, stratagemId, phase, target, jugador, stratagemName }, () => {
     state.pm.tu -= amount;
     state.usos.push({ stratagemId, phase, target, jugador, at: Date.now() });
   });
@@ -140,6 +139,19 @@ export function targetWasUsed(target, phase) {
 
 export function canUndo() {
   return state.eventos.length > 0;
+}
+
+export function getUndoLabel() {
+  const event = state.eventos.at(-1);
+  if (!event) return 'Deshacer';
+  if (event.type === 'gastar_pm') {
+    const name = event.payload.stratagemName || event.payload.stratagemId || 'estratagema';
+    return `Deshacer gasto de ${event.payload.amount} PM · ${name}`;
+  }
+  if (event.type === 'añadir_pm') return `Deshacer +${event.payload.amount} PM`;
+  if (event.type === 'cambiar_pv')
+    return `Deshacer ${event.payload.amount > 0 ? '+' : ''}${event.payload.amount} PV`;
+  return 'Deshacer última acción';
 }
 
 export function reset() {
