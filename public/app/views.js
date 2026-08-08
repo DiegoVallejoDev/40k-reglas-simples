@@ -59,7 +59,7 @@ function renderDashboard() {
   return `
     <section class="view dashboard-view">
       <header class="view-header">
-        <div><p class="eyebrow">M · Marcador</p><h1>Marcador de partida</h1></div>
+        <div><p class="eyebrow">Modo Mesa · Marcador</p><h1>Marcador de partida</h1></div>
         <span class="citation">08.02 · 08.03</span>
       </header>
       <div class="dashboard-grid">
@@ -166,14 +166,14 @@ function renderStratagem(stratagem, phase) {
 }
 
 function renderCheatSheet() {
-  return `<section class="view"><header class="view-header"><div><p class="eyebrow">Q · Modo Mesa</p><h1>Chuleta</h1></div><span class="citation">05 · 13 · 14 · 20</span></header><div class="table-grid">${getData()
+  return `<section class="view"><header class="view-header"><div><p class="eyebrow">Modo Mesa · Referencia</p><h1>Chuleta</h1></div><span class="citation">05 · 13 · 14 · 20</span></header><div class="table-grid">${getData()
     .tables.tablas.filter((table) => isRenderable(table, getMode()))
     .map(renderTable)
     .join('')}</div></section>`;
 }
 
 function renderSearch() {
-  return `<section class="view search-view"><header class="view-header"><div><p class="eyebrow">S · Global</p><h1>Buscar</h1></div></header><form class="search-form" data-search-form><input class="search-input" name="query" placeholder="Buscar área, cobertura, estratagema…" autocomplete="off" aria-label="Buscar en las reglas" /><button class="primary-button" type="submit">Buscar</button></form><div class="search-history">${getHistory()
+  return `<section class="view search-view"><header class="view-header"><div><p class="eyebrow">Búsqueda global</p><h1>Buscar</h1></div></header><form class="search-form" data-search-form><input class="search-input" name="query" placeholder="Buscar área, cobertura, estratagema…" autocomplete="off" aria-label="Buscar en las reglas" /><button class="primary-button" type="submit">Buscar</button></form><div class="search-history">${getHistory()
     .map(
       (term) =>
         `<button class="chip" type="button" data-history="${escapeAttr(term)}">${escapeHtml(term)}</button>`,
@@ -188,7 +188,7 @@ function renderStudyIndex() {
     return '<section class="empty-state"><h1>Modo Estudio</h1><p>Activa el Modo Estudio para leer el índice completo.</p></section>';
   }
   const sections = getData().rules.reglas.filter((section) => isRenderable(section, 'estudio'));
-  return `<section class="view"><header class="view-header"><div><p class="eyebrow">L · Modo Estudio</p><h1>Índice de reglas</h1></div><span class="citation">01–24</span></header><div class="study-grid">${sections.map((section) => `<article class="study-section"><a href="#/regla/${section.id}"><strong>${section.id} · ${escapeHtml(section.titulo)}</strong><span class="citation">${section.cita} · pág. ${section.pagina}</span></a></article>`).join('')}</div><div class="study-grid study-only">${getData()
+  return `<section class="view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · Índice</p><h1>Índice de reglas</h1></div><span class="citation">01–24</span></header><div class="study-grid">${sections.map((section) => `<article class="study-section"><a href="#/regla/${section.id}"><strong>${section.id} · ${escapeHtml(section.titulo)}</strong><span class="citation">${section.cita} · pág. ${section.pagina}</span></a></article>`).join('')}</div><div class="study-grid study-only">${getData()
     .rules.no_confirmados.map(
       (node) =>
         `<article class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><strong>${escapeHtml(node.id)}</strong><p>${escapeHtml(node.nota)}</p></article>`,
@@ -201,7 +201,7 @@ function renderGlossary() {
     return '<section class="empty-state"><h1>Glosario</h1><p>Activa el Modo Estudio para consultar habilidades y claves.</p></section>';
   }
   const data = getData();
-  return `<section class="view"><header class="view-header"><div><p class="eyebrow">G · Modo Estudio</p><h1>Glosario</h1></div><span class="citation">24 · 02.05</span></header><div class="study-grid">${data.abilities.habilidades.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(node.etiqueta || node.titulo)}</button><span class="citation">${node.cita}</span></article>`).join('')}${data.keywords.claves.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(node.nombre)}</button><span class="citation">${node.cita}</span>${node.no_confirmado ? `<div class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><p>${escapeHtml(node.nota)}</p></div>` : ''}</article>`).join('')}</div></section>`;
+  return `<section class="view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · Glosario</p><h1>Glosario</h1></div><span class="citation">24 · 02.05</span></header><div class="study-grid">${data.abilities.habilidades.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(node.etiqueta || node.titulo)}</button><span class="citation">${node.cita}</span></article>`).join('')}${data.keywords.claves.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(node.nombre)}</button><span class="citation">${node.cita}</span>${node.no_confirmado ? `<div class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><p>${escapeHtml(node.nota)}</p></div>` : ''}</article>`).join('')}</div></section>`;
 }
 
 function renderFullRule(id) {
@@ -226,9 +226,9 @@ function renderFullRule(id) {
 
 function renderRoster() {
   if (getMode() !== 'estudio') {
-    return '<section class="view"><header class="view-header"><div><p class="eyebrow">R · Modo Mesa</p><h1>Mi ejército</h1></div></header><p class="empty-state">La gestión del ejército estará disponible en una fase posterior.</p></section>';
+    return '<section class="view"><header class="view-header"><div><p class="eyebrow">Modo Mesa · Ejército</p><h1>Mi ejército</h1></div></header><p class="empty-state">La gestión del ejército estará disponible en una fase posterior.</p></section>';
   }
-  return `<section class="view"><header class="view-header"><div><p class="eyebrow">R · Modo Estudio</p><h1>Mi ejército</h1></div><span class="citation">Sin confirmar en las fuentes</span></header><article class="unconfirmed-block"><div class="unconfirmed-label">Ejército sin validación</div><p>Las fuentes suministradas no contienen reglas de destacamentos, puntos, mejoras ni límites de lista. Esta superficie queda preparada para una fase posterior.</p></article></section>`;
+  return `<section class="view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · Ejército</p><h1>Mi ejército</h1></div><span class="citation">Sin confirmar en las fuentes</span></header><article class="unconfirmed-block"><div class="unconfirmed-label">Ejército sin validación</div><p>Las fuentes suministradas no contienen reglas de destacamentos, puntos, mejoras ni límites de lista. Esta superficie queda preparada para una fase posterior.</p></article></section>`;
 }
 
 export function bindViewEvents(root, actions) {
