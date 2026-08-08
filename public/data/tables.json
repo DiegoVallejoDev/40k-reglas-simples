@@ -6,6 +6,10 @@
       "cita": "05.02",
       "pagina": 18,
       "nombre": "Tabla para herir",
+      "columnas": {
+        "f_vs_r": "Fuerza vs. Resistencia",
+        "resultado": "Resultado"
+      },
       "filas": [
         {
           "f_vs_r": "F es el doble o más de R",
@@ -62,6 +66,10 @@
       "cita": "05.01",
       "pagina": 18,
       "nombre": "Impactos y heridas críticas",
+      "columnas": {
+        "tirada": "Tirada",
+        "resultado": "Resultado"
+      },
       "filas": [
         {
           "tirada": "6 sin modificar para impactar",
@@ -85,6 +93,10 @@
       "cita": "13.08",
       "pagina": 50,
       "nombre": "Cobertura",
+      "columnas": {
+        "condicion": "Condición",
+        "efecto": "Efecto"
+      },
       "filas": [
         {
           "condicion": "INFANTERÍA/BESTIAS/ENJAMBRE y miniatura en un área de terreno",
@@ -108,6 +120,10 @@
       "cita": "03.03",
       "pagina": 14,
       "nombre": "Coherencia",
+      "columnas": {
+        "condicion": "Condición",
+        "distancia": "Distancia"
+      },
       "filas": [
         {
           "condicion": "Cada miniatura",
@@ -130,6 +146,10 @@
       "cita": "14.02",
       "pagina": 52,
       "nombre": "Control de objetivos",
+      "columnas": {
+        "paso": "Paso",
+        "regla": "Regla"
+      },
       "filas": [
         {
           "paso": "Sumar CO",
@@ -152,6 +172,10 @@
       "cita": "20.04",
       "pagina": 69,
       "nombre": "Llegada de reservas",
+      "columnas": {
+        "condicion": "Condición",
+        "regla": "Regla"
+      },
       "filas": [
         {
           "condicion": "Movimiento de inserción",
@@ -182,6 +206,10 @@
       "cita": "01.07",
       "pagina": 9,
       "nombre": "Acobardamiento",
+      "columnas": {
+        "resultado": "Resultado",
+        "efecto": "Efecto"
+      },
       "filas": [
         {
           "resultado": "Tirada de liderazgo supera o iguala L",

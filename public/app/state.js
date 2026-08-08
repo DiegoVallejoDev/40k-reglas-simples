@@ -152,16 +152,23 @@ export function canUndo() {
   return state.eventos.length > 0;
 }
 
+export function formatCount(amount, singular, plural = `${singular}s`) {
+  return `${amount} ${amount === 1 ? singular : plural}`;
+}
+
 export function getUndoLabel() {
   const event = state.eventos.at(-1);
   if (!event) return 'Deshacer';
   if (event.type === 'gastar_pm') {
     const name = event.payload.stratagemName || event.payload.stratagemId || 'estratagema';
-    return `Deshacer gasto de ${event.payload.amount} PM · ${name}`;
+    return `Deshacer gasto de ${formatCount(event.payload.amount, 'PM', 'PM')} · ${name}`;
   }
-  if (event.type === 'añadir_pm') return `Deshacer +${event.payload.amount} PM`;
-  if (event.type === 'cambiar_pv')
-    return `Deshacer ${event.payload.amount > 0 ? '+' : ''}${event.payload.amount} PV`;
+  if (event.type === 'añadir_pm')
+    return `Deshacer añadido de ${formatCount(event.payload.amount, 'PM', 'PM')}`;
+  if (event.type === 'cambiar_pv') {
+    const action = event.payload.amount > 0 ? 'añadido' : 'retirada';
+    return `Deshacer ${action} de ${formatCount(Math.abs(event.payload.amount), 'PV', 'PV')}`;
+  }
   return 'Deshacer última acción';
 }
 

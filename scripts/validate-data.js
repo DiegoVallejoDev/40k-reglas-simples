@@ -51,6 +51,32 @@ function walk(value, location) {
   }
 }
 
+function validateTableColumns(data) {
+  if (!Array.isArray(data.tablas)) return;
+  const technicalKeys = new Set(['id', 'cita', 'pagina']);
+  data.tablas.forEach((table, index) => {
+    const location = `tables.json.tablas[${index}]`;
+    const rows = Array.isArray(table.filas) ? table.filas : [];
+    if (!rows.length) return;
+    if (!isObject(table.columnas) || Array.isArray(table.columnas)) {
+      errors.push(`${location} (${table.id}) must define columnas for every row key`);
+      return;
+    }
+    const rowKeys = new Set(rows.flatMap((row) => Object.keys(row)));
+    rowKeys.forEach((key) => {
+      if (technicalKeys.has(key)) return;
+      if (typeof table.columnas[key] !== 'string' || !table.columnas[key].trim()) {
+        errors.push(`${location} (${table.id}) is missing a label for row key "${key}"`);
+      }
+    });
+    Object.keys(table.columnas).forEach((key) => {
+      if (technicalKeys.has(key)) {
+        errors.push(`${location} (${table.id}) must not label technical row key "${key}"`);
+      }
+    });
+  });
+}
+
 for (const file of files) {
   const filename = path.join(dataDir, file);
   let parsed;
@@ -62,6 +88,7 @@ for (const file of files) {
     continue;
   }
   walk(parsed, file);
+  if (file === 'tables.json') validateTableColumns(parsed);
 }
 
 for (const ref of refs) {

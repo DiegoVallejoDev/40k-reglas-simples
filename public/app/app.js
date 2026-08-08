@@ -3,6 +3,7 @@ import { navigate, onRouteChange, parseRoute } from './router.js';
 import {
   addPm,
   changeVp,
+  formatCount,
   getMode,
   getMarkerExpanded,
   getState,
@@ -156,7 +157,9 @@ function handleAction(action, button) {
       return;
     }
     if (spendPm(stratagem.pm, stratagem.id, phase, target, stratagem.nombre)) {
-      announce(`${stratagem.nombre} usada. ${stratagem.pm} PM gastados.`);
+      announce(
+        `${stratagem.nombre} usada. ${formatCount(stratagem.pm, 'PM gastado', 'PM gastados')}.`,
+      );
     }
   }
 }

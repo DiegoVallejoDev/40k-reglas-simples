@@ -17,6 +17,17 @@ const PHASE_LABELS = {
   combate: 'Combate',
 };
 
+const SEARCH_GROUP_LABELS = {
+  regla: 'Reglas',
+  actualizacion: 'Actualizaciones',
+  habilidad: 'Habilidades',
+  estratagema: 'Estratagemas',
+  clave: 'Claves',
+  tabla: 'Tablas',
+  paso: 'Pasos',
+  fila: 'Filas de tabla',
+};
+
 const PHASE_TABLES = {
   mando: ['acobardamiento'],
   movimiento: ['coherencia', 'reservas'],
@@ -67,7 +78,7 @@ function renderDashboard() {
           .join('')}</div>
       </article>
       ${warnings.length && state.turno === 'tu_turno' ? `<article class="dashboard-card warning-card" style="margin-top:.7rem"><h2>Acobardamiento pendiente</h2><p>Estas unidades están a mitad de efectivos o por debajo: ${warnings.map((unit) => escapeHtml(unit.nombre)).join(', ')}.</p><span class="citation">08.03</span></article>` : ''}
-      <article class="dashboard-card" style="margin-top:.7rem"><h2>Consulta rápida</h2><p class="muted">Elige una fase en la barra inferior. Las reglas, tablas y chips se cargan desde los datos citados.</p><div class="dashboard-controls"><a class="primary-button" href="#/fase/${phase}">Ir a ${escapeHtml(PHASE_LABELS[phase])}</a><a class="secondary-button" href="#/estratagemas/${phase}">Estratagemas</a></div></article>
+      <article class="dashboard-card" style="margin-top:.7rem"><h2>Consulta rápida</h2><p class="muted">Elige una fase en la barra inferior. Las reglas, tablas y referencias se cargan desde los datos citados.</p><div class="dashboard-controls"><a class="primary-button" href="#/fase/${phase}">Ir a ${escapeHtml(PHASE_LABELS[phase])}</a><a class="secondary-button" href="#/estratagemas/${phase}">Estratagemas</a></div></article>
     </section>
   `;
 }
@@ -82,7 +93,7 @@ function renderPhase(phase) {
   return `
     <section class="view phase-view" data-current-phase="${phase}">
       <header class="view-header">
-        <div class="phase-heading"><img class="phase-icon" src="./svg/${escapeAttr(phase)}.svg" alt="" /><div><p class="eyebrow">Fase ${rule.id} · Modo Mesa</p><h1>${label}</h1></div></div>
+        <div class="phase-heading"><img class="phase-icon" src="./svg/${escapeAttr(phase)}.svg" alt="" /><div><p class="eyebrow">Fase de ${label} · Modo Mesa</p><h1>${label}</h1></div></div>
         <button class="primary-button" data-action="open-stratagems" data-phase="${phase}">Estratagemas</button>
       </header>
       <div class="phase-grid">
@@ -103,10 +114,10 @@ function renderStep(step) {
 
 function renderTable(table) {
   const rows = table.filas || [];
-  const keys = rows.length
-    ? Object.keys(rows[0]).filter((key) => !['id', 'cita', 'pagina'].includes(key))
-    : [];
-  return `<article class="table-card"><div class="card-header"><h3>${escapeHtml(table.nombre)}</h3><span class="citation">${escapeHtml(table.cita)}</span></div>${rows.length ? `<table><thead><tr>${keys.map((key) => `<th>${escapeHtml(key.replaceAll('_', ' '))}</th>`).join('')}</tr></thead><tbody>${rows.map((row) => `<tr>${keys.map((key) => `<td>${escapeHtml(row[key])}</td>`).join('')}</tr>`).join('')}</tbody></table>` : ''}${table.nota ? `<p class="source-line">${escapeHtml(table.nota)}</p>` : ''}</article>`;
+  const columns = Object.entries(table.columnas || {}).filter(([key]) =>
+    rows.some((row) => key in row),
+  );
+  return `<article class="table-card"><div class="card-header"><h3>${escapeHtml(table.nombre)}</h3><span class="citation">${escapeHtml(table.cita)}</span></div>${rows.length ? `<table><thead><tr>${columns.map(([, label]) => `<th>${escapeHtml(label)}</th>`).join('')}</tr></thead><tbody>${rows.map((row) => `<tr>${columns.map(([key]) => `<td>${escapeHtml(row[key])}</td>`).join('')}</tr>`).join('')}</tbody></table>` : ''}${table.nota ? `<p class="source-line">${escapeHtml(table.nota)}</p>` : ''}</article>`;
 }
 
 function renderStratagems(phase) {
@@ -118,7 +129,7 @@ function renderStratagems(phase) {
   const player = state.turno === 'tu_turno' ? 'tu' : 'rival';
   return `
     <section class="view stratagem-view">
-      <header class="view-header"><div><p class="eyebrow">E · ${label}</p><h1>Estratagemas</h1></div><span class="citation">15.01</span></header>
+      <header class="view-header"><div><p class="eyebrow">Estratagemas · ${label}</p><h1>Estratagemas</h1></div><span class="citation">15.01</span></header>
       ${canUndo() ? `<div class="dashboard-controls"><button class="undo-button" data-action="undo">↶ ${escapeHtml(getUndoLabel())}</button></div>` : ''}
       <div class="filter-row" role="group" aria-label="Filtro de turno"><button class="filter-button active" data-strat-turn="all">Todas</button><button class="filter-button" data-strat-turn="tu_turno">Mi turno</button><button class="filter-button" data-strat-turn="turno_rival">Rival</button></div>
       <div class="dashboard-controls"><label class="source-line" for="target-filter">Unidad objetivo (opcional)</label><input class="search-input" id="target-filter" data-strat-target placeholder="Nombre o identificador"></div>
@@ -174,7 +185,7 @@ function renderSearch() {
 
 function renderStudyIndex() {
   if (getMode() !== 'estudio') {
-    return '<section class="empty-state"><h1>Modo Estudio</h1><p>Activa Modo Estudio para leer el índice completo.</p></section>';
+    return '<section class="empty-state"><h1>Modo Estudio</h1><p>Activa el Modo Estudio para leer el índice completo.</p></section>';
   }
   const sections = getData().rules.reglas.filter((section) => isRenderable(section, 'estudio'));
   return `<section class="view"><header class="view-header"><div><p class="eyebrow">L · Modo Estudio</p><h1>Índice de reglas</h1></div><span class="citation">01–24</span></header><div class="study-grid">${sections.map((section) => `<article class="study-section"><a href="#/regla/${section.id}"><strong>${section.id} · ${escapeHtml(section.titulo)}</strong><span class="citation">${section.cita} · pág. ${section.pagina}</span></a></article>`).join('')}</div><div class="study-grid study-only">${getData()
@@ -187,7 +198,7 @@ function renderStudyIndex() {
 
 function renderGlossary() {
   if (getMode() !== 'estudio') {
-    return '<section class="empty-state"><h1>Glosario</h1><p>Activa Modo Estudio para consultar habilidades y claves.</p></section>';
+    return '<section class="empty-state"><h1>Glosario</h1><p>Activa el Modo Estudio para consultar habilidades y claves.</p></section>';
   }
   const data = getData();
   return `<section class="view"><header class="view-header"><div><p class="eyebrow">G · Modo Estudio</p><h1>Glosario</h1></div><span class="citation">24 · 02.05</span></header><div class="study-grid">${data.abilities.habilidades.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(node.etiqueta || node.titulo)}</button><span class="citation">${node.cita}</span></article>`).join('')}${data.keywords.claves.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(node.nombre)}</button><span class="citation">${node.cita}</span>${node.no_confirmado ? `<div class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><p>${escapeHtml(node.nota)}</p></div>` : ''}</article>`).join('')}</div></section>`;
@@ -196,12 +207,12 @@ function renderGlossary() {
 function renderFullRule(id) {
   const section = getNode(id);
   if (!section)
-    return `<section class="empty-state">No se encontró la regla ${escapeHtml(id)}.</section>`;
+    return `<section class="empty-state">No se encontró el contenido ${escapeHtml(id)}.</section>`;
   if (section.no_confirmado && getMode() !== 'estudio') {
     return '<section class="empty-state"><h1>Contenido no disponible en Modo Mesa</h1><p>Esta afirmación no está confirmada en las fuentes suministradas.</p></section>';
   }
   if (!section.pasos) {
-    return `<section class="view study-view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · ${escapeHtml(section.tipo || 'regla')}</p><h1>${escapeHtml(section.titulo || section.nombre || section.etiqueta || section.id)}</h1></div><span class="citation">${escapeHtml(section.cita || 'SIN CITA')} · pág. ${section.pagina || '—'}</span></header><p>${escapeHtml(section.texto || section.definicion || section.nota || '')}</p></section>`;
+    return `<section class="view study-view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · ${escapeHtml(section.tipo || 'regla')}</p><h1>${escapeHtml(section.titulo || section.nombre || section.etiqueta || section.id)}</h1></div><span class="citation">${escapeHtml(section.cita || 'Sin cita')} · pág. ${section.pagina || '—'}</span></header><p>${escapeHtml(section.texto || section.definicion || section.nota || '')}</p></section>`;
   }
   return `<section class="view study-view"><header class="view-header"><div><p class="eyebrow">Modo Estudio</p><h1>${escapeHtml(section.id)} · ${escapeHtml(section.titulo)}</h1></div><span class="citation">${escapeHtml(section.cita)} · pág. ${section.pagina}</span></header><p>${escapeHtml(section.texto || '')}</p><div class="phase-grid">${(
     section.pasos || []
@@ -215,9 +226,9 @@ function renderFullRule(id) {
 
 function renderRoster() {
   if (getMode() !== 'estudio') {
-    return '<section class="view"><header class="view-header"><div><p class="eyebrow">R · Modo Mesa</p><h1>Mi ejército</h1></div></header><p class="empty-state">La gestión de roster estará disponible en una fase posterior.</p></section>';
+    return '<section class="view"><header class="view-header"><div><p class="eyebrow">R · Modo Mesa</p><h1>Mi ejército</h1></div></header><p class="empty-state">La gestión del ejército estará disponible en una fase posterior.</p></section>';
   }
-  return `<section class="view"><header class="view-header"><div><p class="eyebrow">R · Modo Estudio</p><h1>Mi ejército</h1></div><span class="citation">NO CONFIRMADO EN LOS PDFS</span></header><article class="unconfirmed-block"><div class="unconfirmed-label">Roster sin validación</div><p>Los PDFs suministrados no contienen reglas de destacamentos, puntos, mejoras ni límites de lista. Esta superficie queda preparada para una fase posterior.</p></article></section>`;
+  return `<section class="view"><header class="view-header"><div><p class="eyebrow">R · Modo Estudio</p><h1>Mi ejército</h1></div><span class="citation">Sin confirmar en las fuentes</span></header><article class="unconfirmed-block"><div class="unconfirmed-label">Ejército sin validación</div><p>Las fuentes suministradas no contienen reglas de destacamentos, puntos, mejoras ni límites de lista. Esta superficie queda preparada para una fase posterior.</p></article></section>`;
 }
 
 export function bindViewEvents(root, actions) {
@@ -309,7 +320,7 @@ function renderSearchResults(root, query) {
   container.innerHTML = Object.entries(groups)
     .map(
       ([type, nodes]) =>
-        `<section><h2>${escapeHtml(type)}</h2>${nodes
+        `<section><h2>${escapeHtml(SEARCH_GROUP_LABELS[type] || type)}</h2>${nodes
           .slice(0, 20)
           .map(
             (node) =>

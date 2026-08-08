@@ -7,9 +7,8 @@ html {
 }
 
 body {
-  min-width: 20rem;
+  min-width: 0;
   margin: 0;
-  overflow-x: hidden;
   background: #100f0e;
   color: var(--color-off-white);
   font-family: var(--font-family-primary);
@@ -201,6 +200,7 @@ a {
 
 .view-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.8rem;
@@ -213,6 +213,8 @@ a {
 h1,
 h2,
 h3 {
+  min-width: 0;
+  overflow-wrap: break-word;
   font-family: var(--font-family-condensed);
   font-weight: 900;
   line-height: 1.08;
@@ -251,6 +253,8 @@ h3 {
 
 .citation {
   flex: none;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   letter-spacing: 0.04em;
 }
 
@@ -330,6 +334,17 @@ h3 {
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.6rem;
+}
+
+.card-header > *,
+.step-card-header > *,
+.phase-heading > div,
+.view-header > * {
+  min-width: 0;
+}
+
+.step-card-header h2 {
+  flex: 1 1 100%;
 }
 
 .current-phase-card {
@@ -413,6 +428,16 @@ button,
 }
 
 .primary-button,
+.secondary-button,
+.undo-button,
+.filter-button,
+.study-section a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+}
+
+.primary-button,
 .number-button {
   border-color: var(--color-accent);
   background: var(--color-primary);
@@ -456,6 +481,18 @@ input:focus-visible {
 .table-grid,
 .study-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.study-section a {
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+}
+
+.study-section a strong,
+.study-section a .citation {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .table-card {
@@ -862,7 +899,26 @@ input:focus-visible {
   }
 
   .view-header h1 {
-    font-size: clamp(1.35rem, 8vw, 1.9rem);
+    font-size: clamp(1.2rem, 6vw, 1.5rem);
+  }
+
+  .card-header,
+  .step-card-header {
+    flex-wrap: wrap;
+  }
+
+  .card-header h2,
+  .card-header h3,
+  .step-card-header h2 {
+    flex-basis: 100%;
+  }
+
+  .step-card-header h2 {
+    font-size: 1rem;
+  }
+
+  .step-card-header h3 {
+    font-size: 1rem;
   }
 }
 

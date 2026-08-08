@@ -127,9 +127,9 @@ function renderSheet(node, index) {
         ${index > 0 ? '<button class="sheet-back" type="button" data-sheet-back aria-label="Volver">‹</button>' : ''}
         <div class="sheet-title">
           <h2>${escapeHtml(title)}</h2>
-          <span class="citation">${escapeHtml(node.cita || 'SIN CITA')} · pág. ${node.pagina || '—'}</span>
+          <span class="citation">${escapeHtml(node.cita || 'Sin cita')} · pág. ${node.pagina || '—'}</span>
         </div>
-        <button class="sheet-close" type="button" data-sheet-close aria-label="Cerrar hoja">×</button>
+        <button class="sheet-close" type="button" data-sheet-close aria-label="Cerrar detalle">×</button>
       </header>
       <div class="sheet-body">
         ${node.no_confirmado ? `<div class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><p>${escapeHtml(node.nota || '')}</p></div>` : ''}
