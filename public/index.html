@@ -19,7 +19,6 @@
       <header class="app-header" aria-label="Estado de la partida">
         <a class="brand" href="#/" aria-label="Ir a la referencia">
           <img src="./images/warhammer-logo.png" alt="Warhammer 40,000" />
-          <span class="brand-name">40K REGLAS</span>
         </a>
         <button
           id="marker-toggle"
@@ -64,7 +63,7 @@
         <a href="./patrulla.html">Patrulla <small>10e</small></a>
       </nav>
 
-      <main id="main-content" class="main-content" tabindex="-1">
+      <main id="main-content" class="main-content parchment-surface" tabindex="-1">
         <div id="view-root" aria-live="polite"></div>
       </main>
 
@@ -99,8 +98,12 @@
         >
           <img src="./svg/combate.svg" alt="" /><span>COM</span>
         </a>
-        <a class="phase-tool-link" href="#/buscar" aria-label="Buscar">⌕</a>
-        <a class="phase-tool-link" href="#/roster" aria-label="Mi ejército">♙</a>
+        <a class="phase-tool-link" href="#/buscar" aria-label="Buscar"
+          ><span aria-hidden="true">⌕</span><span>BUS</span></a
+        >
+        <a class="phase-tool-link" href="#/roster" aria-label="Mi ejército"
+          ><span aria-hidden="true">♙</span><span>ROS</span></a
+        >
       </nav>
     </div>
 

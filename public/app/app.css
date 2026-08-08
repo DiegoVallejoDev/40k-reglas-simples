@@ -71,15 +71,10 @@ a {
 }
 
 .brand img {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 7rem;
+  height: 2.9rem;
   object-fit: contain;
   filter: drop-shadow(0 2px 2px #000);
-}
-
-.brand-name {
-  display: none;
-  font-size: 0.78rem;
 }
 
 .marker-toggle,
@@ -174,6 +169,10 @@ a {
   background: #211d1a;
 }
 
+.secondary-nav[hidden] {
+  display: none;
+}
+
 .secondary-nav a {
   min-height: 2.75rem;
   padding: 0.65rem 0.75rem;
@@ -192,9 +191,12 @@ a {
 }
 
 .main-content {
-  width: min(100%, 64rem);
+  width: min(100%, 88rem);
   margin: 0 auto;
-  padding: 1.1rem 0.75rem 2.2rem;
+  min-height: calc(100vh - 4rem);
+  padding: 1.25rem clamp(0.75rem, 3vw, 3rem) 2.2rem;
+  border-right: 1px solid rgba(58, 58, 58, 0.4);
+  border-left: 1px solid rgba(58, 58, 58, 0.4);
 }
 
 .view-header {
@@ -204,7 +206,7 @@ a {
   gap: 0.8rem;
   margin-bottom: 1rem;
   padding-bottom: 0.65rem;
-  border-bottom: 1px solid #59483d;
+  border-bottom: 2px solid var(--color-primary);
 }
 
 .view-header h1,
@@ -219,7 +221,7 @@ h3 {
 
 h1 {
   max-width: 100%;
-  color: var(--color-off-white);
+  color: var(--color-primary);
   font-size: clamp(1.45rem, 5vw, 2.35rem);
   letter-spacing: 0.045em;
 }
@@ -235,7 +237,7 @@ h3 {
 
 .eyebrow,
 .citation {
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   font-family: var(--font-family-condensed);
   font-size: 0.72rem;
   font-weight: 900;
@@ -285,11 +287,11 @@ h3 {
 .empty-state,
 .unconfirmed-block {
   min-width: 0;
-  border: 1px solid #594b40;
+  border: 1px solid #a99e87;
   border-top: 3px solid var(--color-primary);
-  background: rgba(34, 29, 26, 0.97);
+  background: rgba(245, 243, 237, 0.96);
   box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px rgba(255, 255, 255, 0.75),
     var(--shadow-sm);
 }
 
@@ -308,7 +310,7 @@ h3 {
 
 .dashboard-value {
   margin: 0.3rem 0 0.55rem;
-  color: var(--color-off-white);
+  color: var(--color-dark);
   font-family: var(--font-family-condensed);
   font-size: 1.7rem;
   font-weight: 900;
@@ -348,13 +350,13 @@ h3 {
   gap: 0.45rem;
   padding: 0.35rem 0.5rem;
   border-left: 3px solid transparent;
-  color: var(--color-lighter-gray);
+  color: var(--color-medium-dark);
 }
 
 .active-step.active {
   border-left-color: var(--color-accent);
-  background: rgba(139, 21, 56, 0.24);
-  color: var(--color-off-white);
+  background: rgba(139, 21, 56, 0.1);
+  color: var(--color-dark);
 }
 
 .step-card {
@@ -369,7 +371,7 @@ h3 {
 .study-view > p,
 .sheet-body p {
   margin: 0.55rem 0 0;
-  color: var(--color-off-white);
+  color: var(--color-dark);
   font-size: 1rem;
   line-height: 1.58;
 }
@@ -381,11 +383,11 @@ h3 {
   gap: 0.4rem;
   margin-top: 1rem;
   padding-top: 0.8rem;
-  border-top: 2px solid #51473d;
+  border-top: 2px solid var(--color-primary);
 }
 
 .phase-tools strong {
-  color: var(--color-accent);
+  color: var(--color-primary);
   font-family: var(--font-family-condensed);
   text-transform: uppercase;
 }
@@ -404,8 +406,8 @@ button,
 .search-result {
   border: 1px solid #6b5846;
   border-radius: var(--radius-sm);
-  background: #322822;
-  color: var(--color-off-white);
+  background: var(--color-paper-alt);
+  color: var(--color-dark);
   font-size: 0.82rem;
   font-weight: 800;
 }
@@ -478,8 +480,8 @@ input:focus-visible {
 }
 
 .table-card th {
-  background: #3b2b28;
-  color: var(--color-accent);
+  background: var(--color-primary);
+  color: #fff8e5;
   font-family: var(--font-family-condensed);
   text-transform: uppercase;
 }
@@ -544,7 +546,7 @@ input:focus-visible {
 }
 
 .stratagem-copy dt {
-  color: var(--color-accent);
+  color: var(--color-primary);
   font-family: var(--font-family-condensed);
   font-size: 0.7rem;
   font-weight: 900;
@@ -553,7 +555,7 @@ input:focus-visible {
 
 .stratagem-copy dd {
   margin: 0.1rem 0 0;
-  color: var(--color-off-white);
+  color: var(--color-dark);
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -604,7 +606,7 @@ input:focus-visible {
 
 .search-result-text {
   margin-top: 0.25rem;
-  color: var(--color-lighter-gray);
+  color: var(--color-medium-dark);
   font-size: 0.88rem;
 }
 
@@ -709,7 +711,7 @@ input:focus-visible {
 
 .empty-state,
 .unconfirmed-block {
-  color: var(--color-lighter-gray);
+  color: var(--color-medium-dark);
 }
 
 .unconfirmed-label {
@@ -767,6 +769,20 @@ input:focus-visible {
   text-transform: uppercase;
 }
 
+.phase-tool-link {
+  border-right: 1px solid #4b4038;
+  border-left: 1px solid #4b4038;
+  background: #29231f;
+  color: var(--color-off-white);
+  font-size: clamp(0.58rem, 2.1vw, 0.72rem);
+}
+
+.phase-tool-link span:first-child {
+  color: var(--color-accent);
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
 .phase-number {
   display: grid;
   width: 1.35rem;
@@ -815,10 +831,6 @@ input:focus-visible {
 }
 
 @media (min-width: 42rem) {
-  .brand-name {
-    display: inline;
-  }
-
   .main-content {
     padding-right: 1.25rem;
     padding-left: 1.25rem;
@@ -834,6 +846,10 @@ input:focus-visible {
 }
 
 @media (max-width: 35rem) {
+  .brand img {
+    width: 5.8rem;
+  }
+
   .dashboard-grid,
   .table-grid,
   .study-grid,

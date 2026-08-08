@@ -13,6 +13,7 @@
   --color-white: #fff;
   --color-paper: #ebe9e1;
   --color-paper-alt: #f5f3ed;
+  --color-accent-ink: #735a0f;
   --color-either-turn: #2c5a4d;
   --color-either-turn-hover: #3a7a68;
   --color-active-turn: #224262;
@@ -59,6 +60,16 @@
     radial-gradient(ellipse at 85% 85%, rgba(212, 175, 55, 0.08), transparent 42%),
     repeating-linear-gradient(115deg, transparent 0 8rem, rgba(255, 255, 255, 0.018) 8rem 8.1rem),
     linear-gradient(135deg, #24201d, #11100f 62%, #29221d);
+}
+
+.parchment-surface {
+  color: var(--color-dark);
+  background-color: var(--color-paper);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='grain'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23grain)' opacity='.1'/></svg>"),
+    radial-gradient(ellipse at 15% 10%, rgba(139, 21, 56, 0.09), transparent 36%),
+    radial-gradient(ellipse at 88% 80%, rgba(212, 175, 55, 0.12), transparent 42%),
+    linear-gradient(125deg, var(--color-paper-alt), var(--color-off-white) 50%, #ded8c8);
 }
 
 .iron-rule {
