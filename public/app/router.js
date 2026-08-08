@@ -1,8 +1,9 @@
 const listeners = new Set();
+const LAST_PHASE_KEY = '40k-11e-last-phase';
 
 export function parseRoute() {
   const raw = window.location.hash.replace(/^#\/?/, '');
-  if (!raw) return { name: 'dashboard', params: [] };
+  if (!raw) return { name: 'fase', params: [localStorage.getItem(LAST_PHASE_KEY) || 'mando'] };
   const [name, ...params] = raw.split('/');
   return { name, params: params.map(decodeURIComponent) };
 }

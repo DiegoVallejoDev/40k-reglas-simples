@@ -1,9 +1,10 @@
 // Service Worker for Offline Support
-const CACHE_NAME = '40k-tactics-v5-11e';
+const CACHE_NAME = '40k-tactics-v6-11e';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
+  './shared-theme.css',
   './sw.js',
   './main.css',
   './app/app.css',

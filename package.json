@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "validate:data": "node scripts/validate-data.js",
-    "format": "prettier --write \"public/data/**/*.json\" \"public/app/**/*.{js,css,html}\" public/index.html public/sw.js public/manifest.json scripts/validate-data.js",
-    "format:check": "prettier --check \"public/data/**/*.json\" \"public/app/**/*.{js,css,html}\" public/index.html public/sw.js public/manifest.json scripts/validate-data.js"
+    "format": "prettier --write \"public/data/**/*.json\" \"public/app/**/*.{js,css,html}\" public/shared-theme.css public/index.html public/sw.js public/manifest.json scripts/validate-data.js",
+    "format:check": "prettier --check \"public/data/**/*.json\" \"public/app/**/*.{js,css,html}\" public/shared-theme.css public/index.html public/sw.js public/manifest.json scripts/validate-data.js"
   },
   "devDependencies": {
     "prettier": "^3.5.3"

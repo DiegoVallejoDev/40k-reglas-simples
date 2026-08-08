@@ -48,7 +48,7 @@ function renderDashboard() {
   return `
     <section class="view dashboard-view">
       <header class="view-header">
-        <div><p class="eyebrow">D · Modo Mesa</p><h1>Dashboard de partida</h1></div>
+        <div><p class="eyebrow">M · Marcador</p><h1>Marcador de partida</h1></div>
         <span class="citation">08.02 · 08.03</span>
       </header>
       <div class="dashboard-grid">
@@ -82,7 +82,7 @@ function renderPhase(phase) {
   return `
     <section class="view phase-view" data-current-phase="${phase}">
       <header class="view-header">
-        <div><p class="eyebrow">Fase ${rule.id} · Modo Mesa</p><h1>${label}</h1></div>
+        <div class="phase-heading"><img class="phase-icon" src="./svg/${escapeAttr(phase)}.svg" alt="" /><div><p class="eyebrow">Fase ${rule.id} · Modo Mesa</p><h1>${label}</h1></div></div>
         <button class="primary-button" data-action="open-stratagems" data-phase="${phase}">Estratagemas</button>
       </header>
       <div class="phase-grid">

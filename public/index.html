@@ -7,26 +7,29 @@
       name="description"
       content="Referencia rápida y citada para las reglas básicas españolas de Warhammer 40,000."
     />
-    <meta name="theme-color" content="#0d1117" />
+    <meta name="theme-color" content="#1a1a1a" />
     <link rel="icon" type="image/jpeg" href="./images/icon.jpg" />
     <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./shared-theme.css" />
     <link rel="stylesheet" href="./app/app.css" />
     <title>40k Reglas — Modo Mesa</title>
   </head>
   <body>
-    <div id="app" class="app-shell">
+    <div id="app" class="app-shell identity-texture">
       <header class="app-header" aria-label="Estado de la partida">
-        <a class="brand" href="#/dashboard" aria-label="Ir al dashboard">
-          <span class="brand-mark">⚙</span>
+        <a class="brand" href="#/" aria-label="Ir a la referencia">
+          <img src="./images/warhammer-logo.png" alt="Warhammer 40,000" />
           <span class="brand-name">40K REGLAS</span>
         </a>
-        <div class="match-status" aria-live="polite">
-          <span id="round-status">R1</span>
-          <span aria-hidden="true">▸</span>
-          <span id="turn-status">TU TURNO</span>
-          <span class="status-pill">PM <strong id="cp-status">0</strong></span>
-          <span class="status-pill">PV <strong id="vp-status">0</strong></span>
-        </div>
+        <button
+          id="marker-toggle"
+          class="marker-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="marker-strip"
+        >
+          Marcador
+        </button>
         <div class="header-actions">
           <button id="mode-toggle" class="mode-toggle" type="button" aria-pressed="false">
             <span class="mode-toggle-icon" aria-hidden="true">☾</span>
@@ -45,6 +48,13 @@
         </div>
       </header>
 
+      <section id="marker-strip" class="marker-strip" aria-label="Marcador de partida" hidden>
+        <span>Ronda <strong id="round-status">R1</strong></span>
+        <span class="marker-turn" id="turn-status">TU TURNO</span>
+        <span>PM <strong id="cp-status">0</strong></span>
+        <span>PV <strong id="vp-status">0</strong></span>
+      </section>
+
       <nav id="secondary-nav" class="secondary-nav" aria-label="Vistas adicionales" hidden>
         <a href="#/dashboard">Dashboard</a>
         <a href="#/chuleta">Chuleta</a>
@@ -60,7 +70,7 @@
 
       <nav class="phase-bar" aria-label="Fases de batalla">
         <a class="phase-link" href="#/fase/mando" data-phase="mando" aria-label="Fase de Mando">
-          <span class="phase-number">1</span><span>MAN</span>
+          <img src="./svg/mando.svg" alt="" /><span>MAN</span>
         </a>
         <a
           class="phase-link"
@@ -68,7 +78,7 @@
           data-phase="movimiento"
           aria-label="Fase de Movimiento"
         >
-          <span class="phase-number">2</span><span>MOV</span>
+          <img src="./svg/movimiento.svg" alt="" /><span>MOV</span>
         </a>
         <a
           class="phase-link"
@@ -76,10 +86,10 @@
           data-phase="disparo"
           aria-label="Fase de Disparo"
         >
-          <span class="phase-number">3</span><span>DIS</span>
+          <img src="./svg/disparo.svg" alt="" /><span>DIS</span>
         </a>
         <a class="phase-link" href="#/fase/carga" data-phase="carga" aria-label="Fase de Carga">
-          <span class="phase-number">4</span><span>CAR</span>
+          <img src="./svg/carga.svg" alt="" /><span>CAR</span>
         </a>
         <a
           class="phase-link"
@@ -87,7 +97,7 @@
           data-phase="combate"
           aria-label="Fase de Combate"
         >
-          <span class="phase-number">5</span><span>COM</span>
+          <img src="./svg/combate.svg" alt="" /><span>COM</span>
         </a>
         <a class="phase-tool-link" href="#/buscar" aria-label="Buscar">⌕</a>
         <a class="phase-tool-link" href="#/roster" aria-label="Mi ejército">♙</a>

@@ -4,8 +4,10 @@ import {
   addPm,
   changeVp,
   getMode,
+  getMarkerExpanded,
   getState,
   setMode,
+  setMarkerExpanded,
   setPhase,
   setTurno,
   spendPm,
@@ -48,6 +50,12 @@ async function init() {
 }
 
 function setupGlobalEvents() {
+  const markerToggle = document.getElementById('marker-toggle');
+  markerToggle.addEventListener('click', () => {
+    setMarkerExpanded(!getMarkerExpanded());
+    updateMarker();
+    markerToggle.focus({ preventScroll: true });
+  });
   document.getElementById('mode-toggle').addEventListener('click', () => {
     const next = getMode() === 'mesa' ? 'estudio' : 'mesa';
     setMode(next);
@@ -96,6 +104,7 @@ function render(options = { focus: true }) {
   bindViewEvents(viewRoot, handleAction);
   updateActivePhase(currentRoute);
   updateHeader();
+  updateMarker();
   if (options.focus) {
     document.getElementById('main-content').focus({ preventScroll: true });
   } else {
@@ -204,6 +213,14 @@ function updateHeader() {
   toggle.setAttribute('aria-pressed', String(mode === 'estudio'));
   toggle.querySelector('.mode-toggle-label').textContent = mode === 'estudio' ? 'ESTUDIO' : 'MESA';
   toggle.querySelector('.mode-toggle-icon').textContent = mode === 'estudio' ? '☀' : '☾';
+}
+
+function updateMarker() {
+  const expanded = getMarkerExpanded();
+  const strip = document.getElementById('marker-strip');
+  const toggle = document.getElementById('marker-toggle');
+  strip.hidden = !expanded;
+  toggle.setAttribute('aria-expanded', String(expanded));
 }
 
 function applyMode() {

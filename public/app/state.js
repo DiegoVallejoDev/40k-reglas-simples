@@ -1,5 +1,7 @@
 const STORAGE_KEY = '40k-11e-state';
 const MODE_KEY = '40k-11e-mode';
+const MARKER_KEY = '40k-11e-marker-expanded';
+const LAST_PHASE_KEY = '40k-11e-last-phase';
 const MAX_UNDO_EVENTS = 20;
 
 const DEFAULT_STATE = {
@@ -76,7 +78,16 @@ export function setTurno(turno) {
 export function setPhase(fase, paso = '08.01') {
   state.fase = fase;
   state.paso = paso;
+  localStorage.setItem(LAST_PHASE_KEY, fase);
   persist();
+}
+
+export function getMarkerExpanded() {
+  return localStorage.getItem(MARKER_KEY) === 'true';
+}
+
+export function setMarkerExpanded(expanded) {
+  localStorage.setItem(MARKER_KEY, String(expanded));
 }
 
 export function addPm(jugador = 'tu', amount = 1) {
