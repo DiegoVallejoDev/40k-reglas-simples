@@ -6,14 +6,16 @@ import {
   getMode,
   getState,
   setMode,
+  setPhase,
   setTurno,
   spendPm,
   subscribe,
+  targetWasUsed,
   undo,
 } from './state.js';
 import { buildSearchIndex } from './search.js';
 import { bindViewEvents, renderRoute } from './views.js';
-import { closeSheets, initSheets, openRef } from './sheets.js';
+import { closeSheets, initSheets } from './sheets.js';
 
 const viewRoot = document.getElementById('view-root');
 const liveRegion = document.getElementById('live-region');
@@ -27,7 +29,7 @@ async function init() {
     await loadData();
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register('../sw.js')
+        .register('./sw.js')
         .catch((error) => console.warn('SW:', error.message));
     }
     buildSearchIndex();
@@ -35,7 +37,7 @@ async function init() {
     setupGlobalEvents();
     subscribe(() => {
       updateHeader();
-      if (loaded) render();
+      if (loaded) render({ focus: false });
     });
     loaded = true;
     render();
@@ -63,24 +65,42 @@ function setupGlobalEvents() {
   document.addEventListener('keydown', (event) => {
     if (event.target.matches('input, textarea, select')) return;
     const phases = ['mando', 'movimiento', 'disparo', 'carga', 'combate'];
-    if (event.key >= '1' && event.key <= '5') navigate(`fase/${phases[Number(event.key) - 1]}`);
+    if (
+      !event.ctrlKey &&
+      !event.altKey &&
+      !event.metaKey &&
+      !event.shiftKey &&
+      event.key >= '1' &&
+      event.key <= '5'
+    ) {
+      navigate(`fase/${phases[Number(event.key) - 1]}`);
+    }
   });
   onRouteChange((route) => {
     currentRoute = route;
     closeSheets();
-    render();
+    if (route.name === 'fase' || route.name === 'estratagemas') {
+      const phase = route.params[0] || 'mando';
+      setPhase(phase, `${phaseRuleId(phase)}.01`);
+    }
+    render({ focus: true });
   });
 }
 
-function render() {
+function render(options = { focus: true }) {
   if (!loaded) return;
+  const focused = options.focus ? null : getFocusDescriptor();
   currentRoute ||= parseRoute();
   applyMode();
-  viewRoot.innerHTML = renderRoute(currentRoute, handleAction);
+  viewRoot.innerHTML = renderRoute(currentRoute);
   bindViewEvents(viewRoot, handleAction);
   updateActivePhase(currentRoute);
   updateHeader();
-  document.getElementById('main-content').focus({ preventScroll: true });
+  if (options.focus) {
+    document.getElementById('main-content').focus({ preventScroll: true });
+  } else {
+    restoreFocus(focused);
+  }
 }
 
 function handleAction(action, button) {
@@ -91,6 +111,7 @@ function handleAction(action, button) {
   }
   if (action === 'end-turn') {
     setTurno(state.turno === 'tu_turno' ? 'turno_rival' : 'tu_turno');
+    setPhase('mando', '08.01');
     announce('Turno actualizado');
     return;
   }
@@ -118,13 +139,46 @@ function handleAction(action, button) {
     const stratagem = getData().stratagems.estratagemas.find(
       (item) => item.id === button.dataset.id,
     );
-    const phase = document.querySelector('[data-strat-list]')?.dataset.phase || 'mando';
-    const target = document.querySelector('[data-strat-target]')?.value.trim() || stratagem.blanco;
+    const phase = currentRoute?.params[0] || 'mando';
+    const selectedTarget = document.querySelector('[data-strat-target]')?.value.trim();
+    const target = selectedTarget || stratagem.blanco;
+    if (selectedTarget && targetWasUsed(selectedTarget, phase)) {
+      announce('Esa unidad ya fue blanco de otra estratagema en esta fase.');
+      return;
+    }
     if (spendPm(stratagem.pm, stratagem.id, phase, target)) {
       announce(`${stratagem.nombre} usada. ${stratagem.pm} PM gastados.`);
-      render();
     }
   }
+}
+
+function phaseRuleId(phase) {
+  return (
+    { mando: '08', movimiento: '09', disparo: '10', carga: '11', combate: '12' }[phase] || '08'
+  );
+}
+
+function getFocusDescriptor() {
+  const element = document.activeElement;
+  if (!element || element === document.body) return null;
+  return {
+    id: element.id,
+    action: element.dataset?.action,
+    actionId: element.dataset?.id,
+    name: element.getAttribute('name'),
+  };
+}
+
+function restoreFocus(descriptor) {
+  if (!descriptor) return;
+  let element = descriptor.id ? document.getElementById(descriptor.id) : null;
+  if (!element && descriptor.action) {
+    element = viewRoot.querySelector(
+      `[data-action="${descriptor.action}"]${descriptor.actionId ? `[data-id="${descriptor.actionId}"]` : ''}`,
+    );
+  }
+  if (!element && descriptor.name) element = viewRoot.querySelector(`[name="${descriptor.name}"]`);
+  element?.focus({ preventScroll: true });
 }
 
 function updateActivePhase(route) {
@@ -143,10 +197,8 @@ function updateHeader() {
   document.getElementById('round-status').textContent = `R${state.ronda}`;
   document.getElementById('turn-status').textContent =
     state.turno === 'tu_turno' ? 'TU TURNO' : 'TURNO RIVAL';
-  document.getElementById('cp-status').textContent =
-    state.turno === 'tu_turno' ? state.pm.tu : state.pm.rival;
-  document.getElementById('vp-status').textContent =
-    state.turno === 'tu_turno' ? state.pv.tu : state.pv.rival;
+  document.getElementById('cp-status').textContent = state.pm.tu;
+  document.getElementById('vp-status').textContent = state.pv.tu;
   const mode = getMode();
   const toggle = document.getElementById('mode-toggle');
   toggle.setAttribute('aria-pressed', String(mode === 'estudio'));

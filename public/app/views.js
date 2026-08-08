@@ -1,6 +1,5 @@
 import { getData, getNode, getPhaseRule, getTable, getAllNodes, isRenderable } from './data.js';
-import { getMode, getState, canUndo, wasStratagemUsed } from './state.js';
-import { navigate } from './router.js';
+import { getMode, getState, canUndo, targetWasUsed, wasStratagemUsed } from './state.js';
 import { getHistory, remember, search } from './search.js';
 
 const PHASE_LABELS = {
@@ -19,22 +18,23 @@ const PHASE_TABLES = {
   combate: ['herir', 'criticos'],
 };
 
-export function renderRoute(route, actions) {
-  const mode = getMode();
-  if (route.name === 'fase') return renderPhase(route.params[0] || 'mando', actions);
-  if (route.name === 'dashboard') return renderDashboard(actions);
+export function renderRoute(route) {
+  if (route.name === 'fase') return renderPhase(route.params[0] || 'mando');
+  if (route.name === 'dashboard') return renderDashboard();
   if (route.name === 'chuleta') return renderCheatSheet();
-  if (route.name === 'buscar') return renderSearch(actions);
+  if (route.name === 'buscar') return renderSearch();
   if (route.name === 'estudio') return renderStudyIndex();
   if (route.name === 'glosario') return renderGlossary();
   if (route.name === 'regla') return renderFullRule(route.params[0]);
-  if (route.name === 'estratagemas') return renderStratagems(route.params[0] || 'mando', actions);
+  if (route.name === 'estratagemas') return renderStratagems(route.params[0] || 'mando');
   if (route.name === 'roster') return renderRoster();
-  return renderDashboard(actions);
+  return renderDashboard();
 }
 
-function renderDashboard(actions) {
+function renderDashboard() {
   const state = getState();
+  const phase = state.fase || 'mando';
+  const phaseRule = getPhaseRule(phase) || getPhaseRule('mando');
   const warnings = state.unidades.filter(
     (unit) => unit.efectivos && unit.bajas >= Math.ceil(unit.efectivos / 2),
   );
@@ -49,13 +49,23 @@ function renderDashboard(actions) {
         <article class="dashboard-card"><p class="eyebrow">Puntos de mando</p><div class="dashboard-value">${state.pm.tu}</div><div class="dashboard-controls"><button class="number-button" data-action="add-pm">+1 PM</button>${canUndo() ? '<button class="undo-button" data-action="undo">↶ Deshacer</button>' : ''}</div></article>
         <article class="dashboard-card"><p class="eyebrow">PV · tú / rival</p><div class="dashboard-value">${state.pv.tu} / ${state.pv.rival}</div><div class="dashboard-controls"><button class="number-button" data-action="vp-up">+PV</button><button class="number-button" data-action="vp-down">−PV</button></div></article>
       </div>
+      <article class="dashboard-card current-phase-card">
+        <div class="card-header"><div><p class="eyebrow">Fase actual</p><h2>${escapeHtml(PHASE_LABELS[phase])}</h2></div><a class="primary-button" href="#/fase/${phase}">ABRIR FASE</a></div>
+        <div class="active-steps">${phaseRule.pasos
+          .filter((step) => isRenderable(step, getMode()))
+          .map(
+            (step) =>
+              `<div class="active-step ${step.id === state.paso ? 'active' : ''}"><span class="phase-number">${escapeHtml(step.id.split('.').at(-1))}</span><span>${escapeHtml(step.titulo)}</span><span class="citation">${escapeHtml(step.cita)}</span></div>`,
+          )
+          .join('')}</div>
+      </article>
       ${warnings.length && state.turno === 'tu_turno' ? `<article class="dashboard-card warning-card" style="margin-top:.7rem"><h2>Acobardamiento pendiente</h2><p>Estas unidades están a mitad de efectivos o por debajo: ${warnings.map((unit) => escapeHtml(unit.nombre)).join(', ')}.</p><span class="citation">08.03</span></article>` : ''}
-      <article class="dashboard-card" style="margin-top:.7rem"><h2>Consulta rápida</h2><p class="muted">Elige una fase en la barra inferior. Las reglas, tablas y chips se cargan desde los datos citados.</p><div class="dashboard-controls"><a class="primary-button" href="#/fase/mando">Ir a Mando</a><a class="secondary-button" href="#/estratagemas/${state.turno === 'tu_turno' ? 'mando' : 'mando'}">Estratagemas</a></div></article>
+      <article class="dashboard-card" style="margin-top:.7rem"><h2>Consulta rápida</h2><p class="muted">Elige una fase en la barra inferior. Las reglas, tablas y chips se cargan desde los datos citados.</p><div class="dashboard-controls"><a class="primary-button" href="#/fase/${phase}">Ir a ${escapeHtml(PHASE_LABELS[phase])}</a><a class="secondary-button" href="#/estratagemas/${phase}">Estratagemas</a></div></article>
     </section>
   `;
 }
 
-function renderPhase(phase, actions) {
+function renderPhase(phase) {
   const label = PHASE_LABELS[phase] || PHASE_LABELS.mando;
   const rule = getPhaseRule(phase) || getPhaseRule('mando');
   const chips = getData().abilities.habilidades.filter(
@@ -92,7 +102,7 @@ function renderTable(table) {
   return `<article class="table-card"><div class="card-header"><h3>${escapeHtml(table.nombre)}</h3><span class="citation">${escapeHtml(table.cita)}</span></div>${rows.length ? `<table><thead><tr>${keys.map((key) => `<th>${escapeHtml(key.replaceAll('_', ' '))}</th>`).join('')}</tr></thead><tbody>${rows.map((row) => `<tr>${keys.map((key) => `<td>${escapeHtml(row[key])}</td>`).join('')}</tr>`).join('')}</tbody></table>` : ''}${table.nota ? `<p class="source-line">${escapeHtml(table.nota)}</p>` : ''}</article>`;
 }
 
-function renderStratagems(phase, actions) {
+function renderStratagems(phase) {
   const label = PHASE_LABELS[phase] || PHASE_LABELS.mando;
   const stratagems = getData().stratagems.estratagemas.filter((stratagem) =>
     stratagem.fase.includes(phase),
@@ -105,16 +115,15 @@ function renderStratagems(phase, actions) {
       ${canUndo() ? '<div class="dashboard-controls"><button class="undo-button" data-action="undo">↶ Deshacer última acción</button></div>' : ''}
       <div class="filter-row" role="group" aria-label="Filtro de turno"><button class="filter-button active" data-strat-turn="all">Todas</button><button class="filter-button" data-strat-turn="tu_turno">Mi turno</button><button class="filter-button" data-strat-turn="turno_rival">Rival</button></div>
       <div class="dashboard-controls"><label class="source-line" for="target-filter">Unidad objetivo (opcional)</label><input class="search-input" id="target-filter" data-strat-target placeholder="Nombre o identificador"></div>
-      <div class="stratagem-list" data-strat-list data-phase="${phase}" data-player="${player}">${stratagems.map(renderStratagem).join('')}</div>
+      <div class="stratagem-list" data-strat-list data-phase="${phase}" data-player="${player}">${stratagems.map((stratagem) => renderStratagem(stratagem, phase)).join('')}</div>
     </section>
   `;
 }
 
-function renderStratagem(stratagem) {
+function renderStratagem(stratagem, phase) {
   const state = getState();
-  const player = state.turno === 'tu_turno' ? 'tu' : 'rival';
-  const used = wasStratagemUsed(stratagem.id, currentPhaseFromBody());
-  const insufficient = state.pm[player] < stratagem.pm;
+  const used = wasStratagemUsed(stratagem.id, phase);
+  const insufficient = state.pm.tu < stratagem.pm;
   const momentAllowed =
     stratagem.momento.tipo === 'cualquiera' || stratagem.momento.tipo === state.turno;
   const reason = used
@@ -122,21 +131,20 @@ function renderStratagem(stratagem) {
     : insufficient
       ? `Necesitas ${stratagem.pm} PM.`
       : !momentAllowed
-        ? 'El momento corresponde al turno rival.'
+        ? state.turno === 'tu_turno'
+          ? 'Solo puede usarse durante el turno rival.'
+          : 'Solo puede usarse durante tu turno.'
         : '';
+  const showFlavor = getMode() === 'estudio';
   return `
-    <article class="stratagem-card ${reason ? 'ineligible' : ''} ${used ? 'used' : ''}" data-stratagem-id="${escapeAttr(stratagem.id)}" data-momento="${stratagem.momento.tipo}" data-cost="${stratagem.pm}" data-target="${escapeAttr(stratagem.blanco)}">
+    <article class="stratagem-card ${reason ? 'ineligible' : ''} ${used ? 'used' : ''}" data-stratagem-id="${escapeAttr(stratagem.id)}" data-momento="${stratagem.momento.tipo}" data-cost="${stratagem.pm}" data-target="${escapeAttr(stratagem.blanco)}" data-used="${used}">
       <div class="card-header"><h2>${escapeHtml(stratagem.nombre)}</h2><span class="pm-cost">${stratagem.pm} PM</span></div>
       <div class="stratagem-meta"><span>${stratagem.momento.paso}</span><span class="citation">${stratagem.cita}</span></div>
       <dl class="stratagem-copy"><dt>Cuándo</dt><dd>${escapeHtml(stratagem.cuando)}</dd><dt>Blanco</dt><dd>${escapeHtml(stratagem.blanco)}</dd><dt>Efecto</dt><dd>${escapeHtml(stratagem.efecto)}</dd>${stratagem.restricciones ? `<dt>Restricciones</dt><dd>${escapeHtml(stratagem.restricciones)}</dd>` : ''}</dl>
       <div class="stratagem-actions"><span class="reason">${escapeHtml(reason)}</span><button class="primary-button" data-action="use-stratagem" data-id="${escapeAttr(stratagem.id)}" ${reason ? 'disabled' : ''}>USAR · −${stratagem.pm} PM</button></div>
-      <div class="study-only flavor-text"><p class="source-line">${escapeHtml(stratagem.flavor)}</p></div>
+      ${showFlavor ? `<div class="flavor-text"><p class="source-line">${escapeHtml(stratagem.flavor)}</p></div>` : ''}
     </article>
   `;
-}
-
-function currentPhaseFromBody() {
-  return document.querySelector('[data-strat-list]')?.dataset.phase || 'mando';
 }
 
 function renderCheatSheet() {
@@ -146,7 +154,7 @@ function renderCheatSheet() {
     .join('')}</div></section>`;
 }
 
-function renderSearch(actions) {
+function renderSearch() {
   return `<section class="view search-view"><header class="view-header"><div><p class="eyebrow">S · Global</p><h1>Buscar</h1></div></header><form class="search-form" data-search-form><input class="search-input" name="query" placeholder="Buscar área, cobertura, estratagema…" autocomplete="off" aria-label="Buscar en las reglas" /><button class="primary-button" type="submit">Buscar</button></form><div class="search-history">${getHistory()
     .map(
       (term) =>
@@ -158,6 +166,9 @@ function renderSearch(actions) {
 }
 
 function renderStudyIndex() {
+  if (getMode() !== 'estudio') {
+    return '<section class="empty-state"><h1>Modo Estudio</h1><p>Activa Modo Estudio para leer el índice completo.</p></section>';
+  }
   const sections = getData().rules.reglas.filter((section) => isRenderable(section, 'estudio'));
   return `<section class="view"><header class="view-header"><div><p class="eyebrow">L · Modo Estudio</p><h1>Índice de reglas</h1></div><span class="citation">01–24</span></header><div class="study-grid">${sections.map((section) => `<article class="study-section"><a href="#/regla/${section.id}"><strong>${section.id} · ${escapeHtml(section.titulo)}</strong><span class="citation">${section.cita} · pág. ${section.pagina}</span></a></article>`).join('')}</div><div class="study-grid study-only">${getData()
     .rules.no_confirmados.map(
@@ -192,11 +203,14 @@ function renderFullRule(id) {
     .map(renderStep)
     .join(
       '',
-    )}</div>${section.ejemplos?.length ? `<section class="study-only"><h2>Ejemplos</h2>${section.ejemplos.map((example) => `<p>${escapeHtml(example)}</p>`).join('')}</section>` : ''}${section.no_confirmado ? `<div class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><p>${escapeHtml(section.nota || '')}</p></div>` : ''}</section>`;
+    )}</div>${section.ejemplos?.length && getMode() === 'estudio' ? `<section><h2>Ejemplos</h2>${section.ejemplos.map((example) => `<p>${escapeHtml(example)}</p>`).join('')}</section>` : ''}${section.no_confirmado ? `<div class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><p>${escapeHtml(section.nota || '')}</p></div>` : ''}</section>`;
 }
 
 function renderRoster() {
-  return `<section class="view"><header class="view-header"><div><p class="eyebrow">R · Modo Mesa</p><h1>Mi ejército</h1></div><span class="citation">NO CONFIRMADO EN LOS PDFS</span></header><article class="unconfirmed-block"><div class="unconfirmed-label">Roster sin validación</div><p>Los PDFs suministrados no contienen reglas de destacamentos, puntos, mejoras ni límites de lista. Esta superficie queda preparada para una fase posterior.</p></article></section>`;
+  if (getMode() !== 'estudio') {
+    return '<section class="view"><header class="view-header"><div><p class="eyebrow">R · Modo Mesa</p><h1>Mi ejército</h1></div></header><p class="empty-state">La gestión de roster estará disponible en una fase posterior.</p></section>';
+  }
+  return `<section class="view"><header class="view-header"><div><p class="eyebrow">R · Modo Estudio</p><h1>Mi ejército</h1></div><span class="citation">NO CONFIRMADO EN LOS PDFS</span></header><article class="unconfirmed-block"><div class="unconfirmed-label">Roster sin validación</div><p>Los PDFs suministrados no contienen reglas de destacamentos, puntos, mejoras ni límites de lista. Esta superficie queda preparada para una fase posterior.</p></article></section>`;
 }
 
 export function bindViewEvents(root, actions) {
@@ -233,23 +247,43 @@ export function bindViewEvents(root, actions) {
 }
 
 function filterStratagems(root, turnFilter, targetFilter) {
+  const phase = root.querySelector('[data-strat-list]')?.dataset.phase || 'mando';
   root.querySelectorAll('[data-stratagem-id]').forEach((card) => {
     const momentMatch =
       turnFilter === 'all' ||
       card.dataset.momento === 'cualquiera' ||
       card.dataset.momento === turnFilter;
-    const targetMatch =
-      !targetFilter || card.dataset.target.toLowerCase().includes(targetFilter.toLowerCase());
-    const used = card.classList.contains('used');
+    const targetAlreadyUsed = targetFilter && targetWasUsed(targetFilter.trim(), phase);
+    const used = card.dataset.used === 'true';
     const reason = card.querySelector('.reason');
-    const shouldDim = !momentMatch || !targetMatch || used;
+    const stratagem = getData().stratagems.estratagemas.find(
+      (item) => item.id === card.dataset.stratagemId,
+    );
+    const insufficient = getState().pm.tu < Number(card.dataset.cost);
+    const actualMomentAllowed =
+      stratagem.momento.tipo === 'cualquiera' || stratagem.momento.tipo === getState().turno;
+    const failures = [];
+    if (used) failures.push('Ya usada en esta fase (15.01).');
+    else if (insufficient) failures.push(`Necesitas ${card.dataset.cost} PM.`);
+    else if (!actualMomentAllowed) {
+      failures.push(
+        getState().turno === 'tu_turno'
+          ? 'Solo puede usarse durante el turno rival.'
+          : 'Solo puede usarse durante tu turno.',
+      );
+    }
+    if (!momentMatch)
+      failures.push(
+        `El filtro requiere ${turnFilter === 'tu_turno' ? 'tu turno' : 'el turno rival'}.`,
+      );
+    if (targetAlreadyUsed)
+      failures.push('Esa unidad ya fue blanco de otra estratagema en esta fase (15.01).');
+    const shouldDim = failures.length > 0;
     card.classList.toggle('ineligible', shouldDim);
+    card.classList.toggle('used', used);
     const button = card.querySelector('[data-action="use-stratagem"]');
     if (button) button.disabled = shouldDim;
-    if (reason && !reason.textContent.trim())
-      reason.textContent = !momentMatch
-        ? 'El momento no coincide con el filtro.'
-        : 'No coincide con el objetivo filtrado.';
+    if (reason) reason.textContent = failures.join(' ');
   });
 }
 

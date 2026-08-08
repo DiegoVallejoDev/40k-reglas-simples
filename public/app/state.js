@@ -1,9 +1,12 @@
 const STORAGE_KEY = '40k-11e-state';
 const MODE_KEY = '40k-11e-mode';
+const MAX_UNDO_EVENTS = 20;
 
 const DEFAULT_STATE = {
   ronda: 1,
   turno: 'tu_turno',
+  fase: 'mando',
+  paso: '08.01',
   pm: { tu: 0, rival: 0 },
   pv: { tu: 0, rival: 0 },
   usos: [],
@@ -41,6 +44,7 @@ function commit(type, payload, mutate) {
   const before = clone(state);
   mutate();
   state.eventos.push({ type, payload, before, at: new Date().toISOString() });
+  if (state.eventos.length > MAX_UNDO_EVENTS) state.eventos.shift();
   persist();
 }
 
@@ -69,6 +73,13 @@ export function setTurno(turno) {
   });
 }
 
+export function setPhase(fase, paso = '01') {
+  commit('cambiar_fase', { fase, paso }, () => {
+    state.fase = fase;
+    state.paso = paso;
+  });
+}
+
 export function addPm(jugador = 'tu', amount = 1) {
   commit('añadir_pm', { jugador, amount }, () => {
     state.pm[jugador] = Math.max(0, state.pm[jugador] + amount);
@@ -82,10 +93,10 @@ export function changeVp(jugador = 'tu', amount = 1) {
 }
 
 export function spendPm(amount, stratagemId, phase, target) {
-  const jugador = state.turno === 'tu_turno' ? 'tu' : 'rival';
-  if (state.pm[jugador] < amount) return false;
+  const jugador = 'tu';
+  if (state.pm.tu < amount) return false;
   commit('gastar_pm', { amount, stratagemId, phase, target, jugador }, () => {
-    state.pm[jugador] -= amount;
+    state.pm.tu -= amount;
     state.usos.push({ stratagemId, phase, target, jugador, at: Date.now() });
   });
   return true;

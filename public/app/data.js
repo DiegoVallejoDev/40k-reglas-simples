@@ -1,9 +1,9 @@
 const DATA_FILES = {
-  rules: '../data/rules.json',
-  abilities: '../data/abilities.json',
-  stratagems: '../data/stratagems.json',
-  keywords: '../data/keywords.json',
-  tables: '../data/tables.json',
+  rules: './data/rules.json',
+  abilities: './data/abilities.json',
+  stratagems: './data/stratagems.json',
+  keywords: './data/keywords.json',
+  tables: './data/tables.json',
 };
 
 let dataCache;

@@ -6,18 +6,21 @@ let stack = [];
 let root;
 let lastFocused;
 let startY = null;
+let swipeStarted = false;
 
 export function initSheets() {
   root = document.getElementById('sheet-root');
   document.body.addEventListener('click', handleReferenceClick);
   root.addEventListener('click', handleSheetClick);
-  root.addEventListener('keydown', handleKeydown);
+  document.addEventListener('keydown', handleKeydown);
   root.addEventListener('pointerdown', (event) => {
-    startY = event.clientY;
+    swipeStarted = Boolean(event.target.closest('.sheet-header'));
+    startY = swipeStarted ? event.clientY : null;
   });
   root.addEventListener('pointerup', (event) => {
-    if (startY !== null && event.clientY - startY > 70) popSheet();
+    if (swipeStarted && startY !== null && event.clientY - startY > 70) popSheet();
     startY = null;
+    swipeStarted = false;
   });
 }
 
@@ -113,7 +116,10 @@ function render() {
 
 function renderSheet(node, index) {
   const title = node.titulo || node.nombre || node.etiqueta || node.id;
-  const refs = node.ver_tambien || [];
+  const refs = (node.ver_tambien || []).filter((ref) => {
+    const target = getNode(ref);
+    return target && isRenderable(target, getMode());
+  });
   const isRule = node.tipo === 'regla' || node.tipo === 'paso';
   return `
     <article class="sheet" data-sheet-index="${index}">
