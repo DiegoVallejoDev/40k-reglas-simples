@@ -1,0 +1,185 @@
+{
+  "version": "11e-core-spanish",
+  "estratagemas": [
+    {
+      "id": "strat:repeticion-de-mando",
+      "cita": "15.02",
+      "pagina": 56,
+      "nombre": "Repetición de mando",
+      "pm": 1,
+      "fase": ["mando", "movimiento", "disparo", "carga", "combate"],
+      "momento": {
+        "tipo": "cualquiera",
+        "paso": "justo después de una tirada elegible"
+      },
+      "cuando": "En cualquier fase, justo después de que hagas una de las siguientes tiradas para una unidad o miniatura amigas: de avanzar, de carga, de daño, de riesgo, para impactar, de salvación, para herir o una tirada para determinar la cantidad de ataques que hace un arma.",
+      "blanco": "Esa unidad o miniatura.",
+      "efecto": "Repite esa tirada. Si esa tirada incluía varios dados a la vez, elige solo uno de ellos y repítelo (salvo tiradas de carga, que se repiten en su totalidad).",
+      "restricciones": "",
+      "flavor": "Un gran comandante puede someter a su voluntad incluso los caprichos del destino y la fortuna para asegurarse la victoria.",
+      "ver_tambien": ["05.01", "05.02"]
+    },
+    {
+      "id": "strat:desafio-epico",
+      "cita": "15.03",
+      "pagina": 56,
+      "nombre": "Desafío épico",
+      "pm": 1,
+      "fase": ["combate"],
+      "momento": {
+        "tipo": "tu_turno",
+        "paso": "justo después de que se elija para combatir una unidad PERSONAJE amiga"
+      },
+      "cuando": "En la fase de combate, justo después de que se elija para combatir una unidad PERSONAJE amiga.",
+      "blanco": "Esa unidad PERSONAJE.",
+      "efecto": "Elige 1 miniatura PERSONAJE de tu unidad. Hasta el final de la fase, las armas de combate equipadas a esa miniatura tienen la habilidad [PRECISIÓN].",
+      "restricciones": "",
+      "flavor": "Las leyendas del 41.er milenio están repletas de duelos mortales entre poderosos campeones.",
+      "ver_tambien": ["ability:precision"]
+    },
+    {
+      "id": "strat:valor-insensato",
+      "cita": "15.04",
+      "pagina": 56,
+      "nombre": "Valor insensato",
+      "pm": 1,
+      "fase": ["mando"],
+      "momento": {
+        "tipo": "tu_turno",
+        "paso": "paso de acobardamiento, justo antes de una tirada"
+      },
+      "cuando": "En el paso de acobardamiento de tu fase de mando, justo antes de hacer una tirada de acobardamiento para una unidad amiga.",
+      "blanco": "Esa unidad.",
+      "efecto": "Esa tirada de acobardamiento tiene éxito automáticamente.",
+      "restricciones": "No puedes usar esta estratagema más de una vez por batalla.",
+      "flavor": "A estos guerreros no les importa su propia supervivencia, y mantienen el terreno contra todo pronóstico.",
+      "ver_tambien": ["01.07", "08.03"]
+    },
+    {
+      "id": "strat:explosivos",
+      "cita": "15.05",
+      "pagina": 56,
+      "nombre": "Explosivos",
+      "pm": 1,
+      "fase": ["disparo"],
+      "momento": {
+        "tipo": "tu_turno",
+        "paso": "tu fase de disparo"
+      },
+      "cuando": "En tu fase de disparo.",
+      "blanco": "1 unidad EXPLOSIVOS/GRANADAS amiga que no esté trabada, que sea apta para disparar, y que no haya hecho un movimiento de avanzar en este turno.",
+      "efecto": "Sigue esta secuencia: 1. Elige 1 miniatura EXPLOSIVOS/GRANADAS de tu unidad. 2. Elige 1 unidad enemiga que no esté trabada, que esté a 8\" o menos de esa miniatura y que sea visible para ella. 3. Tira seis D6: esa unidad enemiga sufre 1 herida mortal por cada 4+.",
+      "restricciones": "",
+      "flavor": "Tras preparar granadas u otros explosivos, estos guerreros cogen impulso y arrojan muerte en medio del enemigo.",
+      "ver_tambien": ["06.02"]
+    },
+    {
+      "id": "strat:impacto-aplastante",
+      "cita": "15.06",
+      "pagina": 56,
+      "nombre": "Impacto aplastante",
+      "pm": 1,
+      "fase": ["carga"],
+      "momento": {
+        "tipo": "tu_turno",
+        "paso": "justo después de terminar un movimiento de carga"
+      },
+      "cuando": "En tu fase de carga, justo después de que una unidad MONSTRUO/VEHÍCULO amiga termine un movimiento de carga.",
+      "blanco": "Esa unidad MONSTRUO/VEHÍCULO.",
+      "efecto": "Sigue esta secuencia: 1. Elige 1 unidad enemiga trabada con tu unidad. 2. Elige 1 miniatura de tu unidad trabada con esa unidad enemiga. 3. Tira tantos D6 como el atributo R de esa miniatura: tu unidad sufre 1 herida mortal por cada 1, y esa unidad enemiga sufre 1 herida mortal por cada 5+ (hasta un máximo de 6 heridas mortales por unidad).",
+      "restricciones": "",
+      "flavor": "En extremis, vehículos blindados y monstruos desbocados usan su enorme tamaño como arma.",
+      "ver_tambien": ["06.02"]
+    },
+    {
+      "id": "strat:insercion-rapida",
+      "cita": "15.07",
+      "pagina": 57,
+      "nombre": "Inserción rápida",
+      "pm": 1,
+      "fase": ["movimiento"],
+      "momento": {
+        "tipo": "turno_rival",
+        "paso": "al final de la fase de movimiento del oponente"
+      },
+      "cuando": "Al final de la fase de movimiento de tu oponente.",
+      "blanco": "1 unidad amiga que esté en reservas estratégicas (salvo AERONAVES).",
+      "efecto": "Tu unidad hace un movimiento de inserción (20.04).",
+      "restricciones": "No puedes usar esta estratagema durante la primera ronda de batalla.",
+      "flavor": "Muchos medios pueden acelerar la llegada de guerreros.",
+      "ver_tambien": ["20.04"]
+    },
+    {
+      "id": "strat:disparos-preventivos",
+      "cita": "15.08",
+      "pagina": 57,
+      "nombre": "Disparos preventivos",
+      "pm": 1,
+      "fase": ["movimiento"],
+      "momento": {
+        "tipo": "turno_rival",
+        "paso": "al final de la fase de movimiento del oponente"
+      },
+      "cuando": "Al final de la fase de movimiento de tu oponente.",
+      "blanco": "1 unidad amiga que no esté trabada (salvo unidades TITÁNICA).",
+      "efecto": "Tu unidad dispara haciendo disparos repentinos (15.09).",
+      "restricciones": "",
+      "flavor": "Una lluvia de disparos puede frenar el avance enemigo.",
+      "ver_tambien": ["15.09"]
+    },
+    {
+      "id": "strat:pantalla-de-humo",
+      "cita": "15.10",
+      "pagina": 57,
+      "nombre": "Pantalla de humo",
+      "pm": 1,
+      "fase": ["disparo"],
+      "momento": {
+        "tipo": "turno_rival",
+        "paso": "al inicio de la fase de disparo del oponente"
+      },
+      "cuando": "Al inicio de la fase de disparo de tu oponente.",
+      "blanco": "1 unidad HUMO amiga.",
+      "efecto": "Hasta el final de la fase, siempre que un ataque tome como blanco tu unidad HUMO o una unidad que no sea completamente visible para la miniatura atacante debido a alguna miniatura de tu unidad HUMO, el blanco se beneficia de cobertura contra ese ataque (13.08).",
+      "restricciones": "",
+      "flavor": "Incluso a los tiradores más hábiles les cuesta acertar a los blancos ocultos por el humo.",
+      "ver_tambien": ["13.08"]
+    },
+    {
+      "id": "strat:intervencion-heroica",
+      "cita": "15.11",
+      "pagina": 57,
+      "nombre": "Intervención heroica",
+      "pm": 1,
+      "fase": ["carga"],
+      "momento": {
+        "tipo": "turno_rival",
+        "paso": "al final de la fase de carga del oponente"
+      },
+      "cuando": "Al final de la fase de carga de tu oponente.",
+      "blanco": "1 unidad amiga que no esté trabada y que esté a 12\" o menos de alguna unidad enemiga. Solo puedes elegir una unidad VEHÍCULO si además es PERSONAJE/BÍPODE.",
+      "efecto": "Resuelve una carga con tu unidad (11.02). Antes de hacer la tirada de carga, elige A defender o Hacia el conflicto. A defender limita los blancos a unidades que hayan cargado en esta fase; Hacia el conflicto limita la tirada a 6 y permite elegir unidades enemigas a 6\" o menos.",
+      "restricciones": "Hacia el conflicto cuesta +1 PM.",
+      "flavor": "Tus guerreros interceptan la acometida del enemigo.",
+      "ver_tambien": ["11.02"]
+    },
+    {
+      "id": "strat:contraofensiva",
+      "cita": "15.12",
+      "pagina": 57,
+      "nombre": "Contraofensiva",
+      "pm": 2,
+      "fase": ["combate"],
+      "momento": {
+        "tipo": "turno_rival",
+        "paso": "en Combatir, justo después de que una unidad enemiga resuelva sus ataques"
+      },
+      "cuando": "En el paso Combatir de la fase de combate del oponente, justo después de que una unidad enemiga haya resuelto sus ataques.",
+      "blanco": "1 unidad amiga apta para combatir.",
+      "efecto": "Hasta el final de la fase, tu unidad tiene la habilidad Combatir primero y debe ser la siguiente unidad que eliges para combatir (12.04).",
+      "restricciones": "",
+      "flavor": "En el cuerpo a cuerpo, un enemigo veloz puede aprovechar cualquier hueco.",
+      "ver_tambien": ["12.04", "ability:combatir-primero"]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "40k-reglas-simples",
+  "private": true,
+  "scripts": {
+    "validate:data": "node scripts_validate_data.js",
+    "format": "prettier --write \"public/data/**/*.{json,js,css,html}\" scripts_validate_data.js",
+    "format:check": "prettier --check \"public/data/**/*.{json,js,css,html}\" scripts_validate_data.js"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}

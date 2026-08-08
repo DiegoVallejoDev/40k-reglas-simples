@@ -1,0 +1,203 @@
+{
+  "version": "11e-core-spanish",
+  "tablas": [
+    {
+      "id": "tabla:herir",
+      "cita": "05.02",
+      "pagina": 18,
+      "nombre": "Tabla para herir",
+      "filas": [
+        {
+          "f_vs_r": "F es el doble o más de R",
+          "resultado": "2+",
+          "id": "tabla:herir:fila-1",
+          "cita": "05.02",
+          "pagina": 18
+        },
+        {
+          "f_vs_r": "F es mayor que R",
+          "resultado": "3+",
+          "id": "tabla:herir:fila-2",
+          "cita": "05.02",
+          "pagina": 18
+        },
+        {
+          "f_vs_r": "F es igual a R",
+          "resultado": "4+",
+          "id": "tabla:herir:fila-3",
+          "cita": "05.02",
+          "pagina": 18
+        },
+        {
+          "f_vs_r": "F es menor que R",
+          "resultado": "5+",
+          "id": "tabla:herir:fila-4",
+          "cita": "05.02",
+          "pagina": 18
+        },
+        {
+          "f_vs_r": "F es la mitad o menos de R",
+          "resultado": "6+",
+          "id": "tabla:herir:fila-5",
+          "cita": "05.02",
+          "pagina": 18
+        }
+      ],
+      "nota": "Cada resultado se comprueba según la primera condición aplicable; una herida crítica es una tirada para herir de 6 sin modificar."
+    },
+    {
+      "id": "tabla:salvaciones",
+      "cita": "05.03",
+      "pagina": 19,
+      "nombre": "Salvaciones y grupos de asignación",
+      "pasos": [
+        "1. Crear grupos: un grupo por cada miniatura PERSONAJE y un grupo por todas las demás miniaturas con los mismos atributos H, S y S Inv.",
+        "2. Declarar el orden de asignación: miniaturas no Personaje heridas primero; ningún Personaje antes de un grupo no Personaje; Personajes heridos antes que no heridos.",
+        "3. Hacer una tirada de salvación por cada ataque que haya herido.",
+        "4. Al infligir daño, elegir una miniatura del grupo en curso, comprobar S Inv o S modificada por FP y resolver D."
+      ]
+    },
+    {
+      "id": "tabla:criticos",
+      "cita": "05.01",
+      "pagina": 18,
+      "nombre": "Impactos y heridas críticas",
+      "filas": [
+        {
+          "tirada": "6 sin modificar para impactar",
+          "resultado": "Impacto crítico",
+          "id": "tabla:criticos:fila-1",
+          "cita": "05.01",
+          "pagina": 18
+        },
+        {
+          "tirada": "6 sin modificar para herir",
+          "resultado": "Herida crítica",
+          "id": "tabla:criticos:fila-2",
+          "cita": "05.01",
+          "pagina": 18
+        }
+      ],
+      "nota": "Los impactos críticos son impactos igualmente, y las heridas críticas son heridas igualmente; otras reglas pueden activarse por ellos."
+    },
+    {
+      "id": "tabla:cobertura",
+      "cita": "13.08",
+      "pagina": 50,
+      "nombre": "Cobertura",
+      "filas": [
+        {
+          "condicion": "INFANTERÍA/BESTIAS/ENJAMBRE y miniatura en un área de terreno",
+          "efecto": "Se beneficia de cobertura",
+          "id": "tabla:cobertura:fila-1",
+          "cita": "13.08",
+          "pagina": 50
+        },
+        {
+          "condicion": "Miniatura no completamente visible por terreno interpuesto",
+          "efecto": "Se beneficia de cobertura",
+          "id": "tabla:cobertura:fila-2",
+          "cita": "13.08",
+          "pagina": 50
+        }
+      ],
+      "nota": "Siempre que un ataque a distancia tome como blanco una unidad que se beneficia de cobertura, empeora en 1 el atributo HP de ese ataque."
+    },
+    {
+      "id": "tabla:coherencia",
+      "cita": "03.03",
+      "pagina": 14,
+      "nombre": "Coherencia",
+      "filas": [
+        {
+          "condicion": "Cada miniatura",
+          "distancia": "2\" horizontal y 5\" vertical de al menos otra miniatura",
+          "id": "tabla:coherencia:fila-1",
+          "cita": "03.03",
+          "pagina": 14
+        },
+        {
+          "condicion": "Resto de miniaturas",
+          "distancia": "9\" horizontal y 5\" vertical",
+          "id": "tabla:coherencia:fila-2",
+          "cita": "03.03",
+          "pagina": 14
+        }
+      ]
+    },
+    {
+      "id": "tabla:objetivos",
+      "cita": "14.02",
+      "pagina": 52,
+      "nombre": "Control de objetivos",
+      "filas": [
+        {
+          "paso": "Sumar CO",
+          "regla": "Sumar los atributos CO de todas las miniaturas dentro del alcance",
+          "id": "tabla:objetivos:fila-1",
+          "cita": "14.02",
+          "pagina": 52
+        },
+        {
+          "paso": "Comparar",
+          "regla": "El mayor nivel controla; empate no controla salvo objetivo asegurado",
+          "id": "tabla:objetivos:fila-2",
+          "cita": "14.02",
+          "pagina": 52
+        }
+      ]
+    },
+    {
+      "id": "tabla:reservas",
+      "cita": "20.04",
+      "pagina": 69,
+      "nombre": "Llegada de reservas",
+      "filas": [
+        {
+          "condicion": "Movimiento de inserción",
+          "regla": "Despliega completamente a 6\" o menos de algún borde",
+          "id": "tabla:reservas:fila-1",
+          "cita": "20.04",
+          "pagina": 69
+        },
+        {
+          "condicion": "Distancia al enemigo",
+          "regla": "Más de 8\" en horizontal de toda unidad enemiga",
+          "id": "tabla:reservas:fila-2",
+          "cita": "20.04",
+          "pagina": 69
+        },
+        {
+          "condicion": "Antes de ronda 3",
+          "regla": "No puede desplegarse en la zona de despliegue del oponente",
+          "id": "tabla:reservas:fila-3",
+          "cita": "20.04",
+          "pagina": 69
+        }
+      ],
+      "nota": "El PDF no confirma una tabla de coste en PM para Reservas Estratégicas."
+    },
+    {
+      "id": "tabla:acobardamiento",
+      "cita": "01.07",
+      "pagina": 9,
+      "nombre": "Acobardamiento",
+      "filas": [
+        {
+          "resultado": "Tirada de liderazgo supera o iguala L",
+          "efecto": "La unidad no pasa a estar acobardada; si ya lo estaba, deja de estarlo",
+          "id": "tabla:acobardamiento:fila-1",
+          "cita": "01.07",
+          "pagina": 9
+        },
+        {
+          "resultado": "Tirada falla",
+          "efecto": "Unidad y miniaturas pasan a estar acobardadas; CO se modifica a \"-\"",
+          "id": "tabla:acobardamiento:fila-2",
+          "cita": "01.07",
+          "pagina": 9
+        }
+      ]
+    }
+  ]
+}

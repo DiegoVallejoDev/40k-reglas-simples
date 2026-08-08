@@ -1,0 +1,1178 @@
+{
+  "version": "11e-core-spanish",
+  "fuentes": ["core.txt", "updates.txt"],
+  "reglas": [
+    {
+      "id": "01",
+      "cita": "01.00",
+      "pagina": 8,
+      "titulo": "Conceptos básicos",
+      "texto": "Esta sección presenta algunos conceptos básicos que sustentan todas las batallas de Warhammer 40,000.",
+      "pasos": [
+        {
+          "id": "01.01",
+          "cita": "01.01",
+          "pagina": 8,
+          "titulo": "Ejércitos",
+          "texto": "Cada jugador comanda un ejército formado por unidades de miniaturas. Tú controlas todas las unidades de tu ejército."
+        },
+        {
+          "id": "01.02",
+          "cita": "01.02",
+          "pagina": 8,
+          "titulo": "Unidades y miniaturas",
+          "texto": "Una unidad consta de una o más miniaturas que mueven y luchan como un solo grupo. Las unidades y miniaturas amigas son las de tu ejército; las unidades y miniaturas enemigas son las del ejército de tu oponente."
+        },
+        {
+          "id": "01.03",
+          "cita": "01.03",
+          "pagina": 8,
+          "titulo": "Jugador activo y jugador oponente",
+          "texto": "En un momento dado, un jugador es el jugador activo y su oponente es el jugador oponente. Mientras sea el turno de un jugador, ese jugador es el jugador activo, con las excepciones indicadas al elegir una unidad para mover, disparar o combatir."
+        },
+        {
+          "id": "01.04",
+          "cita": "01.04",
+          "pagina": 9,
+          "titulo": "Medir distancias",
+          "texto": "Las distancias en Warhammer 40,000 se miden en pulgadas (\"). Puedes medir distancias siempre que quieras."
+        },
+        {
+          "id": "01.05",
+          "cita": "01.05",
+          "pagina": 9,
+          "titulo": "Dados",
+          "texto": "Necesitarás dados de seis caras (D6). 2+ significa un resultado de 2 o más; 2D6 significa tirar dos D6 y sumar los resultados; 1D3 es 1D6 dividido a la mitad, redondeando al alza."
+        },
+        {
+          "id": "01.06",
+          "cita": "01.06",
+          "pagina": 9,
+          "titulo": "Tiradas de liderazgo",
+          "texto": "Para hacer una tirada de liderazgo de una unidad, el jugador que la controla tira 2D6: si el resultado es igual o mayor que alguno de los atributos L de esa unidad, la tirada tiene éxito."
+        },
+        {
+          "id": "01.07",
+          "cita": "01.07",
+          "pagina": 9,
+          "titulo": "Tiradas de acobardamiento",
+          "texto": "Para hacer una tirada de acobardamiento de una unidad, el jugador que la controla hace una tirada de liderazgo para ella. Si la tirada falla, esa unidad y todas sus miniaturas pasan a estar acobardadas. Mientras una unidad esté acobardada, el atributo CO de todas sus miniaturas se modifica a \"-\", su jugador no puede tomarla como blanco de estratagemas y no es apta para iniciar una acción."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "02",
+      "cita": "02.00",
+      "pagina": 10,
+      "titulo": "Hojas de datos",
+      "texto": "Cada unidad tiene una hoja de datos que explica cómo funciona en batalla.",
+      "pasos": [
+        {
+          "id": "02.01",
+          "cita": "02.01",
+          "pagina": 10,
+          "titulo": "Nombre de la hoja de datos",
+          "texto": "Aquí tienes el nombre de la unidad."
+        },
+        {
+          "id": "02.02",
+          "cita": "02.02",
+          "pagina": 10,
+          "titulo": "Perfiles",
+          "texto": "Incluyen Movimiento (M), Resistencia (R), Salvación (S), Salvación invulnerable (S Inv), Heridas (H), Liderazgo (L) y Control de objetivos (CO)."
+        },
+        {
+          "id": "02.03",
+          "cita": "02.03",
+          "pagina": 10,
+          "titulo": "Habilidades",
+          "texto": "Muchas unidades tienen habilidades que pueden usarse en la partida."
+        },
+        {
+          "id": "02.04",
+          "cita": "02.04",
+          "pagina": 10,
+          "titulo": "Armas",
+          "texto": "Las armas tienen los atributos Alcance (Alc), Ataques (A), Habilidad de Proyectiles (HP), Habilidad de Armas (HA), Fuerza (F), Factor de Penetración (FP) y Daño (D)."
+        },
+        {
+          "id": "02.05",
+          "cita": "02.05",
+          "pagina": 10,
+          "titulo": "Claves",
+          "texto": "Las hojas de datos tienen una lista de claves, separadas en claves de facción y otras claves. Las claves aparecen en mayúsculas y formato de CLAVE en negrita."
+        },
+        {
+          "id": "02.06",
+          "cita": "02.06",
+          "pagina": 11,
+          "titulo": "Composición de unidad y otras reglas",
+          "texto": "Esta sección detalla la cantidad y tipo de miniaturas de la unidad, su equipo por defecto y otras reglas."
+        },
+        {
+          "id": "02.07",
+          "cita": "02.07",
+          "pagina": 11,
+          "titulo": "Opciones de equipo",
+          "texto": "Algunas hojas de datos tienen opciones de equipo para cambiar las armas y el equipo de sus miniaturas."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "03",
+      "cita": "03.00",
+      "pagina": 12,
+      "titulo": "Movimiento",
+      "texto": "En batalla, moverás tus miniaturas cogiéndolas y cambiando su posición en el campo de batalla.",
+      "pasos": [
+        {
+          "id": "03.01",
+          "cita": "03.01",
+          "pagina": 12,
+          "titulo": "Movimiento",
+          "texto": "Las miniaturas pueden mover como se describe en los tipos de movimiento de la ronda de batalla."
+        },
+        {
+          "id": "03.02",
+          "cita": "03.02",
+          "pagina": 14,
+          "titulo": "Despliegue",
+          "texto": "Siempre que una regla te ordene desplegar una unidad, coloca sus miniaturas en el campo de batalla de manera que la unidad esté en coherencia, se considere no trabada y se cumpla todo otro requisito o restricción."
+        },
+        {
+          "id": "03.03",
+          "cita": "03.03",
+          "pagina": 14,
+          "titulo": "Coherencia",
+          "texto": "Una unidad que incluya más de 1 miniatura debe desplegarse y finalizar cualquier movimiento en coherencia: cada miniatura debe estar a 2\" o menos en horizontal y 5\" o menos en vertical de al menos otra miniatura de esa unidad, y a 9\" o menos en horizontal y 5\" o menos en vertical del resto de miniaturas de esa unidad."
+        },
+        {
+          "id": "03.04",
+          "cita": "03.04",
+          "pagina": 14,
+          "titulo": "Trabarse",
+          "texto": "La zona de amenaza de una miniatura es el área del campo de batalla a 2\" o menos en horizontal y a 5\" o menos en vertical de ella. Mientras una miniatura amiga esté en la zona de amenaza de alguna miniatura enemiga, esas miniaturas y sus unidades están trabadas entre sí."
+        },
+        {
+          "id": "03.05",
+          "cita": "03.05",
+          "pagina": 15,
+          "titulo": "Mover miniaturas",
+          "texto": "Una miniatura no puede atravesar otras miniaturas salvo cuando una regla lo permita. Las miniaturas deben finalizar en coherencia y cumplir las restricciones del tipo de movimiento."
+        },
+        {
+          "id": "03.06",
+          "cita": "03.06",
+          "pagina": 15,
+          "titulo": "Movimiento y terreno",
+          "texto": "Las miniaturas pueden mover por diferentes categorías de terreno según 13.06; al mover verticalmente deben sumar la distancia vertical recorrida."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "04",
+      "cita": "04.00",
+      "pagina": 16,
+      "titulo": "Atacar",
+      "texto": "Siempre que las miniaturas ataquen, elige armas, elige blancos y resuelve ataques como se describe aquí.",
+      "pasos": [
+        {
+          "id": "04.01",
+          "cita": "04.01",
+          "pagina": 16,
+          "titulo": "Elegir armas",
+          "texto": "Elige, para cada miniatura de la unidad atacante, con qué armas atacará. Al disparar puedes elegir una o más armas a distancia; al combatir elige un arma de combate."
+        },
+        {
+          "id": "04.02",
+          "cita": "04.02",
+          "pagina": 16,
+          "titulo": "Elegir blancos",
+          "texto": "Por cada arma elegida, elige una unidad enemiga como blanco. Salvo indicación contraria, el blanco debe ser visible, estar dentro del alcance y no estar trabado con la unidad atacante al disparar."
+        },
+        {
+          "id": "04.03",
+          "cita": "04.03",
+          "pagina": 17,
+          "titulo": "Reunir dados de ataque",
+          "texto": "Por cada arma elegida y cada blanco, reúne tantos dados de ataque como indique el atributo A, aplicando las habilidades del arma."
+        },
+        {
+          "id": "04.04",
+          "cita": "04.04",
+          "pagina": 17,
+          "titulo": "Resolver ataques",
+          "texto": "Resuelve todos los ataques de un perfil de arma contra un blanco siguiendo la secuencia de ataque."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "05",
+      "cita": "05.00",
+      "pagina": 18,
+      "titulo": "Secuencia de ataque",
+      "texto": "Siempre que las miniaturas ataquen, sigue la secuencia detallada para determinar si infligen daño.",
+      "pasos": [
+        {
+          "id": "05.01",
+          "cita": "05.01",
+          "pagina": 18,
+          "titulo": "Tiradas para impactar",
+          "texto": "Haz una tirada para impactar por cada dado de ataque. Un 6 sin modificar es un impacto crítico; un resultado igual o mayor que HP/HA es un impacto; cualquier otro resultado es un fallo."
+        },
+        {
+          "id": "05.02",
+          "cita": "05.02",
+          "pagina": 18,
+          "titulo": "Tiradas para herir",
+          "texto": "Haz una tirada para herir por cada impacto. Un 6 sin modificar es una herida crítica; compara F con R: doble o más 2+, mayor 3+, igual 4+, menor 5+, mitad o menos 6+."
+        },
+        {
+          "id": "05.03",
+          "cita": "05.03",
+          "pagina": 19,
+          "titulo": "Tiradas de salvación",
+          "texto": "El jugador oponente crea grupos de asignación, declara su orden y hace una tirada de salvación por cada ataque que haya herido al blanco."
+        },
+        {
+          "id": "05.04",
+          "cita": "05.04",
+          "pagina": 19,
+          "titulo": "Infligir daño",
+          "texto": "Para cada tirada de salvación, elige una miniatura del grupo en curso, comprueba S Inv o S modificada por FP y, si el ataque inflige daño, la miniatura pierde una cantidad de heridas igual a D."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": ["tabla:herir", "tabla:salvaciones", "tabla:criticos"]
+    },
+    {
+      "id": "06",
+      "cita": "06.00",
+      "pagina": 24,
+      "titulo": "Otros conceptos",
+      "texto": "Esta sección detalla conceptos de reglas adicionales que se usan con frecuencia al atacar.",
+      "pasos": [
+        {
+          "id": "06.01",
+          "cita": "06.01",
+          "pagina": 24,
+          "titulo": "Visibilidad",
+          "texto": "Para que una miniatura que observa tenga línea de visión, debe ser posible trazar una línea recta imaginaria de 1 mm de ancho desde cualquier parte de esa miniatura hasta cualquier parte de la miniatura observada."
+        },
+        {
+          "id": "06.02",
+          "cita": "06.02",
+          "pagina": 24,
+          "titulo": "Heridas mortales",
+          "texto": "Siempre que una unidad sufra alguna herida mortal, el jugador que la controla debe elegir miniaturas siguiendo el orden indicado y cada miniatura elegida pierde 1 herida."
+        },
+        {
+          "id": "06.03",
+          "cita": "06.03",
+          "pagina": 24,
+          "titulo": "Tiradas de riesgo",
+          "texto": "Para realizar una tirada de riesgo para una unidad, tira 1D6: con 1-2, la tirada falla y esa unidad sufre 1 herida mortal, o 3 heridas mortales si toda miniatura de esa unidad es MONSTRUO/VEHÍCULO."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "07",
+      "cita": "07.00",
+      "pagina": 28,
+      "titulo": "La ronda de batalla",
+      "texto": "Las partidas de Warhammer 40,000 se juegan en varias rondas de batalla.",
+      "pasos": [
+        {
+          "id": "07.01",
+          "cita": "07.01",
+          "pagina": 28,
+          "titulo": "Inicio de la ronda de batalla",
+          "texto": "Al inicio de la ronda de batalla, los jugadores resuelven las reglas que se activan al inicio de la ronda. La ronda se resuelve siguiendo: 1. inicio de la ronda; 2. turnos de los jugadores; 3. fin de la ronda."
+        },
+        {
+          "id": "07.02",
+          "cita": "07.02",
+          "pagina": 28,
+          "titulo": "Turnos de los jugadores",
+          "texto": "Ambos jugadores juegan un turno cada uno. Cada turno consta de paso de inicio, cinco fases en orden y paso de final."
+        },
+        {
+          "id": "07.03",
+          "cita": "07.03",
+          "pagina": 28,
+          "titulo": "Fin de la ronda de batalla",
+          "texto": "Primero se resuelven las reglas activadas, salvo reglas de misión; después ambos jugadores consultan su misión y resuelven lo que corresponda."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "08",
+      "cita": "08.00",
+      "pagina": 30,
+      "titulo": "Fase de mando",
+      "texto": "En la fase de mando, ambos jugadores obtienen PM básicos, se comprueba el estado combativo y se usan habilidades estratégicas.",
+      "pasos": [
+        {
+          "id": "08.01",
+          "cita": "08.01",
+          "pagina": 30,
+          "titulo": "Inicio de la fase de mando",
+          "texto": "Las reglas que se activan al inicio de la fase de mando se resuelven ahora."
+        },
+        {
+          "id": "08.02",
+          "cita": "08.02",
+          "pagina": 30,
+          "titulo": "Obtener PM básicos",
+          "texto": "Ambos jugadores obtienen 1 punto de mando (PM)."
+        },
+        {
+          "id": "08.03",
+          "cita": "08.03",
+          "pagina": 30,
+          "titulo": "Acobardamiento",
+          "texto": "El jugador activo hace una tirada de acobardamiento por cada unidad de su ejército que esté acobardada o a mitad de efectivos o por debajo. Si una unidad estaba acobardada al inicio y su tirada tiene éxito, deja de estar acobardada."
+        },
+        {
+          "id": "08.04",
+          "cita": "08.04",
+          "pagina": 30,
+          "titulo": "Habilidades de mando",
+          "texto": "Las reglas que se activan en la fase de mando, salvo las de inicio, final, PM básicos o acobardamiento, se resuelven ahora."
+        },
+        {
+          "id": "08.05",
+          "cita": "08.05",
+          "pagina": 30,
+          "titulo": "Final de la fase de mando",
+          "texto": "Primero se resuelven las reglas activadas, salvo reglas de misión; después ambos jugadores consultan su misión."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "09",
+      "cita": "09.00",
+      "pagina": 32,
+      "titulo": "Fase de movimiento",
+      "texto": "En la fase de movimiento puedes mover cada una de tus unidades por el campo de batalla y hacer llegar reservas.",
+      "pasos": [
+        {
+          "id": "09.01",
+          "cita": "09.01",
+          "pagina": 32,
+          "titulo": "Inicio de la fase de movimiento",
+          "texto": "Las reglas que se activan al inicio de la fase de movimiento se resuelven ahora."
+        },
+        {
+          "id": "09.02",
+          "cita": "09.02",
+          "pagina": 32,
+          "titulo": "Mover unidades",
+          "texto": "El jugador activo mueve sus unidades de una en una: elige una unidad, elige un tipo de movimiento apto y lo resuelve. Puede permanecer inmóvil, hacer un movimiento normal, avanzar, retroceder, desembarcar o hacer una inserción."
+        },
+        {
+          "id": "09.03",
+          "cita": "09.03",
+          "pagina": 32,
+          "titulo": "Final de la fase de movimiento",
+          "texto": "Las reglas que se activan al final de la fase de movimiento se resuelven ahora."
+        },
+        {
+          "id": "09.04",
+          "cita": "09.04",
+          "pagina": 32,
+          "titulo": "Permanecer inmóvil",
+          "texto": "Ninguna miniatura mueve, ni en línea recta ni rotando. Las unidades que permanecen inmóviles no activan reglas que se activen cuando una unidad inicia o finaliza un movimiento."
+        },
+        {
+          "id": "09.05",
+          "cita": "09.05",
+          "pagina": 33,
+          "titulo": "Movimiento normal",
+          "texto": "La distancia máxima es el atributo M. La unidad debe estar en el campo de batalla y no estar trabada; después de mover no debe estar trabada."
+        },
+        {
+          "id": "09.06",
+          "cita": "09.06",
+          "pagina": 33,
+          "titulo": "Avanzar",
+          "texto": "La distancia máxima es la tirada de avanzar más el atributo M. La unidad no puede estar trabada; hasta el final del turno no es apta para declarar cargas ni iniciar acciones, salvo indicación contraria."
+        },
+        {
+          "id": "09.07",
+          "cita": "09.07",
+          "pagina": 33,
+          "titulo": "Retroceder",
+          "texto": "La distancia máxima es M. La unidad está trabada. Puede elegir retirada ordenada si no está acobardada o huida desesperada en caso contrario; después no es apta para disparar, declarar cargas ni iniciar acciones."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "10",
+      "cita": "10.00",
+      "pagina": 34,
+      "titulo": "Fase de disparo",
+      "texto": "En la fase de disparo tus unidades apuntarán y dispararán sus armas a distancia contra los blancos elegidos.",
+      "pasos": [
+        {
+          "id": "10.01",
+          "cita": "10.01",
+          "pagina": 34,
+          "titulo": "Inicio de la fase de disparo",
+          "texto": "Las reglas que se activan al inicio de la fase de disparo se resuelven ahora."
+        },
+        {
+          "id": "10.02",
+          "cita": "10.02",
+          "pagina": 34,
+          "titulo": "Disparar",
+          "texto": "El jugador activo dispara de una en una con las unidades aptas. Elige una unidad, elige disparo normal, de asalto, a quemarropa o indirecto, y resuélvelo."
+        },
+        {
+          "id": "10.03",
+          "cita": "10.03",
+          "pagina": 34,
+          "titulo": "Final de la fase de disparo",
+          "texto": "Las reglas que se activan al final de la fase de disparo se resuelven ahora."
+        },
+        {
+          "id": "10.04",
+          "cita": "10.04",
+          "pagina": 34,
+          "titulo": "Disparo normal",
+          "texto": "La unidad no está trabada y no ha avanzado; dispara como se describe en Atacar. Después no es apta para iniciar acciones hasta el final de la fase."
+        },
+        {
+          "id": "10.05",
+          "cita": "10.05",
+          "pagina": 35,
+          "titulo": "De asalto",
+          "texto": "La unidad no está trabada, avanzó y tiene algún arma [ASALTO]. Solo puede elegir armas [ASALTO] para atacar."
+        },
+        {
+          "id": "10.06",
+          "cita": "10.06",
+          "pagina": 35,
+          "titulo": "A quemarropa",
+          "texto": "La unidad está trabada, no avanzó y tiene algún arma [A QUEMARROPA] o es MONSTRUO/VEHÍCULO. Las miniaturas no MONSTRUO/VEHÍCULO solo pueden elegir armas [A QUEMARROPA] y blancos trabados."
+        },
+        {
+          "id": "10.07",
+          "cita": "10.07",
+          "pagina": 35,
+          "titulo": "Indirecto",
+          "texto": "La unidad no está trabada, no avanzó y tiene algún arma [INDIRECTA]. El blanco puede no ser visible; se beneficia de cobertura, no se repiten tiradas para impactar y las tiradas sin modificar de 1-5 fallan, salvo la excepción indicada."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "11",
+      "cita": "11.00",
+      "pagina": 36,
+      "titulo": "Fase de carga",
+      "texto": "En la fase de carga podrás realizar movimientos de carga con tus unidades.",
+      "pasos": [
+        {
+          "id": "11.01",
+          "cita": "11.01",
+          "pagina": 36,
+          "titulo": "Inicio de la fase de carga",
+          "texto": "Las reglas que se activan al inicio de la fase de carga se resuelven ahora."
+        },
+        {
+          "id": "11.02",
+          "cita": "11.02",
+          "pagina": 36,
+          "titulo": "Cargar",
+          "texto": "1. Declarar carga: elige una unidad apta. 2. Hacer tirada de carga: tira 2D6. 3. Intentar la carga: si es posible hacer un movimiento de carga y aún quieres hacerlo, hazlo; si no, no mueves."
+        },
+        {
+          "id": "11.03",
+          "cita": "11.03",
+          "pagina": 36,
+          "titulo": "Final de la fase de carga",
+          "texto": "Las reglas que se activan al final de la fase de carga se resuelven ahora."
+        },
+        {
+          "id": "11.04",
+          "cita": "11.04",
+          "pagina": 37,
+          "titulo": "Movimiento de carga",
+          "texto": "La distancia máxima es la tirada de carga. Antes de mover, elige uno o más blancos a 12\" o menos y a la distancia máxima o menos. Toda miniatura debe acabar más cerca de un blanco; toda miniatura que pueda acabar a 1\" o menos o trabada debe hacerlo. Después, la unidad debe estar trabada con todos los blancos y no con unidades que no sean blancos; hasta el final del turno tiene Combatir primero."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "12",
+      "cita": "12.00",
+      "pagina": 38,
+      "titulo": "Fase de combate",
+      "texto": "Ambos jugadores actúan en la fase de combate. Primero las unidades se agrupan, después realizan ataques y finalmente consolidan.",
+      "pasos": [
+        {
+          "id": "12.01",
+          "cita": "12.01",
+          "pagina": 38,
+          "titulo": "Inicio de la fase de combate",
+          "texto": "Las reglas que se activan al inicio de la fase de combate se resuelven ahora."
+        },
+        {
+          "id": "12.02",
+          "cita": "12.02",
+          "pagina": 38,
+          "titulo": "Agruparse",
+          "texto": "Ambos jugadores hacen movimientos de agruparse con las unidades aptas que decidan mover. El jugador cuyo turno está en curso resuelve primero todos sus movimientos."
+        },
+        {
+          "id": "12.03",
+          "cita": "12.03",
+          "pagina": 38,
+          "titulo": "Movimiento de agruparse",
+          "texto": "La distancia máxima es 3\". Las miniaturas deben acabar más cerca del blanco de agruparse más cercano y, si es posible, trabadas con él."
+        },
+        {
+          "id": "12.04",
+          "cita": "12.04",
+          "pagina": 40,
+          "titulo": "Combatir",
+          "texto": "Primero se resuelven combates de unidades con Combatir primero, alternando jugadores; después se resuelve el resto de combates. Una unidad apta está trabada o hizo un movimiento de carga en este turno."
+        },
+        {
+          "id": "12.05",
+          "cita": "12.05",
+          "pagina": 40,
+          "titulo": "Combate normal",
+          "texto": "Apta si la unidad está trabada. La unidad combate como se describe en Atacar."
+        },
+        {
+          "id": "12.06",
+          "cita": "12.06",
+          "pagina": 40,
+          "titulo": "Combate a la carrera",
+          "texto": "Apta si la unidad no está trabada o pasó a estar trabada durante la fase. Puede hacer un movimiento de agruparse adicional y después combate."
+        },
+        {
+          "id": "12.07",
+          "cita": "12.07",
+          "pagina": 42,
+          "titulo": "Consolidar",
+          "texto": "Ambos jugadores hacen movimientos de consolidar con las unidades aptas que elijan mover. El jugador cuyo turno está en curso mueve primero."
+        },
+        {
+          "id": "12.08",
+          "cita": "12.08",
+          "pagina": 42,
+          "titulo": "Movimiento de consolidar",
+          "texto": "La distancia máxima es 3\". La unidad puede hacer consolidación continuada, consolidar y trabarse o consolidar hacia el objetivo, según su situación."
+        },
+        {
+          "id": "12.09",
+          "cita": "12.09",
+          "pagina": 42,
+          "titulo": "Final de la fase de combate",
+          "texto": "Las reglas que se activan al final de la fase de combate se resuelven ahora."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "13",
+      "cita": "13.00",
+      "pagina": 46,
+      "titulo": "Terreno",
+      "texto": "Estas reglas dan vida al campo de batalla y añaden un aspecto táctico vital.",
+      "pasos": [
+        {
+          "id": "13.01",
+          "cita": "13.01",
+          "pagina": 46,
+          "titulo": "Colocar terreno",
+          "texto": "Antes de la batalla, coloca varios elementos de terreno. El área ocupada por los límites o elementos se llama área de terreno."
+        },
+        {
+          "id": "13.02",
+          "cita": "13.02",
+          "pagina": 46,
+          "titulo": "Categorías de terreno",
+          "texto": "Cada elemento de terreno pertenece a una categoría que afecta el movimiento y la visibilidad."
+        },
+        {
+          "id": "13.03",
+          "cita": "13.03",
+          "pagina": 46,
+          "titulo": "Descubierto",
+          "texto": "El terreno descubierto ofrece escasa protección y se puede atravesar sin problema."
+        },
+        {
+          "id": "13.04",
+          "cita": "13.04",
+          "pagina": 46,
+          "titulo": "Ligero",
+          "texto": "El terreno ligero da cierta cobertura contra ataques, pero no ralentiza el avance enemigo."
+        },
+        {
+          "id": "13.05",
+          "cita": "13.05",
+          "pagina": 46,
+          "titulo": "Denso",
+          "texto": "El terreno denso es un obstáculo y oculta a escuadras enteras del enemigo."
+        },
+        {
+          "id": "13.06",
+          "cita": "13.06",
+          "pagina": 48,
+          "titulo": "Terreno y movimiento",
+          "texto": "Las miniaturas pueden mover en horizontal y vertical a través de terreno descubierto y ligero. En denso se aplican las reglas de INFANTERÍA, BESTIAS, ENJAMBRE, MÓVIL y otras miniaturas."
+        },
+        {
+          "id": "13.07",
+          "cita": "13.07",
+          "pagina": 50,
+          "titulo": "Terreno y visibilidad",
+          "texto": "El terreno puede afectar la visibilidad según Beneficiarse de cobertura, Oculto, Obstruye visión o Sólido."
+        },
+        {
+          "id": "13.08",
+          "cita": "13.08",
+          "pagina": 50,
+          "titulo": "Beneficiarse de cobertura",
+          "texto": "Siempre que un ataque a distancia tome como blanco una unidad, si todas sus miniaturas cumplen una condición de cobertura, el blanco se beneficia de cobertura y empeora en 1 el atributo HP de ese ataque."
+        },
+        {
+          "id": "13.09",
+          "cita": "13.09",
+          "pagina": 50,
+          "titulo": "Oculto",
+          "texto": "Una miniatura INFANTERÍA/BESTIAS/ENJAMBRE en un área de terreno denso que no haya realizado ataques a distancia en este turno ni en el anterior solo es visible para miniaturas enemigas dentro de su alcance de detección."
+        },
+        {
+          "id": "13.10",
+          "cita": "13.10",
+          "pagina": 51,
+          "titulo": "Obstruye visión y Sólido",
+          "texto": "Los elementos de terreno pueden obstruir visión; Sólido limita las líneas de visión a través de huecos de perímetro cerrado a 3\" o menos del nivel del suelo."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "14",
+      "cita": "14.00",
+      "pagina": 52,
+      "titulo": "Objetivos",
+      "texto": "Los objetivos representan ubicaciones críticas que ambos bandos quieren asegurar.",
+      "pasos": [
+        {
+          "id": "14.01",
+          "cita": "14.01",
+          "pagina": 52,
+          "titulo": "Objetivos de terreno",
+          "texto": "Si una misión usa objetivos, indicará su ubicación. La ubicación debería coincidir con un área de terreno; esa área se denomina objetivo de terreno."
+        },
+        {
+          "id": "14.02",
+          "cita": "14.02",
+          "pagina": 52,
+          "titulo": "Nivel de control",
+          "texto": "Al final de cada fase y turno se suman los atributos CO de todas las miniaturas dentro del alcance. El jugador con mayor nivel controla el objetivo; en empate no lo controla ninguno salvo que esté asegurado."
+        },
+        {
+          "id": "14.03",
+          "cita": "14.03",
+          "pagina": 52,
+          "titulo": "Asegurar objetivos",
+          "texto": "Cuando el ejército de un jugador asegura un objetivo, permanece bajo su control hasta que el nivel de control del oponente sea mayor al final de una fase."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "15",
+      "cita": "15.00",
+      "pagina": 54,
+      "titulo": "Estratagemas",
+      "texto": "Las estratagemas se usan gastando puntos de mando para crear momentos tácticos y efectos poderosos.",
+      "pasos": [
+        {
+          "id": "15.01",
+          "cita": "15.01",
+          "pagina": 54,
+          "titulo": "Usar estratagemas",
+          "texto": "Cada estratagema especifica coste, CUÁNDO, BLANCO, EFECTO y RESTRICCIONES. Cada jugador no puede usar una misma estratagema más de una vez en la misma fase y, salvo indicación contraria, no puede tomar la misma unidad como blanco de más de una estratagema en la misma fase."
+        },
+        {
+          "id": "15.02",
+          "cita": "15.02",
+          "pagina": 56,
+          "titulo": "Repetición de mando",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.03",
+          "cita": "15.03",
+          "pagina": 56,
+          "titulo": "Desafío épico",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.04",
+          "cita": "15.04",
+          "pagina": 56,
+          "titulo": "Valor insensato",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.05",
+          "cita": "15.05",
+          "pagina": 56,
+          "titulo": "Explosivos",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.06",
+          "cita": "15.06",
+          "pagina": 56,
+          "titulo": "Impacto aplastante",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.07",
+          "cita": "15.07",
+          "pagina": 57,
+          "titulo": "Inserción rápida",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.08",
+          "cita": "15.08",
+          "pagina": 57,
+          "titulo": "Disparos preventivos",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.09",
+          "cita": "15.09",
+          "pagina": 57,
+          "titulo": "Disparos repentinos",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.10",
+          "cita": "15.10",
+          "pagina": 57,
+          "titulo": "Pantalla de humo",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.11",
+          "cita": "15.11",
+          "pagina": 57,
+          "titulo": "Intervención heroica",
+          "texto": "Consulta stratagems.json."
+        },
+        {
+          "id": "15.12",
+          "cita": "15.12",
+          "pagina": 57,
+          "titulo": "Contraofensiva",
+          "texto": "Consulta stratagems.json."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": ["strat:repeticion-de-mando", "strat:contraofensiva"]
+    },
+    {
+      "id": "16",
+      "cita": "16.00",
+      "pagina": 58,
+      "titulo": "Acciones",
+      "texto": "Las acciones representan tareas vitales en el campo de batalla.",
+      "pasos": [
+        {
+          "id": "16.01",
+          "cita": "16.01",
+          "pagina": 58,
+          "titulo": "Realizar acciones",
+          "texto": "Cada acción especifica cuándo comienza, qué unidades pueden realizarla, límite de usos, cuándo se completa, efecto y restricciones."
+        },
+        {
+          "id": "16.02",
+          "cita": "16.02",
+          "pagina": 58,
+          "titulo": "Iniciar una acción",
+          "texto": "Una unidad no es apta si no está en el campo, es AERONAVE/FORTIFICACIÓN, está acobardada, tiene CO 0 o -, está trabada salvo TITÁNICA, avanzó o retrocedió, o inició otra acción. Si inicia una acción, hasta el final del turno no es apta para disparar salvo TITÁNICA y no es apta para declarar cargas."
+        },
+        {
+          "id": "16.03",
+          "cita": "16.03",
+          "pagina": 58,
+          "titulo": "Completar una acción",
+          "texto": "Si una unidad que realiza una acción mueve, salvo agruparse y consolidar, o abandona el campo, no completa esa acción."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "17",
+      "cita": "17.00",
+      "pagina": 62,
+      "titulo": "Monstruos y vehículos",
+      "texto": "Monstruos y Vehículos funcionan de forma diferente en batalla.",
+      "pasos": [
+        {
+          "id": "17.01",
+          "cita": "17.01",
+          "pagina": 62,
+          "titulo": "Mover Monstruos y Vehículos",
+          "texto": "En un movimiento normal o de avanzar, las miniaturas MONSTRUO/VEHÍCULO pueden atravesar miniaturas amigas y enemigas, salvo otras miniaturas MONSTRUO/VEHÍCULO."
+        },
+        {
+          "id": "17.02",
+          "cita": "17.02",
+          "pagina": 62,
+          "titulo": "Figura",
+          "texto": "Las miniaturas sin peana tienen la clave FIGURA. Las distancias se miden hasta y desde el punto más cercano de esa miniatura."
+        },
+        {
+          "id": "17.03",
+          "cita": "17.03",
+          "pagina": 62,
+          "titulo": "Disparar contra Monstruos y Vehículos trabados",
+          "texto": "Las unidades MONSTRUO/VEHÍCULO enemigas trabadas pueden ser blancos de ataques a distancia; se resta 1 a la tirada para impactar salvo ataques con armas [A QUEMARROPA] de miniaturas trabadas con el blanco."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "18",
+      "cita": "18.00",
+      "pagina": 64,
+      "titulo": "Transportes",
+      "texto": "Las miniaturas TRANSPORTE pueden llevar pasajeros por el campo de batalla.",
+      "pasos": [
+        {
+          "id": "18.01",
+          "cita": "18.01",
+          "pagina": 64,
+          "titulo": "Capacidad de transporte",
+          "texto": "Las miniaturas TRANSPORTE tienen una capacidad que determina el tipo y cantidad máxima de miniaturas amigas aptas para embarcar."
+        },
+        {
+          "id": "18.02",
+          "cita": "18.02",
+          "pagina": 64,
+          "titulo": "Embarcar",
+          "texto": "Después de un movimiento normal, de avanzar o de retroceder, una unidad puede embarcar si todas sus miniaturas están a 3\" o menos, no se desplegó ese turno, es apta y queda capacidad."
+        },
+        {
+          "id": "18.03",
+          "cita": "18.03",
+          "pagina": 64,
+          "titulo": "Desembarcar",
+          "texto": "En la fase de movimiento cada unidad embarcada puede desembarcar; si el transporte resulta eliminado, cada unidad hace antes un desembarco de emergencia."
+        },
+        {
+          "id": "18.04",
+          "cita": "18.04",
+          "pagina": 65,
+          "titulo": "Movimiento de desembarcar",
+          "texto": "Desembarco rápido/táctico: 3\"; desembarco de combate: 6\". La unidad se despliega y elige el modo que corresponda al movimiento del transporte."
+        },
+        {
+          "id": "18.05",
+          "cita": "18.05",
+          "pagina": 65,
+          "titulo": "Desembarco de emergencia",
+          "texto": "Si un transporte resulta eliminado, las unidades embarcadas hacen el movimiento de desembarco de emergencia y después quedan acobardadas."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "19",
+      "cita": "19.00",
+      "pagina": 66,
+      "titulo": "Unidades adjuntas",
+      "texto": "Las unidades líder/apoyo y guardaespaldas pueden formar unidades adjuntas.",
+      "pasos": [
+        {
+          "id": "19.01",
+          "cita": "19.01",
+          "pagina": 66,
+          "titulo": "Formar una unidad adjunta",
+          "texto": "Las reglas de la hoja de datos determinan qué unidades pueden unirse. Las miniaturas de una unidad adjunta se tratan como una unidad a efectos de reglas."
+        },
+        {
+          "id": "19.02",
+          "cita": "19.02",
+          "pagina": 67,
+          "titulo": "Habilidades en unidades adjuntas",
+          "texto": "Una habilidad de líder/apoyo se aplica hasta que la última miniatura de esa unidad resulte eliminada; una habilidad de guardaespaldas hasta que la última miniatura de guardaespaldas resulte eliminada; una habilidad de una miniatura específica hasta que esa miniatura resulte eliminada."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "20",
+      "cita": "20.00",
+      "pagina": 68,
+      "titulo": "Reservas estratégicas",
+      "texto": "Las reservas estratégicas son unidades que llegan al campo de batalla en diferentes momentos.",
+      "pasos": [
+        {
+          "id": "20.01",
+          "cita": "20.01",
+          "pagina": 68,
+          "titulo": "Colocar unidades en reservas estratégicas",
+          "texto": "Antes de la batalla puedes elegir una o más unidades amigas, salvo FORTIFICACIONES, para colocarlas en reservas estratégicas. El valor total en puntos de esas unidades no puede superar el 50% de tu límite de puntos, salvo indicación contraria."
+        },
+        {
+          "id": "20.02",
+          "cita": "20.02",
+          "pagina": 68,
+          "titulo": "Unidades reposicionadas",
+          "texto": "Las unidades retiradas del campo y colocadas en reservas estratégicas conservan los efectos persistentes según las reglas indicadas."
+        },
+        {
+          "id": "20.03",
+          "cita": "20.03",
+          "pagina": 69,
+          "titulo": "Llegar desde reservas estratégicas",
+          "texto": "Cada unidad debe hacer un movimiento de inserción y, salvo indicación contraria, solo puede hacerlo a partir de la segunda ronda."
+        },
+        {
+          "id": "20.04",
+          "cita": "20.04",
+          "pagina": 69,
+          "titulo": "Movimiento de inserción",
+          "texto": "Despliega completamente la unidad a 6\" o menos de algún borde del campo de batalla y a más de 8\" en horizontal de toda unidad enemiga. Antes de la tercera ronda no puede desplegarse en la zona de despliegue del oponente. Al final de la tercera ronda, las reservas que no hayan llegado resultan eliminadas, salvo excepciones."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "21",
+      "cita": "21.00",
+      "pagina": 70,
+      "titulo": "Volar y movimiento súbito",
+      "texto": "Esta sección explica cómo algunas unidades pueden sobrevolar obstáculos o acercarse súbitamente.",
+      "pasos": [
+        {
+          "id": "21.01",
+          "cita": "21.01",
+          "pagina": 70,
+          "titulo": "Movimientos súbitos",
+          "texto": "Algunas reglas permiten que una unidad haga un movimiento súbito."
+        },
+        {
+          "id": "21.02",
+          "cita": "21.02",
+          "pagina": 70,
+          "titulo": "Movimiento súbito",
+          "texto": "La unidad no está acobardada, no está trabada y no ha movido en esta fase. Elige como blanco la unidad enemiga más cercana y mueve hasta la distancia indicada, terminando trabada con ella si es posible."
+        },
+        {
+          "id": "21.03",
+          "cita": "21.03",
+          "pagina": 71,
+          "titulo": "Miniaturas que vuelan",
+          "texto": "Una unidad VOLADORA puede declarar que alza el vuelo al hacer un movimiento normal, de avanzar, de retroceder o de carga: resta 2\" y atraviesa miniaturas y terreno ignorando distancia vertical."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "22",
+      "cita": "22.00",
+      "pagina": 72,
+      "titulo": "Otras reglas y habilidades",
+      "texto": "Además de las habilidades básicas, muchas unidades tienen otras reglas y habilidades.",
+      "pasos": [
+        {
+          "id": "22.01",
+          "cita": "22.01",
+          "pagina": 72,
+          "titulo": "Habilidades de aura",
+          "texto": "Mientras una miniatura con una habilidad de aura esté en el campo de batalla, siempre está dentro del alcance de su propia aura. Una unidad puede verse afectada por más de un aura."
+        },
+        {
+          "id": "22.02",
+          "cita": "22.02",
+          "pagina": 72,
+          "titulo": "Habilidades de facción",
+          "texto": "Las habilidades de facción son comunes a las unidades de una facción y se aplican si coincide la clave de facción elegida, salvo indicación contraria."
+        },
+        {
+          "id": "22.03",
+          "cita": "22.03",
+          "pagina": 72,
+          "titulo": "Habilidades psíquicas",
+          "texto": "Las habilidades etiquetadas como Psíquica son habilidades psíquicas. Las heridas que hagan se infligen por un ataque psíquico."
+        },
+        {
+          "id": "22.04",
+          "cita": "22.04",
+          "pagina": 72,
+          "titulo": "Habilidades de equipo",
+          "texto": "Las habilidades obtenidas por equipo se aplican a la unidad o al portador hasta que la miniatura resulte eliminada."
+        },
+        {
+          "id": "22.05",
+          "cita": "22.05",
+          "pagina": 73,
+          "titulo": "Lluvia de fuego",
+          "texto": "Siempre que una miniatura ataque a distancia y tome como blanco una unidad visible que incluya alguna miniatura a nivel del suelo, mejora en 1 el atributo HP si la atacante está a una altura igual o mayor que 3\" o tiene la clave GIGANTESCA y el blanco está a 12\" o menos."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "23",
+      "cita": "23.00",
+      "pagina": 74,
+      "titulo": "Aeronaves",
+      "texto": "Las AERONAVES desempeñan un papel único pero limitado en las batallas.",
+      "pasos": [
+        {
+          "id": "23.01",
+          "cita": "23.01",
+          "pagina": 74,
+          "titulo": "Despliegue",
+          "texto": "En el paso de declarar formaciones de batalla, todas las unidades AERONAVE deben colocarse en reservas estratégicas."
+        },
+        {
+          "id": "23.02",
+          "cita": "23.02",
+          "pagina": 74,
+          "titulo": "Movimiento",
+          "texto": "Las unidades AERONAVE solo pueden hacer movimientos de inserción. Al final del turno del oponente, las que estén en el campo deben colocarse en reservas estratégicas."
+        },
+        {
+          "id": "23.03",
+          "cita": "23.03",
+          "pagina": 74,
+          "titulo": "Disparar",
+          "texto": "Lluvia de fuego no tiene efecto sobre ataques hechos por o contra unidades AERONAVE."
+        },
+        {
+          "id": "23.04",
+          "cita": "23.04",
+          "pagina": 74,
+          "titulo": "Carga y combate",
+          "texto": "Las AERONAVES no son aptas para declarar cargas y solo pueden hacer ataques de combate contra unidades VOLADORAS. Solo unidades VOLADORAS pueden elegir AERONAVES como blanco de carga."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": []
+    },
+    {
+      "id": "24",
+      "cita": "24.00",
+      "pagina": 78,
+      "titulo": "Habilidades básicas",
+      "texto": "Esta sección presenta las habilidades más comúnmente usadas en Warhammer 40,000.",
+      "pasos": [
+        {
+          "id": "24.01",
+          "cita": "24.01",
+          "pagina": 78,
+          "titulo": "Habilidades",
+          "texto": "Las habilidades de armas se presentan entre corchetes y en negrita. Si una habilidad va seguida de una clave, solo se aplica si la unidad blanco tiene esa clave."
+        },
+        {
+          "id": "24.02",
+          "cita": "24.02",
+          "pagina": 78,
+          "titulo": "Habilidades duplicadas",
+          "texto": "Varias apariciones de la misma habilidad básica o de arma no se acumulan; el jugador que la controla debe elegir qué aparición se aplica."
+        }
+      ],
+      "ejemplos": [],
+      "ver_tambien": ["ability:anti", "ability:precision"]
+    }
+  ],
+  "actualizaciones": [
+    {
+      "id": "update:pm-generico",
+      "cita": "updates.01",
+      "pagina": 1,
+      "titulo": "Modificar el coste en PM de una estratagema",
+      "texto": "Las reglas que te permiten tomar una unidad de tu ejército como blanco de una estratagema por 0 PM, pero que no especifican el nombre de la estratagema, en su lugar reducen en 1 PM el coste del uso de esa estratagema."
+    },
+    {
+      "id": "update:uso-multiple",
+      "cita": "updates.02",
+      "pagina": 1,
+      "titulo": "Estratagemas que pueden usarse más de una vez por fase/turno",
+      "texto": "Las partes de una regla que permitan a un jugador usar una estratagema aunque ya haya tomado otra unidad como blanco de esa estratagema en la misma fase solo pueden usarse si el nombre de la estratagema está especificado en esa regla. Del mismo modo, si una estratagema está limitada a un único uso por jugador por turno, por ronda de batalla o por batalla, tales partes de esa regla solo pueden usarse si el nombre de la estratagema está especificado en esa regla."
+    },
+    {
+      "id": "update:proteccion-18",
+      "cita": "updates.03",
+      "pagina": 1,
+      "titulo": "Estratagemas que impiden que una unidad sea tomada como blanco",
+      "texto": "Si una estratagema tiene un efecto que dice que la unidad blanco solo puede tomarse como blanco de un ataque a distancia si la miniatura atacante está a 12\" o menos, o no puede tomarse como blanco de ataques a distancia si la miniatura atacante no está a 12\" o menos, cambia ese efecto a solo puede tomarse como blanco de un ataque a distancia si la miniatura atacante está a 18\" o menos."
+    },
+    {
+      "id": "update:nueva-unidad-una-vez",
+      "cita": "updates.04",
+      "pagina": 1,
+      "titulo": "Estratagemas que añaden nuevas unidades a tu ejército",
+      "texto": "Si una estratagema tiene el efecto de añadir una nueva unidad a tu ejército idéntica a tu unidad eliminada, añade la siguiente restricción a esa estratagema: Solo puedes usar esta estratagema una vez por batalla."
+    },
+    {
+      "id": "alias:pistola-a-quemarropa",
+      "cita": "24.27",
+      "pagina": 83,
+      "titulo": "Transición terminológica [PISTOLA] → [A QUEMARROPA]",
+      "texto": "[PISTOLA] y [A QUEMARROPA] son idénticas a todos los efectos de reglas. [PISTOLA] es una habilidad que ya existe y será sustituida por [A QUEMARROPA] a medida que esta edición de Warhammer 40,000 progrese. Ambas funcionan igual, pero esta última es un término más adecuado."
+    }
+  ],
+  "no_confirmados": [
+    {
+      "id": "unconfirmed:army-building",
+      "no_confirmado": true,
+      "nota": "Los PDFs suministrados remiten a la misión, al Codex y a la app oficial; no confirman reglas de destacamentos, puntos, mejoras ni límites de lista."
+    },
+    {
+      "id": "unconfirmed:mission-vp",
+      "no_confirmado": true,
+      "nota": "Los PDFs suministrados no proporcionan una misión completa ni un sistema universal completo de puntuación de PV."
+    },
+    {
+      "id": "unconfirmed:roster-legality",
+      "no_confirmado": true,
+      "nota": "La app puede almacenar una lista introducida por el jugador, pero los PDFs no permiten validar su legalidad."
+    }
+  ]
+}

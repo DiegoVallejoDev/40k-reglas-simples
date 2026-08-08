@@ -1,0 +1,365 @@
+{
+  "version": "11e-core-spanish",
+  "habilidades": [
+    {
+      "id": "ability:anti",
+      "cita": "24.3",
+      "pagina": 79,
+      "titulo": "Anti",
+      "etiqueta": "[ANTI]",
+      "texto": "Esta habilidad se presenta como [ANTI X Y+]. Siempre que se ataque con un arma [ANTI], si la unidad blanco tiene la clave indicada por X, toda tirada para herir de Y+ sin modificar es una herida crítica.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:asalto",
+      "cita": "24.4",
+      "pagina": 79,
+      "titulo": "Asalto",
+      "etiqueta": "[ASALTO]",
+      "texto": "Las unidades que incluyan alguna miniatura con un arma [ASALTO] pueden disparar usando disparo de asalto (10.05).",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:area",
+      "cita": "24.5",
+      "pagina": 79,
+      "titulo": "Área",
+      "etiqueta": "[ÁREA]",
+      "texto": "Siempre que reúnas dados de ataque para un arma [ÁREA], añade 1 dado de ataque adicional por cada 5 miniaturas que hubiera en la unidad blanco en el paso de elegir blancos, redondeando a la baja. Si se presenta como [ÁREA X], añade X dados por cada 5 miniaturas.",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:tajar",
+      "cita": "24.6",
+      "pagina": 80,
+      "titulo": "Tajar",
+      "etiqueta": "[TAJAR]",
+      "texto": "Al reunir dados de ataque para un arma [TAJAR], si elegiste un único blanco para todos los ataques de esa arma, añade X dados de ataque adicionales por cada 5 miniaturas que hubiera en la unidad blanco en el paso de elegir blancos, redondeando a la baja.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:a-quemarropa",
+      "cita": "24.7",
+      "pagina": 80,
+      "titulo": "A quemarropa",
+      "etiqueta": "[A QUEMARROPA]",
+      "texto": "[PISTOLA] y [A QUEMARROPA] son idénticas a todos los efectos de reglas. Ver [A QUEMARROPA] en la fase de disparo.",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:final-violento",
+      "cita": "24.8",
+      "pagina": 80,
+      "titulo": "Final violento",
+      "etiqueta": "Final violento",
+      "texto": "Esta habilidad se presenta como Final violento X. Cuando la miniatura resulta eliminada, tira 1D6; con el resultado indicado, la unidad enemiga más cercana a 6\" o menos sufre la cantidad indicada de heridas mortales, según el texto de la hoja de datos.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:despliegue-rapido",
+      "cita": "24.9",
+      "pagina": 80,
+      "titulo": "Despliegue rápido",
+      "etiqueta": "Despliegue rápido",
+      "texto": "Siempre que esta unidad haga un movimiento de inserción (20.04), si toda miniatura de esta unidad tiene esta habilidad, se puede desplegar en cualquier punto del campo de batalla a más de 8\" en horizontal de toda unidad enemiga, aunque esté dentro de la zona de despliegue del oponente.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:heridas-devastadoras",
+      "cita": "24.10",
+      "pagina": 80,
+      "titulo": "Heridas devastadoras",
+      "etiqueta": "[HERIDAS DEVASTADORAS]",
+      "texto": "Cada vez que un ataque de un arma [HERIDAS DEVASTADORAS] cause herida crítica, la secuencia de ataque de ese ataque termina y la unidad blanco sufre una cantidad de heridas mortales igual al atributo D de esa arma. Estas heridas mortales se infligen después del daño normal.",
+      "fase": ["disparo", "combate"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:ataques-adicionales",
+      "cita": "24.11",
+      "pagina": 81,
+      "titulo": "Ataques adicionales",
+      "etiqueta": "[ATAQUES ADICIONALES]",
+      "texto": "Siempre que una unidad que incluya alguna miniatura con un arma [ATAQUES ADICIONALES] combata, esas miniaturas atacarán con esas armas además de cualquier otra. Debes elegir todas las armas [ATAQUES ADICIONALES] y un arma del resto de armas de combate si es posible.",
+      "fase": ["combate"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:no-hay-dolor",
+      "cita": "24.12",
+      "pagina": 81,
+      "titulo": "No hay dolor",
+      "etiqueta": "No hay dolor X+",
+      "texto": "Siempre que una miniatura con esta habilidad vaya a perder una herida, tira 1D6: con X+, esa herida no se pierde.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:combatir-primero",
+      "cita": "24.13",
+      "pagina": 81,
+      "titulo": "Combatir primero",
+      "etiqueta": "Combatir primero",
+      "texto": "Mientras todas las miniaturas de una unidad tengan esta habilidad, esa unidad es una unidad Combatir primero.",
+      "fase": ["combate"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:cubierta-de-disparo",
+      "cita": "24.14",
+      "pagina": 81,
+      "titulo": "Cubierta de disparo",
+      "etiqueta": "Cubierta de disparo X",
+      "texto": "En tu fase de disparo, siempre que este TRANSPORTE se elija para disparar, si hay alguna unidad embarcada, elige hasta X miniaturas embarcadas y una de sus armas a distancia, salvo armas [DISPARO ÚNICO]. El TRANSPORTE tiene esas armas además de las suyas y las unidades embarcadas no son aptas para disparar hasta el final del turno.",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:de-riesgo",
+      "cita": "24.15",
+      "pagina": 82,
+      "titulo": "De riesgo",
+      "etiqueta": "[DE RIESGO]",
+      "texto": "Siempre que una unidad se elige para disparar o para combatir, después de resolver todos sus ataques, haz una cantidad de tiradas de riesgo igual al número de armas [DE RIESGO] que elegiste.",
+      "fase": ["disparo", "combate"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:pesada",
+      "cita": "24.16",
+      "pagina": 82,
+      "titulo": "Pesada",
+      "etiqueta": "[PESADA]",
+      "texto": "En tu fase de disparo, siempre que se ataque con un arma [PESADA], suma 1 a la tirada para impactar si la unidad no está trabada, no se desplegó en el campo de batalla en este turno y ninguna miniatura movió más de 3\".",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:planeador",
+      "cita": "24.17",
+      "pagina": 82,
+      "titulo": "Planeador",
+      "etiqueta": "Planeador",
+      "texto": "Siempre que esta unidad alza el vuelo (21.03), no restes 2\" a la distancia máxima.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:ignora-cobertura",
+      "cita": "24.18",
+      "pagina": 82,
+      "titulo": "Ignora cobertura",
+      "etiqueta": "[IGNORA COBERTURA]",
+      "texto": "Siempre que se ataque con un arma [IGNORA COBERTURA], el blanco no se beneficia de cobertura contra ese ataque ni de reglas que hagan que una miniatura o unidad se beneficie de cobertura.",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:indirecta",
+      "cita": "24.19",
+      "pagina": 82,
+      "titulo": "Indirecta",
+      "etiqueta": "[INDIRECTA]",
+      "texto": "Las unidades que incluyan alguna miniatura con un arma [INDIRECTA] pueden disparar usando disparo indirecto (10.07).",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:infiltradores",
+      "cita": "24.20",
+      "pagina": 82,
+      "titulo": "Infiltradores",
+      "etiqueta": "Infiltradores",
+      "texto": "Al desplegar, si toda miniatura de esta unidad tiene esta habilidad, se puede desplegar en cualquier punto del campo de batalla a más de 8\" en horizontal de la zona de despliegue del oponente y de toda unidad enemiga.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:lanza",
+      "cita": "24.21",
+      "pagina": 82,
+      "titulo": "Lanza",
+      "etiqueta": "[LANZA]",
+      "texto": "Siempre que se ataque con un arma [LANZA], si la unidad de la miniatura atacante hizo un movimiento de carga en este turno, suma 1 a las tiradas para herir.",
+      "fase": ["combate"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:lider",
+      "cita": "24.22",
+      "pagina": 82,
+      "titulo": "Líder",
+      "etiqueta": "Líder",
+      "texto": "Ver unidades adjuntas (19).",
+      "fase": ["combate"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:impactos-letales",
+      "cita": "24.23",
+      "pagina": 83,
+      "titulo": "Impactos letales",
+      "etiqueta": "[IMPACTOS LETALES]",
+      "texto": "Siempre que un ataque con un arma [IMPACTOS LETALES] resulte en impacto crítico, puedes elegir que ese ataque hiera automáticamente al blanco.",
+      "fase": ["disparo", "combate"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:agente-solitario",
+      "cita": "24.24",
+      "pagina": 83,
+      "titulo": "Agente solitario",
+      "etiqueta": "Agente solitario X",
+      "texto": "Si no forma parte de una unidad adjunta, esta unidad no es visible para miniaturas enemigas a más de X\" de esta unidad y no puede tomarse como blanco de armas [INDIRECTA] si la miniatura atacante está a más de X\".",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:fusion",
+      "cita": "24.25",
+      "pagina": 83,
+      "titulo": "Fusión",
+      "etiqueta": "[FUSIÓN]",
+      "texto": "Esta habilidad se presenta como [FUSIÓN X]. Si la unidad blanco estaba a la mitad o menos del alcance del arma, suma X al atributo D de esa arma hasta resolver los ataques de la unidad atacante.",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:disparo-unico",
+      "cita": "24.26",
+      "pagina": 83,
+      "titulo": "Disparo único",
+      "etiqueta": "[DISPARO ÚNICO]",
+      "texto": "Cada arma con esta habilidad solo puede elegirse para atacar con ella una vez por batalla. Si una miniatura eliminada es devuelta a una unidad, las armas [DISPARO ÚNICO] ya usadas no se pueden elegir de nuevo.",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:pistola",
+      "cita": "24.27",
+      "pagina": 83,
+      "titulo": "Pistola",
+      "etiqueta": "[PISTOLA]",
+      "texto": "[PISTOLA] y [A QUEMARROPA] son idénticas a todos los efectos de reglas. [PISTOLA] será sustituida por [A QUEMARROPA] a medida que esta edición progrese.",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:precision",
+      "cita": "24.28",
+      "pagina": 84,
+      "titulo": "Precisión",
+      "etiqueta": "[PRECISIÓN]",
+      "texto": "Al resolver ataques con armas [PRECISIÓN], al inicio del paso de orden de asignación, si la unidad blanco incluye miniaturas PERSONAJE visibles para alguna miniatura atacante, el jugador activo puede elegir un grupo de asignación que incluya alguna de esas miniaturas PERSONAJE visibles.",
+      "fase": ["disparo", "combate"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:psiquica",
+      "cita": "24.29",
+      "pagina": 84,
+      "titulo": "Psíquica",
+      "etiqueta": "[PSÍQUICA]",
+      "texto": "Siempre que se ataque con un arma [PSÍQUICA], puedes ignorar cualquier modificador, o todos ellos, al atributo HP o HA de ese ataque y cualquier modificador, o todos ellos, a la tirada para impactar. Los ataques se llaman ataques psíquicos.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:fuego-rapido",
+      "cita": "24.30",
+      "pagina": 84,
+      "titulo": "Fuego rápido",
+      "etiqueta": "[FUEGO RÁPIDO]",
+      "texto": "Esta habilidad se presenta como [FUEGO RÁPIDO X]. Añade X dados de ataque adicionales si la unidad blanco estaba a la mitad o menos del alcance de esa arma.",
+      "fase": ["disparo"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:avanzadilla",
+      "cita": "24.31",
+      "pagina": 84,
+      "titulo": "Avanzadilla",
+      "etiqueta": "Avanzadilla X",
+      "texto": "En el paso de resolver habilidades prebatalla, si toda miniatura de una unidad tiene esta habilidad, puede desplegarse en su zona de despliegue, hacer un movimiento de avanzadilla o permitir que un TRANSPORTE DEDICADO haga ese movimiento si cumple las condiciones.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:movimiento-avanzadilla",
+      "cita": "24.32",
+      "pagina": 84,
+      "titulo": "Movimiento de avanzadilla",
+      "etiqueta": "Movimiento de avanzadilla",
+      "texto": "La distancia máxima son las X\" de Avanzadilla X\". La unidad debe estar completamente en tu zona de despliegue y, después de mover, debe estar a más de 8\" en horizontal de toda unidad enemiga.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:sigilo",
+      "cita": "24.33",
+      "pagina": 85,
+      "titulo": "Sigilo",
+      "etiqueta": "Sigilo",
+      "texto": "Si todas las miniaturas de una unidad tienen esta habilidad, siempre que esa unidad sea blanco de un ataque a distancia, esa unidad se beneficia de cobertura contra ese ataque.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:apoyo",
+      "cita": "24.34",
+      "pagina": 85,
+      "titulo": "Apoyo",
+      "etiqueta": "Apoyo",
+      "texto": "Ver unidades adjuntas (19).",
+      "fase": ["combate"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:bipode-superpesado",
+      "cita": "24.35",
+      "pagina": 85,
+      "titulo": "Bípode superpesado",
+      "etiqueta": "Bípode superpesado",
+      "texto": "Siempre que una unidad con esta habilidad haga un movimiento normal, de avanzar o de retroceder, sus miniaturas pueden atravesar miniaturas y terreno de hasta 4\" horizontalmente. Puede decidir tener la clave MÓVIL durante el movimiento; con 1 en 1D6 al terminar, queda acobardada.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:golpes-sostenidos",
+      "cita": "24.36",
+      "pagina": 85,
+      "titulo": "Golpes sostenidos",
+      "etiqueta": "[GOLPES SOSTENIDOS]",
+      "texto": "Esta habilidad se presenta como [GOLPES SOSTENIDOS X]. Siempre que un ataque de un arma [GOLPES SOSTENIDOS] resulta en impacto crítico, ese ataque causa X impactos adicionales al blanco.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:rafaga",
+      "cita": "24.37",
+      "pagina": 85,
+      "titulo": "Ráfaga",
+      "etiqueta": "[RÁFAGA]",
+      "texto": "Siempre que se ataca con un arma [RÁFAGA], ese ataque impacta automáticamente al blanco.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    },
+    {
+      "id": "ability:acoplada",
+      "cita": "24.38",
+      "pagina": 85,
+      "titulo": "Acoplada",
+      "etiqueta": "[ACOPLADA]",
+      "texto": "Siempre que se ataque con un arma [ACOPLADA], puedes repetir las tiradas para herir.",
+      "fase": ["cualquiera"],
+      "ver_tambien": []
+    }
+  ]
+}
