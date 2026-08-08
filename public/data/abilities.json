@@ -79,7 +79,7 @@
       "etiqueta": "[HERIDAS DEVASTADORAS]",
       "texto": "Cada vez que un ataque de un arma [HERIDAS DEVASTADORAS] cause herida crítica, la secuencia de ataque de ese ataque termina y la unidad blanco sufre una cantidad de heridas mortales igual al atributo D de esa arma. Estas heridas mortales se infligen después del daño normal.",
       "fase": ["disparo", "combate"],
-      "ver_tambien": []
+      "ver_tambien": ["05.02"]
     },
     {
       "id": "ability:ataques-adicionales",
@@ -259,7 +259,7 @@
       "etiqueta": "[PRECISIÓN]",
       "texto": "Al resolver ataques con armas [PRECISIÓN], al inicio del paso de orden de asignación, si la unidad blanco incluye miniaturas PERSONAJE visibles para alguna miniatura atacante, el jugador activo puede elegir un grupo de asignación que incluya alguna de esas miniaturas PERSONAJE visibles.",
       "fase": ["disparo", "combate"],
-      "ver_tambien": []
+      "ver_tambien": ["19.01"]
     },
     {
       "id": "ability:psiquica",

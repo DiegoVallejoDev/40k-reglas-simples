@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataDir = path.join(__dirname, 'public', 'data');
+const dataDir = path.join(__dirname, '..', 'public', 'data');
 const files = ['rules.json', 'abilities.json', 'stratagems.json', 'keywords.json', 'tables.json'];
 const ids = new Map();
 const refs = [];

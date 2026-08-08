@@ -56,7 +56,7 @@
       "name": "Fase de Mando",
       "short_name": "Mando",
       "description": "Acceso rápido a la fase de Mando",
-      "url": "./index.html#command",
+      "url": "./index.html#/fase/mando",
       "icons": [
         {
           "src": "./images/icon.jpg",
@@ -69,7 +69,7 @@
       "name": "Fase de Disparo",
       "short_name": "Disparo",
       "description": "Acceso rápido a la fase de Disparo",
-      "url": "./index.html#shooting",
+      "url": "./index.html#/fase/disparo",
       "icons": [
         {
           "src": "./images/icon.jpg",

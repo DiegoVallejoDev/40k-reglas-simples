@@ -8,7 +8,8 @@
       "nombre": "INFANTERÍA",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:bestias",
@@ -17,7 +18,8 @@
       "nombre": "BESTIAS",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:enjambre",
@@ -26,7 +28,8 @@
       "nombre": "ENJAMBRE",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:móvil",
@@ -35,7 +38,8 @@
       "nombre": "MÓVIL",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:monstruo",
@@ -44,7 +48,8 @@
       "nombre": "MONSTRUO",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:vehículo",
@@ -53,7 +58,8 @@
       "nombre": "VEHÍCULO",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:aeronave",
@@ -62,7 +68,8 @@
       "nombre": "AERONAVE",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:fortificación",
@@ -71,7 +78,8 @@
       "nombre": "FORTIFICACIÓN",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:titánica",
@@ -80,7 +88,8 @@
       "nombre": "TITÁNICA",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:volar",
@@ -89,7 +98,8 @@
       "nombre": "VOLAR",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:figura",
@@ -98,7 +108,8 @@
       "nombre": "FIGURA",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:personaje",
@@ -107,7 +118,8 @@
       "nombre": "PERSONAJE",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:transporte",
@@ -116,7 +128,8 @@
       "nombre": "TRANSPORTE",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:transporte-dedicado",
@@ -125,7 +138,8 @@
       "nombre": "TRANSPORTE DEDICADO",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:gigantesca",
@@ -134,7 +148,8 @@
       "nombre": "GIGANTESCA",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:explosivos",
@@ -143,7 +158,8 @@
       "nombre": "EXPLOSIVOS",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:granadas",
@@ -152,7 +168,8 @@
       "nombre": "GRANADAS",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:humo",
@@ -161,7 +178,8 @@
       "nombre": "HUMO",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:psíquico",
@@ -170,7 +188,8 @@
       "nombre": "PSÍQUICO",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     },
     {
       "id": "keyword:bípode",
@@ -179,7 +198,8 @@
       "nombre": "BÍPODE",
       "definicion": "",
       "no_confirmado": true,
-      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece."
+      "nota": "El PDF usa esta clave en reglas, pero no proporciona una definición independiente de la clave. Se conserva como término indexable; la semántica procede de la regla citada donde aparece.",
+      "ver_tambien": ["02.05"]
     }
   ]
 }
