@@ -673,7 +673,8 @@ input:focus-visible {
   border: 1px solid #74604b;
   border-bottom: 0;
   border-radius: 0.55rem 0.55rem 0 0;
-  background: #211d1a;
+  background: var(--color-paper);
+  color: var(--color-dark);
   box-shadow: 0 -0.7rem 2rem rgba(0, 0, 0, 0.7);
 }
 
@@ -686,7 +687,8 @@ input:focus-visible {
   gap: 0.5rem;
   padding: 0.75rem 0.8rem;
   border-bottom: 2px solid var(--color-primary);
-  background: #2d2521;
+  background: var(--color-paper-alt);
+  color: var(--color-dark);
 }
 
 .sheet-header::before {
@@ -703,6 +705,7 @@ input:focus-visible {
 
 .sheet-title {
   padding-top: 0.35rem;
+  min-width: 0;
   font-family: var(--font-family-condensed);
   font-size: 1.05rem;
   font-weight: 900;
@@ -711,17 +714,24 @@ input:focus-visible {
 
 .sheet-close,
 .sheet-back {
+  display: inline-grid;
+  width: 2.75rem;
   min-width: 2.75rem;
   min-height: 2.75rem;
+  max-width: 2.75rem;
+  flex: 0 0 2.75rem;
+  place-items: center;
+  padding: 0;
   border: 1px solid #6b5846;
-  background: #211d1a;
-  color: var(--color-off-white);
+  background: var(--color-paper);
+  color: var(--color-dark);
 }
 
 .sheet-body {
   max-height: calc(min(78vh, 42rem) - 4rem);
   overflow: auto;
   padding: 1rem;
+  color: var(--color-dark);
   overscroll-behavior: contain;
 }
 
@@ -735,13 +745,13 @@ input:focus-visible {
   gap: 0.4rem;
   margin-top: 1rem;
   padding-top: 0.75rem;
-  border-top: 1px solid #594b40;
+  border-top: 1px solid #8d806f;
 }
 
 .sheet-full-link {
   display: inline-block;
   margin-top: 1rem;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   font-weight: 800;
   text-decoration: underline;
 }
@@ -753,7 +763,7 @@ input:focus-visible {
 
 .unconfirmed-label {
   margin-bottom: 0.35rem;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   font-family: var(--font-family-condensed);
   font-weight: 900;
   text-transform: uppercase;
