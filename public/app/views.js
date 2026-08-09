@@ -1,4 +1,13 @@
-import { getData, getNode, getPhaseRule, getTable, getAllNodes, isRenderable } from './data.js';
+import {
+  displayLabel,
+  displayTypeLabel,
+  getData,
+  getNode,
+  getPhaseRule,
+  getTable,
+  getAllNodes,
+  isRenderable,
+} from './data.js';
 import {
   getMode,
   getState,
@@ -15,17 +24,6 @@ const PHASE_LABELS = {
   disparo: 'Disparo',
   carga: 'Carga',
   combate: 'Combate',
-};
-
-const SEARCH_GROUP_LABELS = {
-  regla: 'Reglas',
-  actualizacion: 'Actualizaciones',
-  habilidad: 'Habilidades',
-  estratagema: 'Estratagemas',
-  clave: 'Claves',
-  tabla: 'Tablas',
-  paso: 'Pasos',
-  fila: 'Filas de tabla',
 };
 
 const PHASE_TABLES = {
@@ -73,7 +71,7 @@ function renderDashboard() {
           .filter((step) => isRenderable(step, getMode()))
           .map(
             (step) =>
-              `<div class="active-step ${step.id === state.paso ? 'active' : ''}"><span class="phase-number">${escapeHtml(step.id.split('.').at(-1))}</span><span>${escapeHtml(step.titulo)}</span><span class="citation">${escapeHtml(step.cita)}</span></div>`,
+              `<div class="active-step ${step.id === state.paso ? 'active' : ''}"><span class="phase-number">${escapeHtml(step.id.split('.').at(-1))}</span><span>${escapeHtml(displayLabel(step))}</span><span class="citation">${escapeHtml(step.cita)}</span></div>`,
           )
           .join('')}</div>
       </article>
@@ -103,13 +101,13 @@ function renderPhase(phase) {
           .join('')}
       </div>
       ${tables.length ? `<section class="table-grid phase-tables"><h2>Chuleta de fase</h2>${tables.map(renderTable).join('')}</section>` : ''}
-      <section class="phase-tools"><strong>En esta fase:</strong>${chips.map((ability) => `<button type="button" class="chip" data-ref="${escapeAttr(ability.id)}">${escapeHtml(ability.etiqueta || ability.titulo)}</button>`).join('')}</section>
+      <section class="phase-tools"><strong>En esta fase:</strong>${chips.map((ability) => `<button type="button" class="chip" data-ref="${escapeAttr(ability.id)}">${escapeHtml(displayLabel(ability))}</button>`).join('')}</section>
     </section>
   `;
 }
 
 function renderStep(step) {
-  return `<article class="step-card"><div class="step-card-header"><h2>${escapeHtml(step.titulo)}</h2><span class="citation">${escapeHtml(step.cita)}</span></div><p>${escapeHtml(step.texto)}</p></article>`;
+  return `<article class="step-card"><div class="step-card-header"><h2>${escapeHtml(displayLabel(step))}</h2><span class="citation">${escapeHtml(step.cita)}</span></div><p>${escapeHtml(step.texto)}</p></article>`;
 }
 
 function renderTable(table) {
@@ -188,10 +186,10 @@ function renderStudyIndex() {
     return '<section class="empty-state"><h1>Modo Estudio</h1><p>Activa el Modo Estudio para leer el índice completo.</p></section>';
   }
   const sections = getData().rules.reglas.filter((section) => isRenderable(section, 'estudio'));
-  return `<section class="view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · Índice</p><h1>Índice de reglas</h1></div><span class="citation">01–24</span></header><div class="study-grid">${sections.map((section) => `<article class="study-section"><a href="#/regla/${section.id}"><strong>${section.id} · ${escapeHtml(section.titulo)}</strong><span class="citation">${section.cita} · pág. ${section.pagina}</span></a></article>`).join('')}</div><div class="study-grid study-only">${getData()
+  return `<section class="view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · Índice</p><h1>Índice de reglas</h1></div><span class="citation">01–24</span></header><div class="study-grid">${sections.map((section) => `<article class="study-section"><a href="#/regla/${section.id}"><strong>${escapeHtml(section.cita)} · ${escapeHtml(displayLabel(section))}</strong><span class="citation">pág. ${section.pagina}</span></a></article>`).join('')}</div><div class="study-grid study-only">${getData()
     .rules.no_confirmados.map(
       (node) =>
-        `<article class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><strong>${escapeHtml(node.id)}</strong><p>${escapeHtml(node.nota)}</p></article>`,
+        `<article class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><strong>${escapeHtml(displayLabel(node))}</strong><p>${escapeHtml(node.nota)}</p></article>`,
     )
     .join('')}</div></section>`;
 }
@@ -201,20 +199,20 @@ function renderGlossary() {
     return '<section class="empty-state"><h1>Glosario</h1><p>Activa el Modo Estudio para consultar habilidades y claves.</p></section>';
   }
   const data = getData();
-  return `<section class="view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · Glosario</p><h1>Glosario</h1></div><span class="citation">24 · 02.05</span></header><div class="study-grid">${data.abilities.habilidades.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(node.etiqueta || node.titulo)}</button><span class="citation">${node.cita}</span></article>`).join('')}${data.keywords.claves.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(node.nombre)}</button><span class="citation">${node.cita}</span>${node.no_confirmado ? `<div class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><p>${escapeHtml(node.nota)}</p></div>` : ''}</article>`).join('')}</div></section>`;
+  return `<section class="view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · Glosario</p><h1>Glosario</h1></div><span class="citation">24 · 02.05</span></header><div class="study-grid">${data.abilities.habilidades.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(displayLabel(node))}</button><span class="citation">${node.cita}</span></article>`).join('')}${data.keywords.claves.map((node) => `<article class="study-section"><button class="chip" data-ref="${escapeAttr(node.id)}">${escapeHtml(displayLabel(node))}</button><span class="citation">${node.cita}</span>${node.no_confirmado ? `<div class="unconfirmed-block"><div class="unconfirmed-label">Sin confirmar en las fuentes</div><p>${escapeHtml(node.nota)}</p></div>` : ''}</article>`).join('')}</div></section>`;
 }
 
 function renderFullRule(id) {
   const section = getNode(id);
   if (!section)
-    return `<section class="empty-state">No se encontró el contenido ${escapeHtml(id)}.</section>`;
+    return '<section class="empty-state">No se encontró el contenido solicitado.</section>';
   if (section.no_confirmado && getMode() !== 'estudio') {
     return '<section class="empty-state"><h1>Contenido no disponible en Modo Mesa</h1><p>Esta afirmación no está confirmada en las fuentes suministradas.</p></section>';
   }
   if (!section.pasos) {
-    return `<section class="view study-view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · ${escapeHtml(section.tipo || 'regla')}</p><h1>${escapeHtml(section.titulo || section.nombre || section.etiqueta || section.id)}</h1></div><span class="citation">${escapeHtml(section.cita || 'Sin cita')} · pág. ${section.pagina || '—'}</span></header><p>${escapeHtml(section.texto || section.definicion || section.nota || '')}</p></section>`;
+    return `<section class="view study-view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · ${escapeHtml(displayTypeLabel(section.tipo || 'regla'))}</p><h1>${escapeHtml(displayLabel(section))}</h1></div><span class="citation">${escapeHtml(section.cita || 'Sin cita')} · pág. ${section.pagina || '—'}</span></header><p>${escapeHtml(section.texto || section.definicion || section.nota || '')}</p></section>`;
   }
-  return `<section class="view study-view"><header class="view-header"><div><p class="eyebrow">Modo Estudio</p><h1>${escapeHtml(section.id)} · ${escapeHtml(section.titulo)}</h1></div><span class="citation">${escapeHtml(section.cita)} · pág. ${section.pagina}</span></header><p>${escapeHtml(section.texto || '')}</p><div class="phase-grid">${(
+  return `<section class="view study-view"><header class="view-header"><div><p class="eyebrow">Modo Estudio · ${escapeHtml(displayTypeLabel(section.tipo || 'regla'))}</p><h1>${escapeHtml(displayLabel(section))}</h1></div><span class="citation">${escapeHtml(section.cita)} · pág. ${section.pagina}</span></header><p>${escapeHtml(section.texto || '')}</p><div class="phase-grid">${(
     section.pasos || []
   )
     .filter((step) => isRenderable(step, 'estudio'))
@@ -320,11 +318,11 @@ function renderSearchResults(root, query) {
   container.innerHTML = Object.entries(groups)
     .map(
       ([type, nodes]) =>
-        `<section><h2>${escapeHtml(SEARCH_GROUP_LABELS[type] || type)}</h2>${nodes
+        `<section><h2>${escapeHtml(displayTypeLabel(type, true))}</h2>${nodes
           .slice(0, 20)
           .map(
             (node) =>
-              `<button class="search-result" type="button" data-ref="${escapeAttr(node.id)}"><span class="search-result-type">${escapeHtml(node.cita || 'sin cita')}</span><strong>${escapeHtml(node.titulo || node.nombre || node.etiqueta || node.id)}</strong><div class="search-result-text">${escapeHtml((node.texto || node.definicion || node.efecto || node.nota || '').slice(0, 180))}</div></button>`,
+              `<button class="search-result" type="button" data-ref="${escapeAttr(node.id)}"><span class="search-result-type">${escapeHtml(node.cita || 'Sin cita')}</span><strong>${escapeHtml(displayLabel(node))}</strong><div class="search-result-text">${escapeHtml((node.texto || node.definicion || node.efecto || node.nota || '').slice(0, 180))}</div></button>`,
           )
           .join('')}</section>`,
     )

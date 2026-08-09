@@ -1,4 +1,4 @@
-import { getNode, isRenderable } from './data.js';
+import { displayLabel, getNode, isRenderable } from './data.js';
 import { getMode } from './state.js';
 import { navigate } from './router.js';
 
@@ -115,7 +115,7 @@ function render() {
 }
 
 function renderSheet(node, index) {
-  const title = node.titulo || node.nombre || node.etiqueta || node.id;
+  const title = displayLabel(node);
   const refs = (node.ver_tambien || []).filter((ref) => {
     const target = getNode(ref);
     return target && isRenderable(target, getMode());
@@ -139,7 +139,16 @@ function renderSheet(node, index) {
         ${node.restricciones ? `<dl class="stratagem-copy"><dt>Restricciones</dt><dd>${escapeHtml(node.restricciones)}</dd></dl>` : ''}
         ${nodeCopy(node) ? `<p>${escapeHtml(nodeCopy(node))}</p>` : ''}
         ${isRule ? `<button class="sheet-full-link" type="button" data-open-full="${escapeAttr(node.id)}">Leer sección completa</button>` : ''}
-        ${refs.length ? `<div class="sheet-refs"><strong>Ver también:</strong>${refs.map((ref) => `<button type="button" class="chip" data-ref="${escapeAttr(ref)}">${escapeHtml(ref)}</button>`).join('')}</div>` : ''}
+        ${
+          refs.length
+            ? `<div class="sheet-refs"><strong>Ver también:</strong>${refs
+                .map((ref) => {
+                  const target = getNode(ref);
+                  return `<button type="button" class="chip" data-ref="${escapeAttr(ref)}">${escapeHtml(displayLabel(target))}</button>`;
+                })
+                .join('')}</div>`
+            : ''
+        }
       </div>
     </article>
   `;

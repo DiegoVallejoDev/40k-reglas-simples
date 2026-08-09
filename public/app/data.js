@@ -49,6 +49,41 @@ export function getAllNodes() {
   return [...(nodeIndex?.values() || [])];
 }
 
+const TYPE_LABELS = {
+  regla: 'Regla',
+  actualizacion: 'Actualización',
+  habilidad: 'Habilidad',
+  estratagema: 'Estratagema',
+  clave: 'Clave',
+  tabla: 'Tabla',
+  paso: 'Paso',
+  fila: 'Fila de tabla',
+};
+
+const TYPE_LABELS_PLURAL = {
+  regla: 'Reglas',
+  actualizacion: 'Actualizaciones',
+  habilidad: 'Habilidades',
+  estratagema: 'Estratagemas',
+  clave: 'Claves',
+  tabla: 'Tablas',
+  paso: 'Pasos',
+  fila: 'Filas de tabla',
+};
+
+export function displayLabel(node) {
+  if (!node) return 'Contenido sin título';
+  const label = node.titulo || node.nombre || node.etiqueta;
+  if (label) return label;
+  if (node.tipo && TYPE_LABELS[node.tipo]) return TYPE_LABELS[node.tipo];
+  return 'Contenido sin título';
+}
+
+export function displayTypeLabel(type, plural = false) {
+  const labels = plural ? TYPE_LABELS_PLURAL : TYPE_LABELS;
+  return labels[type] || 'Contenido';
+}
+
 export function getData() {
   return dataCache;
 }
