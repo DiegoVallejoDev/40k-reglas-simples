@@ -1,2 +1,3 @@
 *.pdf
 public/patrulla/*.pdf
+node_modules/

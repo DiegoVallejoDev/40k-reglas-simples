@@ -9,9 +9,9 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
 
-**Una aplicación web interactiva y completa de referencia táctica para jugadores de Warhammer 40,000**
+**Referencia rápida, citada y offline-first para Warhammer 40,000**
 
-[Inicio Rápido](#inicio-rápido) • [Documentación](#fases-del-juego) • [Características](#características) • [Instalación](#instalación)
+[Inicio Rápido](#inicio-rápido) • [Modos](#modos) • [Navegación](#navegación) • [Datos y fuentes](#datos-y-fuentes)
 
 </div>
 
@@ -19,344 +19,224 @@
 
 ## Acerca de
 
-Esta aplicación web interactiva sirve como una guía de referencia táctica completa para jugadores de **Warhammer 40,000 (11ª edición)**, cubriendo todas las fases del juego desde Mando hasta Moral. Diseñada tanto para jugadores nuevos como experimentados, proporciona acceso rápido a reglas básicas, estratagemas y mecánicas de combate.
+Esta aplicación web vanilla ayuda a resolver dudas de mesa con el menor número
+posible de toques. Su interfaz está organizada alrededor de las cinco fases
+oficiales que usa este proyecto:
 
-### Beneficios Clave
+1. **Mando**
+2. **Movimiento**
+3. **Disparo**
+4. **Carga**
+5. **Combate**
 
-- **Referencia Completa de Reglas**: Las 6 fases del juego con mecánicas detalladas
-- **Navegación Rápida**: Atajos de teclado (1-6) para cambio instantáneo de fase
-- **Diseño Interactivo**: Interfaz limpia y responsiva optimizada para el juego
-- **Compatible con Móviles**: Funciona perfectamente en tablets y teléfonos
-- **Listo para Uso Offline**: No requiere conexión a internet durante las partidas
-- **Claridad Visual**: Secciones codificadas por colores e iconografía intuitiva
+No existe una fase independiente de Moral en esta navegación. El
+acobardamiento se consulta dentro de Mando.
 
----
-
-## Características
-
-### Cobertura Completa de Fases del Juego
-
-| Fase                  | Características Principales                                    | Atajos |
-| --------------------- | -------------------------------------------------------------- | ------ |
-| **Mando**             | Pruebas de acobardamiento, Puntos de Mando, Estratagemas       | `1`    |
-| **Movimiento**        | 4 tipos de movimiento, Coherencia de Unidad, Reglas de terreno | `2`    |
-| **Disparo**           | Tablas de Impacto/Herida, Habilidades de armas, Salvaciones    | `3`    |
-| **Carga**             | Distancia de carga, Mecánicas de Overwatch                     | `4`    |
-| **Combate**           | Prioridad de combate, Consolidación, Combate cuerpo a cuerpo   | `5`    |
-| **Reglas Especiales** | Tipos de unidades, Habilidades de armas, Modificadores         | `6`    |
-
-### Elementos Interactivos
-
-- **Sistema de Estratagemas**: 13+ estratagemas básicas con filtrado por fase
-- **Tablas de Referencia Rápida**: Gráficos de Impacto/Herida, modificadores de salvación
-- **Indicadores Visuales**: Fases codificadas por colores y disponibilidad de estratagemas
-- **Persistencia de Sesión**: Recuerda tu última fase seleccionada
-- **Navegación por Teclado**: Accesibilidad completa por teclado
-
-### Características Técnicas
-
-- **JavaScript Vanilla**: Sin dependencias de frameworks
-- **Diseño Responsivo**: Layout con CSS Grid y Flexbox
-- **Iconos Personalizados**: Integración con Font Awesome 6.7
-- **Almacenamiento Local**: Preferencias de usuario persistentes
-- **Amigable para Impresión**: Estilos de impresión limpios para referencia física
-
----
+El contenido de reglas se carga desde JSON citado y no se duplica como HTML
+estático. La aplicación no pretende validar la legalidad de una lista ni
+sustituir los libros oficiales.
 
 ## Inicio Rápido
 
-### Opción 1: Acceso Directo al Archivo
+La aplicación necesita servirse por HTTP para poder cargar sus datos JSON y
+registrar el service worker:
 
 ```bash
-# Windows
-start public/index.html
-
-# macOS
-open public/index.html
-
-# Linux
-xdg-open public/index.html
+python -m http.server 8000 --directory public
 ```
 
-### Opción 2: Servidor de Desarrollo Local
+Después abre <http://localhost:8000/index.html>.
+
+También puedes usar cualquier servidor estático equivalente. No hay framework,
+bundler ni paso de compilación.
+
+## Modos
+
+### Modo Mesa
+
+Es el modo predeterminado para una partida. Prioriza las decisiones de mesa:
+
+- cinco fases en la barra inferior fija;
+- dashboard con ronda, turno, PM, PV y fase actual;
+- pasos numerados de la fase;
+- tablas de consulta rápida;
+- chips de habilidades contextuales;
+- estratagemas filtradas por fase y momento;
+- búsqueda literal del contenido citado.
+
+No renderiza `flavor`, ejemplos ni nodos marcados como
+`no_confirmado`.
+
+### Modo Estudio
+
+Se activa desde la cabecera y queda persistido en el navegador. Añade el
+índice completo de reglas, glosario, ejemplos, flavor y bloques visuales para
+contenido que las fuentes suministradas no confirman de forma independiente.
+
+## Navegación
+
+La ruta principal está diseñada para resolver una consulta en dos toques:
+
+1. toca la fase en la barra inferior;
+2. toca el paso, tabla, chip o estratagema relevante.
+
+La barra fija contiene Mando, Movimiento, Disparo, Carga y Combate, además de
+accesos a búsqueda y roster. Las rutas son hash-based y se pueden compartir o
+abrir directamente, por ejemplo:
+
+```text
+#/dashboard
+#/fase/disparo
+#/estratagemas/movimiento
+#/regla/24.11
+#/buscar
+```
+
+Los números `1`–`5` cambian de fase cuando no se están usando modificadores de
+teclado. La navegación del navegador conserva atrás/adelante.
+
+### Sheets de detalle
+
+Los chips y referencias usan IDs estables mediante `data-ref`. Una sheet
+granular muestra:
+
+- texto literal o contextual;
+- cita y página;
+- referencias relacionadas;
+- enlace para leer la sección completa.
+
+La pila admite hasta tres niveles. `‹`, Escape, un gesto descendente iniciado
+en la cabecera o tocar fuera permiten volver o cerrar.
+
+### Estado de partida
+
+El estado persistente incluye ronda, turno, fase actual, paso activo, PM/PV,
+usos de estratagemas, bajas, heridas y un historial undoable de mutaciones de
+partida. La navegación de fase es estado de interfaz y no contamina el
+historial de deshacer. El botón de deshacer describe la acción que revertirá,
+por ejemplo el gasto y nombre de una estratagema.
+
+## Estratagemas y búsqueda
+
+Las estratagemas se filtran por fase, momento (`tu_turno`,
+`turno_rival` o `cualquiera`), PM disponible, uso previo en la fase y
+restricciones de objetivo. Las entradas inelegibles permanecen visibles,
+atenuadas y explican el motivo.
+
+La búsqueda construye un índice sin dependencias al cargar los datos. Ignora
+acentos y corchetes, busca dentro del texto literal y conserva los seis
+últimos términos.
+
+## Datos y fuentes
+
+El contenido de reglas vive en `public/data/`:
+
+- `rules.json`: secciones y pasos numerados;
+- `abilities.json`: habilidades de armas y reglas universales;
+- `stratagems.json`: estratagemas básicas, fases, momentos y campos literales;
+- `keywords.json`: claves contextuales;
+- `tables.json`: tablas de consulta;
+- `roster/`: espacio reservado para datos de roster futuros.
+
+Cada nodo tiene un `id` estable y una `cita` con `pagina`. Cuando el material
+suministrado no permite confirmar una afirmación, el nodo usa
+`no_confirmado: true` y una `nota`. El validador comprueba JSON, IDs únicos,
+referencias `ver_tambien` resolubles y citación.
+
+La aplicación se construyó a partir de las fuentes oficiales españolas
+suministradas para este proyecto: las reglas básicas y el documento de
+actualizaciones universales. Esas fuentes cubren reglas básicas, fases,
+secuencia de ataque, características, tablas, terreno, objetivos,
+acobardamiento, reservas, transportes, unidades adjuntas, aeronaves,
+monstruos/vehículos, habilidades, reglas universales y estratagemas incluidas
+en los documentos.
+
+Las fuentes suministradas **no cubren** de forma confirmable:
+
+- reglas completas de construcción de listas;
+- destacamentos, DP, mejoras o costes de puntos;
+- validación de legalidad de un roster;
+- una tabla universal completa de PV o misiones.
+
+La aplicación no inventa esos sistemas. Patrulla continúa siendo una
+superficie separada con contenido de **10.ª edición**, identificada con su
+badge correspondiente; su migración queda para una fase posterior.
+
+Para reglas completas y cualquier material no incluido aquí, consulta las
+publicaciones oficiales.
+
+## PWA y uso offline
+
+El service worker precachea el shell, módulos, JSON de reglas, datos de
+Patrulla y recursos necesarios. La aplicación intenta primero la red y usa la
+cache como respaldo para mantener la consulta disponible sin conexión después
+de la primera carga.
+
+## Scripts de desarrollo
 
 ```bash
-# Using Python
-python -m http.server 8000
-# Then visit: http://localhost:8000/public
-
-# Using Node.js
-npx serve public
-# Then visit: http://localhost:3000
-
-# Using VS Code Live Server extension
-# Right-click on index.html → "Open with Live Server"
+npm run validate:data  # valida JSON, IDs y referencias
+npm run format         # formatea datos, UI y tooling
+npm run format:check   # comprueba el formato
 ```
 
----
-
-## Guía de Uso
-
-### Atajos de Teclado
-
-| Tecla | Fase       | Función                                  |
-| ----- | ---------- | ---------------------------------------- |
-| `1`   | Mando      | Reglas de Fase de Mando y estratagemas   |
-| `2`   | Movimiento | Tipos de movimiento y coherencia         |
-| `3`   | Disparo    | Mecánicas de combate a distancia         |
-| `4`   | Carga      | Declaraciones de carga y overwatch       |
-| `5`   | Combate    | Resolución de combate cuerpo a cuerpo    |
-| `6`   | Reglas     | Reglas especiales y habilidades de armas |
-
-### Consejos de Navegación
-
-- **Haz clic en las pestañas** para selección de fase
-- **Pasa el cursor sobre las estratagemas** para tooltips detallados
-- **Usa las fórmulas rápidas** para resolución rápida de combate
-- **Consulta las tablas de referencia** para búsquedas precisas de reglas
-
----
-
-## Fases del Juego
-
-<details>
-<summary><strong>Fase de Mando</strong></summary>
-
-### Mecánicas Básicas
-
-- **Puntos de Mando**: Ambos jugadores ganan +1 PM al inicio
-- **Pruebas de Acobardamiento**: Unidades bajo la mitad de efectivos hacen pruebas de moral
-- **Reservas Estratégicas**: Desplegar refuerzos
-- **Habilidades de Señor de la Guerra**: Activar reglas especiales
-
-### Efectos de Acobardamiento
-
-- Control de Objetivo (CO) = 0 para todos los modelos
-- No pueden ser afectados por Estratagemas
-- Pruebas de Huida Desesperada al Retroceder
-
-</details>
-
-<details>
-<summary><strong>Fase de Movimiento</strong></summary>
-
-### Tipos de Movimiento
-
-- **Movimiento Normal**: Hasta M", puede disparar y cargar
-- **Avanzar**: M" + 1d6", no puede disparar (excepto armas de Asalto)
-- **Retroceder**: Hasta M", debe terminar fuera del Rango de Enfrentamiento
-- **Permanecer Estático**: +1 para impactar con armas Pesadas
-
-### Reglas Clave
-
-- **Coherencia de Unidad**: Modelos dentro de 2" de otro modelo de la unidad
-- **Embarcar/Desembarcar**: Interacciones de transporte
-- **Efectos de Terreno**: Terreno Difícil y Peligroso
-
-</details>
-
-<details>
-<summary><strong>Fase de Disparo</strong></summary>
-
-### Secuencia de Ataque
-
-1. **Seleccionar Objetivos**: Elegir unidades enemigas en rango y Línea de Visión
-2. **Tiradas de Impacto**: Tirar ataques vs Habilidad de Proyectiles (HP)
-3. **Tiradas de Herida**: Comparar Fuerza vs Resistencia
-4. **Asignar Heridas**: El defensor asigna heridas a los modelos
-5. **Tiradas de Salvación**: Salvaciones de armadura modificadas por FP
-6. **Infligir Daño**: Remover salvaciones fallidas como heridas
-
-### Tabla de Heridas
-
-| Fuerza vs Resistencia | Para Herir |
-| --------------------- | ---------- |
-| F ≥ 2×R               | 2+         |
-| F > R                 | 3+         |
-| F = R                 | 4+         |
-| F < R                 | 5+         |
-| F ≤ ½R                | 6+         |
-
-</details>
-
-<details>
-<summary><strong>Fase de Carga</strong></summary>
-
-### Secuencia de Carga
-
-1. **Declarar Carga**: Seleccionar unidad que carga y objetivos
-2. **Overwatch**: Los defensores pueden disparar (solo 6+ para impactar)
-3. **Tirada de Carga**: 2d6 para distancia de carga
-4. **Movimiento de Carga**: Moverse a contacto base si es exitoso
-
-### Reglas de Overwatch
-
-- Puede declararse una vez por turno
-- Solo impacta con 6+ sin modificar
-- Se resuelve antes del movimiento de carga
-
-</details>
-
-<details>
-<summary><strong>Fase de Combate</strong></summary>
-
-### Prioridad de Combate
-
-1. **Combate Primero**: Unidades que cargaron + reglas especiales
-2. **Combate Normal**: Todas las demás unidades elegibles
-
-### Orden de Activación
-
-- El jugador no activo activa la primera unidad de Combate Primero
-- Los jugadores alternan activando unidades
-- Consolidar 3" hacia el enemigo más cercano después de combatir
-
-### Resolución de Ataques
-
-- Igual que la Fase de Disparo pero usa Habilidad de Armas (HA)
-- Las armas cuerpo a cuerpo tienen perfiles diferentes a las de disparo
-
-</details>
-
-<details>
-<summary><strong>Referencia de Reglas Especiales</strong></summary>
-
-### Características de Unidad
-
-- **M** (Movimiento): Distancia en pulgadas
-- **HA/HP** (Habilidad de Armas/Proyectiles): Números objetivo de impacto
-- **F** (Fuerza): Capacidad ofensiva
-- **R** (Resistencia): Resistencia defensiva
-- **H** (Heridas): Puntos de vida
-- **A** (Ataques): Número de dados de ataque
-- **Ld** (Liderazgo): Característica de moral
-- **S** (Salvación): Valor de salvación de armadura
-
-### Tipos de Salvación
-
-- **Salvación de Armadura**: Modificada por FP
-- **Salvación Invulnerable**: Nunca modificada por FP
-- **Feel No Pain**: Salvación adicional después de fallar armadura
-- **Salvación de Cobertura**: +1 a la salvación cuando está en cobertura
-
-</details>
-
----
-
-## Referencia de Habilidades de Armas
-
-<details>
-<summary><strong>Habilidades Básicas de Armas</strong></summary>
-
-| Habilidad                 | Efecto                                                        |
-| ------------------------- | ------------------------------------------------------------- |
-| **ANTI-X n+**             | Tiradas de herida de n+ vs palabra clave X son críticas       |
-| **ASALTO**                | Puede disparar después de Avanzar                             |
-| **ÁREA**                  | +1 ataque por cada 5 modelos en la unidad objetivo            |
-| **HERIDAS DEVASTADORAS**  | Heridas críticas infligen heridas mortales                    |
-| **PESADA**                | +1 para impactar si la unidad Permaneció Estática             |
-| **IGNORA COBERTURA**      | El objetivo no obtiene bonificación de salvación de cobertura |
-| **FUEGO INDIRECTO**       | Puede apuntar a enemigos no visibles                          |
-| **IMPACTOS LETALES**      | Impactos críticos hieren automáticamente                      |
-| **PISTOLA**               | Puede disparar en cuerpo a cuerpo a enemigos enfrentados      |
-| **FUEGO RÁPIDO n**        | +n ataques vs objetivos a la mitad del alcance                |
-| **IMPACTOS SOSTENIDOS n** | Impactos críticos obtienen n impactos adicionales             |
-| **TORRENTE**              | Impacta automáticamente al objetivo                           |
-| **ACOPLADA**              | Repetir tiradas de herida                                     |
-
-</details>
-
----
-
-## Sistema de Estratagemas
-
-La aplicación incluye 13+ estratagemas básicas organizadas por fase y disponibilidad:
-
-- **Cualquier Turno** (Verde): Usable durante el turno de cualquier jugador
-- **Tu Turno** (Azul): Solo durante tu propio turno
-- **Turno del Oponente** (Rojo): Solo durante el turno del oponente
-
-### Estratagemas Destacadas
-
-- **Repetición de Mando** (1 PM): Repetir cualquier dado
-- **Overwatch** (1 PM): Disparar a enemigos que cargan
-- **Intervención Heroíca** (1 PM): Mover Personajes al combate
-- **Valor Insensato** (1 PM): Pasar automáticamente prueba de moral
-
----
-
-## Instalación
-
-### Prerrequisitos
-
-- Navegador web moderno (Chrome 90+, Firefox 88+, Safari 14+)
-- No se requiere software adicional
-
-### Configuración Local
-
-1. **Clonar o Descargar**
-
-   ```bash
-   git clone https://github.com/DiegoVallejoDev/40k-reglas-simples.git
-   cd 40k-reglas-simples
-   ```
-
-2. **Abrir en Navegador**
-
-   ```bash
-   # Direct file access
-   open public/index.html
-
-   # Or serve locally
-   npx serve public
-   ```
-
-3. **Opcional: Configuración de VS Code**
-   - Instalar extensión "Live Server"
-   - Clic derecho en `index.html` → "Open with Live Server"
-
----
+Prettier solo se usa como herramienta de desarrollo. El runtime no tiene
+dependencias externas.
 
 ## Estructura del Proyecto
 
-```
+```text
 40k-reglas-simples/
 ├── public/
-│   ├── index.html          # Main application file
-│   ├── main.css           # Styles and responsive design
-│   ├── stratagems.js      # Stratagem data and logic
-│   ├── tooltip.js         # Interactive tooltip system
-│   ├── images/           # Game assets and logos
-│   └── svg/              # Custom icons and graphics
-├── README.md             # This documentation
-└── .gitignore           # Git ignore rules
+│   ├── index.html             # shell mínimo de la aplicación 11e
+│   ├── app/
+│   │   ├── app.js             # arranque, eventos y estado visual
+│   │   ├── data.js            # carga e índice de nodos citados
+│   │   ├── router.js          # router hash
+│   │   ├── state.js           # partida, persistencia y undo
+│   │   ├── sheets.js          # pila de sheets y referencias
+│   │   ├── search.js          # índice de búsqueda
+│   │   ├── views.js            # dashboard y vistas data-driven
+│   │   └── app.css             # tema oscuro y layout tabletop
+│   ├── data/
+│   │   ├── rules.json
+│   │   ├── abilities.json
+│   │   ├── stratagems.json
+│   │   ├── keywords.json
+│   │   ├── tables.json
+│   │   └── roster/
+│   ├── patrulla.html           # superficie separada 10e
+│   ├── patrulla.js
+│   ├── patrulla.css
+│   ├── patrols.json
+│   ├── sw.js                   # cache PWA
+│   └── manifest.json
+├── scripts/
+│   └── validate-data.js        # validador sin dependencias
+├── package.json
+└── README.md
 ```
-
----
 
 ## Aviso Legal
 
-Esta aplicación es una herramienta de referencia no oficial creada para uso personal y propósitos educativos. No está afiliada, respaldada o patrocinada por Games Workshop Ltd.
+Esta aplicación es una herramienta de referencia no oficial creada para uso
+personal y propósitos educativos. No está afiliada, respaldada o patrocinada
+por Games Workshop Ltd.
 
-**Warhammer 40,000** es una marca registrada de Games Workshop Ltd. Todas las reglas del juego, terminología y contenido son propiedad intelectual de Games Workshop Ltd.
+**Warhammer 40,000** es una marca registrada de Games Workshop Ltd. Todas las
+reglas del juego, terminología y contenido son propiedad intelectual de Games
+Workshop Ltd.
 
-Esta herramienta se proporciona bajo principios de Uso Justo solo para propósitos educativos y de referencia. Para reglas oficiales y contenido completo del juego, consulte los libros de reglas oficiales de **Warhammer 40,000** y publicaciones de Games Workshop.
-
----
+Esta herramienta se proporciona bajo principios de Uso Justo solo para
+propósitos educativos y de referencia. Para reglas oficiales y contenido
+completo del juego, consulta los libros de reglas oficiales de
+**Warhammer 40,000** y las publicaciones de Games Workshop.
 
 ## Soporte y Contacto
 
 - **GitHub Issues**: [Reportar errores o solicitar características](https://github.com/DiegoVallejoDev/40k-reglas-simples/issues)
 - **Desarrollador**: [Diego Vallejo](https://github.com/diegovallejodev/)
-- **Licencia**: Licencia MIT - ver archivo [LICENSE](LICENSE) para detalles
-
----
-
-## Historial de Versiones
-
-- **v2.0** - Implementación completa de fases con estratagemas
-- **v1.5** - Añadidas fases de Combate y Carga
-- **v1.0** - Lanzamiento inicial con fases básicas
+- **Licencia**: Licencia MIT — consulta [LICENSE](LICENSE)
 
 ---
 

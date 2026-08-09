@@ -1,0 +1,81 @@
+:root {
+  --color-primary: #8b1538;
+  --color-primary-light: #a01f3d;
+  --color-secondary: #2d7a8f;
+  --color-accent: #d4af37;
+  --color-dark: #1a1a1a;
+  --color-medium-dark: #2b2b2b;
+  --color-medium: #3a3a3a;
+  --color-light-gray: #999;
+  --color-lighter-gray: #b8b8b8;
+  --color-lightest-gray: #ddd;
+  --color-off-white: #e8e4d9;
+  --color-white: #fff;
+  --color-paper: #ebe9e1;
+  --color-paper-alt: #f5f3ed;
+  --color-accent-ink: #735a0f;
+  --color-either-turn: #2c5a4d;
+  --color-either-turn-hover: #3a7a68;
+  --color-active-turn: #224262;
+  --color-active-turn-hover: #335580;
+  --color-opponent-turn: #a4151f;
+  --color-opponent-turn-hover: #c51a28;
+  --phase-mando: #b08b3e;
+  --phase-movimiento: #567f68;
+  --phase-disparo: #9d3434;
+  --phase-carga: #765aa8;
+  --phase-combate: #a65332;
+  --spacing-xs: 0.125rem;
+  --spacing-sm: 0.25rem;
+  --spacing-md: 0.5rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
+  --spacing-3xl: 3rem;
+  --radius-sm: 0.1875rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+  --border-thin: 0.0625rem;
+  --border-medium: 0.125rem;
+  --border-thick: 0.1875rem;
+  --border-heavy: 0.25rem;
+  --font-family-primary: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-heading: 'Source Sans Pro', sans-serif;
+  --font-family-condensed: 'Arial Narrow', 'Roboto Condensed', sans-serif-condensed, sans-serif;
+  --font-size-mobile-small: 0.85em;
+  --radius-xl: 0.9375rem;
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.6);
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+.identity-texture {
+  background-color: var(--color-dark);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='grain'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23grain)' opacity='.16'/></svg>"),
+    radial-gradient(ellipse at 20% 10%, rgba(139, 21, 56, 0.18), transparent 38%),
+    radial-gradient(ellipse at 85% 85%, rgba(212, 175, 55, 0.08), transparent 42%),
+    repeating-linear-gradient(115deg, transparent 0 8rem, rgba(255, 255, 255, 0.018) 8rem 8.1rem),
+    linear-gradient(135deg, #24201d, #11100f 62%, #29221d);
+}
+
+.parchment-surface {
+  color: var(--color-dark);
+  background-color: var(--color-paper);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='grain'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23grain)' opacity='.1'/></svg>"),
+    radial-gradient(ellipse at 15% 10%, rgba(139, 21, 56, 0.09), transparent 36%),
+    radial-gradient(ellipse at 88% 80%, rgba(212, 175, 55, 0.12), transparent 42%),
+    linear-gradient(125deg, var(--color-paper-alt), var(--color-off-white) 50%, #ded8c8);
+}
+
+.iron-rule {
+  border: 1px solid #51473d;
+  border-top: 3px solid var(--color-primary);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    var(--shadow-md);
+}
