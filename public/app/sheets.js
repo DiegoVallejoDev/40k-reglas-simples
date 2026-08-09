@@ -123,7 +123,7 @@ function renderSheet(node, index) {
   const isRule = node.tipo === 'regla' || node.tipo === 'paso';
   return `
     <article class="sheet" data-sheet-index="${index}">
-      <header class="sheet-header">
+      <header class="sheet-header${index > 0 ? ' has-back' : ''}">
         ${index > 0 ? '<button class="sheet-back" type="button" data-sheet-back aria-label="Volver">‹</button>' : ''}
         <div class="sheet-title">
           <h2>${escapeHtml(title)}</h2>

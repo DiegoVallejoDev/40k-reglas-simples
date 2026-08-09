@@ -651,7 +651,7 @@ input:focus-visible {
   position: fixed;
   inset: 0;
   z-index: 40;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.58);
 }
 
 .sheet-stack {
@@ -681,7 +681,7 @@ input:focus-visible {
 .sheet-header {
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   min-height: 4rem;
   align-items: center;
   gap: 0.5rem;
@@ -704,6 +704,7 @@ input:focus-visible {
 }
 
 .sheet-title {
+  grid-column: 1;
   padding-top: 0.35rem;
   min-width: 0;
   font-family: var(--font-family-condensed);
@@ -723,8 +724,64 @@ input:focus-visible {
   place-items: center;
   padding: 0;
   border: 1px solid #6b5846;
-  background: var(--color-paper);
-  color: var(--color-dark);
+  background: var(--color-paper-alt);
+  color: var(--color-primary);
+  font-size: 1.15rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.sheet-close {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.sheet-close:focus-visible,
+.sheet-back:focus-visible {
+  border-color: var(--color-primary);
+  background: var(--color-paper-alt);
+  color: var(--color-primary);
+}
+
+.sheet-back {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.sheet-header.has-back {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.sheet-header.has-back .sheet-back {
+  grid-column: 1;
+}
+
+.sheet-header.has-back .sheet-title {
+  grid-column: 2;
+}
+
+.sheet-header.has-back .sheet-close {
+  grid-column: 3;
+}
+
+@media (max-width: 37.5rem) {
+  .sheet-stack {
+    display: block;
+  }
+
+  .sheet-stack .sheet {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+  }
+
+  .sheet-stack .sheet:last-child {
+    display: block;
+  }
 }
 
 .sheet-body {
