@@ -1,6 +1,6 @@
 # Datos de reglas 11e
 
-Estos JSON son la fuente de contenido para las fases y superficies del rediseño. La fase 1 solo añade datos y tooling; la UI existente (`public/index.html`) no los consume todavía.
+Estos JSON son la fuente de contenido para las fases y superficies del rediseño.
 
 ## Convención de contenido
 
@@ -20,6 +20,7 @@ Estos JSON son la fuente de contenido para las fases y superficies del rediseño
 - `stratagems.json`: las 10 estratagemas básicas, con PM, fase, momento y campos literales `cuando`, `blanco`, `efecto`, `restricciones`.
 - `keywords.json`: claves indexables; las claves sin definición independiente en los PDFs están marcadas `no_confirmado`.
 - `tables.json`: tablas de herir, salvaciones, críticos, cobertura, coherencia, objetivos, reservas y acobardamiento.
+- `formulas.json`: secuencias resumidas y fórmulas citadas de las cinco fases; sus referencias cruzadas contienen únicamente IDs.
 - `roster/`: reservado para datos de roster/patrulla en una fase posterior. No se incluyen aquí reglas de construcción de ejército no confirmadas.
 
 ## Fuentes y límites

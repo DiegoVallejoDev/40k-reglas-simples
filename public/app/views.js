@@ -94,6 +94,7 @@ function renderPhase(phase) {
         <div class="phase-heading"><img class="phase-icon" src="./svg/${escapeAttr(phase)}.svg" alt="" /><div><p class="eyebrow">Fase de ${label} · Modo Mesa</p><h1>${label}</h1></div></div>
         <button class="primary-button" data-action="open-stratagems" data-phase="${phase}">Estratagemas</button>
       </header>
+      ${renderFormulas(phase)}
       <div class="phase-grid">
         ${rule.pasos
           .filter((step) => isRenderable(step, getMode()))
@@ -103,6 +104,45 @@ function renderPhase(phase) {
       ${tables.length ? `<section class="table-grid phase-tables"><h2>Chuleta de fase</h2>${tables.map(renderTable).join('')}</section>` : ''}
       <section class="phase-tools"><strong>En esta fase:</strong>${chips.map((ability) => `<button type="button" class="chip" data-ref="${escapeAttr(ability.id)}">${escapeHtml(displayLabel(ability))}</button>`).join('')}</section>
     </section>
+  `;
+}
+
+function renderFormulas(phase) {
+  const formulas = getData().formulas?.fases?.[phase];
+  if (!formulas) return '';
+  return `
+    <section class="formula-summary" data-phase="${escapeAttr(phase)}" aria-labelledby="formula-summary-title">
+      <div class="formula-summary-header">
+        <div>
+          <p class="eyebrow">Consulta rápida</p>
+          <h2 id="formula-summary-title">Fórmulas rápidas</h2>
+        </div>
+        <p class="formula-sequence">${escapeHtml(formulas.resumen)}</p>
+      </div>
+      <div class="formula-grid">
+        ${formulas.formulas.map(renderFormula).join('')}
+      </div>
+    </section>
+  `;
+}
+
+function renderFormula(formula) {
+  const references = (formula.ver_tambien || [])
+    .map((ref) => {
+      const node = getNode(ref);
+      if (!node) return '';
+      return `<button class="formula-reference" type="button" data-ref="${escapeAttr(ref)}">${escapeHtml(displayLabel(node))}</button>`;
+    })
+    .join('');
+  return `
+    <article class="formula-tile">
+      <button class="formula-main" type="button" data-ref="${escapeAttr(formula.cita)}" aria-label="Consultar ${escapeAttr(formula.titulo)}">
+        <span class="formula-title">${escapeHtml(formula.titulo)}</span>
+        <strong class="formula-expression">${escapeHtml(formula.formula)}</strong>
+        <span class="citation">${escapeHtml(formula.cita)} · pág. ${escapeHtml(formula.pagina)}</span>
+      </button>
+      ${references ? `<div class="formula-links"><span>Ver también:</span>${references}</div>` : ''}
+    </article>
   `;
 }
 

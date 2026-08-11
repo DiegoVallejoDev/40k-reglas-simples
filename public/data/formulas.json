@@ -1,0 +1,175 @@
+{
+  "fases": {
+    "mando": {
+      "resumen": "Inicio de la fase → obtener PM → acobardamiento → habilidades de mando → final de la fase",
+      "formulas": [
+        {
+          "id": "formula:mando-pm",
+          "titulo": "+1 PM a cada jugador",
+          "formula": "+1 PM",
+          "cita": "08.02",
+          "pagina": 30
+        },
+        {
+          "id": "formula:mando-acobardamiento",
+          "titulo": "Acobardamiento",
+          "formula": "2D6 ≥ L · éxito si iguala o supera L",
+          "cita": "08.03",
+          "pagina": 30,
+          "ver_tambien": ["01.06", "01.07"]
+        },
+        {
+          "id": "formula:mando-acobardada",
+          "titulo": "Acobardada",
+          "formula": "CO = «-»",
+          "cita": "01.07",
+          "pagina": 9
+        }
+      ]
+    },
+    "movimiento": {
+      "resumen": "Inicio de la fase → mover unidades una a una → final de la fase",
+      "formulas": [
+        {
+          "id": "formula:movimiento-normal",
+          "titulo": "Movimiento normal",
+          "formula": "≤ M\"",
+          "cita": "09.05",
+          "pagina": 33
+        },
+        {
+          "id": "formula:movimiento-avanzar",
+          "titulo": "Avanzar",
+          "formula": "≤ M\" + 1D6\"",
+          "cita": "09.06",
+          "pagina": 33
+        },
+        {
+          "id": "formula:movimiento-retroceder",
+          "titulo": "Retroceder",
+          "formula": "≤ M\" · unidad trabada",
+          "cita": "09.07",
+          "pagina": 33
+        },
+        {
+          "id": "formula:movimiento-inmovil",
+          "titulo": "Permanecer inmóvil",
+          "formula": "0\"",
+          "cita": "09.04",
+          "pagina": 32
+        }
+      ]
+    },
+    "disparo": {
+      "resumen": "Elegir unidad → elegir armas y blancos → reunir dados → resolver ataques",
+      "formulas": [
+        {
+          "id": "formula:disparo-impactar",
+          "titulo": "1. Impactar",
+          "formula": "1D6 ≥ HP · 6 sin modificar = impacto crítico",
+          "cita": "05.01",
+          "pagina": 18
+        },
+        {
+          "id": "formula:disparo-herir",
+          "titulo": "2. Herir",
+          "formula": "F vs R → 2+/3+/4+/5+/6+ · 6 sin modificar = herida crítica",
+          "cita": "05.02",
+          "pagina": 18,
+          "ver_tambien": ["tabla:herir"]
+        },
+        {
+          "id": "formula:disparo-salvar",
+          "titulo": "3. Salvar",
+          "formula": "1D6 ≥ S − FP · S Inv no se modifica por FP",
+          "cita": "05.04",
+          "pagina": 19,
+          "ver_tambien": ["tabla:salvaciones"]
+        },
+        {
+          "id": "formula:disparo-dano",
+          "titulo": "4. Daño",
+          "formula": "H − D · a 0 heridas, miniatura eliminada",
+          "cita": "05.04",
+          "pagina": 19
+        },
+        {
+          "id": "formula:disparo-cobertura",
+          "titulo": "Cobertura",
+          "formula": "HP empeora en 1",
+          "cita": "13.08",
+          "pagina": 50,
+          "ver_tambien": ["tabla:cobertura"]
+        }
+      ]
+    },
+    "carga": {
+      "resumen": "Declarar carga → tirada de carga → intentar el movimiento de carga",
+      "formulas": [
+        {
+          "id": "formula:carga-tirada",
+          "titulo": "Tirada de carga",
+          "formula": "2D6",
+          "cita": "11.02",
+          "pagina": 36
+        },
+        {
+          "id": "formula:carga-blancos",
+          "titulo": "Blancos",
+          "formula": "≤ 12\" y ≤ tirada de carga",
+          "cita": "11.04",
+          "pagina": 37
+        },
+        {
+          "id": "formula:carga-exito",
+          "titulo": "Carga con éxito",
+          "formula": "Trabada + Combatir primero",
+          "cita": "11.04",
+          "pagina": 37
+        }
+      ]
+    },
+    "combate": {
+      "resumen": "Agruparse → combatir (Combatir primero y alternando) → consolidar → final de la fase",
+      "formulas": [
+        {
+          "id": "formula:combate-impactar",
+          "titulo": "1. Impactar",
+          "formula": "1D6 ≥ HA · 6 sin modificar = impacto crítico",
+          "cita": "05.01",
+          "pagina": 18
+        },
+        {
+          "id": "formula:combate-herir",
+          "titulo": "2. Herir",
+          "formula": "F vs R → 2+/3+/4+/5+/6+ · 6 sin modificar = herida crítica",
+          "cita": "05.02",
+          "pagina": 18,
+          "ver_tambien": ["tabla:herir"]
+        },
+        {
+          "id": "formula:combate-salvar",
+          "titulo": "3. Salvar",
+          "formula": "1D6 ≥ S − FP · S Inv no se modifica por FP",
+          "cita": "05.04",
+          "pagina": 19,
+          "ver_tambien": ["tabla:salvaciones"]
+        },
+        {
+          "id": "formula:combate-dano",
+          "titulo": "4. Daño",
+          "formula": "H − D · a 0 heridas, miniatura eliminada",
+          "cita": "05.04",
+          "pagina": 19
+        },
+        {
+          "id": "formula:combate-prioridad",
+          "titulo": "Combatir primero",
+          "formula": "Primero · alternando jugadores",
+          "cita": "12.04",
+          "pagina": 40
+        }
+      ]
+    }
+  }
+}

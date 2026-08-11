@@ -4,6 +4,7 @@ const DATA_FILES = {
   stratagems: './data/stratagems.json',
   keywords: './data/keywords.json',
   tables: './data/tables.json',
+  formulas: './data/formulas.json',
 };
 
 let dataCache;

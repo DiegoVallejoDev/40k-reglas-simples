@@ -264,6 +264,161 @@ h3 {
   gap: 0.6rem;
 }
 
+.formula-summary {
+  min-width: 0;
+  margin-bottom: 0.75rem;
+  border: 1px solid #a99e87;
+  border-top: 3px solid var(--color-primary);
+  background: rgba(245, 243, 237, 0.96);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.75),
+    var(--shadow-sm);
+}
+
+.formula-summary[data-phase='mando'] {
+  border-top-color: var(--phase-mando);
+}
+
+.formula-summary[data-phase='movimiento'] {
+  border-top-color: var(--phase-movimiento);
+}
+
+.formula-summary[data-phase='disparo'] {
+  border-top-color: var(--phase-disparo);
+}
+
+.formula-summary[data-phase='carga'] {
+  border-top-color: var(--phase-carga);
+}
+
+.formula-summary[data-phase='combate'] {
+  border-top-color: var(--phase-combate);
+}
+
+.formula-summary-header {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+  padding: 0.75rem;
+}
+
+.formula-summary-header h2 {
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.formula-sequence {
+  min-width: 0;
+  margin: 0;
+  color: var(--color-dark);
+  font-family: var(--font-family-condensed);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.formula-grid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: 0 0.75rem 0.75rem;
+}
+
+.formula-tile {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border: 1px solid #b6aa92;
+  background: var(--color-paper-alt);
+}
+
+.formula-main {
+  display: flex;
+  min-width: 0;
+  min-height: 7rem;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.65rem;
+  border: 0;
+  background: transparent;
+  color: var(--color-dark);
+  text-align: center;
+}
+
+.formula-main:hover,
+.formula-main:focus-visible {
+  border-color: var(--color-accent);
+  background: var(--color-paper);
+  color: var(--color-dark);
+}
+
+.formula-title {
+  color: var(--color-primary);
+  font-family: var(--font-family-condensed);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.formula-expression {
+  min-width: 0;
+  color: var(--color-dark);
+  font-family: var(--font-family-condensed);
+  font-size: clamp(0.9rem, 2.8vw, 1.2rem);
+  font-weight: 900;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.formula-main .citation {
+  align-self: center;
+  font-size: 0.65rem;
+}
+
+.formula-links {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem;
+  border-top: 1px solid #b6aa92;
+  color: var(--color-accent-ink);
+  font-family: var(--font-family-condensed);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.formula-reference {
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid #a99e87;
+  background: var(--color-paper);
+  color: var(--color-accent-ink);
+  font-family: var(--font-family-condensed);
+  font-size: 0.68rem;
+  font-weight: 900;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.formula-reference:hover,
+.formula-reference:focus-visible {
+  border-color: var(--color-accent);
+  background: var(--color-paper-alt);
+  color: var(--color-primary);
+}
+
 .phase-icon {
   width: 2.5rem;
   height: 2.5rem;
@@ -458,8 +613,8 @@ button,
   padding: 0.55rem 0.8rem;
 }
 
-button:hover,
-button:focus-visible,
+button:hover:not(.formula-main):not(.formula-reference),
+button:focus-visible:not(.formula-main):not(.formula-reference),
 .chip:hover,
 .chip:focus-visible,
 .search-result:hover,
