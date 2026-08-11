@@ -5,7 +5,14 @@ const fs = require('fs');
 const path = require('path');
 
 const dataDir = path.join(__dirname, '..', 'public', 'data');
-const files = ['rules.json', 'abilities.json', 'stratagems.json', 'keywords.json', 'tables.json'];
+const files = [
+  'rules.json',
+  'abilities.json',
+  'stratagems.json',
+  'keywords.json',
+  'tables.json',
+  'formulas.json',
+];
 const ids = new Map();
 const refs = [];
 const errors = [];
@@ -77,6 +84,47 @@ function validateTableColumns(data) {
   });
 }
 
+function validateFormulas(data) {
+  const phases = ['mando', 'movimiento', 'disparo', 'carga', 'combate'];
+  if (!isObject(data.fases)) {
+    errors.push('formulas.json must define fases');
+    return;
+  }
+  phases.forEach((phase) => {
+    const section = data.fases[phase];
+    const location = `formulas.json.fases.${phase}`;
+    if (!isObject(section)) {
+      errors.push(`${location} is required`);
+      return;
+    }
+    if (typeof section.resumen !== 'string' || !section.resumen.trim()) {
+      errors.push(`${location} must define a resumen`);
+    }
+    if (!Array.isArray(section.formulas) || !section.formulas.length) {
+      errors.push(`${location} must define formulas`);
+      return;
+    }
+    section.formulas.forEach((formula, index) => {
+      const formulaLocation = `${location}.formulas[${index}]`;
+      if (!isObject(formula)) {
+        errors.push(`${formulaLocation} must be an object`);
+        return;
+      }
+      ['id', 'titulo', 'formula'].forEach((field) => {
+        if (typeof formula[field] !== 'string' || !formula[field].trim()) {
+          errors.push(`${formulaLocation} must define ${field}`);
+        }
+      });
+      const cited = typeof formula.cita === 'string' && formula.cita.trim();
+      const unconfirmed =
+        formula.no_confirmado === true && typeof formula.nota === 'string' && formula.nota.trim();
+      if ((!cited || typeof formula.pagina !== 'number') && !unconfirmed) {
+        errors.push(`${formulaLocation} must define cita + pagina or no_confirmado + nota`);
+      }
+    });
+  });
+}
+
 for (const file of files) {
   const filename = path.join(dataDir, file);
   let parsed;
@@ -89,6 +137,7 @@ for (const file of files) {
   }
   walk(parsed, file);
   if (file === 'tables.json') validateTableColumns(parsed);
+  if (file === 'formulas.json') validateFormulas(parsed);
 }
 
 for (const ref of refs) {

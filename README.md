@@ -136,6 +136,7 @@ El contenido de reglas vive en `public/data/`:
 - `stratagems.json`: estratagemas básicas, fases, momentos y campos literales;
 - `keywords.json`: claves contextuales;
 - `tables.json`: tablas de consulta;
+- `formulas.json`: resúmenes y fórmulas citadas de las cinco fases;
 - `roster/`: espacio reservado para datos de roster futuros.
 
 Cada nodo tiene un `id` estable y una `cita` con `pagina`. Cuando el material
